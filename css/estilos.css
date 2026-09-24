@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 55%,
+            #fff7c7 0%,
+            #f8df87 38%,
+            #d4b65f 70%,
+            #4b493d 100%
+        );
+
+    color: #fff;
+}
+
+
+/* =========================
+   JARDÍN
+========================= */
+
+.jardin {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 55px 20px 35px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.encabezado {
+    width: 100%;
+    max-width: 850px;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+
+    z-index: 10;
+
+    animation: aparecer 1.5s ease;
+}
+
+
+.pequeno {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    color: #7a5b13;
+
+    margin-bottom: 15px;
+}
+
+
+h1 {
+    font-size: clamp(30px, 4vw, 48px);
+
+    font-weight: normal;
+
+    line-height: 1.15;
+
+    color: #493714;
+
+    text-shadow:
+        0 2px 3px rgba(255, 255, 255, 0.4);
+
+    margin: 0 auto;
+}
+
+
+.linea {
+    width: 65px;
+    height: 2px;
+
+    background: #d6a719;
+
+    margin: 22px auto 0;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   FLORES
+========================= */
+
+.contenedor-flores {
+    width: 100%;
+
+    min-height: 360px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   MENSAJE INFERIOR
+========================= */
+
+.mensaje {
+    width: 100%;
+    max-width: 550px;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+
+    margin-top: 5px;
+
+    animation: aparecer 2s ease;
+}
+
+
+.mensaje p {
+    display: inline-block;
+
+    padding: 11px 22px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #5d4617;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(5px);
+}
+
+
+.mensaje span {
+    display: block;
+
+    font-size: 22px;
+
+    margin-top: 12px;
+
+    animation: latido 1.5s ease-in-out infinite;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 600px) {
+
+    .jardin {
+        padding-top: 35px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .pequeno {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .contenedor-flores {
+        min-height: 340px;
+    }
+
+    .mensaje p {
+        font-size: 13px;
+    }
+}

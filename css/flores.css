@@ -1,0 +1,220 @@
+/* =========================================
+   GIRASOL
+========================================= */
+
+.girasol {
+    position: relative;
+
+    width: 280px;
+    height: 360px;
+
+    animation:
+        crecer 1.8s ease,
+        movimiento 4s ease-in-out infinite;
+}
+
+
+/* =========================
+   CABEZA
+========================= */
+
+.girasol-cabeza {
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: 0;
+    left: 30px;
+}
+
+
+/* =========================
+   PÉTALOS
+========================= */
+
+.girasol-petalo {
+    position: absolute;
+
+    width: 55px;
+    height: 120px;
+
+    left: 82px;
+    top: 0;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    transform-origin:
+        27px 110px;
+
+    background:
+        linear-gradient(
+            to right,
+            #e5a900,
+            #ffe15a,
+            #ffc400
+        );
+
+    box-shadow:
+        inset 0 0 10px rgba(255,255,255,.25),
+        0 3px 7px rgba(0,0,0,.15);
+}
+
+
+/* =========================
+   CENTRO
+========================= */
+
+.girasol-centro {
+    position: absolute;
+
+    width: 95px;
+    height: 95px;
+
+    left: 62px;
+    top: 63px;
+
+    border-radius: 50%;
+
+    z-index: 20;
+
+    background:
+        radial-gradient(
+            circle,
+            #8c5a25 0%,
+            #613614 45%,
+            #351b0a 100%
+        );
+
+    box-shadow:
+        0 0 20px rgba(255, 199, 0, .25);
+}
+
+
+/* =========================
+   SEMILLAS
+========================= */
+
+.semilla {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    background: #c58b3c;
+
+    border-radius: 50%;
+
+    z-index: 25;
+}
+
+
+/* =========================
+   TALLO
+========================= */
+
+.girasol-tallo {
+    position: absolute;
+
+    width: 14px;
+    height: 190px;
+
+    left: 133px;
+    top: 170px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            to right,
+            #245a2d,
+            #5b9c4a,
+            #245a2d
+        );
+
+    z-index: -1;
+}
+
+
+/* =========================
+   HOJAS
+========================= */
+
+.girasol-hoja {
+    position: absolute;
+
+    width: 85px;
+    height: 48px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2f7437,
+            #71a953
+        );
+
+    border-radius:
+        100% 0 100% 0;
+
+    z-index: 2;
+}
+
+
+.hoja-izquierda {
+    top: 245px;
+    left: 55px;
+
+    transform: rotate(15deg);
+}
+
+
+.hoja-derecha {
+    top: 285px;
+    left: 140px;
+
+    transform:
+        rotate(-15deg)
+        scaleX(-1);
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes crecer {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(150px)
+            scale(.2);
+    }
+
+    70% {
+        transform:
+            translateY(0)
+            scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes movimiento {
+
+    0%,
+    100% {
+        transform: rotate(-1deg);
+    }
+
+    50% {
+        transform: rotate(1deg);
+    }
+}
