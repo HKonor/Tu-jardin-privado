@@ -10,24 +10,12 @@ const jardin =
 
 function crearTarjetaFlor(config) {
 
-    /*
-    =========================================
-        TARJETA
-    =========================================
-    */
-
     const tarjeta =
         document.createElement("article");
 
     tarjeta.className =
         `tarjeta-flor tarjeta-${config.tipo}`;
 
-
-    /*
-    =========================================
-        TÍTULO
-    =========================================
-    */
 
     const titulo =
         document.createElement("h2");
@@ -39,24 +27,12 @@ function crearTarjetaFlor(config) {
         config.titulo;
 
 
-    /*
-    =========================================
-        CONTENEDOR DE LA FLOR
-    =========================================
-    */
-
     const envolturaFlor =
         document.createElement("div");
 
     envolturaFlor.className =
         "envoltura-flor";
 
-
-    /*
-    =========================================
-        CREAR FLOR
-    =========================================
-    */
 
     if (Flores[config.tipo]) {
 
@@ -74,12 +50,6 @@ function crearTarjetaFlor(config) {
     }
 
 
-    /*
-    =========================================
-        NOTITA
-    =========================================
-    */
-
     const nota =
         document.createElement("div");
 
@@ -95,12 +65,6 @@ function crearTarjetaFlor(config) {
 
     nota.appendChild(textoNota);
 
-
-    /*
-    =========================================
-        BOTÓN DE CANCIÓN
-    =========================================
-    */
 
     if (config.linkCancion) {
 
@@ -128,20 +92,9 @@ function crearTarjetaFlor(config) {
     }
 
 
-    /*
-    =========================================
-        UNIR TARJETA
-    =========================================
-    */
-
     tarjeta.appendChild(titulo);
-
-    tarjeta.appendChild(
-        envolturaFlor
-    );
-
+    tarjeta.appendChild(envolturaFlor);
     tarjeta.appendChild(nota);
-
 
     return tarjeta;
 }
@@ -156,12 +109,6 @@ function crearTarjetaFlor(config) {
 
 const floresDelJardin = [
 
-    /*
-    =========================================
-        GIRASOL
-    =========================================
-    */
-
     {
         tipo: "girasol",
 
@@ -171,13 +118,6 @@ const floresDelJardin = [
         mensaje:
             "Esta es la primera flor de este pequeño jardín."
     },
-
-
-    /*
-    =========================================
-        TULIPÁN MORADO
-    =========================================
-    */
 
     {
         tipo: "tulipan",
@@ -195,13 +135,6 @@ const floresDelJardin = [
             "♪ Escuchar canción"
     },
 
-
-    /*
-    =========================================
-        LIRIO BLANCO
-    =========================================
-    */
-
     {
         tipo: "lirio",
 
@@ -216,6 +149,22 @@ const floresDelJardin = [
 
         textoBoton:
             "♪ Escuchar canción"
+    },
+
+    {
+        tipo: "nube",
+
+        titulo:
+            "Flor de nube 🤍",
+
+        mensaje:
+            "Hay detalles pequeños que, sin hacer mucho ruido, terminan significando más de lo que parecen. Esta flor de nube es uno de ellos: algo sencillo, bonito y especial que quise dejar aquí para ti. Tal vez algunas cosas no necesitan explicarse demasiado para entenderse. 🤍",
+
+        linkCancion:
+            "https://youtu.be/k3Uz-UI2IgY?is=kEqXKDfnneC-rH2Z",
+
+        textoBoton:
+            "♪ Tú y yo y tú"
     }
 
 ];

@@ -6,61 +6,29 @@
 
 .girasol {
     position: relative;
-
     width: 280px;
     height: 360px;
-
     animation:
         crecer 1.8s ease,
-        movimiento 4s
-        ease-in-out infinite;
+        movimiento 4s ease-in-out infinite;
 }
-
-
-
-/*
-=========================================
-    CABEZA DEL GIRASOL
-=========================================
-*/
 
 .girasol-cabeza {
     position: absolute;
-
     width: 220px;
     height: 220px;
-
     top: 0;
     left: 30px;
 }
 
-
-
-/*
-=========================================
-    PÉTALOS DEL GIRASOL
-=========================================
-*/
-
 .girasol-petalo {
     position: absolute;
-
     width: 55px;
     height: 120px;
-
     left: 82px;
     top: 0;
-
-    border-radius:
-        50%
-        50%
-        45%
-        45%;
-
-    transform-origin:
-        27px
-        110px;
-
+    border-radius: 50% 50% 45% 45%;
+    transform-origin: 27px 110px;
     background:
         linear-gradient(
             to right,
@@ -68,49 +36,19 @@
             #ffe15a,
             #ffc400
         );
-
     box-shadow:
-        inset
-        0 0 10px
-        rgba(
-            255,
-            255,
-            255,
-            .25
-        ),
-
-        0 3px 7px
-        rgba(
-            0,
-            0,
-            0,
-            .15
-        );
+        inset 0 0 10px rgba(255, 255, 255, .25),
+        0 3px 7px rgba(0, 0, 0, .15);
 }
-
-
-
-/*
-=========================================
-    CENTRO DEL GIRASOL
-=========================================
-*/
 
 .girasol-centro {
     position: absolute;
-
     width: 95px;
     height: 95px;
-
     left: 62px;
     top: 63px;
-
-    border-radius:
-        50%;
-
-    z-index:
-        20;
-
+    border-radius: 50%;
+    z-index: 20;
     background:
         radial-gradient(
             circle,
@@ -118,72 +56,26 @@
             #613614 45%,
             #351b0a 100%
         );
-
     box-shadow:
-        0 0 20px
-        rgba(
-            255,
-            199,
-            0,
-            .25
-        );
+        0 0 20px rgba(255, 199, 0, .25);
 }
-
-
-
-/*
-=========================================
-    SEMILLAS
-=========================================
-*/
 
 .semilla {
-    position:
-        absolute;
-
-    width:
-        4px;
-
-    height:
-        4px;
-
-    background:
-        #c58b3c;
-
-    border-radius:
-        50%;
-
-    z-index:
-        25;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #c58b3c;
+    border-radius: 50%;
+    z-index: 25;
 }
 
-
-
-/*
-=========================================
-    TALLO DEL GIRASOL
-=========================================
-*/
-
 .girasol-tallo {
-    position:
-        absolute;
-
-    width:
-        14px;
-
-    height:
-        190px;
-
-    left:
-        133px;
-
-    top:
-        170px;
-
-    border-radius:
-        20px;
-
+    position: absolute;
+    width: 14px;
+    height: 190px;
+    left: 133px;
+    top: 170px;
+    border-radius: 20px;
     background:
         linear-gradient(
             to right,
@@ -191,66 +83,32 @@
             #5b9c4a,
             #245a2d
         );
-
-    z-index:
-        -1;
+    z-index: -1;
 }
 
-
-
-/*
-=========================================
-    HOJAS DEL GIRASOL
-=========================================
-*/
-
 .girasol-hoja {
-    position:
-        absolute;
-
-    width:
-        85px;
-
-    height:
-        48px;
-
+    position: absolute;
+    width: 85px;
+    height: 48px;
     background:
         linear-gradient(
             135deg,
             #2f7437,
             #71a953
         );
-
-    border-radius:
-        100%
-        0
-        100%
-        0;
-
-    z-index:
-        2;
+    border-radius: 100% 0 100% 0;
+    z-index: 2;
 }
-
 
 .hoja-izquierda {
-    top:
-        245px;
-
-    left:
-        55px;
-
-    transform:
-        rotate(15deg);
+    top: 245px;
+    left: 55px;
+    transform: rotate(15deg);
 }
 
-
 .hoja-derecha {
-    top:
-        285px;
-
-    left:
-        140px;
-
+    top: 285px;
+    left: 140px;
     transform:
         rotate(-15deg)
         scaleX(-1);
@@ -265,69 +123,26 @@
 */
 
 .tulipan {
-    position:
-        relative;
-
-    width:
-        230px;
-
-    height:
-        350px;
-
+    position: relative;
+    width: 230px;
+    height: 350px;
     animation:
         crecer 1.8s ease,
-        movimiento-tulipan
-        4.8s
-        ease-in-out
-        infinite;
+        movimiento-tulipan 4.8s ease-in-out infinite;
 }
-
-
-
-/*
-=========================================
-    CABEZA DEL TULIPÁN
-=========================================
-*/
 
 .tulipan-cabeza {
-    position:
-        absolute;
-
-    width:
-        150px;
-
-    height:
-        150px;
-
-    top:
-        10px;
-
-    left:
-        38px;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 38px;
 }
 
-
-
-/*
-=========================================
-    PÉTALOS DEL TULIPÁN
-=========================================
-*/
-
 .tulipan-petalo {
-    position:
-        absolute;
-
-    bottom:
-        0;
-
-    border-radius:
-        50%
-        50%
-        35%
-        35%;
-
+    position: absolute;
+    bottom: 0;
+    border-radius: 50% 50% 35% 35%;
     background:
         linear-gradient(
             180deg,
@@ -335,166 +150,58 @@
             #ad4ed2 55%,
             #8530aa 100%
         );
-
     box-shadow:
-        inset
-        0 0 10px
-        rgba(
-            255,
-            255,
-            255,
-            .22
-        ),
-
-        0 4px 10px
-        rgba(
-            85,
-            23,
-            105,
-            .18
-        );
+        inset 0 0 10px rgba(255, 255, 255, .22),
+        0 4px 10px rgba(85, 23, 105, .18);
 }
-
-
-
-/*
-=========================================
-    PÉTALOS EXTERIORES
-=========================================
-*/
 
 .petalo-fondo-izq {
-    width:
-        54px;
-
-    height:
-        94px;
-
-    left:
-        8px;
-
-    bottom:
-        22px;
-
-    z-index:
-        1;
-
+    width: 54px;
+    height: 94px;
+    left: 8px;
+    bottom: 22px;
+    z-index: 1;
     animation:
-        petalo-izq
-        3.1s
-        ease-in-out
-        infinite;
+        petalo-izq 3.1s ease-in-out infinite;
 }
-
 
 .petalo-fondo-der {
-    width:
-        54px;
-
-    height:
-        94px;
-
-    right:
-        8px;
-
-    bottom:
-        22px;
-
-    z-index:
-        1;
-
+    width: 54px;
+    height: 94px;
+    right: 8px;
+    bottom: 22px;
+    z-index: 1;
     animation:
-        petalo-der
-        3.2s
-        ease-in-out
-        infinite;
+        petalo-der 3.2s ease-in-out infinite;
 }
-
-
-
-/*
-=========================================
-    PÉTALOS CENTRALES
-=========================================
-*/
 
 .petalo-centro-izq {
-    width:
-        58px;
-
-    height:
-        110px;
-
-    left:
-        28px;
-
-    bottom:
-        28px;
-
-    z-index:
-        2;
-
+    width: 58px;
+    height: 110px;
+    left: 28px;
+    bottom: 28px;
+    z-index: 2;
     animation:
-        petalo-centro-izq
-        3.3s
-        ease-in-out
-        infinite;
+        petalo-centro-izq 3.3s ease-in-out infinite;
 }
-
 
 .petalo-centro-der {
-    width:
-        58px;
-
-    height:
-        110px;
-
-    right:
-        28px;
-
-    bottom:
-        28px;
-
-    z-index:
-        2;
-
+    width: 58px;
+    height: 110px;
+    right: 28px;
+    bottom: 28px;
+    z-index: 2;
     animation:
-        petalo-centro-der
-        3.4s
-        ease-in-out
-        infinite;
+        petalo-centro-der 3.4s ease-in-out infinite;
 }
 
-
-
-/*
-=========================================
-    PÉTALO FRONTAL
-=========================================
-*/
-
 .petalo-frontal {
-    width:
-        72px;
-
-    height:
-        116px;
-
-    left:
-        39px;
-
-    bottom:
-        10px;
-
-    z-index:
-        3;
-
-    border-radius:
-        46%
-        46%
-        28%
-        28%;
-
+    width: 72px;
+    height: 116px;
+    left: 39px;
+    bottom: 10px;
+    z-index: 3;
+    border-radius: 46% 46% 28% 28%;
     background:
         linear-gradient(
             180deg,
@@ -502,98 +209,40 @@
             #b557d9 58%,
             #8e35b3 100%
         );
-
     animation:
-        petalo-frontal
-        3.5s
-        ease-in-out
-        infinite;
+        petalo-frontal 3.5s ease-in-out infinite;
 }
-
-
-
-/*
-=========================================
-    VENAS DEL TULIPÁN
-=========================================
-*/
 
 .vena {
-    position:
-        absolute;
-
-    width:
-        2px;
-
-    height:
-        55px;
-
-    background:
-        rgba(
-            126,
-            45,
-            160,
-            .28
-        );
-
-    border-radius:
-        10px;
-
-    top:
-        34px;
+    position: absolute;
+    width: 2px;
+    height: 55px;
+    background: rgba(126, 45, 160, .28);
+    border-radius: 10px;
+    top: 34px;
 }
-
 
 .vena-1 {
-    left:
-        26px;
-
-    transform:
-        rotate(-6deg);
+    left: 26px;
+    transform: rotate(-6deg);
 }
-
 
 .vena-2 {
-    left:
-        35px;
+    left: 35px;
 }
-
 
 .vena-3 {
-    left:
-        45px;
-
-    transform:
-        rotate(6deg);
+    left: 45px;
+    transform: rotate(6deg);
 }
 
-
-
-/*
-=========================================
-    TALLO DEL TULIPÁN
-=========================================
-*/
-
 .tulipan-tallo {
-    position:
-        absolute;
-
-    width:
-        11px;
-
-    height:
-        185px;
-
-    left:
-        109px;
-
-    top:
-        136px;
-
-    border-radius:
-        20px;
-
+    position: absolute;
+    width: 11px;
+    height: 185px;
+    left: 109px;
+    top: 136px;
+    border-radius: 20px;
     background:
         linear-gradient(
             to right,
@@ -601,23 +250,11 @@
             #76ab1e,
             #5e8f18
         );
-
-    z-index:
-        -1;
+    z-index: -1;
 }
 
-
-
-/*
-=========================================
-    HOJAS DEL TULIPÁN
-=========================================
-*/
-
 .tulipan-hoja {
-    position:
-        absolute;
-
+    position: absolute;
     background:
         linear-gradient(
             135deg,
@@ -625,35 +262,16 @@
             #9cbd31,
             #648d17
         );
-
     box-shadow:
-        inset
-        0 0 10px
-        rgba(
-            255,
-            255,
-            255,
-            .10
-        );
+        inset 0 0 10px rgba(255, 255, 255, .10);
 }
 
-
 .tulipan-hoja-izquierda {
-    width:
-        86px;
-
-    height:
-        170px;
-
-    left:
-        30px;
-
-    top:
-        140px;
-
-    transform:
-        rotate(-20deg);
-
+    width: 86px;
+    height: 170px;
+    left: 30px;
+    top: 140px;
+    transform: rotate(-20deg);
     clip-path:
         polygon(
             45% 0%,
@@ -663,23 +281,12 @@
         );
 }
 
-
 .tulipan-hoja-derecha {
-    width:
-        92px;
-
-    height:
-        118px;
-
-    left:
-        116px;
-
-    top:
-        155px;
-
-    transform:
-        rotate(18deg);
-
+    width: 92px;
+    height: 118px;
+    left: 116px;
+    top: 155px;
+    transform: rotate(18deg);
     clip-path:
         polygon(
             0% 18%,
@@ -698,90 +305,33 @@
 */
 
 .lirio {
-    position:
-        relative;
-
-    width:
-        300px;
-
-    height:
-        360px;
-
+    position: relative;
+    width: 300px;
+    height: 360px;
     animation:
         crecer 1.8s ease,
-        lirio-balanceo
-        5s
-        ease-in-out
-        infinite;
+        lirio-balanceo 5s ease-in-out infinite;
 }
-
-
-
-/*
-=========================================
-    CABEZA DEL LIRIO
-=========================================
-*/
 
 .lirio-cabeza {
-    position:
-        absolute;
-
-    width:
-        270px;
-
-    height:
-        235px;
-
-    top:
-        0;
-
-    left:
-        15px;
-
-    z-index:
-        5;
+    position: absolute;
+    width: 270px;
+    height: 235px;
+    top: 0;
+    left: 15px;
+    z-index: 5;
 }
 
-
-
-/*
-=========================================
-    PÉTALOS DEL LIRIO
-=========================================
-*/
-
 .lirio-petalo {
-    position:
-        absolute;
-
-    width:
-        105px;
-
-    height:
-        155px;
-
-    left:
-        83px;
-
-    top:
-        39px;
-
-    transform-origin:
-        52px
-        125px;
-
+    position: absolute;
+    width: 105px;
+    height: 155px;
+    left: 83px;
+    top: 39px;
+    transform-origin: 52px 125px;
     border-radius:
-        50%
-        50%
-        42%
-        42%
-        /
-        65%
-        65%
-        35%
-        35%;
-
+        50% 50% 42% 42%
+        / 65% 65% 35% 35%;
     background:
         linear-gradient(
             90deg,
@@ -790,260 +340,84 @@
             #fffef7 55%,
             #e7e8df 100%
         );
-
     box-shadow:
-        inset
-        7px 0 12px
-        rgba(
-            120,
-            130,
-            105,
-            .08
-        ),
-
-        inset
-        -5px 0 9px
-        rgba(
-            255,
-            255,
-            255,
-            .9
-        ),
-
-        0 5px 9px
-        rgba(
-            80,
-            70,
-            55,
-            .10
-        );
-
-    overflow:
-        hidden;
+        inset 7px 0 12px rgba(120, 130, 105, .08),
+        inset -5px 0 9px rgba(255, 255, 255, .9),
+        0 5px 9px rgba(80, 70, 55, .10);
+    overflow: hidden;
 }
 
-
-
-/*
-=========================================
-    COLOR VERDE-AMARILLO DE LOS PÉTALOS
-=========================================
-*/
-
 .lirio-petalo::before {
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        15px;
-
-    height:
-        100px;
-
-    left:
-        45px;
-
-    bottom:
-        0;
-
-    border-radius:
-        50%;
-
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 100px;
+    left: 45px;
+    bottom: 0;
+    border-radius: 50%;
     background:
         linear-gradient(
             to top,
-            rgba(
-                70,
-                100,
-                35,
-                .82
-            ),
-
-            rgba(
-                187,
-                178,
-                62,
-                .58
-            ),
-
-            rgba(
-                255,
-                255,
-                255,
-                0
-            )
+            rgba(70, 100, 35, .82),
+            rgba(187, 178, 62, .58),
+            rgba(255, 255, 255, 0)
         );
-
-    filter:
-        blur(.3px);
+    filter: blur(.3px);
 }
 
-
-
-/*
-=========================================
-    VENAS BLANCAS
-=========================================
-*/
-
 .lirio-petalo::after {
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        3px;
-
-    height:
-        110px;
-
-    left:
-        52px;
-
-    top:
-        25px;
-
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 110px;
+    left: 52px;
+    top: 25px;
     background:
         linear-gradient(
             to bottom,
             transparent,
-            rgba(
-                130,
-                135,
-                120,
-                .18
-            ),
+            rgba(130, 135, 120, .18),
             transparent
         );
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 }
-
-
-
-/*
-=========================================
-    PÉTALO SUPERIOR
-=========================================
-*/
 
 .lirio-petalo-1 {
-    z-index:
-        1;
-
+    z-index: 1;
     animation:
-        lirio-petalo-arriba
-        4s
-        ease-in-out
-        infinite;
+        lirio-petalo-arriba 4s ease-in-out infinite;
 }
-
-
-
-/*
-=========================================
-    PÉTALO IZQUIERDO
-=========================================
-*/
 
 .lirio-petalo-2 {
-    z-index:
-        2;
-
+    z-index: 2;
     animation:
-        lirio-petalo-izq
-        4.3s
-        ease-in-out
-        infinite;
+        lirio-petalo-izq 4.3s ease-in-out infinite;
 }
-
-
-
-/*
-=========================================
-    PÉTALO DERECHO
-=========================================
-*/
 
 .lirio-petalo-3 {
-    z-index:
-        2;
-
+    z-index: 2;
     animation:
-        lirio-petalo-der
-        4.2s
-        ease-in-out
-        infinite;
+        lirio-petalo-der 4.2s ease-in-out infinite;
 }
-
-
-
-/*
-=========================================
-    PÉTALO INFERIOR IZQUIERDO
-=========================================
-*/
 
 .lirio-petalo-4 {
-    z-index:
-        3;
-
+    z-index: 3;
     animation:
-        lirio-petalo-abajo-izq
-        4.4s
-        ease-in-out
-        infinite;
+        lirio-petalo-abajo-izq 4.4s ease-in-out infinite;
 }
-
-
-
-/*
-=========================================
-    PÉTALO INFERIOR DERECHO
-=========================================
-*/
 
 .lirio-petalo-5 {
-    z-index:
-        3;
-
+    z-index: 3;
     animation:
-        lirio-petalo-abajo-der
-        4.5s
-        ease-in-out
-        infinite;
+        lirio-petalo-abajo-der 4.5s ease-in-out infinite;
 }
 
-
-
-/*
-=========================================
-    PÉTALO FRONTAL
-=========================================
-*/
-
 .lirio-petalo-6 {
-    width:
-        115px;
-
-    height:
-        160px;
-
-    left:
-        77px;
-
-    top:
-        73px;
-
-    z-index:
-        4;
-
+    width: 115px;
+    height: 160px;
+    left: 77px;
+    top: 73px;
+    z-index: 4;
     background:
         linear-gradient(
             90deg,
@@ -1052,87 +426,36 @@
             #fffef6 60%,
             #dcddd5 100%
         );
-
     animation:
-        lirio-petalo-frontal
-        4.1s
-        ease-in-out
-        infinite;
+        lirio-petalo-frontal 4.1s ease-in-out infinite;
 }
 
-
-
-/*
-=========================================
-    CENTRO DEL LIRIO
-=========================================
-*/
-
 .lirio-centro {
-    position:
-        absolute;
-
-    width:
-        66px;
-
-    height:
-        43px;
-
-    left:
-        102px;
-
-    top:
-        120px;
-
-    border-radius:
-        50%;
-
+    position: absolute;
+    width: 66px;
+    height: 43px;
+    left: 102px;
+    top: 120px;
+    border-radius: 50%;
     background:
         radial-gradient(
             ellipse,
             #263719 0%,
             #4f6a28 35%,
             #849338 58%,
-            rgba(
-                184,
-                173,
-                66,
-                .4
-            ) 72%,
+            rgba(184, 173, 66, .4) 72%,
             transparent 75%
         );
-
-    z-index:
-        8;
+    z-index: 8;
 }
 
-
-
-/*
-=========================================
-    PISTILO
-=========================================
-*/
-
 .lirio-pistilo {
-    position:
-        absolute;
-
-    width:
-        5px;
-
-    height:
-        92px;
-
-    left:
-        133px;
-
-    top:
-        45px;
-
-    border-radius:
-        10px;
-
+    position: absolute;
+    width: 5px;
+    height: 92px;
+    left: 133px;
+    top: 45px;
+    border-radius: 10px;
     background:
         linear-gradient(
             to right,
@@ -1140,112 +463,46 @@
             #a2b24c,
             #61752c
         );
-
-    transform:
-        rotate(-3deg);
-
-    transform-origin:
-        bottom center;
-
-    z-index:
-        10;
+    transform: rotate(-3deg);
+    transform-origin: bottom center;
+    z-index: 10;
 }
-
 
 .lirio-pistilo::before {
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        14px;
-
-    height:
-        8px;
-
-    top:
-        -4px;
-
-    left:
-        -5px;
-
-    border-radius:
-        50%;
-
-    background:
-        #85963b;
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 8px;
+    top: -4px;
+    left: -5px;
+    border-radius: 50%;
+    background: #85963b;
 }
 
-
-
-/*
-=========================================
-    ESTAMBRES
-=========================================
-*/
-
 .lirio-estambre {
-    position:
-        absolute;
-
-    width:
-        3px;
-
-    height:
-        80px;
-
-    top:
-        65px;
-
-    left:
-        134px;
-
+    position: absolute;
+    width: 3px;
+    height: 80px;
+    top: 65px;
+    left: 134px;
     background:
         linear-gradient(
             to bottom,
             #789038,
             #9bab4c
         );
-
-    border-radius:
-        20px;
-
-    transform-origin:
-        bottom center;
-
-    z-index:
-        9;
+    border-radius: 20px;
+    transform-origin: bottom center;
+    z-index: 9;
 }
 
-
-
-/*
-=========================================
-    PUNTAS DE LOS ESTAMBRES
-=========================================
-*/
-
 .lirio-antera {
-    position:
-        absolute;
-
-    width:
-        14px;
-
-    height:
-        6px;
-
-    left:
-        -5px;
-
-    top:
-        -3px;
-
-    border-radius:
-        50%;
-
+    position: absolute;
+    width: 14px;
+    height: 6px;
+    left: -5px;
+    top: -3px;
+    border-radius: 50%;
     background:
         linear-gradient(
             to right,
@@ -1253,105 +510,47 @@
             #d6ac29,
             #927519
         );
-
     box-shadow:
-        0 1px 2px
-        rgba(
-            90,
-            70,
-            10,
-            .25
-        );
+        0 1px 2px rgba(90, 70, 10, .25);
 }
-
-
-
-/*
-=========================================
-    POSICIONES DE ESTAMBRES
-=========================================
-*/
 
 .lirio-estambre-1 {
-    transform:
-        rotate(-30deg);
-
-    height:
-        76px;
+    transform: rotate(-30deg);
+    height: 76px;
 }
-
 
 .lirio-estambre-2 {
-    transform:
-        rotate(-18deg);
-
-    height:
-        88px;
+    transform: rotate(-18deg);
+    height: 88px;
 }
-
 
 .lirio-estambre-3 {
-    transform:
-        rotate(-7deg);
-
-    height:
-        96px;
+    transform: rotate(-7deg);
+    height: 96px;
 }
-
 
 .lirio-estambre-4 {
-    transform:
-        rotate(10deg);
-
-    height:
-        93px;
+    transform: rotate(10deg);
+    height: 93px;
 }
-
 
 .lirio-estambre-5 {
-    transform:
-        rotate(22deg);
-
-    height:
-        85px;
+    transform: rotate(22deg);
+    height: 85px;
 }
-
 
 .lirio-estambre-6 {
-    transform:
-        rotate(34deg);
-
-    height:
-        74px;
+    transform: rotate(34deg);
+    height: 74px;
 }
 
-
-
-/*
-=========================================
-    TALLO DEL LIRIO
-=========================================
-*/
-
 .lirio-tallo {
-    position:
-        absolute;
-
-    width:
-        13px;
-
-    height:
-        185px;
-
-    left:
-        144px;
-
-    top:
-        165px;
-
-    border-radius:
-        20px;
-
+    position: absolute;
+    width: 13px;
+    height: 185px;
+    left: 144px;
+    top: 165px;
+    border-radius: 20px;
     background:
         linear-gradient(
             to right,
@@ -1359,23 +558,11 @@
             #598748,
             #2b582d
         );
-
-    z-index:
-        0;
+    z-index: 0;
 }
 
-
-
-/*
-=========================================
-    HOJAS DEL LIRIO
-=========================================
-*/
-
 .lirio-hoja {
-    position:
-        absolute;
-
+    position: absolute;
     background:
         linear-gradient(
             135deg,
@@ -1383,34 +570,16 @@
             #608d46,
             #3e6b34
         );
-
-    z-index:
-        1;
+    z-index: 1;
 }
 
-
 .lirio-hoja-izquierda {
-    width:
-        62px;
-
-    height:
-        135px;
-
-    left:
-        83px;
-
-    top:
-        198px;
-
-    border-radius:
-        100%
-        0
-        100%
-        0;
-
-    transform:
-        rotate(-32deg);
-
+    width: 62px;
+    height: 135px;
+    left: 83px;
+    top: 198px;
+    border-radius: 100% 0 100% 0;
+    transform: rotate(-32deg);
     clip-path:
         polygon(
             50% 0,
@@ -1420,29 +589,13 @@
         );
 }
 
-
 .lirio-hoja-derecha {
-    width:
-        62px;
-
-    height:
-        125px;
-
-    left:
-        150px;
-
-    top:
-        205px;
-
-    border-radius:
-        0
-        100%
-        0
-        100%;
-
-    transform:
-        rotate(29deg);
-
+    width: 62px;
+    height: 125px;
+    left: 150px;
+    top: 205px;
+    border-radius: 0 100% 0 100%;
+    transform: rotate(29deg);
     clip-path:
         polygon(
             50% 0,
@@ -1456,6 +609,173 @@
 
 /*
 =========================================
+            FLOR DE NUBE
+=========================================
+*/
+
+.flor-nube {
+    position: relative;
+    width: 310px;
+    height: 360px;
+    animation:
+        crecer 1.8s ease,
+        nube-balanceo 5.5s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+.nube-ramo {
+    position: absolute;
+    width: 310px;
+    height: 225px;
+    top: 10px;
+    left: 0;
+    z-index: 5;
+}
+
+.nube-tallo-principal {
+    position: absolute;
+    width: 8px;
+    height: 220px;
+    left: 151px;
+    top: 136px;
+    border-radius: 10px;
+    background:
+        linear-gradient(
+            to right,
+            #365c36,
+            #729260,
+            #365c36
+        );
+    z-index: 0;
+}
+
+.nube-rama {
+    position: absolute;
+    width: 3px;
+    background:
+        linear-gradient(
+            to right,
+            #4c6d46,
+            #76956b
+        );
+    border-radius: 10px;
+    transform-origin: bottom center;
+    z-index: 1;
+    opacity: .95;
+}
+
+.nube-florecita-wrap {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform:
+        translate(-50%, -50%)
+        scale(var(--escala));
+    z-index: 10;
+}
+
+.nube-florecita {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    animation:
+        nube-florecita-movimiento
+        3.8s ease-in-out infinite;
+    animation-delay:
+        var(--delay);
+}
+
+.nube-petalo {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 9px;
+    top: 9px;
+    border-radius: 50%;
+    transform-origin: 6px 6px;
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff 0%,
+            #fffefa 58%,
+            #e5e6df 100%
+        );
+    box-shadow:
+        inset 0 0 3px rgba(190, 190, 175, .18),
+        0 1px 2px rgba(75, 80, 70, .12);
+}
+
+.nube-petalo-1 {
+    transform: translateY(-8px);
+}
+
+.nube-petalo-2 {
+    transform: translate(8px, -2px);
+}
+
+.nube-petalo-3 {
+    transform: translate(5px, 7px);
+}
+
+.nube-petalo-4 {
+    transform: translate(-5px, 7px);
+}
+
+.nube-petalo-5 {
+    transform: translate(-8px, -2px);
+}
+
+.nube-centro {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    left: 12px;
+    top: 12px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            #f6e7a3 0%,
+            #d8cf84 55%,
+            #a7ad75 100%
+        );
+    z-index: 5;
+    box-shadow:
+        0 0 2px rgba(255, 255, 255, .8);
+}
+
+.nube-hoja {
+    position: absolute;
+    width: 42px;
+    height: 78px;
+    background:
+        linear-gradient(
+            135deg,
+            #41623d,
+            #779268,
+            #456842
+        );
+    z-index: 2;
+}
+
+.nube-hoja-1 {
+    left: 115px;
+    top: 245px;
+    border-radius: 100% 0 100% 0;
+    transform: rotate(-38deg);
+}
+
+.nube-hoja-2 {
+    left: 158px;
+    top: 264px;
+    border-radius: 0 100% 0 100%;
+    transform: rotate(36deg);
+}
+
+
+
+/*
+=========================================
     ANIMACIÓN DE CRECIMIENTO
 =========================================
 */
@@ -1463,9 +783,7 @@
 @keyframes crecer {
 
     0% {
-        opacity:
-            0;
-
+        opacity: 0;
         transform:
             translateY(150px)
             scale(.2);
@@ -1478,9 +796,7 @@
     }
 
     100% {
-        opacity:
-            1;
-
+        opacity: 1;
         transform:
             translateY(0)
             scale(1);
@@ -1500,13 +816,11 @@
 
     0%,
     100% {
-        transform:
-            rotate(-1deg);
+        transform: rotate(-1deg);
     }
 
     50% {
-        transform:
-            rotate(1deg);
+        transform: rotate(1deg);
     }
 
 }
@@ -1523,13 +837,11 @@
 
     0%,
     100% {
-        transform:
-            rotate(-1deg);
+        transform: rotate(-1deg);
     }
 
     50% {
-        transform:
-            rotate(1deg);
+        transform: rotate(1deg);
     }
 
 }
@@ -1559,7 +871,6 @@
 
 }
 
-
 @keyframes petalo-der {
 
     0%,
@@ -1576,7 +887,6 @@
     }
 
 }
-
 
 @keyframes petalo-centro-izq {
 
@@ -1595,7 +905,6 @@
 
 }
 
-
 @keyframes petalo-centro-der {
 
     0%,
@@ -1612,7 +921,6 @@
     }
 
 }
-
 
 @keyframes petalo-frontal {
 
@@ -1643,13 +951,11 @@
 
     0%,
     100% {
-        transform:
-            rotate(-.8deg);
+        transform: rotate(-.8deg);
     }
 
     50% {
-        transform:
-            rotate(.8deg);
+        transform: rotate(.8deg);
     }
 
 }
@@ -1658,7 +964,7 @@
 
 /*
 =========================================
-    PÉTALO SUPERIOR DEL LIRIO
+    PÉTALOS DEL LIRIO
 =========================================
 */
 
@@ -1681,14 +987,6 @@
 
 }
 
-
-
-/*
-=========================================
-    PÉTALO IZQUIERDO DEL LIRIO
-=========================================
-*/
-
 @keyframes lirio-petalo-izq {
 
     0%,
@@ -1706,14 +1004,6 @@
 
 }
 
-
-
-/*
-=========================================
-    PÉTALO DERECHO DEL LIRIO
-=========================================
-*/
-
 @keyframes lirio-petalo-der {
 
     0%,
@@ -1730,14 +1020,6 @@
     }
 
 }
-
-
-
-/*
-=========================================
-    PÉTALO INFERIOR IZQUIERDO
-=========================================
-*/
 
 @keyframes lirio-petalo-abajo-izq {
 
@@ -1758,14 +1040,6 @@
 
 }
 
-
-
-/*
-=========================================
-    PÉTALO INFERIOR DERECHO
-=========================================
-*/
-
 @keyframes lirio-petalo-abajo-der {
 
     0%,
@@ -1784,14 +1058,6 @@
     }
 
 }
-
-
-
-/*
-=========================================
-    PÉTALO FRONTAL DEL LIRIO
-=========================================
-*/
 
 @keyframes lirio-petalo-frontal {
 
@@ -1816,29 +1082,64 @@
 
 /*
 =========================================
+    MOVIMIENTO DE FLOR DE NUBE
+=========================================
+*/
+
+@keyframes nube-balanceo {
+
+    0%,
+    100% {
+        transform: rotate(-.7deg);
+    }
+
+    50% {
+        transform: rotate(.7deg);
+    }
+
+}
+
+@keyframes nube-florecita-movimiento {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-1deg);
+    }
+
+    50% {
+        transform:
+            translateY(-3px)
+            rotate(2deg);
+    }
+
+}
+
+
+
+/*
+=========================================
     CELULARES
 =========================================
 */
 
-@media (
-    max-width: 600px
-) {
+@media (max-width: 600px) {
 
     .girasol {
-        transform:
-            scale(.88);
+        transform: scale(.88);
     }
-
 
     .tulipan {
-        transform:
-            scale(.92);
+        transform: scale(.92);
     }
 
-
     .lirio {
-        transform:
-            scale(.88);
+        transform: scale(.88);
+    }
+
+    .flor-nube {
+        transform: scale(.88);
     }
 
 }
