@@ -181,6 +181,22 @@ const floresDelJardin = [
 
         textoBoton:
             "♪ Me sobran motivos"
+    },
+
+    {
+        tipo: "camelia",
+
+        titulo:
+            "Camelia roja ❤️",
+
+        mensaje:
+            "Algunas flores llaman la atención sin intentarlo. Tal vez sea el color, la forma o simplemente la manera en que terminan destacando entre todas las demás. ❤️",
+
+        linkCancion:
+            "https://www.youtube.com/watch?v=yhuop3GEf-4",
+
+        textoBoton:
+            "♪ NADIE MÁS!"
     }
 
 ];

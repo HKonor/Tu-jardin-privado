@@ -432,14 +432,12 @@ h1 {
 */
 
 .tarjeta-lirio .boton-cancion {
-
     background:
         linear-gradient(
             135deg,
             #788d4d,
             #a5ad65
         );
-
 }
 
 
@@ -451,7 +449,6 @@ h1 {
 */
 
 .tarjeta-nube .boton-cancion {
-
     color:
         #44523d;
 
@@ -486,7 +483,6 @@ h1 {
 */
 
 .tarjeta-peonia .boton-cancion {
-
     background:
         linear-gradient(
             135deg,
@@ -506,7 +502,6 @@ h1 {
 
 
 .tarjeta-peonia .boton-cancion:hover {
-
     box-shadow:
         0 12px 24px
         rgba(
@@ -521,6 +516,44 @@ h1 {
 
 /*
 =========================================
+    BOTÓN DE LA CAMELIA
+=========================================
+*/
+
+.tarjeta-camelia .boton-cancion {
+    background:
+        linear-gradient(
+            135deg,
+            #8f243e,
+            #cf4c69
+        );
+
+    box-shadow:
+        0 8px 18px
+        rgba(
+            133,
+            33,
+            57,
+            .28
+        );
+}
+
+
+.tarjeta-camelia .boton-cancion:hover {
+    box-shadow:
+        0 12px 24px
+        rgba(
+            133,
+            33,
+            57,
+            .38
+        );
+}
+
+
+
+/*
+=========================================
     ANIMACIÓN GENERAL
 =========================================
 */
@@ -528,21 +561,13 @@ h1 {
 @keyframes aparecer {
 
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(22px);
-
+        transform: translateY(22px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
-
+        transform: translateY(0);
     }
 
 }
@@ -558,10 +583,7 @@ h1 {
 @media (max-width: 900px) {
 
     .contenedor-flores {
-
-        gap:
-            22px;
-
+        gap: 22px;
     }
 
 }
@@ -577,34 +599,27 @@ h1 {
 @media (max-width: 600px) {
 
     .jardin {
-
         padding:
             35px 12px 40px;
-
     }
 
 
     h1 {
-
         font-size:
             30px;
-
     }
 
 
     .pequeno {
-
         font-size:
             9px;
 
         letter-spacing:
             3px;
-
     }
 
 
     .tarjeta-flor {
-
         max-width:
             360px;
 
@@ -613,39 +628,30 @@ h1 {
 
         padding:
             20px 14px;
-
     }
 
 
     .titulo-flor {
-
         font-size:
             24px;
-
     }
 
 
     .envoltura-flor {
-
         height:
             340px;
-
     }
 
 
     .nota-flor p {
-
         font-size:
             13px;
-
     }
 
 
     .boton-cancion {
-
         font-size:
             13px;
-
     }
 
 }
