@@ -10,18 +10,22 @@
     box-sizing: border-box;
 }
 
+
 html,
 body {
     width: 100%;
     min-height: 100%;
 }
 
+
 body {
     min-height: 100vh;
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
+
     background:
         radial-gradient(
             circle at 50% 45%,
@@ -30,6 +34,7 @@ body {
             #e4c870 64%,
             #6d6550 100%
         );
+
     color: #fff;
 }
 
@@ -44,11 +49,14 @@ body {
 .jardin {
     width: 100%;
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
     padding:
         55px 20px 55px;
+
     overflow-x: hidden;
 }
 
@@ -63,40 +71,74 @@ body {
 .encabezado {
     width: 100%;
     max-width: 850px;
+
     text-align: center;
+
     margin-bottom: 20px;
+
     z-index: 10;
+
     animation:
         aparecer 1.5s ease;
 }
 
+
 .pequeno {
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
+
     font-size: 11px;
+
     font-weight: 600;
+
     letter-spacing: 5px;
+
     color: #7a5b13;
+
     margin-bottom: 15px;
 }
 
+
 h1 {
     font-size:
-        clamp(30px, 4vw, 48px);
+        clamp(
+            30px,
+            4vw,
+            48px
+        );
+
     font-weight: normal;
+
     line-height: 1.15;
+
     color: #493714;
+
     text-shadow:
-        0 2px 3px rgba(255, 255, 255, .45);
+        0 2px 3px
+        rgba(
+            255,
+            255,
+            255,
+            .45
+        );
+
     margin: 0 auto;
 }
+
 
 .linea {
     width: 65px;
     height: 2px;
-    background: #d6a719;
+
+    background:
+        #d6a719;
+
     margin:
         22px auto 0;
-    border-radius: 10px;
+
+    border-radius:
+        10px;
 }
 
 
@@ -109,12 +151,19 @@ h1 {
 
 .contenedor-flores {
     width: 100%;
+
     max-width: 1350px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: stretch;
+
     flex-wrap: wrap;
+
     gap: 28px;
+
     margin-top: 10px;
 }
 
@@ -128,32 +177,73 @@ h1 {
 
 .tarjeta-flor {
     width: 100%;
+
     max-width: 390px;
+
     min-height: 520px;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     padding:
         25px 20px 22px;
-    border-radius: 30px;
+
+    border-radius:
+        30px;
+
     background:
-        rgba(255, 255, 255, .24);
+        rgba(
+            255,
+            255,
+            255,
+            .24
+        );
+
     border:
-        1px solid rgba(255, 255, 255, .5);
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .5
+        );
+
     box-shadow:
-        0 18px 38px rgba(76, 55, 15, .16);
-    backdrop-filter: blur(7px);
+        0 18px 38px
+        rgba(
+            76,
+            55,
+            15,
+            .16
+        );
+
+    backdrop-filter:
+        blur(7px);
+
     animation:
         aparecer 1.6s ease;
+
     transition:
         transform .3s ease,
         box-shadow .3s ease;
 }
 
+
 .tarjeta-flor:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
+
     box-shadow:
-        0 24px 45px rgba(76, 55, 15, .22);
+        0 24px 45px
+        rgba(
+            76,
+            55,
+            15,
+            .22
+        );
 }
 
 
@@ -166,9 +256,13 @@ h1 {
 
 .titulo-flor {
     font-size: 27px;
+
     font-weight: normal;
+
     color: #5a4217;
+
     margin-bottom: 10px;
+
     text-align: center;
 }
 
@@ -182,10 +276,15 @@ h1 {
 
 .envoltura-flor {
     width: 100%;
+
     height: 370px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: flex-end;
+
     position: relative;
 }
 
@@ -199,67 +298,129 @@ h1 {
 
 .nota-flor {
     width: 100%;
+
     text-align: center;
+
     margin-top: 8px;
 }
 
+
 .nota-flor p {
     width: 100%;
+
     padding:
         15px 17px;
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        sans-serif;
+
     font-size: 14px;
+
     line-height: 1.6;
+
     color: #5d4617;
+
     background:
-        rgba(255, 255, 255, .48);
+        rgba(
+            255,
+            255,
+            255,
+            .48
+        );
+
     border:
-        1px solid rgba(255, 255, 255, .55);
-    border-radius: 20px;
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .55
+        );
+
+    border-radius:
+        20px;
+
     box-shadow:
-        0 5px 15px rgba(80, 55, 15, .08);
+        0 5px 15px
+        rgba(
+            80,
+            55,
+            15,
+            .08
+        );
 }
 
 
 
 /*
 =========================================
-    BOTÓN DE CANCIÓN
+    BOTÓN GENERAL
 =========================================
 */
 
 .boton-cancion {
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
+
     margin-top: 14px;
+
     padding:
         12px 21px;
-    border-radius: 999px;
+
+    border-radius:
+        999px;
+
     text-decoration: none;
-    font-family: Arial, sans-serif;
+
+    font-family:
+        Arial,
+        sans-serif;
+
     font-size: 14px;
+
     font-weight: bold;
+
     color: white;
+
     background:
         linear-gradient(
             135deg,
             #8350a6,
             #b968d8
         );
+
     box-shadow:
-        0 8px 18px rgba(120, 61, 154, .25);
+        0 8px 18px
+        rgba(
+            120,
+            61,
+            154,
+            .25
+        );
+
     transition:
         transform .25s ease,
         box-shadow .25s ease;
 }
 
+
 .boton-cancion:hover {
     transform:
         translateY(-2px)
         scale(1.03);
+
     box-shadow:
-        0 12px 22px rgba(120, 61, 154, .34);
+        0 12px 22px
+        rgba(
+            120,
+            61,
+            154,
+            .34
+        );
 }
 
 
@@ -271,41 +432,89 @@ h1 {
 */
 
 .tarjeta-lirio .boton-cancion {
+
     background:
         linear-gradient(
             135deg,
             #788d4d,
             #a5ad65
         );
-    box-shadow:
-        0 8px 18px rgba(93, 112, 52, .25);
+
 }
 
 
 
 /*
 =========================================
-    BOTÓN DE LA FLOR DE NUBE
+    BOTÓN DE LA NUBE
 =========================================
 */
 
 .tarjeta-nube .boton-cancion {
-    color: #44523d;
+
+    color:
+        #44523d;
+
     background:
         linear-gradient(
             135deg,
-            rgba(255, 255, 255, .95),
+            rgba(
+                255,
+                255,
+                255,
+                .95
+            ),
             #e8eddf
         );
+
     border:
-        1px solid rgba(111, 132, 91, .25);
-    box-shadow:
-        0 8px 18px rgba(74, 91, 58, .18);
+        1px solid
+        rgba(
+            111,
+            132,
+            91,
+            .25
+        );
 }
 
-.tarjeta-nube .boton-cancion:hover {
+
+
+/*
+=========================================
+    BOTÓN DE LA PEONÍA
+=========================================
+*/
+
+.tarjeta-peonia .boton-cancion {
+
+    background:
+        linear-gradient(
+            135deg,
+            #b64f76,
+            #e37da2
+        );
+
     box-shadow:
-        0 12px 24px rgba(74, 91, 58, .28);
+        0 8px 18px
+        rgba(
+            177,
+            66,
+            109,
+            .25
+        );
+}
+
+
+.tarjeta-peonia .boton-cancion:hover {
+
+    box-shadow:
+        0 12px 24px
+        rgba(
+            177,
+            66,
+            109,
+            .35
+        );
 }
 
 
@@ -319,13 +528,21 @@ h1 {
 @keyframes aparecer {
 
     from {
+
         opacity: 0;
-        transform: translateY(22px);
+
+        transform:
+            translateY(22px);
+
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
     }
 
 }
@@ -341,7 +558,10 @@ h1 {
 @media (max-width: 900px) {
 
     .contenedor-flores {
-        gap: 22px;
+
+        gap:
+            22px;
+
     }
 
 }
@@ -357,40 +577,75 @@ h1 {
 @media (max-width: 600px) {
 
     .jardin {
+
         padding:
             35px 12px 40px;
+
     }
+
 
     h1 {
-        font-size: 30px;
+
+        font-size:
+            30px;
+
     }
+
 
     .pequeno {
-        font-size: 9px;
-        letter-spacing: 3px;
+
+        font-size:
+            9px;
+
+        letter-spacing:
+            3px;
+
     }
+
 
     .tarjeta-flor {
-        max-width: 360px;
-        min-height: auto;
+
+        max-width:
+            360px;
+
+        min-height:
+            auto;
+
         padding:
             20px 14px;
+
     }
+
 
     .titulo-flor {
-        font-size: 24px;
+
+        font-size:
+            24px;
+
     }
+
 
     .envoltura-flor {
-        height: 340px;
+
+        height:
+            340px;
+
     }
+
 
     .nota-flor p {
-        font-size: 13px;
+
+        font-size:
+            13px;
+
     }
 
+
     .boton-cancion {
-        font-size: 13px;
+
+        font-size:
+            13px;
+
     }
 
 }

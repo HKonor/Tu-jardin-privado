@@ -165,6 +165,22 @@ const floresDelJardin = [
 
         textoBoton:
             "♪ Tú y yo y tú"
+    },
+
+    {
+        tipo: "peonia",
+
+        titulo:
+            "Peonía rosa 🌸",
+
+        mensaje:
+            "Hay cosas que se vuelven especiales sin necesidad de buscarles demasiadas explicaciones. A veces basta con mirar un poco más de cerca para darse cuenta de que los motivos siempre estuvieron ahí. 🌸",
+
+        linkCancion:
+            "https://youtu.be/6wgTJm5ns7A?si=3Es4iR3dYLfdKBXN",
+
+        textoBoton:
+            "♪ Me sobran motivos"
     }
 
 ];

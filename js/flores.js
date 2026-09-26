@@ -9,6 +9,7 @@ Flores disponibles:
 - Tulipán morado
 - Lirio blanco
 - Flor de nube
+- Peonía rosa
 
 ===========================================
 */
@@ -159,21 +160,10 @@ const Flores = {
             "girasol-hoja hoja-derecha";
 
 
-        flor.appendChild(
-            tallo
-        );
-
-        flor.appendChild(
-            hojaIzquierda
-        );
-
-        flor.appendChild(
-            hojaDerecha
-        );
-
-        flor.appendChild(
-            cabeza
-        );
+        flor.appendChild(tallo);
+        flor.appendChild(hojaIzquierda);
+        flor.appendChild(hojaDerecha);
+        flor.appendChild(cabeza);
 
 
         return flor;
@@ -260,38 +250,16 @@ const Flores = {
             "vena vena-3";
 
 
-        petaloFrontal.appendChild(
-            detalle1
-        );
-
-        petaloFrontal.appendChild(
-            detalle2
-        );
-
-        petaloFrontal.appendChild(
-            detalle3
-        );
+        petaloFrontal.appendChild(detalle1);
+        petaloFrontal.appendChild(detalle2);
+        petaloFrontal.appendChild(detalle3);
 
 
-        cabeza.appendChild(
-            petaloIzqFondo
-        );
-
-        cabeza.appendChild(
-            petaloDerFondo
-        );
-
-        cabeza.appendChild(
-            petaloCentroIzq
-        );
-
-        cabeza.appendChild(
-            petaloCentroDer
-        );
-
-        cabeza.appendChild(
-            petaloFrontal
-        );
+        cabeza.appendChild(petaloIzqFondo);
+        cabeza.appendChild(petaloDerFondo);
+        cabeza.appendChild(petaloCentroIzq);
+        cabeza.appendChild(petaloCentroDer);
+        cabeza.appendChild(petaloFrontal);
 
 
         const tallo =
@@ -315,21 +283,10 @@ const Flores = {
             "tulipan-hoja tulipan-hoja-derecha";
 
 
-        flor.appendChild(
-            tallo
-        );
-
-        flor.appendChild(
-            hojaIzquierda
-        );
-
-        flor.appendChild(
-            hojaDerecha
-        );
-
-        flor.appendChild(
-            cabeza
-        );
+        flor.appendChild(tallo);
+        flor.appendChild(hojaIzquierda);
+        flor.appendChild(hojaDerecha);
+        flor.appendChild(cabeza);
 
 
         return flor;
@@ -453,21 +410,10 @@ const Flores = {
             "lirio-hoja lirio-hoja-derecha";
 
 
-        flor.appendChild(
-            tallo
-        );
-
-        flor.appendChild(
-            hojaIzquierda
-        );
-
-        flor.appendChild(
-            hojaDerecha
-        );
-
-        flor.appendChild(
-            cabeza
-        );
+        flor.appendChild(tallo);
+        flor.appendChild(hojaIzquierda);
+        flor.appendChild(hojaDerecha);
+        flor.appendChild(cabeza);
 
 
         return flor;
@@ -505,12 +451,12 @@ const Flores = {
             { left: 150, top: 132, rotate: -40, height: 138 },
             { left: 150, top: 125, rotate: -28, height: 150 },
             { left: 150, top: 118, rotate: -16, height: 162 },
-            { left: 150, top: 114, rotate: -6,  height: 170 },
-            { left: 150, top: 114, rotate: 8,   height: 170 },
-            { left: 150, top: 118, rotate: 18,  height: 162 },
-            { left: 150, top: 124, rotate: 30,  height: 152 },
-            { left: 150, top: 132, rotate: 42,  height: 140 },
-            { left: 150, top: 140, rotate: 54,  height: 122 }
+            { left: 150, top: 114, rotate: -6, height: 170 },
+            { left: 150, top: 114, rotate: 8, height: 170 },
+            { left: 150, top: 118, rotate: 18, height: 162 },
+            { left: 150, top: 124, rotate: 30, height: 152 },
+            { left: 150, top: 132, rotate: 42, height: 140 },
+            { left: 150, top: 140, rotate: 54, height: 122 }
         ];
 
 
@@ -546,7 +492,12 @@ const Flores = {
             "nube-ramo";
 
 
-        function agregarFlorecita(x, y, escala, delay) {
+        function agregarFlorecita(
+            x,
+            y,
+            escala,
+            delay
+        ) {
 
             const envoltura =
                 document.createElement("div");
@@ -554,16 +505,19 @@ const Flores = {
             envoltura.className =
                 "nube-florecita-wrap";
 
+
             envoltura.style.left =
                 x + "px";
 
             envoltura.style.top =
                 y + "px";
 
+
             envoltura.style.setProperty(
                 "--escala",
                 escala
             );
+
 
             envoltura.style.setProperty(
                 "--delay",
@@ -578,7 +532,11 @@ const Flores = {
                 "nube-florecita";
 
 
-            for (let p = 0; p < 5; p++) {
+            for (
+                let p = 0;
+                p < 5;
+                p++
+            ) {
 
                 const petalo =
                     document.createElement("span");
@@ -599,21 +557,26 @@ const Flores = {
             centro.className =
                 "nube-centro";
 
+
             florecita.appendChild(
                 centro
             );
+
 
             envoltura.appendChild(
                 florecita
             );
 
+
             ramo.appendChild(
                 envoltura
             );
+
         }
 
 
         const curvas = [
+
             {
                 cx: 88,
                 cy: 132,
@@ -624,6 +587,7 @@ const Flores = {
                 count: 18,
                 baseScale: 0.78
             },
+
             {
                 cx: 142,
                 cy: 102,
@@ -634,6 +598,7 @@ const Flores = {
                 count: 22,
                 baseScale: 0.82
             },
+
             {
                 cx: 219,
                 cy: 124,
@@ -644,6 +609,7 @@ const Flores = {
                 count: 18,
                 baseScale: 0.76
             },
+
             {
                 cx: 184,
                 cy: 160,
@@ -654,6 +620,7 @@ const Flores = {
                 count: 15,
                 baseScale: 0.78
             },
+
             {
                 cx: 120,
                 cy: 170,
@@ -664,10 +631,12 @@ const Flores = {
                 count: 14,
                 baseScale: 0.72
             }
+
         ];
 
 
         let contadorDelay = 0;
+
 
         curvas.forEach((curva) => {
 
@@ -678,32 +647,48 @@ const Flores = {
             ) {
 
                 const t =
-                    i / (curva.count - 1);
+                    i /
+                    (curva.count - 1);
+
 
                 const angulo =
                     curva.start +
-                    (curva.end - curva.start) * t;
+                    (
+                        curva.end -
+                        curva.start
+                    ) * t;
+
 
                 let x =
                     curva.cx +
-                    Math.cos(angulo) * curva.rx;
+                    Math.cos(angulo) *
+                    curva.rx;
+
 
                 let y =
                     curva.cy +
-                    Math.sin(angulo) * curva.ry;
+                    Math.sin(angulo) *
+                    curva.ry;
+
 
                 x +=
-                    (i % 2 === 0) ? -3 : 3;
+                    (i % 2 === 0)
+                        ? -3
+                        : 3;
+
 
                 y +=
                     (i % 3) - 1;
+
 
                 const escala =
                     curva.baseScale +
                     (i % 4) * 0.06;
 
+
                 const delay =
                     `${-(contadorDelay % 9) * 0.16}s`;
+
 
                 agregarFlorecita(
                     x,
@@ -712,33 +697,53 @@ const Flores = {
                     delay
                 );
 
+
                 contadorDelay++;
+
             }
 
         });
 
 
         const relleno = [
-            [78, 120, 0.68], [95, 112, 0.72], [109, 122, 0.76],
-            [126, 112, 0.74], [141, 124, 0.79], [154, 116, 0.75],
-            [171, 108, 0.78], [186, 119, 0.72], [201, 112, 0.74],
-            [217, 121, 0.70], [232, 130, 0.68], [114, 153, 0.72],
-            [132, 144, 0.76], [149, 151, 0.80], [166, 145, 0.78],
-            [184, 151, 0.76], [200, 160, 0.72], [101, 166, 0.66],
-            [214, 146, 0.66], [153, 98, 0.68], [167, 96, 0.66]
+
+            [78, 120, 0.68],
+            [95, 112, 0.72],
+            [109, 122, 0.76],
+            [126, 112, 0.74],
+            [141, 124, 0.79],
+            [154, 116, 0.75],
+            [171, 108, 0.78],
+            [186, 119, 0.72],
+            [201, 112, 0.74],
+            [217, 121, 0.70],
+            [232, 130, 0.68],
+            [114, 153, 0.72],
+            [132, 144, 0.76],
+            [149, 151, 0.80],
+            [166, 145, 0.78],
+            [184, 151, 0.76],
+            [200, 160, 0.72],
+            [101, 166, 0.66],
+            [214, 146, 0.66],
+            [153, 98, 0.68],
+            [167, 96, 0.66]
+
         ];
 
 
-        relleno.forEach((item, index) => {
+        relleno.forEach(
+            (item, index) => {
 
-            agregarFlorecita(
-                item[0],
-                item[1],
-                item[2],
-                `${-(index % 7) * 0.14}s`
-            );
+                agregarFlorecita(
+                    item[0],
+                    item[1],
+                    item[2],
+                    `${-(index % 7) * 0.14}s`
+                );
 
-        });
+            }
+        );
 
 
         flor.appendChild(ramo);
@@ -760,6 +765,227 @@ const Flores = {
 
         flor.appendChild(hoja1);
         flor.appendChild(hoja2);
+
+
+        return flor;
+
+    },
+
+
+
+    /*
+    =========================================
+                PEONÍA ROSA
+    =========================================
+    */
+
+    peonia: function () {
+
+        const flor =
+            document.createElement("div");
+
+        flor.className =
+            "peonia";
+
+
+        /*
+        =========================================
+            CABEZA
+        =========================================
+        */
+
+        const cabeza =
+            document.createElement("div");
+
+        cabeza.className =
+            "peonia-cabeza";
+
+
+        /*
+        =========================================
+            FUNCIÓN PARA CREAR CAPAS
+        =========================================
+        */
+
+        function crearCapa(
+            cantidad,
+            radio,
+            escala,
+            clase
+        ) {
+
+            for (
+                let i = 0;
+                i < cantidad;
+                i++
+            ) {
+
+                const envoltura =
+                    document.createElement("div");
+
+                envoltura.className =
+                    `peonia-petalo-wrap ${clase}`;
+
+
+                const angulo =
+                    (360 / cantidad) * i;
+
+
+                envoltura.style.setProperty(
+                    "--angulo",
+                    `${angulo}deg`
+                );
+
+
+                envoltura.style.setProperty(
+                    "--radio",
+                    `${radio}px`
+                );
+
+
+                envoltura.style.setProperty(
+                    "--escala",
+                    escala
+                );
+
+
+                envoltura.style.setProperty(
+                    "--delay",
+                    `${-(i % 7) * 0.18}s`
+                );
+
+
+                const petalo =
+                    document.createElement("div");
+
+                petalo.className =
+                    "peonia-petalo";
+
+
+                envoltura.appendChild(
+                    petalo
+                );
+
+
+                cabeza.appendChild(
+                    envoltura
+                );
+
+            }
+
+        }
+
+
+        /*
+        =========================================
+            3 CAPAS DE PÉTALOS
+        =========================================
+        */
+
+        crearCapa(
+            16,
+            45,
+            1,
+            "peonia-capa-externa"
+        );
+
+
+        crearCapa(
+            12,
+            29,
+            0.86,
+            "peonia-capa-media"
+        );
+
+
+        crearCapa(
+            9,
+            14,
+            0.70,
+            "peonia-capa-interna"
+        );
+
+
+        /*
+        =========================================
+            CENTRO
+        =========================================
+        */
+
+        const centro =
+            document.createElement("div");
+
+        centro.className =
+            "peonia-centro";
+
+
+        for (
+            let i = 0;
+            i < 8;
+            i++
+        ) {
+
+            const petaloCentro =
+                document.createElement("span");
+
+            petaloCentro.className =
+                "peonia-centro-petalo";
+
+
+            petaloCentro.style.transform =
+                `rotate(${i * 45}deg)`;
+
+
+            centro.appendChild(
+                petaloCentro
+            );
+
+        }
+
+
+        cabeza.appendChild(
+            centro
+        );
+
+
+        /*
+        =========================================
+            TALLO
+        =========================================
+        */
+
+        const tallo =
+            document.createElement("div");
+
+        tallo.className =
+            "peonia-tallo";
+
+
+        /*
+        =========================================
+            HOJAS
+        =========================================
+        */
+
+        const hojaIzquierda =
+            document.createElement("div");
+
+        hojaIzquierda.className =
+            "peonia-hoja peonia-hoja-izquierda";
+
+
+        const hojaDerecha =
+            document.createElement("div");
+
+        hojaDerecha.className =
+            "peonia-hoja peonia-hoja-derecha";
+
+
+        flor.appendChild(tallo);
+        flor.appendChild(hojaIzquierda);
+        flor.appendChild(hojaDerecha);
+        flor.appendChild(cabeza);
+
 
         return flor;
 
