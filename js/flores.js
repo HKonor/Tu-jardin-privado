@@ -1,21 +1,3 @@
-/*
-===========================================
-        LIBRERÍA DE FLORES
-===========================================
-
-Flores disponibles:
-
-- Girasol
-- Tulipán morado
-- Lirio blanco
-- Flor de nube
-- Peonía rosa
-- Camelia roja
-
-===========================================
-*/
-
-
 const Flores = {
 
 
@@ -65,10 +47,7 @@ const Flores = {
                 `rotate(${angulo}deg)`;
 
 
-            cabeza.appendChild(
-                petalo
-            );
-
+            cabeza.appendChild(petalo);
         }
 
 
@@ -123,21 +102,15 @@ const Flores = {
             semilla.style.left =
                 x + "px";
 
-
             semilla.style.top =
                 y + "px";
 
 
-            centro.appendChild(
-                semilla
-            );
-
+            centro.appendChild(semilla);
         }
 
 
-        cabeza.appendChild(
-            centro
-        );
+        cabeza.appendChild(centro);
 
 
         const tallo =
@@ -168,7 +141,6 @@ const Flores = {
 
 
         return flor;
-
     },
 
 
@@ -195,72 +167,50 @@ const Flores = {
             "tulipan-cabeza";
 
 
-        const petaloIzqFondo =
-            document.createElement("div");
-
-        petaloIzqFondo.className =
-            "tulipan-petalo petalo-fondo-izq";
-
-
-        const petaloDerFondo =
-            document.createElement("div");
-
-        petaloDerFondo.className =
-            "tulipan-petalo petalo-fondo-der";
+        const clasesPetalos = [
+            "petalo-fondo-izq",
+            "petalo-fondo-der",
+            "petalo-centro-izq",
+            "petalo-centro-der",
+            "petalo-frontal"
+        ];
 
 
-        const petaloCentroIzq =
-            document.createElement("div");
+        clasesPetalos.forEach(
+            (clase) => {
 
-        petaloCentroIzq.className =
-            "tulipan-petalo petalo-centro-izq";
+                const petalo =
+                    document.createElement("div");
 
-
-        const petaloCentroDer =
-            document.createElement("div");
-
-        petaloCentroDer.className =
-            "tulipan-petalo petalo-centro-der";
+                petalo.className =
+                    `tulipan-petalo ${clase}`;
 
 
-        const petaloFrontal =
-            document.createElement("div");
+                if (
+                    clase ===
+                    "petalo-frontal"
+                ) {
 
-        petaloFrontal.className =
-            "tulipan-petalo petalo-frontal";
+                    for (
+                        let i = 1;
+                        i <= 3;
+                        i++
+                    ) {
 
+                        const vena =
+                            document.createElement("div");
 
-        const detalle1 =
-            document.createElement("div");
+                        vena.className =
+                            `vena vena-${i}`;
 
-        detalle1.className =
-            "vena vena-1";
-
-
-        const detalle2 =
-            document.createElement("div");
-
-        detalle2.className =
-            "vena vena-2";
-
-
-        const detalle3 =
-            document.createElement("div");
-
-        detalle3.className =
-            "vena vena-3";
+                        petalo.appendChild(vena);
+                    }
+                }
 
 
-        petaloFrontal.appendChild(detalle1);
-        petaloFrontal.appendChild(detalle2);
-        petaloFrontal.appendChild(detalle3);
-
-
-        cabeza.appendChild(petaloIzqFondo);
-        cabeza.appendChild(petaloDerFondo);
-        cabeza.appendChild(petaloCentroIzq);
-        cabeza.appendChild(petaloCentroDer);
-        cabeza.appendChild(petaloFrontal);
+                cabeza.appendChild(petalo);
+            }
+        );
 
 
         const tallo =
@@ -291,7 +241,6 @@ const Flores = {
 
 
         return flor;
-
     },
 
 
@@ -330,10 +279,7 @@ const Flores = {
             petalo.className =
                 `lirio-petalo lirio-petalo-${i}`;
 
-            cabeza.appendChild(
-                petalo
-            );
-
+            cabeza.appendChild(petalo);
         }
 
 
@@ -343,9 +289,7 @@ const Flores = {
         centro.className =
             "lirio-centro";
 
-        cabeza.appendChild(
-            centro
-        );
+        cabeza.appendChild(centro);
 
 
         const pistilo =
@@ -354,9 +298,7 @@ const Flores = {
         pistilo.className =
             "lirio-pistilo";
 
-        cabeza.appendChild(
-            pistilo
-        );
+        cabeza.appendChild(pistilo);
 
 
         for (
@@ -372,21 +314,15 @@ const Flores = {
                 `lirio-estambre lirio-estambre-${i}`;
 
 
-            const punta =
+            const antera =
                 document.createElement("span");
 
-            punta.className =
+            antera.className =
                 "lirio-antera";
 
 
-            estambre.appendChild(
-                punta
-            );
-
-            cabeza.appendChild(
-                estambre
-            );
-
+            estambre.appendChild(antera);
+            cabeza.appendChild(estambre);
         }
 
 
@@ -418,7 +354,6 @@ const Flores = {
 
 
         return flor;
-
     },
 
 
@@ -448,7 +383,6 @@ const Flores = {
 
 
         const ramas = [
-
             { left: 150, top: 140, rotate: -52, height: 120 },
             { left: 150, top: 132, rotate: -40, height: 138 },
             { left: 150, top: 125, rotate: -28, height: 150 },
@@ -459,7 +393,6 @@ const Flores = {
             { left: 150, top: 124, rotate: 30, height: 152 },
             { left: 150, top: 132, rotate: 42, height: 140 },
             { left: 150, top: 140, rotate: 54, height: 122 }
-
         ];
 
 
@@ -472,27 +405,19 @@ const Flores = {
                 rama.className =
                     "nube-rama";
 
-
                 rama.style.left =
                     datos.left + "px";
-
 
                 rama.style.top =
                     datos.top + "px";
 
-
                 rama.style.height =
                     datos.height + "px";
-
 
                 rama.style.transform =
                     `rotate(${datos.rotate}deg)`;
 
-
-                flor.appendChild(
-                    rama
-                );
-
+                flor.appendChild(rama);
             }
         );
 
@@ -517,20 +442,16 @@ const Flores = {
             envoltura.className =
                 "nube-florecita-wrap";
 
-
             envoltura.style.left =
                 x + "px";
 
-
             envoltura.style.top =
                 y + "px";
-
 
             envoltura.style.setProperty(
                 "--escala",
                 escala
             );
-
 
             envoltura.style.setProperty(
                 "--delay",
@@ -546,8 +467,8 @@ const Flores = {
 
 
             for (
-                let p = 0;
-                p < 5;
+                let p = 1;
+                p <= 5;
                 p++
             ) {
 
@@ -555,12 +476,9 @@ const Flores = {
                     document.createElement("span");
 
                 petalo.className =
-                    `nube-petalo nube-petalo-${p + 1}`;
+                    `nube-petalo nube-petalo-${p}`;
 
-                florecita.appendChild(
-                    petalo
-                );
-
+                florecita.appendChild(petalo);
             }
 
 
@@ -570,21 +488,11 @@ const Flores = {
             centro.className =
                 "nube-centro";
 
+            florecita.appendChild(centro);
 
-            florecita.appendChild(
-                centro
-            );
+            envoltura.appendChild(florecita);
 
-
-            envoltura.appendChild(
-                florecita
-            );
-
-
-            ramo.appendChild(
-                envoltura
-            );
-
+            ramo.appendChild(envoltura);
         }
 
 
@@ -628,7 +536,7 @@ const Flores = {
                 cy: 160,
                 rx: 52,
                 ry: 20,
-                start: 3.0,
+                start: 3,
                 end: 6.12,
                 count: 15,
                 baseScale: 0.78
@@ -644,7 +552,6 @@ const Flores = {
                 count: 14,
                 baseScale: 0.72
             }
-
         ];
 
 
@@ -670,7 +577,8 @@ const Flores = {
                         (
                             curva.end -
                             curva.start
-                        ) * t;
+                        ) *
+                        t;
 
 
                     let x =
@@ -686,7 +594,7 @@ const Flores = {
 
 
                     x +=
-                        (i % 2 === 0)
+                        i % 2 === 0
                             ? -3
                             : 3;
 
@@ -701,50 +609,42 @@ const Flores = {
                         0.06;
 
 
-                    const delay =
-                        `${-(contadorDelay % 9) * 0.16}s`;
-
-
                     agregarFlorecita(
                         x,
                         y,
                         escala,
-                        delay
+                        `${-(contadorDelay % 9) * 0.16}s`
                     );
 
 
                     contadorDelay++;
-
                 }
-
             }
         );
 
 
         const relleno = [
-
-            [78, 120, 0.68],
-            [95, 112, 0.72],
-            [109, 122, 0.76],
-            [126, 112, 0.74],
-            [141, 124, 0.79],
-            [154, 116, 0.75],
-            [171, 108, 0.78],
-            [186, 119, 0.72],
-            [201, 112, 0.74],
-            [217, 121, 0.70],
-            [232, 130, 0.68],
-            [114, 153, 0.72],
-            [132, 144, 0.76],
-            [149, 151, 0.80],
-            [166, 145, 0.78],
-            [184, 151, 0.76],
-            [200, 160, 0.72],
-            [101, 166, 0.66],
-            [214, 146, 0.66],
-            [153, 98, 0.68],
-            [167, 96, 0.66]
-
+            [78, 120, .68],
+            [95, 112, .72],
+            [109, 122, .76],
+            [126, 112, .74],
+            [141, 124, .79],
+            [154, 116, .75],
+            [171, 108, .78],
+            [186, 119, .72],
+            [201, 112, .74],
+            [217, 121, .70],
+            [232, 130, .68],
+            [114, 153, .72],
+            [132, 144, .76],
+            [149, 151, .80],
+            [166, 145, .78],
+            [184, 151, .76],
+            [200, 160, .72],
+            [101, 166, .66],
+            [214, 146, .66],
+            [153, 98, .68],
+            [167, 96, .66]
         ];
 
 
@@ -762,9 +662,7 @@ const Flores = {
         );
 
 
-        flor.appendChild(
-            ramo
-        );
+        flor.appendChild(ramo);
 
 
         const hoja1 =
@@ -786,7 +684,6 @@ const Flores = {
 
 
         return flor;
-
     },
 
 
@@ -834,8 +731,7 @@ const Flores = {
 
 
                 const angulo =
-                    (360 / cantidad) *
-                    i;
+                    (360 / cantidad) * i;
 
 
                 envoltura.style.setProperty(
@@ -843,18 +739,15 @@ const Flores = {
                     `${angulo}deg`
                 );
 
-
                 envoltura.style.setProperty(
                     "--radio",
                     `${radio}px`
                 );
 
-
                 envoltura.style.setProperty(
                     "--escala",
                     escala
                 );
-
 
                 envoltura.style.setProperty(
                     "--delay",
@@ -869,17 +762,9 @@ const Flores = {
                     "peonia-petalo";
 
 
-                envoltura.appendChild(
-                    petalo
-                );
-
-
-                cabeza.appendChild(
-                    envoltura
-                );
-
+                envoltura.appendChild(petalo);
+                cabeza.appendChild(envoltura);
             }
-
         }
 
 
@@ -890,19 +775,17 @@ const Flores = {
             "peonia-capa-externa"
         );
 
-
         crearCapa(
             12,
             29,
-            0.86,
+            .86,
             "peonia-capa-media"
         );
-
 
         crearCapa(
             9,
             14,
-            0.70,
+            .70,
             "peonia-capa-interna"
         );
 
@@ -920,27 +803,20 @@ const Flores = {
             i++
         ) {
 
-            const petaloCentro =
+            const petalo =
                 document.createElement("span");
 
-            petaloCentro.className =
+            petalo.className =
                 "peonia-centro-petalo";
 
-
-            petaloCentro.style.transform =
+            petalo.style.transform =
                 `rotate(${i * 45}deg)`;
 
-
-            centro.appendChild(
-                petaloCentro
-            );
-
+            centro.appendChild(petalo);
         }
 
 
-        cabeza.appendChild(
-            centro
-        );
+        cabeza.appendChild(centro);
 
 
         const tallo =
@@ -971,15 +847,13 @@ const Flores = {
 
 
         return flor;
-
     },
 
 
 
     /*
     =========================================
-        CAMELIA ROJA
-        NUEVA VERSIÓN
+            CAMELIA ROJA
     =========================================
     */
 
@@ -992,25 +866,12 @@ const Flores = {
             "camelia";
 
 
-        /*
-        =====================================
-            CABEZA
-        =====================================
-        */
-
         const cabeza =
             document.createElement("div");
 
         cabeza.className =
             "camelia-cabeza";
 
-
-        /*
-        =====================================
-            PÉTALOS EXTERIORES
-            8 pétalos grandes
-        =====================================
-        */
 
         for (
             let i = 1;
@@ -1024,26 +885,14 @@ const Flores = {
             petalo.className =
                 `camelia-petalo camelia-petalo-exterior camelia-exterior-${i}`;
 
-
             petalo.style.setProperty(
                 "--delay",
-                `${-(i * 0.17)}s`
+                `${-(i * .17)}s`
             );
 
-
-            cabeza.appendChild(
-                petalo
-            );
-
+            cabeza.appendChild(petalo);
         }
 
-
-        /*
-        =====================================
-            PÉTALOS INTERIORES
-            6 pétalos más pequeños
-        =====================================
-        */
 
         for (
             let i = 1;
@@ -1057,25 +906,14 @@ const Flores = {
             petalo.className =
                 `camelia-petalo camelia-petalo-interior camelia-interior-${i}`;
 
-
             petalo.style.setProperty(
                 "--delay",
-                `${-(i * 0.21)}s`
+                `${-(i * .21)}s`
             );
 
-
-            cabeza.appendChild(
-                petalo
-            );
-
+            cabeza.appendChild(petalo);
         }
 
-
-        /*
-        =====================================
-            CENTRO AMARILLO
-        =====================================
-        */
 
         const centro =
             document.createElement("div");
@@ -1083,12 +921,6 @@ const Flores = {
         centro.className =
             "camelia-centro";
 
-
-        /*
-        =====================================
-            ESTAMBRES
-        =====================================
-        */
 
         for (
             let i = 0;
@@ -1133,34 +965,16 @@ const Flores = {
             estambre.style.left =
                 x + "px";
 
-
             estambre.style.top =
                 y + "px";
 
 
-            estambre.style.setProperty(
-                "--delay",
-                `${-(i % 7) * 0.12}s`
-            );
-
-
-            centro.appendChild(
-                estambre
-            );
-
+            centro.appendChild(estambre);
         }
 
 
-        cabeza.appendChild(
-            centro
-        );
+        cabeza.appendChild(centro);
 
-
-        /*
-        =====================================
-            TALLO
-        =====================================
-        */
 
         const tallo =
             document.createElement("div");
@@ -1168,12 +982,6 @@ const Flores = {
         tallo.className =
             "camelia-tallo";
 
-
-        /*
-        =====================================
-            HOJAS
-        =====================================
-        */
 
         const hojaIzquierda =
             document.createElement("div");
@@ -1189,9 +997,302 @@ const Flores = {
             "camelia-hoja camelia-hoja-derecha";
 
 
+        flor.appendChild(tallo);
+        flor.appendChild(hojaIzquierda);
+        flor.appendChild(hojaDerecha);
+        flor.appendChild(cabeza);
+
+
+        return flor;
+    },
+
+
+
+    /*
+    =========================================
+            JAZMÍN BLANCO
+    =========================================
+    */
+
+    jazmin: function () {
+
+        const flor =
+            document.createElement("div");
+
+        flor.className =
+            "jazmin";
+
+
+        /*
+        =====================================
+            TALLO
+        =====================================
+        */
+
+        const tallo =
+            document.createElement("div");
+
+        tallo.className =
+            "jazmin-tallo";
+
+        flor.appendChild(tallo);
+
+
+        /*
+        =====================================
+            FLOR PRINCIPAL
+        =====================================
+        */
+
+        const cabeza =
+            document.createElement("div");
+
+        cabeza.className =
+            "jazmin-cabeza";
+
+
+        for (
+            let i = 1;
+            i <= 8;
+            i++
+        ) {
+
+            const petalo =
+                document.createElement("span");
+
+            petalo.className =
+                `jazmin-petalo jazmin-petalo-${i}`;
+
+            cabeza.appendChild(petalo);
+        }
+
+
+        /*
+        =====================================
+            CENTRO
+        =====================================
+        */
+
+        const centro =
+            document.createElement("div");
+
+        centro.className =
+            "jazmin-centro";
+
+
+        for (
+            let i = 0;
+            i < 22;
+            i++
+        ) {
+
+            const estambre =
+                document.createElement("span");
+
+            estambre.className =
+                "jazmin-estambre";
+
+
+            const angulo =
+                i * 137.5;
+
+
+            const radio =
+                2.1 *
+                Math.sqrt(i);
+
+
+            const radianes =
+                angulo *
+                Math.PI /
+                180;
+
+
+            const x =
+                18 +
+                Math.cos(radianes) *
+                radio;
+
+
+            const y =
+                18 +
+                Math.sin(radianes) *
+                radio;
+
+
+            estambre.style.left =
+                x + "px";
+
+            estambre.style.top =
+                y + "px";
+
+
+            centro.appendChild(estambre);
+        }
+
+
+        cabeza.appendChild(centro);
+
+        flor.appendChild(cabeza);
+
+
+        /*
+        =====================================
+            RAMA IZQUIERDA
+        =====================================
+        */
+
+        const ramaIzquierda =
+            document.createElement("div");
+
+        ramaIzquierda.className =
+            "jazmin-rama jazmin-rama-izquierda";
+
+        flor.appendChild(ramaIzquierda);
+
+
+        /*
+        =====================================
+            BOTÓN IZQUIERDO
+        =====================================
+        */
+
+        const botonIzquierdo =
+            document.createElement("div");
+
+        botonIzquierdo.className =
+            "jazmin-boton jazmin-boton-izquierdo";
+
+
+        for (
+            let i = 1;
+            i <= 3;
+            i++
+        ) {
+
+            const petalo =
+                document.createElement("span");
+
+            petalo.className =
+                `jazmin-boton-petalo jazmin-boton-petalo-${i}`;
+
+            botonIzquierdo.appendChild(
+                petalo
+            );
+        }
+
+
         flor.appendChild(
-            tallo
+            botonIzquierdo
         );
+
+
+        /*
+        =====================================
+            RAMA DERECHA
+        =====================================
+        */
+
+        const ramaDerecha =
+            document.createElement("div");
+
+        ramaDerecha.className =
+            "jazmin-rama jazmin-rama-derecha";
+
+        flor.appendChild(ramaDerecha);
+
+
+        /*
+        =====================================
+            BOTÓN DERECHO
+        =====================================
+        */
+
+        const botonDerecho =
+            document.createElement("div");
+
+        botonDerecho.className =
+            "jazmin-boton jazmin-boton-derecho";
+
+
+        for (
+            let i = 1;
+            i <= 3;
+            i++
+        ) {
+
+            const petalo =
+                document.createElement("span");
+
+            petalo.className =
+                `jazmin-boton-petalo jazmin-boton-petalo-${i}`;
+
+            botonDerecho.appendChild(
+                petalo
+            );
+        }
+
+
+        flor.appendChild(
+            botonDerecho
+        );
+
+
+        /*
+        =====================================
+            BOTÓN CENTRAL
+        =====================================
+        */
+
+        const botonCentro =
+            document.createElement("div");
+
+        botonCentro.className =
+            "jazmin-boton jazmin-boton-centro";
+
+
+        for (
+            let i = 1;
+            i <= 3;
+            i++
+        ) {
+
+            const petalo =
+                document.createElement("span");
+
+            petalo.className =
+                `jazmin-boton-petalo jazmin-boton-petalo-${i}`;
+
+            botonCentro.appendChild(
+                petalo
+            );
+        }
+
+
+        flor.appendChild(
+            botonCentro
+        );
+
+
+        /*
+        =====================================
+            HOJAS
+        =====================================
+        */
+
+        const hojaIzquierda =
+            document.createElement("div");
+
+        hojaIzquierda.className =
+            "jazmin-hoja jazmin-hoja-izquierda";
+
+
+        const hojaDerecha =
+            document.createElement("div");
+
+        hojaDerecha.className =
+            "jazmin-hoja jazmin-hoja-derecha";
+
 
         flor.appendChild(
             hojaIzquierda
@@ -1201,13 +1302,8 @@ const Flores = {
             hojaDerecha
         );
 
-        flor.appendChild(
-            cabeza
-        );
-
 
         return flor;
-
     }
 
 };

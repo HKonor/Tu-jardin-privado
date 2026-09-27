@@ -1,10 +1,65 @@
-const jardin =
+const contenedorFlores =
     document.getElementById("contenedor-flores");
+
+const jardin =
+    document.querySelector(".jardin") ||
+    contenedorFlores.parentElement;
 
 
 /*
 =========================================
-    CREAR TARJETA DE CADA FLOR
+    BLOQUE DE PLAYLIST
+=========================================
+*/
+
+function crearBloquePlaylist(config) {
+
+    const bloque =
+        document.createElement("section");
+
+    bloque.className =
+        "bloque-playlist";
+
+
+    const texto =
+        document.createElement("p");
+
+    texto.className =
+        "texto-playlist";
+
+    texto.textContent =
+        config.texto;
+
+
+    const boton =
+        document.createElement("a");
+
+    boton.className =
+        "boton-playlist";
+
+    boton.href =
+        config.link;
+
+    boton.target =
+        "_blank";
+
+    boton.rel =
+        "noopener noreferrer";
+
+    boton.textContent =
+        config.textoBoton;
+
+
+    bloque.appendChild(texto);
+    bloque.appendChild(boton);
+
+    return bloque;
+}
+
+
+/*
+=========================================
+    CREAR TARJETA DE FLOR
 =========================================
 */
 
@@ -46,7 +101,6 @@ function crearTarjetaFlor(config) {
         console.error(
             `La flor "${config.tipo}" no existe.`
         );
-
     }
 
 
@@ -85,10 +139,9 @@ function crearTarjetaFlor(config) {
 
         boton.textContent =
             config.textoBoton ||
-            "♪ Escuchar canción";
+            "Escuchar canción";
 
         nota.appendChild(boton);
-
     }
 
 
@@ -99,6 +152,24 @@ function crearTarjetaFlor(config) {
     return tarjeta;
 }
 
+
+/*
+=========================================
+    PLAYLIST
+=========================================
+*/
+
+const datosPlaylist = {
+
+    texto:
+        "Todas las canciones que acompañan este pequeño jardín están reunidas aquí.",
+
+    textoBoton:
+        "Abrir playlist en Spotify",
+
+    link:
+        "https://open.spotify.com/playlist/6XCeXM270zHmOE1vY9MeXA?si=wHKqXyp-SyKISRnlus0oMQ&utm_source=whatsapp&pi=wjAzlEK-QASgo"
+};
 
 
 /*
@@ -197,10 +268,42 @@ const floresDelJardin = [
 
         textoBoton:
             "♪ NADIE MÁS!"
+    },
+
+    {
+        tipo: "jazmin",
+
+        titulo:
+            "Jazmín blanco 🤍",
+
+        mensaje:
+            "Hay flores cuyo aroma parece quedarse incluso cuando ya no están cerca. Tal vez algunas presencias funcionan de la misma manera. 🤍",
+
+        linkCancion:
+            "https://www.youtube.com/watch?v=PSjeJrDI4a4",
+
+        textoBoton:
+            "♪ Cómo dormiste"
     }
 
 ];
 
+
+/*
+=========================================
+    INSERTAR PLAYLIST
+=========================================
+*/
+
+const bloquePlaylist =
+    crearBloquePlaylist(
+        datosPlaylist
+    );
+
+jardin.insertBefore(
+    bloquePlaylist,
+    contenedorFlores
+);
 
 
 /*
@@ -212,7 +315,7 @@ const floresDelJardin = [
 floresDelJardin.forEach(
     (flor) => {
 
-        jardin.appendChild(
+        contenedorFlores.appendChild(
             crearTarjetaFlor(flor)
         );
 

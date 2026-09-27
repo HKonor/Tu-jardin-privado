@@ -50,8 +50,11 @@
         );
 
     box-shadow:
-        inset 0 0 10px rgba(255, 255, 255, .25),
-        0 3px 7px rgba(0, 0, 0, .15);
+        inset 0 0 10px
+        rgba(255,255,255,.25),
+
+        0 3px 7px
+        rgba(0,0,0,.15);
 }
 
 
@@ -64,16 +67,18 @@
     left: 62px;
     top: 63px;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    z-index: 20;
+    z-index:
+        20;
 
     background:
         radial-gradient(
             circle,
-            #8c5a25 0%,
-            #613614 45%,
-            #351b0a 100%
+            #8c5a25,
+            #613614,
+            #351b0a
         );
 }
 
@@ -84,9 +89,11 @@
     width: 4px;
     height: 4px;
 
-    background: #c58b3c;
+    background:
+        #c58b3c;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 }
 
 
@@ -99,7 +106,8 @@
     left: 133px;
     top: 170px;
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
     background:
         linear-gradient(
@@ -109,7 +117,8 @@
             #245a2d
         );
 
-    z-index: -1;
+    z-index:
+        -1;
 }
 
 
@@ -129,13 +138,17 @@
     border-radius:
         100% 0 100% 0;
 
-    z-index: 2;
+    z-index:
+        2;
 }
 
 
 .hoja-izquierda {
-    top: 245px;
-    left: 55px;
+    top:
+        245px;
+
+    left:
+        55px;
 
     transform:
         rotate(15deg);
@@ -143,8 +156,11 @@
 
 
 .hoja-derecha {
-    top: 285px;
-    left: 140px;
+    top:
+        285px;
+
+    left:
+        140px;
 
     transform:
         rotate(-15deg)
@@ -167,7 +183,8 @@
 
     animation:
         crecer 1.8s ease,
-        movimiento-tulipan 4.8s ease-in-out infinite;
+        movimiento-tulipan
+        4.8s ease-in-out infinite;
 }
 
 
@@ -199,8 +216,11 @@
         );
 
     box-shadow:
-        inset 0 0 10px rgba(255, 255, 255, .22),
-        0 4px 10px rgba(85, 23, 105, .18);
+        inset 0 0 10px
+        rgba(255,255,255,.22),
+
+        0 4px 10px
+        rgba(85,23,105,.18);
 }
 
 
@@ -212,7 +232,8 @@
     bottom: 22px;
 
     animation:
-        petalo-izq 3.1s ease-in-out infinite;
+        petalo-izq
+        3.1s ease-in-out infinite;
 }
 
 
@@ -224,7 +245,8 @@
     bottom: 22px;
 
     animation:
-        petalo-der 3.2s ease-in-out infinite;
+        petalo-der
+        3.2s ease-in-out infinite;
 }
 
 
@@ -236,7 +258,8 @@
     bottom: 28px;
 
     animation:
-        petalo-centro-izq 3.3s ease-in-out infinite;
+        petalo-centro-izq
+        3.3s ease-in-out infinite;
 }
 
 
@@ -248,7 +271,8 @@
     bottom: 28px;
 
     animation:
-        petalo-centro-der 3.4s ease-in-out infinite;
+        petalo-centro-der
+        3.4s ease-in-out infinite;
 }
 
 
@@ -270,7 +294,8 @@
         );
 
     animation:
-        petalo-frontal 3.5s ease-in-out infinite;
+        petalo-frontal
+        3.5s ease-in-out infinite;
 }
 
 
@@ -280,18 +305,21 @@
     width: 2px;
     height: 55px;
 
-    background:
-        rgba(126, 45, 160, .28);
-
     top: 34px;
+
+    background:
+        rgba(
+            126,
+            45,
+            160,
+            .28
+        );
 }
 
 
 .vena-1 {
     left: 26px;
-
-    transform:
-        rotate(-6deg);
+    transform: rotate(-6deg);
 }
 
 
@@ -302,9 +330,7 @@
 
 .vena-3 {
     left: 45px;
-
-    transform:
-        rotate(6deg);
+    transform: rotate(6deg);
 }
 
 
@@ -328,7 +354,8 @@
             #5e8f18
         );
 
-    z-index: -1;
+    z-index:
+        -1;
 }
 
 
@@ -400,7 +427,8 @@
 
     animation:
         crecer 1.8s ease,
-        lirio-balanceo 5s ease-in-out infinite;
+        lirio-balanceo
+        5s ease-in-out infinite;
 }
 
 
@@ -458,8 +486,8 @@
     background:
         linear-gradient(
             to top,
-            rgba(70, 100, 35, .82),
-            rgba(187, 178, 62, .58),
+            rgba(70,100,35,.82),
+            rgba(187,178,62,.58),
             transparent
         );
 }
@@ -467,37 +495,43 @@
 
 .lirio-petalo-1 {
     animation:
-        lirio-petalo-arriba 4s ease-in-out infinite;
+        lirio-petalo-arriba
+        4s ease-in-out infinite;
 }
 
 
 .lirio-petalo-2 {
     animation:
-        lirio-petalo-izq 4.3s ease-in-out infinite;
+        lirio-petalo-izq
+        4.3s ease-in-out infinite;
 }
 
 
 .lirio-petalo-3 {
     animation:
-        lirio-petalo-der 4.2s ease-in-out infinite;
+        lirio-petalo-der
+        4.2s ease-in-out infinite;
 }
 
 
 .lirio-petalo-4 {
     animation:
-        lirio-petalo-abajo-izq 4.4s ease-in-out infinite;
+        lirio-petalo-abajo-izq
+        4.4s ease-in-out infinite;
 }
 
 
 .lirio-petalo-5 {
     animation:
-        lirio-petalo-abajo-der 4.5s ease-in-out infinite;
+        lirio-petalo-abajo-der
+        4.5s ease-in-out infinite;
 }
 
 
 .lirio-petalo-6 {
     animation:
-        lirio-petalo-frontal 4.1s ease-in-out infinite;
+        lirio-petalo-frontal
+        4.1s ease-in-out infinite;
 }
 
 
@@ -521,7 +555,8 @@
             transparent
         );
 
-    z-index: 8;
+    z-index:
+        8;
 }
 
 
@@ -534,9 +569,11 @@
     left: 133px;
     top: 45px;
 
-    background: #8ca044;
+    background:
+        #8ca044;
 
-    z-index: 10;
+    z-index:
+        10;
 }
 
 
@@ -549,12 +586,14 @@
     top: 65px;
     left: 134px;
 
-    background: #91a145;
+    background:
+        #91a145;
 
     transform-origin:
         bottom center;
 
-    z-index: 9;
+    z-index:
+        9;
 }
 
 
@@ -567,9 +606,11 @@
     left: -5px;
     top: -3px;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    background: #c89a29;
+    background:
+        #c89a29;
 }
 
 
@@ -577,26 +618,21 @@
     transform: rotate(-30deg);
 }
 
-
 .lirio-estambre-2 {
     transform: rotate(-18deg);
 }
-
 
 .lirio-estambre-3 {
     transform: rotate(-7deg);
 }
 
-
 .lirio-estambre-4 {
     transform: rotate(10deg);
 }
 
-
 .lirio-estambre-5 {
     transform: rotate(22deg);
 }
-
 
 .lirio-estambre-6 {
     transform: rotate(34deg);
@@ -625,7 +661,8 @@
 .lirio-hoja {
     position: absolute;
 
-    background: #537c3d;
+    background:
+        #537c3d;
 }
 
 
@@ -684,7 +721,8 @@
 
     animation:
         crecer 1.8s ease,
-        nube-balanceo 5.5s ease-in-out infinite;
+        nube-balanceo
+        5.5s ease-in-out infinite;
 }
 
 
@@ -697,7 +735,8 @@
     top: 10px;
     left: 0;
 
-    z-index: 5;
+    z-index:
+        5;
 }
 
 
@@ -710,9 +749,11 @@
     left: 151px;
     top: 136px;
 
-    background: #55784c;
+    border-radius:
+        10px;
 
-    border-radius: 10px;
+    background:
+        #55784c;
 }
 
 
@@ -721,7 +762,8 @@
 
     width: 3px;
 
-    background: #698861;
+    background:
+        #698861;
 
     transform-origin:
         bottom center;
@@ -764,7 +806,8 @@
     left: 9px;
     top: 9px;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     background:
         radial-gradient(
@@ -776,32 +819,23 @@
 
 
 .nube-petalo-1 {
-    transform:
-        translateY(-8px);
+    transform: translateY(-8px);
 }
-
 
 .nube-petalo-2 {
-    transform:
-        translate(8px, -2px);
+    transform: translate(8px,-2px);
 }
-
 
 .nube-petalo-3 {
-    transform:
-        translate(5px, 7px);
+    transform: translate(5px,7px);
 }
-
 
 .nube-petalo-4 {
-    transform:
-        translate(-5px, 7px);
+    transform: translate(-5px,7px);
 }
 
-
 .nube-petalo-5 {
-    transform:
-        translate(-8px, -2px);
+    transform: translate(-8px,-2px);
 }
 
 
@@ -814,9 +848,11 @@
     left: 12px;
     top: 12px;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    background: #ddd08a;
+    background:
+        #ddd08a;
 }
 
 
@@ -826,7 +862,8 @@
     width: 42px;
     height: 78px;
 
-    background: #55764a;
+    background:
+        #55764a;
 }
 
 
@@ -857,7 +894,7 @@
 
 /*
 =========================================
-            PEONÍA ROSA
+            PEONÍA
 =========================================
 */
 
@@ -869,10 +906,8 @@
 
     animation:
         crecer 1.8s ease,
-        peonia-balanceo 5s ease-in-out infinite;
-
-    transform-origin:
-        center bottom;
+        peonia-balanceo
+        5s ease-in-out infinite;
 }
 
 
@@ -884,8 +919,6 @@
 
     left: 30px;
     top: 0;
-
-    z-index: 5;
 }
 
 
@@ -912,37 +945,24 @@
     width: 60px;
     height: 82px;
 
-    left: 0;
-    top: 0;
+    transform:
+        translateY(
+            calc(-1 * var(--radio))
+        )
+        scale(var(--escala));
 
     border-radius:
         55% 55% 45% 45%
         / 66% 66% 40% 40%;
 
-    transform:
-        translateY(
-            calc(-1 * var(--radio))
-        )
-        scale(
-            var(--escala)
-        );
-
-    transform-origin:
-        center bottom;
-
     background:
         radial-gradient(
             ellipse at 48% 75%,
-            #b93f70 0%,
-            #dd7098 38%,
-            #ef9eb9 70%,
-            #f7bdcd 100%
+            #b93f70,
+            #dd7098,
+            #ef9eb9,
+            #f7bdcd
         );
-
-    box-shadow:
-        inset 0 5px 8px rgba(255, 255, 255, .28),
-        inset 0 -8px 10px rgba(129, 36, 72, .16),
-        0 3px 6px rgba(100, 30, 55, .12);
 
     animation:
         peonia-petalo-movimiento
@@ -950,51 +970,6 @@
 
     animation-delay:
         var(--delay);
-}
-
-
-.peonia-capa-externa
-.peonia-petalo {
-    width: 64px;
-    height: 88px;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 80%,
-            #bb426f 0%,
-            #dc7197 42%,
-            #efa1ba 75%,
-            #f8c2d0 100%
-        );
-}
-
-
-.peonia-capa-media
-.peonia-petalo {
-    background:
-        radial-gradient(
-            ellipse at 50% 80%,
-            #a93464 0%,
-            #d85e8b 40%,
-            #ec8fae 72%,
-            #f5b4c8 100%
-        );
-}
-
-
-.peonia-capa-interna
-.peonia-petalo {
-    width: 54px;
-    height: 74px;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 75%,
-            #962c59 0%,
-            #c94b78 43%,
-            #e5779c 76%,
-            #efa2b9 100%
-        );
 }
 
 
@@ -1006,8 +981,6 @@
 
     left: 83px;
     top: 83px;
-
-    z-index: 20;
 }
 
 
@@ -1020,15 +993,14 @@
     left: 19px;
     top: 1px;
 
-    border-radius:
-        60% 60% 40% 40%;
-
     transform-origin:
         13px 31px;
 
+    border-radius:
+        60% 60% 40% 40%;
+
     background:
         linear-gradient(
-            to bottom,
             #ed93b0,
             #c44773
         );
@@ -1044,7 +1016,8 @@
     left: 139px;
     top: 165px;
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
     background:
         linear-gradient(
@@ -1060,12 +1033,7 @@
     position: absolute;
 
     background:
-        linear-gradient(
-            135deg,
-            #315c35,
-            #6d954f,
-            #3f6a3a
-        );
+        #4e7741;
 }
 
 
@@ -1124,7 +1092,7 @@
 
 /*
 =========================================
-        CAMELIA ROJA NUEVA
+            CAMELIA
 =========================================
 */
 
@@ -1138,9 +1106,6 @@
         crecer 1.8s ease,
         camelia-balanceo
         5.2s ease-in-out infinite;
-
-    transform-origin:
-        center bottom;
 }
 
 
@@ -1152,17 +1117,8 @@
 
     left: 22px;
     top: 2px;
-
-    z-index: 5;
 }
 
-
-
-/*
-=========================================
-        PÉTALOS GENERALES
-=========================================
-*/
 
 .camelia-petalo {
     position: absolute;
@@ -1170,32 +1126,17 @@
     background:
         radial-gradient(
             ellipse at 50% 78%,
-            #7d142b 0%,
-            #aa203c 34%,
-            #cf3d58 68%,
-            #eb7486 100%
+            #7d142b,
+            #aa203c,
+            #cf3d58,
+            #eb7486
         );
-
-    box-shadow:
-        inset 0 8px 13px rgba(255,255,255,.16),
-        inset 0 -9px 14px rgba(84,8,28,.18),
-        0 4px 7px rgba(82,18,34,.13);
 
     animation:
         camelia-petalo-respirar
         4s ease-in-out infinite;
-
-    animation-delay:
-        var(--delay);
 }
 
-
-
-/*
-=========================================
-        PÉTALOS EXTERIORES
-=========================================
-*/
 
 .camelia-petalo-exterior {
     width: 105px;
@@ -1204,8 +1145,6 @@
     border-radius:
         58% 51% 49% 56%
         / 68% 64% 42% 45%;
-
-    z-index: 2;
 }
 
 
@@ -1214,10 +1153,8 @@
     top: 0;
 
     transform:
-        rotate(-2deg)
-        scaleX(1.03);
+        rotate(-2deg);
 }
-
 
 .camelia-exterior-2 {
     left: 126px;
@@ -1227,16 +1164,13 @@
         rotate(43deg);
 }
 
-
 .camelia-exterior-3 {
     left: 137px;
     top: 79px;
 
     transform:
-        rotate(87deg)
-        scaleX(.98);
+        rotate(87deg);
 }
-
 
 .camelia-exterior-4 {
     left: 111px;
@@ -1246,16 +1180,13 @@
         rotate(135deg);
 }
 
-
 .camelia-exterior-5 {
     left: 65px;
     top: 135px;
 
     transform:
-        rotate(181deg)
-        scaleX(1.02);
+        rotate(181deg);
 }
-
 
 .camelia-exterior-6 {
     left: 17px;
@@ -1265,7 +1196,6 @@
         rotate(225deg);
 }
 
-
 .camelia-exterior-7 {
     left: 0;
     top: 63px;
@@ -1273,7 +1203,6 @@
     transform:
         rotate(271deg);
 }
-
 
 .camelia-exterior-8 {
     left: 19px;
@@ -1284,30 +1213,24 @@
 }
 
 
-
-/*
-=========================================
-        PÉTALOS INTERIORES
-=========================================
-*/
-
 .camelia-petalo-interior {
     width: 82px;
     height: 72px;
+
+    z-index:
+        8;
 
     border-radius:
         60% 54% 48% 58%
         / 70% 65% 42% 48%;
 
-    z-index: 8;
-
     background:
         radial-gradient(
             ellipse at 50% 80%,
-            #6f0d25 0%,
-            #9a1934 35%,
-            #c5324e 70%,
-            #e66277 100%
+            #6f0d25,
+            #9a1934,
+            #c5324e,
+            #e66277
         );
 }
 
@@ -1315,117 +1238,39 @@
 .camelia-interior-1 {
     left: 80px;
     top: 44px;
-
-    transform:
-        rotate(-7deg);
+    transform: rotate(-7deg);
 }
-
 
 .camelia-interior-2 {
     left: 116px;
     top: 67px;
-
-    transform:
-        rotate(53deg);
+    transform: rotate(53deg);
 }
-
 
 .camelia-interior-3 {
     left: 112px;
     top: 108px;
-
-    transform:
-        rotate(115deg);
+    transform: rotate(115deg);
 }
-
 
 .camelia-interior-4 {
     left: 72px;
     top: 118px;
-
-    transform:
-        rotate(177deg);
+    transform: rotate(177deg);
 }
-
 
 .camelia-interior-5 {
     left: 43px;
     top: 90px;
-
-    transform:
-        rotate(238deg);
+    transform: rotate(238deg);
 }
-
 
 .camelia-interior-6 {
     left: 46px;
     top: 50px;
-
-    transform:
-        rotate(298deg);
+    transform: rotate(298deg);
 }
 
-
-
-/*
-=========================================
-        TEXTURA DE PÉTALOS
-=========================================
-*/
-
-.camelia-petalo::before {
-    content: "";
-
-    position: absolute;
-
-    width: 48%;
-    height: 46%;
-
-    left: 26%;
-    top: 8%;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(255, 180, 190, .22),
-            transparent 72%
-        );
-}
-
-
-.camelia-petalo::after {
-    content: "";
-
-    position: absolute;
-
-    width: 2px;
-    height: 48%;
-
-    left: 50%;
-    bottom: 6%;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(94, 4, 28, .18),
-            transparent
-        );
-
-    border-radius: 50%;
-}
-
-
-
-/*
-=========================================
-        CENTRO AMARILLO PEQUEÑO
-=========================================
-*/
 
 .camelia-centro {
     position: absolute;
@@ -1436,32 +1281,23 @@
     left: 98px;
     top: 89px;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    z-index: 25;
+    z-index:
+        25;
 
     background:
         radial-gradient(
             circle,
-            #8f6514 0%,
-            #c89120 24%,
-            #e4b938 48%,
-            #f1d15e 68%,
-            #b77f17 100%
+            #8f6514,
+            #c89120,
+            #e4b938,
+            #f1d15e,
+            #b77f17
         );
-
-    box-shadow:
-        inset 0 0 9px rgba(112, 68, 5, .38),
-        0 2px 6px rgba(75, 25, 20, .18);
 }
 
-
-
-/*
-=========================================
-        ESTAMBRES
-=========================================
-*/
 
 .camelia-estambre {
     position: absolute;
@@ -1469,49 +1305,13 @@
     width: 3px;
     height: 8px;
 
-    border-radius: 10px;
+    border-radius:
+        10px;
 
     background:
-        linear-gradient(
-            to bottom,
-            #fff0a4,
-            #e0ad33,
-            #9b6810
-        );
-
-    animation:
-        camelia-estambre-movimiento
-        3.1s ease-in-out infinite;
-
-    animation-delay:
-        var(--delay);
+        #f0c54b;
 }
 
-
-.camelia-estambre::after {
-    content: "";
-
-    position: absolute;
-
-    width: 5px;
-    height: 4px;
-
-    top: -2px;
-    left: -1px;
-
-    border-radius: 50%;
-
-    background:
-        #e9bd3f;
-}
-
-
-
-/*
-=========================================
-        TALLO
-=========================================
-*/
 
 .camelia-tallo {
     position: absolute;
@@ -1522,7 +1322,8 @@
     left: 139px;
     top: 166px;
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
     background:
         linear-gradient(
@@ -1531,17 +1332,8 @@
             #46734a,
             #1a4729
         );
-
-    z-index: 0;
 }
 
-
-
-/*
-=========================================
-        HOJAS
-=========================================
-*/
 
 .camelia-hoja {
     position: absolute;
@@ -1549,36 +1341,14 @@
     width: 105px;
     height: 64px;
 
-    z-index: 2;
-
     background:
         linear-gradient(
             145deg,
-            #123622 0%,
-            #245937 35%,
-            #4c7a4a 70%,
-            #1e4a2c 100%
+            #123622,
+            #245937,
+            #4c7a4a,
+            #1e4a2c
         );
-
-    box-shadow:
-        inset 0 5px 8px rgba(255,255,255,.09),
-        0 3px 6px rgba(25,55,25,.16);
-}
-
-
-.camelia-hoja::before {
-    content: "";
-
-    position: absolute;
-
-    width: 78px;
-    height: 2px;
-
-    left: 13px;
-    top: 31px;
-
-    background:
-        rgba(187, 210, 162, .32);
 }
 
 
@@ -1589,22 +1359,8 @@
     transform:
         rotate(-23deg);
 
-    clip-path:
-        polygon(
-            0% 50%,
-            12% 34%,
-            25% 19%,
-            43% 8%,
-            63% 4%,
-            82% 13%,
-            100% 35%,
-            93% 52%,
-            100% 67%,
-            79% 83%,
-            54% 94%,
-            28% 85%,
-            10% 67%
-        );
+    border-radius:
+        100% 0 100% 0;
 }
 
 
@@ -1616,21 +1372,273 @@
         rotate(21deg)
         scaleX(-1);
 
-    clip-path:
-        polygon(
-            0% 50%,
-            12% 34%,
-            25% 19%,
-            43% 8%,
-            63% 4%,
-            82% 13%,
-            100% 35%,
-            93% 52%,
-            100% 67%,
-            79% 83%,
-            54% 94%,
-            28% 85%,
-            10% 67%
+    border-radius:
+        100% 0 100% 0;
+}
+
+
+
+/*
+=========================================
+        JAZMÍN BLANCO
+=========================================
+*/
+
+.jazmin {
+    position: relative;
+
+    width: 280px;
+    height: 360px;
+
+    animation:
+        crecer 1.8s ease,
+        jazmin-balanceo
+        5.2s ease-in-out infinite;
+
+    transform-origin:
+        center bottom;
+}
+
+
+
+/*
+=========================================
+        TALLO
+=========================================
+*/
+
+.jazmin-tallo {
+    position: absolute;
+
+    width: 7px;
+    height: 215px;
+
+    left: 137px;
+    top: 120px;
+
+    border-radius:
+        10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #354f32,
+            #6d8558,
+            #354f32
+        );
+
+    transform:
+        rotate(-2deg);
+
+    z-index:
+        0;
+}
+
+
+
+/*
+=========================================
+        FLOR PRINCIPAL
+=========================================
+*/
+
+.jazmin-cabeza {
+    position: absolute;
+
+    width: 170px;
+    height: 165px;
+
+    left: 54px;
+    top: 2px;
+
+    z-index:
+        10;
+}
+
+
+.jazmin-petalo {
+    position: absolute;
+
+    width: 67px;
+    height: 86px;
+
+    left: 52px;
+    top: 40px;
+
+    transform-origin:
+        33px 48px;
+
+    border-radius:
+        56% 56% 40% 40%
+        / 66% 66% 35% 35%;
+
+    background:
+        linear-gradient(
+            160deg,
+            #ffffff 0%,
+            #fafaf5 58%,
+            #e4e4db 100%
+        );
+
+    box-shadow:
+        inset 5px 4px 8px
+        rgba(
+            255,
+            255,
+            255,
+            .7
+        ),
+
+        inset -5px -4px 9px
+        rgba(
+            175,
+            175,
+            160,
+            .10
+        ),
+
+        0 3px 6px
+        rgba(
+            85,
+            85,
+            65,
+            .08
+        );
+}
+
+
+.jazmin-petalo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+    height: 48px;
+
+    left: 32px;
+    bottom: 7px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(
+                110,
+                110,
+                95,
+                .15
+            ),
+            transparent
+        );
+}
+
+
+.jazmin-petalo-1 {
+    transform:
+        rotate(0deg)
+        translateY(-43px);
+}
+
+
+.jazmin-petalo-2 {
+    transform:
+        rotate(45deg)
+        translateY(-43px);
+}
+
+
+.jazmin-petalo-3 {
+    transform:
+        rotate(90deg)
+        translateY(-43px);
+}
+
+
+.jazmin-petalo-4 {
+    transform:
+        rotate(135deg)
+        translateY(-43px);
+}
+
+
+.jazmin-petalo-5 {
+    transform:
+        rotate(180deg)
+        translateY(-43px);
+}
+
+
+.jazmin-petalo-6 {
+    transform:
+        rotate(225deg)
+        translateY(-43px);
+}
+
+
+.jazmin-petalo-7 {
+    transform:
+        rotate(270deg)
+        translateY(-43px);
+}
+
+
+.jazmin-petalo-8 {
+    transform:
+        rotate(315deg)
+        translateY(-43px);
+}
+
+
+
+/*
+=========================================
+        CENTRO DEL JAZMÍN
+=========================================
+*/
+
+.jazmin-centro {
+    position: absolute;
+
+    width: 38px;
+    height: 38px;
+
+    left: 66px;
+    top: 63px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #5e5128 0%,
+            #756531 45%,
+            #3f351c 100%
+        );
+
+    z-index:
+        20;
+}
+
+
+.jazmin-estambre {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius:
+        50%;
+
+    background:
+        #1f1a0c;
+
+    box-shadow:
+        0 0 2px
+        rgba(
+            40,
+            30,
+            10,
+            .3
         );
 }
 
@@ -1638,14 +1646,332 @@
 
 /*
 =========================================
-        ANIMACIÓN GENERAL
+        RAMITAS DE LOS BOTONES
+=========================================
+*/
+
+.jazmin-rama {
+    position: absolute;
+
+    width: 4px;
+
+    border-radius:
+        8px;
+
+    background:
+        linear-gradient(
+            to right,
+            #486340,
+            #788c61
+        );
+
+    transform-origin:
+        bottom center;
+
+    z-index:
+        2;
+}
+
+
+.jazmin-rama-izquierda {
+    height: 74px;
+
+    left: 113px;
+    top: 103px;
+
+    transform:
+        rotate(-40deg);
+}
+
+
+.jazmin-rama-derecha {
+    height: 72px;
+
+    left: 166px;
+    top: 97px;
+
+    transform:
+        rotate(43deg);
+}
+
+
+
+/*
+=========================================
+        BOTONES FLORALES
+=========================================
+*/
+
+.jazmin-boton {
+    position: absolute;
+
+    width: 42px;
+    height: 57px;
+
+    z-index:
+        8;
+
+    transform-origin:
+        center bottom;
+
+    animation:
+        jazmin-boton-movimiento
+        4s ease-in-out infinite;
+}
+
+
+.jazmin-boton-petalo {
+    position: absolute;
+
+    width: 25px;
+    height: 46px;
+
+    left: 9px;
+    top: 3px;
+
+    border-radius:
+        60% 60% 43% 43%
+        / 75% 75% 30% 30%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffffff,
+            #f4f4ee,
+            #deded4
+        );
+
+    transform-origin:
+        center bottom;
+}
+
+
+.jazmin-boton-petalo-1 {
+    transform:
+        rotate(-18deg)
+        translateX(-7px);
+}
+
+
+.jazmin-boton-petalo-2 {
+    transform:
+        rotate(0deg);
+}
+
+
+.jazmin-boton-petalo-3 {
+    transform:
+        rotate(18deg)
+        translateX(7px);
+}
+
+
+.jazmin-boton::after {
+    content: "";
+
+    position: absolute;
+
+    width: 14px;
+    height: 12px;
+
+    left: 14px;
+    bottom: -2px;
+
+    border-radius:
+        40% 40% 60% 60%;
+
+    background:
+        #648052;
+}
+
+
+.jazmin-boton-izquierdo {
+    left: 59px;
+    top: 76px;
+
+    transform:
+        rotate(-30deg);
+}
+
+
+.jazmin-boton-derecho {
+    left: 182px;
+    top: 70px;
+
+    transform:
+        rotate(28deg);
+}
+
+
+.jazmin-boton-centro {
+    width: 34px;
+    height: 50px;
+
+    left: 114px;
+    top: 145px;
+
+    transform:
+        rotate(-8deg)
+        scale(.75);
+}
+
+
+
+/*
+=========================================
+        HOJAS GRANDES
+=========================================
+*/
+
+.jazmin-hoja {
+    position: absolute;
+
+    width: 122px;
+    height: 68px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #27432d 0%,
+            #456843 45%,
+            #748862 100%
+        );
+
+    box-shadow:
+        inset 0 4px 7px
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        ),
+
+        0 3px 7px
+        rgba(
+            35,
+            55,
+            30,
+            .13
+        );
+
+    z-index:
+        4;
+}
+
+
+.jazmin-hoja::before {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 2px;
+
+    left: 15px;
+    top: 34px;
+
+    background:
+        rgba(
+            210,
+            225,
+            192,
+            .32
+        );
+}
+
+
+.jazmin-hoja::after {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 45px;
+
+    left: 25px;
+    top: 10px;
+
+    background:
+        repeating-linear-gradient(
+            25deg,
+            transparent 0,
+            transparent 7px,
+            rgba(
+                210,
+                225,
+                192,
+                .12
+            ) 8px,
+            transparent 9px
+        );
+}
+
+
+.jazmin-hoja-izquierda {
+    left: 14px;
+    top: 196px;
+
+    transform:
+        rotate(-13deg);
+
+    border-radius:
+        100% 8% 100% 8%;
+
+    clip-path:
+        polygon(
+            0% 50%,
+            15% 25%,
+            38% 10%,
+            65% 5%,
+            88% 19%,
+            100% 45%,
+            90% 66%,
+            66% 84%,
+            38% 91%,
+            13% 76%
+        );
+}
+
+
+.jazmin-hoja-derecha {
+    left: 145px;
+    top: 205px;
+
+    transform:
+        rotate(15deg)
+        scaleX(-1);
+
+    border-radius:
+        100% 8% 100% 8%;
+
+    clip-path:
+        polygon(
+            0% 50%,
+            15% 25%,
+            38% 10%,
+            65% 5%,
+            88% 19%,
+            100% 45%,
+            90% 66%,
+            66% 84%,
+            38% 91%,
+            13% 76%
+        );
+}
+
+
+
+/*
+=========================================
+        ANIMACIONES GENERALES
 =========================================
 */
 
 @keyframes crecer {
 
     0% {
-        opacity: 0;
+        opacity:
+            0;
 
         transform:
             translateY(150px)
@@ -1659,7 +1985,8 @@
     }
 
     100% {
-        opacity: 1;
+        opacity:
+            1;
 
         transform:
             translateY(0)
@@ -1668,13 +1995,6 @@
 
 }
 
-
-
-/*
-=========================================
-        GIRASOL
-=========================================
-*/
 
 @keyframes movimiento {
 
@@ -1756,8 +2076,7 @@
     0%,
     100% {
         transform:
-            rotate(-8deg)
-            translateY(0);
+            rotate(-8deg);
     }
 
     50% {
@@ -1774,8 +2093,7 @@
     0%,
     100% {
         transform:
-            rotate(8deg)
-            translateY(0);
+            rotate(8deg);
     }
 
     50% {
@@ -1792,14 +2110,12 @@
     0%,
     100% {
         transform:
-            translateY(0)
-            scale(1);
+            translateY(0);
     }
 
     50% {
         transform:
-            translateY(-4px)
-            scale(1.02);
+            translateY(-4px);
     }
 
 }
@@ -1840,7 +2156,6 @@
     50% {
         transform:
             translateY(-39px)
-            rotate(1deg)
             scaleX(.84);
     }
 
@@ -1852,13 +2167,13 @@
     0%,
     100% {
         transform:
-            translate(-55px, -2px)
+            translate(-55px,-2px)
             rotate(-52deg);
     }
 
     50% {
         transform:
-            translate(-58px, -5px)
+            translate(-58px,-5px)
             rotate(-55deg);
     }
 
@@ -1870,13 +2185,13 @@
     0%,
     100% {
         transform:
-            translate(55px, -2px)
+            translate(55px,-2px)
             rotate(52deg);
     }
 
     50% {
         transform:
-            translate(58px, -5px)
+            translate(58px,-5px)
             rotate(55deg);
     }
 
@@ -1888,13 +2203,13 @@
     0%,
     100% {
         transform:
-            translate(-58px, 55px)
+            translate(-58px,55px)
             rotate(-108deg);
     }
 
     50% {
         transform:
-            translate(-61px, 57px)
+            translate(-61px,57px)
             rotate(-111deg);
     }
 
@@ -1906,13 +2221,13 @@
     0%,
     100% {
         transform:
-            translate(58px, 55px)
+            translate(58px,55px)
             rotate(108deg);
     }
 
     50% {
         transform:
-            translate(61px, 57px)
+            translate(61px,57px)
             rotate(111deg);
     }
 
@@ -1924,8 +2239,7 @@
     0%,
     100% {
         transform:
-            rotate(180deg)
-            translateY(0);
+            rotate(180deg);
     }
 
     50% {
@@ -1965,14 +2279,12 @@
     0%,
     100% {
         transform:
-            translateY(0)
-            rotate(-1deg);
+            translateY(0);
     }
 
     50% {
         transform:
-            translateY(-3px)
-            rotate(2deg);
+            translateY(-3px);
     }
 
 }
@@ -2005,25 +2317,13 @@
 
     0%,
     100% {
-        transform:
-            translateY(
-                calc(-1 * var(--radio))
-            )
-            scale(
-                var(--escala)
-            );
+        filter:
+            brightness(1);
     }
 
     50% {
-        transform:
-            translateY(
-                calc(-1 * var(--radio) - 3px)
-            )
-            scale(
-                calc(
-                    var(--escala) + .025
-                )
-            );
+        filter:
+            brightness(1.06);
     }
 
 }
@@ -2062,23 +2362,46 @@
 
     50% {
         filter:
-            brightness(1.07);
+            brightness(1.06);
     }
 
 }
 
 
-@keyframes camelia-estambre-movimiento {
+
+/*
+=========================================
+        JAZMÍN
+=========================================
+*/
+
+@keyframes jazmin-balanceo {
 
     0%,
     100% {
         transform:
-            translateY(0);
+            rotate(-.65deg);
     }
 
     50% {
         transform:
-            translateY(-1.5px);
+            rotate(.65deg);
+    }
+
+}
+
+
+@keyframes jazmin-boton-movimiento {
+
+    0%,
+    100% {
+        margin-top:
+            0;
+    }
+
+    50% {
+        margin-top:
+            -2px;
     }
 
 }
@@ -2098,8 +2421,12 @@
     .lirio,
     .flor-nube,
     .peonia,
-    .camelia {
-        max-width: 100%;
+    .camelia,
+    .jazmin {
+
+        max-width:
+            100%;
+
     }
 
 }
