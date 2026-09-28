@@ -8,17 +8,17 @@ const jardin =
 
 /*
 =========================================
-    BLOQUE DE PLAYLIST
+    PANEL SUPERIOR
 =========================================
 */
 
-function crearBloquePlaylist(config) {
+function crearPanelSuperior(config) {
 
-    const bloque =
+    const panel =
         document.createElement("section");
 
-    bloque.className =
-        "bloque-playlist";
+    panel.className =
+        "panel-superior";
 
 
     const texto =
@@ -31,35 +31,91 @@ function crearBloquePlaylist(config) {
         config.texto;
 
 
-    const boton =
+    const acciones =
+        document.createElement("div");
+
+    acciones.className =
+        "acciones-superiores";
+
+
+    const botonPlaylist =
         document.createElement("a");
 
-    boton.className =
+    botonPlaylist.className =
         "boton-playlist";
 
-    boton.href =
-        config.link;
+    botonPlaylist.href =
+        config.linkPlaylist;
 
-    boton.target =
+    botonPlaylist.target =
         "_blank";
 
-    boton.rel =
+    botonPlaylist.rel =
         "noopener noreferrer";
 
-    boton.textContent =
-        config.textoBoton;
+    botonPlaylist.textContent =
+        config.textoBotonPlaylist;
 
 
-    bloque.appendChild(texto);
-    bloque.appendChild(boton);
+    const botonFondo =
+        document.createElement("button");
 
-    return bloque;
+    botonFondo.className =
+        "boton-fondo";
+
+    botonFondo.type =
+        "button";
+
+    botonFondo.textContent =
+        "Cambiar a fondo morado";
+
+
+    botonFondo.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle(
+                "tema-morado"
+            );
+
+            if (
+                document.body.classList.contains(
+                    "tema-morado"
+                )
+            ) {
+
+                botonFondo.textContent =
+                    "Cambiar a fondo amarillo";
+
+            } else {
+
+                botonFondo.textContent =
+                    "Cambiar a fondo morado";
+            }
+
+        }
+    );
+
+
+    acciones.appendChild(
+        botonPlaylist
+    );
+
+    acciones.appendChild(
+        botonFondo
+    );
+
+    panel.appendChild(texto);
+    panel.appendChild(acciones);
+
+    return panel;
 }
+
 
 
 /*
 =========================================
-    CREAR TARJETA DE FLOR
+    TARJETA DE FLOR
 =========================================
 */
 
@@ -94,13 +150,16 @@ function crearTarjetaFlor(config) {
         const flor =
             Flores[config.tipo]();
 
-        envolturaFlor.appendChild(flor);
+        envolturaFlor.appendChild(
+            flor
+        );
 
     } else {
 
         console.error(
             `La flor "${config.tipo}" no existe.`
         );
+
     }
 
 
@@ -122,26 +181,29 @@ function crearTarjetaFlor(config) {
 
     if (config.linkCancion) {
 
-        const boton =
+        const botonCancion =
             document.createElement("a");
 
-        boton.className =
+        botonCancion.className =
             "boton-cancion";
 
-        boton.href =
+        botonCancion.href =
             config.linkCancion;
 
-        boton.target =
+        botonCancion.target =
             "_blank";
 
-        boton.rel =
+        botonCancion.rel =
             "noopener noreferrer";
 
-        boton.textContent =
+        botonCancion.textContent =
             config.textoBoton ||
             "Escuchar canción";
 
-        nota.appendChild(boton);
+        nota.appendChild(
+            botonCancion
+        );
+
     }
 
 
@@ -153,23 +215,25 @@ function crearTarjetaFlor(config) {
 }
 
 
+
 /*
 =========================================
-    PLAYLIST
+    DATOS DEL PANEL
 =========================================
 */
 
-const datosPlaylist = {
+const datosPanel = {
 
     texto:
         "Todas las canciones que acompañan este pequeño jardín están reunidas aquí.",
 
-    textoBoton:
+    textoBotonPlaylist:
         "Abrir playlist en Spotify",
 
-    link:
+    linkPlaylist:
         "https://open.spotify.com/playlist/6XCeXM270zHmOE1vY9MeXA?si=wHKqXyp-SyKISRnlus0oMQ&utm_source=whatsapp&pi=wjAzlEK-QASgo"
 };
+
 
 
 /*
@@ -284,24 +348,57 @@ const floresDelJardin = [
 
         textoBoton:
             "♪ Cómo dormiste"
+    },
+
+    {
+        tipo: "orquidea",
+
+        titulo:
+            "Orquídea rosa 🌺",
+
+        mensaje:
+            "Hay dedicatorias que se hacen por bonito detalle, y otras que nacen porque alguien realmente inspira algo especial. Esta canción es de esas que no elegí al azar.",
+
+        linkCancion:
+            "https://www.youtube.com/watch?v=4O1CNtVG7s8",
+
+        textoBoton:
+            "♪ AMOR DE CINE"
+    },
+
+    {
+        tipo: "lavanda",
+
+        titulo:
+            "Lavanda violeta 💜",
+
+        mensaje:
+            "Hay aromas que uno reconoce incluso antes de darse cuenta de dónde vienen. Supongo que algunas cosas se quedan en la memoria de una forma parecida.",
+
+        linkCancion:
+            "https://www.youtube.com/watch?v=2vo_BzD9gu0",
+
+        textoBoton:
+            "♪ Te diré"
     }
 
 ];
 
 
+
 /*
 =========================================
-    INSERTAR PLAYLIST
+    INSERTAR PANEL
 =========================================
 */
 
-const bloquePlaylist =
-    crearBloquePlaylist(
-        datosPlaylist
+const panelSuperior =
+    crearPanelSuperior(
+        datosPanel
     );
 
 jardin.insertBefore(
-    bloquePlaylist,
+    panelSuperior,
     contenedorFlores
 );
 

@@ -1,3 +1,32 @@
+:root {
+    --fondo-1: #fff9d5;
+    --fondo-2: #f9e7a2;
+    --fondo-3: #e4c870;
+    --fondo-4: #6d6550;
+
+    --panel-bg: rgba(255, 255, 255, .24);
+    --panel-border: rgba(255, 255, 255, .50);
+
+    --texto-principal: #493714;
+    --texto-secundario: #5d4617;
+    --texto-pequeno: #7a5b13;
+}
+
+body.tema-morado {
+    --fondo-1: #efe4ff;
+    --fondo-2: #d7b8ff;
+    --fondo-3: #b185eb;
+    --fondo-4: #4a3f63;
+
+    --panel-bg: rgba(255, 255, 255, .20);
+    --panel-border: rgba(255, 255, 255, .38);
+
+    --texto-principal: #382653;
+    --texto-secundario: #4d396d;
+    --texto-pequeno: #5d4388;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -23,13 +52,17 @@ body {
     background:
         radial-gradient(
             circle at 50% 45%,
-            #fff9d5 0%,
-            #f9e7a2 34%,
-            #e4c870 64%,
-            #6d6550 100%
+            var(--fondo-1) 0%,
+            var(--fondo-2) 34%,
+            var(--fondo-3) 64%,
+            var(--fondo-4) 100%
         );
 
     color: #fff;
+
+    transition:
+        background .45s ease,
+        color .3s ease;
 }
 
 
@@ -48,8 +81,7 @@ body {
     flex-direction: column;
     align-items: center;
 
-    padding:
-        55px 20px;
+    padding: 55px 20px;
 
     overflow-x: hidden;
 }
@@ -85,7 +117,7 @@ body {
 
     letter-spacing: 5px;
 
-    color: #7a5b13;
+    color: var(--texto-pequeno);
 
     margin-bottom: 15px;
 }
@@ -93,21 +125,17 @@ body {
 
 h1 {
     font-size:
-        clamp(
-            30px,
-            4vw,
-            48px
-        );
+        clamp(30px, 4vw, 48px);
 
     font-weight: normal;
 
     line-height: 1.15;
 
-    color: #493714;
+    color: var(--texto-principal);
 
     text-shadow:
         0 2px 3px
-        rgba(255, 255, 255, .45);
+        rgba(255, 255, 255, .40);
 }
 
 
@@ -115,64 +143,58 @@ h1 {
     width: 65px;
     height: 2px;
 
-    background:
-        #d6a719;
+    background: #d6a719;
 
-    margin:
-        22px auto 0;
+    margin: 22px auto 0;
 
-    border-radius:
-        10px;
+    border-radius: 10px;
+}
+
+body.tema-morado .linea {
+    background: #8a62d5;
 }
 
 
 
 /*
 =========================================
-    PLAYLIST SPOTIFY
+    PANEL SUPERIOR
 =========================================
 */
 
-.bloque-playlist {
+.panel-superior {
     width: 100%;
-    max-width: 720px;
+    max-width: 760px;
 
-    margin:
-        5px auto 28px;
+    margin: 5px auto 28px;
 
-    padding:
-        18px 20px;
+    padding: 18px 20px;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 13px;
 
     text-align: center;
 
     border-radius: 24px;
 
-    background:
-        rgba(255, 255, 255, .24);
-
-    border:
-        1px solid
-        rgba(255, 255, 255, .50);
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
 
     box-shadow:
         0 14px 30px
         rgba(76, 55, 15, .14);
 
-    backdrop-filter:
-        blur(7px);
+    backdrop-filter: blur(7px);
 
     animation:
         aparecer 1.5s ease;
+
+    transition:
+        background .35s ease,
+        border .35s ease;
 }
 
 
@@ -181,42 +203,47 @@ h1 {
         Arial,
         sans-serif;
 
-    color: #5d4617;
+    color: var(--texto-secundario);
 
     font-size: 14px;
-
     line-height: 1.5;
 }
 
 
-.boton-playlist {
-    display: inline-flex;
-
+.acciones-superiores {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 12px;
+}
 
+
+.boton-playlist,
+.boton-fondo {
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
 
-    padding:
-        12px 23px;
+    padding: 12px 23px;
 
-    border-radius:
-        999px;
+    border-radius: 999px;
 
     font-family:
         Arial,
         sans-serif;
 
-    font-size:
-        14px;
+    font-size: 14px;
+    font-weight: 600;
 
-    font-weight:
-        600;
+    text-decoration: none;
 
-    text-decoration:
-        none;
+    border: none;
+    cursor: pointer;
+}
 
-    color:
-        #ffffff;
+
+.boton-playlist {
+    color: #ffffff;
 
     background:
         linear-gradient(
@@ -227,12 +254,7 @@ h1 {
 
     box-shadow:
         0 8px 18px
-        rgba(
-            26,
-            112,
-            67,
-            .25
-        );
+        rgba(26, 112, 67, .25);
 
     transition:
         transform .25s ease,
@@ -241,17 +263,40 @@ h1 {
 
 
 .boton-playlist:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
         0 12px 23px
-        rgba(
-            26,
-            112,
-            67,
-            .33
+        rgba(26, 112, 67, .33);
+}
+
+
+.boton-fondo {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7750c5,
+            #a97ae8
         );
+
+    box-shadow:
+        0 8px 18px
+        rgba(103, 66, 173, .26);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.boton-fondo:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 23px
+        rgba(103, 66, 173, .35);
 }
 
 
@@ -264,17 +309,12 @@ h1 {
 
 .contenedor-flores {
     width: 100%;
-
     max-width: 1350px;
 
     display: flex;
-
     justify-content: center;
-
     align-items: stretch;
-
     flex-wrap: wrap;
-
     gap: 28px;
 
     margin-top: 10px;
@@ -290,49 +330,38 @@ h1 {
 
 .tarjeta-flor {
     width: 100%;
-
     max-width: 390px;
-
     min-height: 520px;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 
-    padding:
-        25px 20px 22px;
+    padding: 25px 20px 22px;
 
-    border-radius:
-        30px;
+    border-radius: 30px;
 
-    background:
-        rgba(255, 255, 255, .24);
-
-    border:
-        1px solid
-        rgba(255, 255, 255, .5);
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
 
     box-shadow:
         0 18px 38px
         rgba(76, 55, 15, .16);
 
-    backdrop-filter:
-        blur(7px);
+    backdrop-filter: blur(7px);
 
-    animation:
-        aparecer 1.6s ease;
+    animation: aparecer 1.6s ease;
 
     transition:
         transform .3s ease,
-        box-shadow .3s ease;
+        box-shadow .3s ease,
+        background .35s ease,
+        border .35s ease;
 }
 
 
 .tarjeta-flor:hover {
-    transform:
-        translateY(-5px);
+    transform: translateY(-5px);
 
     box-shadow:
         0 24px 45px
@@ -349,10 +378,9 @@ h1 {
 
 .titulo-flor {
     font-size: 27px;
-
     font-weight: normal;
 
-    color: #5a4217;
+    color: var(--texto-secundario);
 
     margin-bottom: 10px;
 
@@ -369,13 +397,10 @@ h1 {
 
 .envoltura-flor {
     width: 100%;
-
     height: 370px;
 
     display: flex;
-
     justify-content: center;
-
     align-items: flex-end;
 
     position: relative;
@@ -391,7 +416,6 @@ h1 {
 
 .nota-flor {
     width: 100%;
-
     text-align: center;
 
     margin-top: 8px;
@@ -401,50 +425,29 @@ h1 {
 .nota-flor p {
     width: 100%;
 
-    padding:
-        15px 17px;
+    padding: 15px 17px;
 
     font-family:
         Arial,
         sans-serif;
 
-    font-size:
-        14px;
+    font-size: 14px;
+    line-height: 1.6;
 
-    line-height:
-        1.6;
-
-    color:
-        #5d4617;
+    color: var(--texto-secundario);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .48
-        );
+        rgba(255, 255, 255, .48);
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .55
-        );
+        rgba(255, 255, 255, .55);
 
-    border-radius:
-        20px;
+    border-radius: 20px;
 
     box-shadow:
         0 5px 15px
-        rgba(
-            80,
-            55,
-            15,
-            .08
-        );
+        rgba(80, 55, 15, .08);
 }
 
 
@@ -457,34 +460,25 @@ h1 {
 
 .boton-cancion {
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
     margin-top: 14px;
 
-    padding:
-        12px 21px;
+    padding: 12px 21px;
 
-    border-radius:
-        999px;
+    border-radius: 999px;
 
-    text-decoration:
-        none;
+    text-decoration: none;
 
     font-family:
         Arial,
         sans-serif;
 
-    font-size:
-        14px;
+    font-size: 14px;
+    font-weight: bold;
 
-    font-weight:
-        bold;
-
-    color:
-        white;
+    color: white;
 
     background:
         linear-gradient(
@@ -495,12 +489,7 @@ h1 {
 
     box-shadow:
         0 8px 18px
-        rgba(
-            120,
-            61,
-            154,
-            .25
-        );
+        rgba(120, 61, 154, .25);
 
     transition:
         transform .25s ease,
@@ -518,13 +507,11 @@ h1 {
 
 /*
 =========================================
-    LIRIO
+    BOTONES PERSONALIZADOS
 =========================================
 */
 
-.tarjeta-lirio
-.boton-cancion {
-
+.tarjeta-lirio .boton-cancion {
     background:
         linear-gradient(
             135deg,
@@ -534,18 +521,8 @@ h1 {
 }
 
 
-
-/*
-=========================================
-    FLOR DE NUBE
-=========================================
-*/
-
-.tarjeta-nube
-.boton-cancion {
-
-    color:
-        #44523d;
+.tarjeta-nube .boton-cancion {
+    color: #44523d;
 
     background:
         linear-gradient(
@@ -556,16 +533,7 @@ h1 {
 }
 
 
-
-/*
-=========================================
-    PEONÍA
-=========================================
-*/
-
-.tarjeta-peonia
-.boton-cancion {
-
+.tarjeta-peonia .boton-cancion {
     background:
         linear-gradient(
             135deg,
@@ -575,16 +543,7 @@ h1 {
 }
 
 
-
-/*
-=========================================
-    CAMELIA
-=========================================
-*/
-
-.tarjeta-camelia
-.boton-cancion {
-
+.tarjeta-camelia .boton-cancion {
     background:
         linear-gradient(
             135deg,
@@ -594,18 +553,8 @@ h1 {
 }
 
 
-
-/*
-=========================================
-    JAZMÍN
-=========================================
-*/
-
-.tarjeta-jazmin
-.boton-cancion {
-
-    color:
-        #48533f;
+.tarjeta-jazmin .boton-cancion {
+    color: #48533f;
 
     background:
         linear-gradient(
@@ -616,20 +565,30 @@ h1 {
 
     border:
         1px solid
-        rgba(
-            104,
-            128,
-            81,
-            .25
-        );
+        rgba(104, 128, 81, .25);
 
     box-shadow:
         0 8px 18px
-        rgba(
-            78,
-            99,
-            60,
-            .18
+        rgba(78, 99, 60, .18);
+}
+
+
+.tarjeta-orquidea .boton-cancion {
+    background:
+        linear-gradient(
+            135deg,
+            #bf5c90,
+            #e98fbc
+        );
+}
+
+
+.tarjeta-lavanda .boton-cancion {
+    background:
+        linear-gradient(
+            135deg,
+            #7752b8,
+            #ab84e9
         );
 }
 
@@ -644,19 +603,13 @@ h1 {
 @keyframes aparecer {
 
     from {
-        opacity:
-            0;
-
-        transform:
-            translateY(22px);
+        opacity: 0;
+        transform: translateY(22px);
     }
 
     to {
-        opacity:
-            1;
-
-        transform:
-            translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
 
 }
@@ -672,86 +625,60 @@ h1 {
 @media (max-width: 600px) {
 
     .jardin {
-        padding:
-            35px 12px 40px;
+        padding: 35px 12px 40px;
     }
-
 
     h1 {
-        font-size:
-            30px;
+        font-size: 30px;
     }
-
 
     .pequeno {
-        font-size:
-            9px;
-
-        letter-spacing:
-            3px;
+        font-size: 9px;
+        letter-spacing: 3px;
     }
 
-
-    .bloque-playlist {
-        padding:
-            15px;
-
-        margin-bottom:
-            20px;
+    .panel-superior {
+        padding: 15px;
+        margin-bottom: 20px;
     }
-
 
     .texto-playlist {
-        font-size:
-            13px;
+        font-size: 13px;
     }
 
-
-    .boton-playlist {
-        width:
-            100%;
-
-        max-width:
-            260px;
-
-        font-size:
-            13px;
+    .acciones-superiores {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
     }
 
+    .boton-playlist,
+    .boton-fondo {
+        width: 100%;
+        max-width: 260px;
+        font-size: 13px;
+    }
 
     .tarjeta-flor {
-        max-width:
-            360px;
-
-        min-height:
-            auto;
-
-        padding:
-            20px 14px;
+        max-width: 360px;
+        min-height: auto;
+        padding: 20px 14px;
     }
-
 
     .titulo-flor {
-        font-size:
-            24px;
+        font-size: 24px;
     }
-
 
     .envoltura-flor {
-        height:
-            340px;
+        height: 340px;
     }
-
 
     .nota-flor p {
-        font-size:
-            13px;
+        font-size: 13px;
     }
 
-
     .boton-cancion {
-        font-size:
-            13px;
+        font-size: 13px;
     }
 
 }
