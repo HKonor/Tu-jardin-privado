@@ -1,2152 +1,1836 @@
-/*
-=========================================
-    GIRASOL
-=========================================
-*/
+/* =====================================================
+   BASE
+===================================================== */
+
+.girasol,
+.tulipan,
+.lirio,
+.flor-nube,
+.peonia,
+.camelia,
+.jazmin,
+.orquidea,
+.lavanda,
+.anemona,
+.magnolia,
+.dalia {
+  position: relative;
+
+  width: 300px;
+  height: 350px;
+
+  transform-origin: center bottom;
+
+  animation: crecer 1.4s ease;
+}
+
+@keyframes crecer {
+  from {
+    opacity: 0;
+
+    transform: translateY(80px) scale(0.75);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =====================================================
+   GIRASOL
+===================================================== */
 
 .girasol {
-    position: relative;
-    width: 280px;
-    height: 360px;
-    animation: crecer 1.8s ease, movimiento 4s ease-in-out infinite;
+  width: 280px;
 }
 
 .girasol-cabeza {
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    top: 0;
-    left: 30px;
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  left: 30px;
+  top: 0;
 }
 
 .girasol-petalo {
-    position: absolute;
-    width: 55px;
-    height: 120px;
-    left: 82px;
-    top: 0;
-    border-radius: 50% 50% 45% 45%;
-    transform-origin: 27px 110px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #e5a900,
-            #ffe15a,
-            #ffc400
-        );
+  width: 55px;
+  height: 120px;
 
-    box-shadow:
-        inset 0 0 10px rgba(255,255,255,.25),
-        0 3px 7px rgba(0,0,0,.15);
+  left: 82px;
+  top: 0;
+
+  transform-origin: 27px 110px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(to right, #e5a900, #ffe15a, #ffc400);
 }
 
 .girasol-centro {
-    position: absolute;
-    width: 95px;
-    height: 95px;
-    left: 62px;
-    top: 63px;
-    border-radius: 50%;
-    z-index: 20;
+  position: absolute;
 
-    background:
-        radial-gradient(
-            circle,
-            #8c5a25,
-            #613614,
-            #351b0a
-        );
+  width: 95px;
+  height: 95px;
+
+  left: 62px;
+  top: 63px;
+
+  z-index: 5;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #8c5a25, #613614, #351b0a);
 }
 
 .semilla {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #c58b3c;
-    border-radius: 50%;
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #c58b3c;
 }
 
 .girasol-tallo {
-    position: absolute;
-    width: 14px;
-    height: 190px;
-    left: 133px;
-    top: 170px;
-    border-radius: 20px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #245a2d,
-            #5b9c4a,
-            #245a2d
-        );
+  width: 14px;
+  height: 190px;
 
-    z-index: -1;
+  left: 133px;
+  top: 165px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(to right, #245a2d, #5b9c4a, #245a2d);
 }
 
 .girasol-hoja {
-    position: absolute;
-    width: 85px;
-    height: 48px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            135deg,
-            #2f7437,
-            #71a953
-        );
+  width: 85px;
+  height: 48px;
 
-    border-radius: 100% 0 100% 0;
-    z-index: 2;
+  z-index: 2;
+
+  border-radius: 100% 0 100% 0;
+
+  background: linear-gradient(135deg, #2f7437, #71a953);
 }
 
 .hoja-izquierda {
-    top: 245px;
-    left: 55px;
-    transform: rotate(15deg);
+  left: 59px;
+  top: 242px;
+
+  transform: rotate(15deg);
 }
 
 .hoja-derecha {
-    top: 285px;
-    left: 140px;
-    transform: rotate(-15deg) scaleX(-1);
+  left: 136px;
+  top: 277px;
+
+  transform: rotate(-16deg) scaleX(-1);
 }
 
-
-
-/*
-=========================================
-    TULIPÁN
-=========================================
-*/
+/* =====================================================
+   TULIPÁN
+===================================================== */
 
 .tulipan {
-    position: relative;
-    width: 230px;
-    height: 350px;
-    animation: crecer 1.8s ease, movimiento-tulipan 4.8s ease-in-out infinite;
+  width: 230px;
 }
 
 .tulipan-cabeza {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 10px;
-    left: 38px;
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  left: 38px;
+  top: 10px;
 }
 
 .tulipan-petalo {
-    position: absolute;
-    bottom: 0;
-    border-radius: 50% 50% 35% 35%;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            180deg,
-            #d47af2,
-            #ad4ed2,
-            #8530aa
-        );
+  bottom: 0;
 
-    box-shadow:
-        inset 0 0 10px rgba(255,255,255,.22),
-        0 4px 10px rgba(85,23,105,.18);
+  border-radius: 50% 50% 35% 35%;
+
+  background: linear-gradient(180deg, #d47af2, #ad4ed2, #8530aa);
+
+  transition: transform 0.5s ease;
 }
 
 .petalo-fondo-izq {
-    width: 54px;
-    height: 94px;
-    left: 8px;
-    bottom: 22px;
-    animation: petalo-izq 3.1s ease-in-out infinite;
+  width: 54px;
+  height: 94px;
+
+  left: 8px;
+  bottom: 22px;
+
+  transform: rotate(-18deg);
 }
 
 .petalo-fondo-der {
-    width: 54px;
-    height: 94px;
-    right: 8px;
-    bottom: 22px;
-    animation: petalo-der 3.2s ease-in-out infinite;
+  width: 54px;
+  height: 94px;
+
+  right: 8px;
+  bottom: 22px;
+
+  transform: rotate(18deg);
 }
 
 .petalo-centro-izq {
-    width: 58px;
-    height: 110px;
-    left: 28px;
-    bottom: 28px;
-    animation: petalo-centro-izq 3.3s ease-in-out infinite;
+  width: 58px;
+  height: 110px;
+
+  left: 28px;
+  bottom: 28px;
+
+  transform: rotate(-8deg);
 }
 
 .petalo-centro-der {
-    width: 58px;
-    height: 110px;
-    right: 28px;
-    bottom: 28px;
-    animation: petalo-centro-der 3.4s ease-in-out infinite;
+  width: 58px;
+  height: 110px;
+
+  right: 28px;
+  bottom: 28px;
+
+  transform: rotate(8deg);
 }
 
 .petalo-frontal {
-    width: 72px;
-    height: 116px;
-    left: 39px;
-    bottom: 10px;
-    z-index: 3;
+  width: 72px;
+  height: 116px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #df92fa,
-            #b557d9,
-            #8e35b3
-        );
+  left: 39px;
+  bottom: 10px;
 
-    animation: petalo-frontal 3.5s ease-in-out infinite;
+  z-index: 3;
+
+  background: linear-gradient(180deg, #df92fa, #b557d9, #8e35b3);
 }
 
 .vena {
-    position: absolute;
-    width: 2px;
-    height: 55px;
-    top: 34px;
-    background: rgba(126,45,160,.28);
+  position: absolute;
+
+  width: 2px;
+  height: 55px;
+
+  top: 34px;
+
+  background: rgba(126, 45, 160, 0.28);
 }
 
 .vena-1 {
-    left: 26px;
-    transform: rotate(-6deg);
+  left: 26px;
+
+  transform: rotate(-6deg);
 }
 
 .vena-2 {
-    left: 35px;
+  left: 35px;
 }
 
 .vena-3 {
-    left: 45px;
-    transform: rotate(6deg);
+  left: 45px;
+
+  transform: rotate(6deg);
 }
 
 .tulipan-tallo {
-    position: absolute;
-    width: 11px;
-    height: 185px;
-    left: 109px;
-    top: 136px;
-    border-radius: 20px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #4f8e13,
-            #76ab1e,
-            #5e8f18
-        );
+  width: 11px;
+  height: 188px;
 
-    z-index: -1;
+  left: 109px;
+  top: 136px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(to right, #4f8e13, #76ab1e, #5e8f18);
 }
 
 .tulipan-hoja {
-    position: absolute;
-    background:
-        linear-gradient(
-            145deg,
-            #70991b,
-            #a7c42f,
-            #729619
-        );
+  position: absolute;
 
-    box-shadow:
-        inset 0 3px 8px rgba(255,255,255,.10),
-        0 4px 8px rgba(74,105,19,.14);
+  background: linear-gradient(150deg, #739c1d, #a6c32d, #668d18);
+
+  box-shadow: inset 0 3px 7px rgba(255, 255, 255, 0.1);
 }
 
 .tulipan-hoja::after {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 78%;
-    left: 48%;
-    top: 11%;
-    background: rgba(236,255,193,.22);
-    transform: translateX(-50%);
-    border-radius: 10px;
+  content: "";
+
+  position: absolute;
+
+  width: 2px;
+  height: 76%;
+
+  left: 50%;
+  top: 12%;
+
+  background: rgba(230, 250, 185, 0.24);
 }
 
 .tulipan-hoja-izquierda {
-    width: 68px;
-    height: 145px;
-    left: 44px;
-    top: 150px;
-    transform: rotate(-18deg);
+  width: 58px;
+  height: 148px;
 
-    border-radius:
-        0 75% 8% 75%
-        / 0 100% 14% 100%;
+  left: 59px;
+  top: 157px;
+
+  transform: rotate(-19deg);
+
+  border-radius: 8% 100% 10% 90% / 10% 100% 10% 100%;
 }
 
 .tulipan-hoja-derecha {
-    width: 70px;
-    height: 120px;
-    left: 120px;
-    top: 165px;
-    transform: rotate(18deg);
+  width: 60px;
+  height: 122px;
 
-    border-radius:
-        75% 0 75% 8%
-        / 100% 0 100% 14%;
+  left: 113px;
+  top: 178px;
+
+  transform: rotate(20deg);
+
+  border-radius: 100% 8% 90% 10% / 100% 10% 100% 10%;
 }
 
-
-
-/*
-=========================================
-    LIRIO
-=========================================
-*/
-
-.lirio {
-    position: relative;
-    width: 300px;
-    height: 360px;
-    animation: crecer 1.8s ease, lirio-balanceo 5s ease-in-out infinite;
-}
+/* =====================================================
+   LIRIO
+===================================================== */
 
 .lirio-cabeza {
-    position: absolute;
-    width: 270px;
-    height: 235px;
-    top: 0;
-    left: 15px;
-    z-index: 5;
+  position: absolute;
+
+  width: 270px;
+  height: 235px;
+
+  left: 15px;
+  top: 0;
+
+  z-index: 5;
 }
 
 .lirio-petalo {
-    position: absolute;
-    width: 105px;
-    height: 155px;
-    left: 83px;
-    top: 39px;
-    transform-origin: 52px 125px;
+  position: absolute;
 
-    border-radius:
-        50% 50% 42% 42%
-        / 65% 65% 35% 35%;
+  width: 105px;
+  height: 155px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #dedfd7,
-            #ffffff,
-            #fffef7,
-            #e7e8df
-        );
+  left: 83px;
+  top: 39px;
+
+  transform-origin: 52px 125px;
+
+  border-radius: 50% 50% 42% 42% / 65% 65% 35% 35%;
+
+  background: linear-gradient(90deg, #dedfd7, #ffffff, #fffef7, #e7e8df);
 }
 
 .lirio-petalo::before {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 100px;
-    left: 45px;
-    bottom: 0;
+  content: "";
 
-    background:
-        linear-gradient(
-            to top,
-            rgba(70,100,35,.82),
-            rgba(187,178,62,.58),
-            transparent
-        );
+  position: absolute;
+
+  width: 15px;
+  height: 100px;
+
+  left: 45px;
+  bottom: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(70, 100, 35, 0.82),
+    rgba(187, 178, 62, 0.58),
+    transparent
+  );
 }
 
-.lirio-petalo-1 { animation: lirio-petalo-arriba 4s ease-in-out infinite; }
-.lirio-petalo-2 { animation: lirio-petalo-izq 4.3s ease-in-out infinite; }
-.lirio-petalo-3 { animation: lirio-petalo-der 4.2s ease-in-out infinite; }
-.lirio-petalo-4 { animation: lirio-petalo-abajo-izq 4.4s ease-in-out infinite; }
-.lirio-petalo-5 { animation: lirio-petalo-abajo-der 4.5s ease-in-out infinite; }
-.lirio-petalo-6 { animation: lirio-petalo-frontal 4.1s ease-in-out infinite; }
+.lirio-petalo-1 {
+  transform: translateY(-35px) scaleX(0.82);
+}
+
+.lirio-petalo-2 {
+  transform: translate(-55px, -2px) rotate(-52deg);
+}
+
+.lirio-petalo-3 {
+  transform: translate(55px, -2px) rotate(52deg);
+}
+
+.lirio-petalo-4 {
+  transform: translate(-58px, 55px) rotate(-108deg);
+}
+
+.lirio-petalo-5 {
+  transform: translate(58px, 55px) rotate(108deg);
+}
+
+.lirio-petalo-6 {
+  transform: rotate(180deg);
+}
 
 .lirio-centro {
-    position: absolute;
-    width: 66px;
-    height: 43px;
-    left: 102px;
-    top: 120px;
-    border-radius: 50%;
-    z-index: 8;
+  position: absolute;
 
-    background:
-        radial-gradient(
-            ellipse,
-            #263719,
-            #4f6a28,
-            #849338,
-            transparent
-        );
+  width: 66px;
+  height: 43px;
+
+  left: 102px;
+  top: 120px;
+
+  z-index: 8;
+
+  border-radius: 50%;
+
+  background: radial-gradient(ellipse, #263719, #4f6a28, #849338, transparent);
+}
+
+.lirio-pistilo,
+.lirio-estambre {
+  position: absolute;
+
+  background: #91a145;
+
+  transform-origin: bottom center;
+
+  z-index: 9;
 }
 
 .lirio-pistilo {
-    position: absolute;
-    width: 5px;
-    height: 92px;
-    left: 133px;
-    top: 45px;
-    background: #8ca044;
-    z-index: 10;
+  width: 5px;
+  height: 92px;
+
+  left: 133px;
+  top: 45px;
 }
 
 .lirio-estambre {
-    position: absolute;
-    width: 3px;
-    height: 80px;
-    top: 65px;
-    left: 134px;
-    background: #91a145;
-    transform-origin: bottom center;
-    z-index: 9;
+  width: 3px;
+  height: 80px;
+
+  left: 134px;
+  top: 65px;
 }
 
 .lirio-antera {
-    position: absolute;
-    width: 14px;
-    height: 6px;
-    left: -5px;
-    top: -3px;
-    border-radius: 50%;
-    background: #c89a29;
+  position: absolute;
+
+  width: 14px;
+  height: 6px;
+
+  left: -5px;
+  top: -3px;
+
+  border-radius: 50%;
+
+  background: #c89a29;
 }
 
-.lirio-estambre-1 { transform: rotate(-30deg); }
-.lirio-estambre-2 { transform: rotate(-18deg); }
-.lirio-estambre-3 { transform: rotate(-7deg); }
-.lirio-estambre-4 { transform: rotate(10deg); }
-.lirio-estambre-5 { transform: rotate(22deg); }
-.lirio-estambre-6 { transform: rotate(34deg); }
+.lirio-estambre-1 {
+  transform: rotate(-30deg);
+}
+.lirio-estambre-2 {
+  transform: rotate(-18deg);
+}
+.lirio-estambre-3 {
+  transform: rotate(-7deg);
+}
+.lirio-estambre-4 {
+  transform: rotate(10deg);
+}
+.lirio-estambre-5 {
+  transform: rotate(22deg);
+}
+.lirio-estambre-6 {
+  transform: rotate(34deg);
+}
 
 .lirio-tallo {
-    position: absolute;
-    width: 13px;
-    height: 185px;
-    left: 144px;
-    top: 165px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #285329,
-            #598748,
-            #2b582d
-        );
+  width: 13px;
+  height: 185px;
+
+  left: 144px;
+  top: 165px;
+
+  background: linear-gradient(to right, #285329, #598748, #2b582d);
 }
 
 .lirio-hoja {
-    position: absolute;
-    background: #537c3d;
+  position: absolute;
+
+  background: #537c3d;
 }
 
 .lirio-hoja-izquierda {
-    width: 62px;
-    height: 135px;
-    left: 83px;
-    top: 198px;
-    transform: rotate(-32deg);
+  width: 62px;
+  height: 135px;
 
-    clip-path:
-        polygon(
-            50% 0,
-            100% 100%,
-            45% 80%,
-            0 100%
-        );
+  left: 83px;
+  top: 198px;
+
+  transform: rotate(-32deg);
+
+  clip-path: polygon(50% 0, 100% 100%, 45% 80%, 0 100%);
 }
 
 .lirio-hoja-derecha {
-    width: 62px;
-    height: 125px;
-    left: 150px;
-    top: 205px;
-    transform: rotate(29deg);
+  width: 62px;
+  height: 125px;
 
-    clip-path:
-        polygon(
-            50% 0,
-            100% 100%,
-            48% 80%,
-            0 100%
-        );
+  left: 150px;
+  top: 205px;
+
+  transform: rotate(29deg);
+
+  clip-path: polygon(50% 0, 100% 100%, 48% 80%, 0 100%);
 }
 
-
-
-/*
-=========================================
-    FLOR DE NUBE
-=========================================
-*/
+/* =====================================================
+   NUBE
+===================================================== */
 
 .flor-nube {
-    position: relative;
-    width: 310px;
-    height: 360px;
-    animation: crecer 1.8s ease, nube-balanceo 5.5s ease-in-out infinite;
-}
-
-.nube-ramo {
-    position: absolute;
-    width: 310px;
-    height: 225px;
-    top: 8px;
-    left: 0;
-    z-index: 5;
+  width: 310px;
 }
 
 .nube-tallo-principal {
-    position: absolute;
-    width: 8px;
-    height: 220px;
-    left: 151px;
-    top: 136px;
-    background: #55784c;
-    border-radius: 10px;
+  position: absolute;
+
+  width: 8px;
+  height: 220px;
+
+  left: 151px;
+  top: 132px;
+
+  border-radius: 10px;
+
+  background: #55784c;
 }
 
 .nube-rama {
-    position: absolute;
-    width: 3px;
-    background: #698861;
-    transform-origin: bottom center;
-    z-index: 1;
+  position: absolute;
+
+  width: 3px;
+
+  left: 153px;
+  top: 115px;
+
+  transform-origin: bottom center;
+
+  background: #698861;
+}
+
+.nube-ramo {
+  position: absolute;
+
+  width: 310px;
+  height: 220px;
+
+  left: 0;
+  top: 0;
+
+  z-index: 4;
 }
 
 .nube-florecita-wrap {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    transform: translate(-50%, -50%) scale(var(--escala));
-    z-index: 3;
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+
+  transform: translate(-50%, -50%) scale(var(--escala));
 }
 
 .nube-florecita {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    animation: nube-florecita-movimiento 3.8s ease-in-out infinite;
-    animation-delay: var(--delay);
+  position: relative;
+
+  width: 30px;
+  height: 30px;
+
+  animation: flotacion-nube 3.5s ease-in-out infinite;
+
+  animation-delay: var(--delay);
+}
+
+@keyframes flotacion-nube {
+  50% {
+    transform: translateY(-2px);
+  }
 }
 
 .nube-petalo {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    left: 9px;
-    top: 9px;
-    border-radius: 50%;
+  position: absolute;
 
-    background:
-        radial-gradient(
-            circle,
-            #ffffff,
-            #f0f0e9
-        );
+  width: 12px;
+  height: 12px;
+
+  left: 9px;
+  top: 9px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, white, #ededdf);
 }
 
-.nube-petalo-1 { transform: translateY(-8px); }
-.nube-petalo-2 { transform: translate(8px, -2px); }
-.nube-petalo-3 { transform: translate(5px, 7px); }
-.nube-petalo-4 { transform: translate(-5px, 7px); }
-.nube-petalo-5 { transform: translate(-8px, -2px); }
+.nube-petalo-1 {
+  transform: translateY(-8px);
+}
+.nube-petalo-2 {
+  transform: translate(8px, -2px);
+}
+.nube-petalo-3 {
+  transform: translate(5px, 7px);
+}
+.nube-petalo-4 {
+  transform: translate(-5px, 7px);
+}
+.nube-petalo-5 {
+  transform: translate(-8px, -2px);
+}
 
 .nube-centro {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    left: 12px;
-    top: 12px;
-    border-radius: 50%;
-    background: #ddd08a;
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  left: 12px;
+  top: 12px;
+
+  border-radius: 50%;
+
+  background: #d7cc86;
 }
 
 .nube-hoja {
-    position: absolute;
-    width: 42px;
-    height: 78px;
-    background: #55764a;
+  position: absolute;
+
+  width: 42px;
+  height: 78px;
+
+  background: #55764a;
 }
 
 .nube-hoja-1 {
-    left: 115px;
-    top: 245px;
-    border-radius: 100% 0 100% 0;
-    transform: rotate(-38deg);
+  left: 115px;
+  top: 247px;
+
+  border-radius: 100% 0 100% 0;
+
+  transform: rotate(-38deg);
 }
 
 .nube-hoja-2 {
-    left: 158px;
-    top: 264px;
-    border-radius: 0 100% 0 100%;
-    transform: rotate(36deg);
+  left: 158px;
+  top: 265px;
+
+  border-radius: 0 100% 0 100%;
+
+  transform: rotate(36deg);
 }
 
-
-
-/*
-=========================================
-    PEONÍA
-=========================================
-*/
+/* =====================================================
+   PEONÍA
+===================================================== */
 
 .peonia {
-    position: relative;
-    width: 290px;
-    height: 360px;
-    animation: crecer 1.8s ease, peonia-balanceo 5s ease-in-out infinite;
+  width: 290px;
 }
 
 .peonia-cabeza {
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    left: 30px;
-    top: 0;
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  left: 30px;
+  top: 0;
 }
 
 .peonia-petalo-wrap {
-    position: absolute;
-    width: 60px;
-    height: 115px;
-    left: 85px;
-    top: 54px;
-    transform-origin: 30px 61px;
-    transform: rotate(var(--angulo));
+  position: absolute;
+
+  width: 60px;
+  height: 115px;
+
+  left: 85px;
+  top: 54px;
+
+  transform-origin: 30px 61px;
+
+  transform: rotate(var(--angulo));
 }
 
 .peonia-petalo {
-    position: absolute;
-    width: 60px;
-    height: 82px;
-    transform: translateY(calc(-1 * var(--radio))) scale(var(--escala));
+  position: absolute;
 
-    border-radius:
-        55% 55% 45% 45%
-        / 66% 66% 40% 40%;
+  width: 60px;
+  height: 82px;
 
-    background:
-        radial-gradient(
-            ellipse at 48% 75%,
-            #b93f70,
-            #dd7098,
-            #ef9eb9,
-            #f7bdcd
-        );
+  transform: translateY(calc(-1 * var(--radio))) scale(var(--escala));
 
-    animation:
-        peonia-petalo-movimiento 3.8s ease-in-out infinite;
+  border-radius: 55% 55% 45% 45% / 66% 66% 40% 40%;
 
-    animation-delay: var(--delay);
-}
-
-.peonia-centro {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    left: 83px;
-    top: 83px;
-}
-
-.peonia-centro-petalo {
-    position: absolute;
-    width: 27px;
-    height: 43px;
-    left: 19px;
-    top: 1px;
-    transform-origin: 13px 31px;
-    border-radius: 60% 60% 40% 40%;
-
-    background:
-        linear-gradient(
-            #ed93b0,
-            #c44773
-        );
+  background: radial-gradient(
+    ellipse at 48% 75%,
+    #b93f70,
+    #dd7098,
+    #ef9eb9,
+    #f7bdcd
+  );
 }
 
 .peonia-tallo {
-    position: absolute;
-    width: 13px;
-    height: 185px;
-    left: 139px;
-    top: 165px;
-    border-radius: 20px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #315c31,
-            #66904c,
-            #315c31
-        );
+  width: 13px;
+  height: 185px;
+
+  left: 139px;
+  top: 165px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(to right, #315c31, #66904c, #315c31);
 }
 
 .peonia-hoja {
-    position: absolute;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            145deg,
-            #487240,
-            #6e9a5a,
-            #436c3c
-        );
+  width: 92px;
+  height: 60px;
 
-    box-shadow:
-        inset 0 3px 8px rgba(255,255,255,.08),
-        0 4px 8px rgba(37,69,34,.14);
+  z-index: 2;
+
+  border-radius: 100% 0 100% 0;
+
+  background: linear-gradient(145deg, #47703f, #709c59, #42693a);
 }
 
 .peonia-hoja-izquierda {
-    width: 92px;
-    height: 62px;
-    left: 54px;
-    top: 232px;
-    transform: rotate(-24deg);
-    border-radius: 100% 0 100% 0;
+  left: 57px;
+  top: 232px;
+
+  transform: rotate(-23deg);
 }
 
 .peonia-hoja-derecha {
-    width: 96px;
-    height: 66px;
-    left: 139px;
-    top: 246px;
-    transform: rotate(27deg) scaleX(-1);
-    border-radius: 100% 0 100% 0;
+  left: 139px;
+  top: 246px;
+
+  transform: rotate(26deg) scaleX(-1);
 }
 
-
-
-/*
-=========================================
-    CAMELIA
-=========================================
-*/
+/* =====================================================
+   CAMELIA
+===================================================== */
 
 .camelia {
-    position: relative;
-    width: 290px;
-    height: 360px;
-    animation: crecer 1.8s ease, camelia-balanceo 5.2s ease-in-out infinite;
+  width: 290px;
 }
 
 .camelia-cabeza {
-    position: absolute;
-    width: 245px;
-    height: 225px;
-    left: 22px;
-    top: 2px;
+  position: absolute;
+
+  width: 245px;
+  height: 225px;
+
+  left: 22px;
+  top: 2px;
 }
 
 .camelia-petalo {
-    position: absolute;
+  position: absolute;
 
-    background:
-        radial-gradient(
-            ellipse at 50% 78%,
-            #7d142b,
-            #aa203c,
-            #cf3d58,
-            #eb7486
-        );
-
-    animation:
-        camelia-petalo-respirar 4s ease-in-out infinite;
+  background: radial-gradient(
+    ellipse at 50% 78%,
+    #7d142b,
+    #aa203c,
+    #cf3d58,
+    #eb7486
+  );
 }
 
 .camelia-petalo-exterior {
-    width: 105px;
-    height: 88px;
+  width: 105px;
+  height: 88px;
 
-    border-radius:
-        58% 51% 49% 56%
-        / 68% 64% 42% 45%;
+  border-radius: 58% 51% 49% 56% / 68% 64% 42% 45%;
 }
 
-.camelia-exterior-1 { left: 69px; top: 0; transform: rotate(-2deg); }
-.camelia-exterior-2 { left: 126px; top: 26px; transform: rotate(43deg); }
-.camelia-exterior-3 { left: 137px; top: 79px; transform: rotate(87deg); }
-.camelia-exterior-4 { left: 111px; top: 126px; transform: rotate(135deg); }
-.camelia-exterior-5 { left: 65px; top: 135px; transform: rotate(181deg); }
-.camelia-exterior-6 { left: 17px; top: 115px; transform: rotate(225deg); }
-.camelia-exterior-7 { left: 0; top: 63px; transform: rotate(271deg); }
-.camelia-exterior-8 { left: 19px; top: 18px; transform: rotate(317deg); }
+.camelia-exterior-1 {
+  left: 69px;
+  top: 0;
+  transform: rotate(-2deg);
+}
+.camelia-exterior-2 {
+  left: 126px;
+  top: 26px;
+  transform: rotate(43deg);
+}
+.camelia-exterior-3 {
+  left: 137px;
+  top: 79px;
+  transform: rotate(87deg);
+}
+.camelia-exterior-4 {
+  left: 111px;
+  top: 126px;
+  transform: rotate(135deg);
+}
+.camelia-exterior-5 {
+  left: 65px;
+  top: 135px;
+  transform: rotate(181deg);
+}
+.camelia-exterior-6 {
+  left: 17px;
+  top: 115px;
+  transform: rotate(225deg);
+}
+.camelia-exterior-7 {
+  left: 0;
+  top: 63px;
+  transform: rotate(271deg);
+}
+.camelia-exterior-8 {
+  left: 19px;
+  top: 18px;
+  transform: rotate(317deg);
+}
 
 .camelia-petalo-interior {
-    width: 82px;
-    height: 72px;
-    z-index: 8;
+  width: 82px;
+  height: 72px;
 
-    border-radius:
-        60% 54% 48% 58%
-        / 70% 65% 42% 48%;
+  z-index: 8;
 
-    background:
-        radial-gradient(
-            ellipse at 50% 80%,
-            #6f0d25,
-            #9a1934,
-            #c5324e,
-            #e66277
-        );
+  border-radius: 60%;
+
+  background: radial-gradient(
+    ellipse at 50% 80%,
+    #6f0d25,
+    #9a1934,
+    #c5324e,
+    #e66277
+  );
 }
 
-.camelia-interior-1 { left: 80px; top: 44px; transform: rotate(-7deg); }
-.camelia-interior-2 { left: 116px; top: 67px; transform: rotate(53deg); }
-.camelia-interior-3 { left: 112px; top: 108px; transform: rotate(115deg); }
-.camelia-interior-4 { left: 72px; top: 118px; transform: rotate(177deg); }
-.camelia-interior-5 { left: 43px; top: 90px; transform: rotate(238deg); }
-.camelia-interior-6 { left: 46px; top: 50px; transform: rotate(298deg); }
+.camelia-interior-1 {
+  left: 80px;
+  top: 44px;
+  transform: rotate(-7deg);
+}
+.camelia-interior-2 {
+  left: 116px;
+  top: 67px;
+  transform: rotate(53deg);
+}
+.camelia-interior-3 {
+  left: 112px;
+  top: 108px;
+  transform: rotate(115deg);
+}
+.camelia-interior-4 {
+  left: 72px;
+  top: 118px;
+  transform: rotate(177deg);
+}
+.camelia-interior-5 {
+  left: 43px;
+  top: 90px;
+  transform: rotate(238deg);
+}
+.camelia-interior-6 {
+  left: 46px;
+  top: 50px;
+  transform: rotate(298deg);
+}
 
 .camelia-centro {
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    left: 98px;
-    top: 89px;
-    border-radius: 50%;
-    z-index: 25;
+  position: absolute;
 
-    background:
-        radial-gradient(
-            circle,
-            #8f6514,
-            #c89120,
-            #e4b938,
-            #f1d15e,
-            #b77f17
-        );
+  width: 48px;
+  height: 48px;
+
+  left: 98px;
+  top: 89px;
+
+  z-index: 25;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #8f6514, #c89120, #e4b938, #f1d15e);
 }
 
 .camelia-estambre {
-    position: absolute;
-    width: 3px;
-    height: 8px;
-    border-radius: 10px;
-    background: #f0c54b;
+  position: absolute;
+
+  width: 3px;
+  height: 8px;
+
+  border-radius: 10px;
+
+  background: #f0c54b;
 }
 
 .camelia-tallo {
-    position: absolute;
-    width: 13px;
-    height: 188px;
-    left: 139px;
-    top: 166px;
-    border-radius: 20px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #163d25,
-            #46734a,
-            #1a4729
-        );
+  width: 13px;
+  height: 188px;
+
+  left: 139px;
+  top: 166px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(to right, #163d25, #46734a, #1a4729);
 }
 
 .camelia-hoja {
-    position: absolute;
-    width: 92px;
-    height: 58px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            145deg,
-            #123622,
-            #245937,
-            #4c7a4a,
-            #1e4a2c
-        );
+  width: 91px;
+  height: 56px;
+
+  z-index: 2;
+
+  border-radius: 100% 0 100% 0;
+
+  background: linear-gradient(145deg, #123622, #245937, #4c7a4a);
 }
 
 .camelia-hoja-izquierda {
-    left: 56px;
-    top: 245px;
-    transform: rotate(-22deg);
-    border-radius: 100% 0 100% 0;
+  left: 58px;
+  top: 241px;
+
+  transform: rotate(-21deg);
 }
 
 .camelia-hoja-derecha {
-    left: 143px;
-    top: 252px;
-    transform: rotate(19deg) scaleX(-1);
-    border-radius: 100% 0 100% 0;
+  left: 140px;
+  top: 250px;
+
+  transform: rotate(19deg) scaleX(-1);
 }
 
-
-
-/*
-=========================================
-    JAZMÍN
-=========================================
-*/
+/* =====================================================
+   JAZMÍN
+===================================================== */
 
 .jazmin {
-    position: relative;
-    width: 280px;
-    height: 360px;
-    animation: crecer 1.8s ease, jazmin-balanceo 5.2s ease-in-out infinite;
+  width: 280px;
 }
 
 .jazmin-tallo {
-    position: absolute;
-    width: 7px;
-    height: 215px;
-    left: 137px;
-    top: 120px;
-    border-radius: 10px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #354f32,
-            #6d8558,
-            #354f32
-        );
+  width: 7px;
+  height: 215px;
 
-    transform: rotate(-2deg);
-    z-index: 0;
+  left: 137px;
+  top: 120px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(to right, #354f32, #6d8558, #354f32);
 }
 
 .jazmin-cabeza {
-    position: absolute;
-    width: 170px;
-    height: 165px;
-    left: 54px;
-    top: 2px;
-    z-index: 10;
+  position: absolute;
+
+  width: 170px;
+  height: 165px;
+
+  left: 54px;
+  top: 2px;
+
+  z-index: 10;
 }
 
 .jazmin-petalo {
-    position: absolute;
-    width: 67px;
-    height: 86px;
-    left: 52px;
-    top: 40px;
-    transform-origin: 33px 48px;
+  position: absolute;
 
-    border-radius:
-        56% 56% 40% 40%
-        / 66% 66% 35% 35%;
+  width: 67px;
+  height: 86px;
 
-    background:
-        linear-gradient(
-            160deg,
-            #ffffff 0%,
-            #fafaf5 58%,
-            #e4e4db 100%
-        );
+  left: 52px;
+  top: 40px;
 
-    box-shadow:
-        inset 5px 4px 8px rgba(255,255,255,.7),
-        inset -5px -4px 9px rgba(175,175,160,.10),
-        0 3px 6px rgba(85,85,65,.08);
+  transform-origin: 33px 48px;
+
+  border-radius: 56% 56% 40% 40% / 66% 66% 35% 35%;
+
+  background: linear-gradient(160deg, white, #fafaf5, #e4e4db);
 }
 
-.jazmin-petalo-1 { transform: rotate(0deg) translateY(-43px); }
-.jazmin-petalo-2 { transform: rotate(45deg) translateY(-43px); }
-.jazmin-petalo-3 { transform: rotate(90deg) translateY(-43px); }
-.jazmin-petalo-4 { transform: rotate(135deg) translateY(-43px); }
-.jazmin-petalo-5 { transform: rotate(180deg) translateY(-43px); }
-.jazmin-petalo-6 { transform: rotate(225deg) translateY(-43px); }
-.jazmin-petalo-7 { transform: rotate(270deg) translateY(-43px); }
-.jazmin-petalo-8 { transform: rotate(315deg) translateY(-43px); }
+.jazmin-petalo-1 {
+  transform: rotate(0deg) translateY(-43px);
+}
+.jazmin-petalo-2 {
+  transform: rotate(45deg) translateY(-43px);
+}
+.jazmin-petalo-3 {
+  transform: rotate(90deg) translateY(-43px);
+}
+.jazmin-petalo-4 {
+  transform: rotate(135deg) translateY(-43px);
+}
+.jazmin-petalo-5 {
+  transform: rotate(180deg) translateY(-43px);
+}
+.jazmin-petalo-6 {
+  transform: rotate(225deg) translateY(-43px);
+}
+.jazmin-petalo-7 {
+  transform: rotate(270deg) translateY(-43px);
+}
+.jazmin-petalo-8 {
+  transform: rotate(315deg) translateY(-43px);
+}
 
 .jazmin-centro {
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    left: 66px;
-    top: 63px;
-    border-radius: 50%;
-    z-index: 20;
+  position: absolute;
 
-    background:
-        radial-gradient(
-            circle,
-            #5e5128 0%,
-            #756531 45%,
-            #3f351c 100%
-        );
+  width: 38px;
+  height: 38px;
+
+  left: 66px;
+  top: 63px;
+
+  z-index: 20;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #5e5128, #756531, #3f351c);
 }
 
 .jazmin-estambre {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: #1f1a0c;
+  position: absolute;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: #1f1a0c;
 }
 
 .jazmin-rama {
-    position: absolute;
-    width: 4px;
-    border-radius: 8px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #486340,
-            #788c61
-        );
+  width: 4px;
 
-    transform-origin: bottom center;
-    z-index: 2;
+  background: #697f57;
+
+  transform-origin: bottom center;
 }
 
 .jazmin-rama-izquierda {
-    height: 74px;
-    left: 113px;
-    top: 103px;
-    transform: rotate(-40deg);
+  height: 74px;
+
+  left: 113px;
+  top: 103px;
+
+  transform: rotate(-40deg);
 }
 
 .jazmin-rama-derecha {
-    height: 72px;
-    left: 166px;
-    top: 97px;
-    transform: rotate(43deg);
-}
+  height: 72px;
 
-.jazmin-boton {
-    position: absolute;
-    width: 42px;
-    height: 57px;
-    z-index: 8;
-    animation: jazmin-boton-movimiento 4s ease-in-out infinite;
-}
+  left: 166px;
+  top: 97px;
 
-.jazmin-boton-petalo {
-    position: absolute;
-    width: 25px;
-    height: 46px;
-    left: 9px;
-    top: 3px;
-
-    border-radius:
-        60% 60% 43% 43%
-        / 75% 75% 30% 30%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #ffffff,
-            #f4f4ee,
-            #deded4
-        );
-
-    transform-origin: center bottom;
-}
-
-.jazmin-boton-petalo-1 {
-    transform: rotate(-18deg) translateX(-7px);
-}
-
-.jazmin-boton-petalo-2 {
-    transform: rotate(0deg);
-}
-
-.jazmin-boton-petalo-3 {
-    transform: rotate(18deg) translateX(7px);
-}
-
-.jazmin-boton::after {
-    content: "";
-    position: absolute;
-    width: 14px;
-    height: 12px;
-    left: 14px;
-    bottom: -2px;
-    border-radius: 40% 40% 60% 60%;
-    background: #648052;
-}
-
-.jazmin-boton-izquierdo {
-    left: 59px;
-    top: 76px;
-    transform: rotate(-30deg);
-}
-
-.jazmin-boton-derecho {
-    left: 182px;
-    top: 70px;
-    transform: rotate(28deg);
-}
-
-.jazmin-boton-centro {
-    width: 34px;
-    height: 50px;
-    left: 114px;
-    top: 145px;
-    transform: rotate(-8deg) scale(.75);
+  transform: rotate(43deg);
 }
 
 .jazmin-hoja {
-    position: absolute;
-    width: 95px;
-    height: 52px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            145deg,
-            #27432d 0%,
-            #456843 45%,
-            #748862 100%
-        );
+  width: 95px;
+  height: 52px;
 
-    box-shadow:
-        inset 0 4px 7px rgba(255,255,255,.08),
-        0 3px 7px rgba(35,55,30,.13);
+  z-index: 4;
 
-    z-index: 4;
-    border-radius: 100% 8% 100% 8%;
+  border-radius: 100% 8% 100% 8%;
+
+  background: linear-gradient(145deg, #27432d, #456843, #748862);
 }
 
 .jazmin-hoja-izquierda {
-    left: 54px;
-    top: 230px;
-    transform: rotate(-18deg);
+  left: 53px;
+  top: 229px;
+
+  transform: rotate(-18deg);
 }
 
 .jazmin-hoja-derecha {
-    left: 133px;
-    top: 237px;
-    transform: rotate(16deg) scaleX(-1);
+  left: 133px;
+  top: 237px;
+
+  transform: rotate(16deg) scaleX(-1);
 }
 
-
-
-/*
-=========================================
-            ORQUÍDEA ROSA
-=========================================
-*/
-
-.orquidea {
-    position: relative;
-
-    width: 300px;
-    height: 360px;
-
-    animation:
-        crecer 1.8s ease,
-        orquidea-balanceo 5.2s ease-in-out infinite;
-
-    transform-origin:
-        center bottom;
-}
-
-
-/*
-=========================================
-        TALLO
-=========================================
-*/
+/* =====================================================
+   ORQUÍDEA
+===================================================== */
 
 .orquidea-tallo {
-    position: absolute;
+  position: absolute;
 
-    width: 9px;
-    height: 205px;
+  width: 9px;
+  height: 205px;
 
-    left: 146px;
-    top: 126px;
+  left: 146px;
+  top: 126px;
 
-    border-radius: 20px;
+  border-radius: 20px;
 
-    background:
-        linear-gradient(
-            to right,
-            #3e6938,
-            #79a05e,
-            #3e6938
-        );
-
-    z-index: 1;
+  background: linear-gradient(to right, #3e6938, #79a05e, #3e6938);
 }
-
-
-/*
-=========================================
-        RAMITA
-=========================================
-*/
 
 .orquidea-rama {
-    position: absolute;
+  position: absolute;
 
-    width: 4px;
-    height: 73px;
+  width: 4px;
+  height: 73px;
 
-    left: 153px;
-    top: 103px;
+  left: 153px;
+  top: 103px;
 
-    border-radius: 20px;
+  background: #71905b;
 
-    background:
-        linear-gradient(
-            to right,
-            #577d49,
-            #8aa56c
-        );
-
-    transform:
-        rotate(25deg);
-
-    transform-origin:
-        bottom center;
-
-    z-index: 1;
+  transform: rotate(25deg);
 }
-
-
-/*
-=========================================
-        CABEZA
-=========================================
-*/
 
 .orquidea-cabeza {
-    position: absolute;
+  position: absolute;
 
-    width: 220px;
-    height: 220px;
+  width: 220px;
+  height: 220px;
 
-    left: 40px;
-    top: 4px;
+  left: 40px;
+  top: 4px;
 
-    z-index: 6;
+  z-index: 6;
 }
-
-
-/*
-=========================================
-        PÉTALOS GENERALES
-=========================================
-*/
 
 .orquidea-petalo,
 .orquidea-labelo {
-    position: absolute;
+  position: absolute;
 
-    box-shadow:
-        inset 4px 5px 10px
-        rgba(255,255,255,.25),
+  background: linear-gradient(180deg, #ffd4e7, #f29bc4, #da6da3);
 
-        inset -4px -5px 10px
-        rgba(156,55,108,.10),
-
-        0 4px 8px
-        rgba(119,50,87,.12);
-
-    transition:
-        transform .3s ease;
+  box-shadow: inset 4px 5px 10px rgba(255, 255, 255, 0.25);
 }
-
-
-/*
-=========================================
-        PÉTALO SUPERIOR
-=========================================
-*/
 
 .orquidea-petalo.superior {
-    width: 68px;
-    height: 102px;
+  width: 68px;
+  height: 102px;
 
-    left: 76px;
-    top: 7px;
+  left: 76px;
+  top: 7px;
 
-    border-radius:
-        52% 52% 42% 42%
-        / 66% 66% 35% 35%;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffd4e7 0%,
-            #f7aacb 55%,
-            #e67eaf 100%
-        );
-
-    transform:
-        rotate(0deg);
-
-    z-index: 2;
+  border-radius: 52% 52% 42% 42% / 66% 66% 35% 35%;
 }
-
-
-/*
-=========================================
-        PÉTALO IZQUIERDO
-=========================================
-*/
 
 .orquidea-petalo.lateral-izq {
-    width: 92px;
-    height: 108px;
+  width: 92px;
+  height: 108px;
 
-    left: 18px;
-    top: 50px;
+  left: 18px;
+  top: 50px;
 
-    border-radius:
-        68% 45% 62% 38%
-        / 65% 44% 65% 42%;
+  border-radius: 68% 45% 62% 38% / 65% 44% 65% 42%;
 
-    background:
-        linear-gradient(
-            145deg,
-            #ffd5e8,
-            #f39ec5,
-            #dc72aa
-        );
-
-    transform:
-        rotate(-40deg);
-
-    z-index: 3;
+  transform: rotate(-40deg);
 }
-
-
-/*
-=========================================
-        PÉTALO DERECHO
-=========================================
-*/
 
 .orquidea-petalo.lateral-der {
-    width: 92px;
-    height: 108px;
+  width: 92px;
+  height: 108px;
 
-    right: 18px;
-    top: 50px;
+  right: 18px;
+  top: 50px;
 
-    border-radius:
-        45% 68% 38% 62%
-        / 44% 65% 42% 65%;
+  border-radius: 45% 68% 38% 62% / 44% 65% 42% 65%;
 
-    background:
-        linear-gradient(
-            215deg,
-            #ffd5e8,
-            #f39ec5,
-            #dc72aa
-        );
-
-    transform:
-        rotate(40deg);
-
-    z-index: 3;
+  transform: rotate(40deg);
 }
-
-
-/*
-=========================================
-        PÉTALO INFERIOR IZQUIERDO
-=========================================
-*/
 
 .orquidea-petalo.inferior-izq {
-    width: 72px;
-    height: 88px;
+  width: 72px;
+  height: 88px;
 
-    left: 51px;
-    top: 111px;
+  left: 51px;
+  top: 111px;
 
-    border-radius:
-        60% 45% 58% 42%
-        / 62% 45% 60% 40%;
+  border-radius: 60%;
 
-    background:
-        linear-gradient(
-            150deg,
-            #f9bad4,
-            #e984b5,
-            #cf5c9b
-        );
-
-    transform:
-        rotate(22deg);
-
-    z-index: 5;
+  transform: rotate(22deg);
 }
-
-
-/*
-=========================================
-        PÉTALO INFERIOR DERECHO
-=========================================
-*/
 
 .orquidea-petalo.inferior-der {
-    width: 72px;
-    height: 88px;
+  width: 72px;
+  height: 88px;
 
-    right: 51px;
-    top: 111px;
+  right: 51px;
+  top: 111px;
 
-    border-radius:
-        45% 60% 42% 58%
-        / 45% 62% 40% 60%;
+  border-radius: 60%;
 
-    background:
-        linear-gradient(
-            210deg,
-            #f9bad4,
-            #e984b5,
-            #cf5c9b
-        );
-
-    transform:
-        rotate(-22deg);
-
-    z-index: 5;
+  transform: rotate(-22deg);
 }
-
-
-/*
-=========================================
-        LABEL0 / PÉTALO FRONTAL
-=========================================
-*/
 
 .orquidea-labelo {
-    width: 74px;
-    height: 77px;
+  width: 74px;
+  height: 77px;
 
-    left: 73px;
-    top: 112px;
+  left: 73px;
+  top: 112px;
 
-    z-index: 12;
+  z-index: 12;
 
-    border-radius:
-        42% 42% 58% 58%
-        / 35% 35% 68% 68%;
+  border-radius: 42% 42% 58% 58% / 35% 35% 68% 68%;
 
-    background:
-        linear-gradient(
-            180deg,
-            #f8add0 0%,
-            #e86bad 52%,
-            #c9488d 100%
-        );
-
-    transform:
-        rotate(0deg);
+  background: linear-gradient(180deg, #f8add0, #e86bad, #c9488d);
 }
-
-
-/*
-=========================================
-        LÓBULOS DEL LABEL0
-=========================================
-*/
 
 .orquidea-labelo::before,
 .orquidea-labelo::after {
-    content: "";
+  content: "";
 
-    position: absolute;
+  position: absolute;
 
-    width: 37px;
-    height: 45px;
+  width: 37px;
+  height: 45px;
 
-    top: 4px;
+  top: 4px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #ffc3dd,
-            #e976af
-        );
+  z-index: -1;
 
-    z-index: -1;
+  background: linear-gradient(#ffc3dd, #e976af);
 }
-
 
 .orquidea-labelo::before {
-    left: -15px;
+  left: -15px;
 
-    border-radius:
-        75% 30% 60% 45%
-        / 65% 35% 70% 45%;
+  border-radius: 75% 30% 60% 45%;
 
-    transform:
-        rotate(-24deg);
+  transform: rotate(-24deg);
 }
-
 
 .orquidea-labelo::after {
-    right: -15px;
+  right: -15px;
 
-    border-radius:
-        30% 75% 45% 60%
-        / 35% 65% 45% 70%;
+  border-radius: 30% 75% 45% 60%;
 
-    transform:
-        rotate(24deg);
+  transform: rotate(24deg);
 }
-
-
-/*
-=========================================
-        DETALLE CENTRAL DEL LABEL0
-=========================================
-*/
-
-.orquidea-labelo {
-    overflow:
-        visible;
-}
-
-
-.orquidea-labelo span {
-    pointer-events:
-        none;
-}
-
-
-/*
-=========================================
-        CENTRO
-=========================================
-*/
 
 .orquidea-centro {
-    position: absolute;
+  position: absolute;
 
-    width: 31px;
-    height: 31px;
+  width: 31px;
+  height: 31px;
 
-    left: 95px;
-    top: 103px;
+  left: 95px;
+  top: 103px;
 
-    border-radius:
-        50% 50% 48% 48%;
+  z-index: 20;
 
-    z-index: 20;
+  border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle at 45% 35%,
-            #fff2a4 0%,
-            #f4d24d 38%,
-            #dca827 67%,
-            #9f6717 100%
-        );
-
-    box-shadow:
-        inset 0 2px 5px
-        rgba(255,255,255,.35),
-
-        0 2px 5px
-        rgba(111,70,15,.20);
+  background: radial-gradient(circle, #fff2a4, #f4d24d, #9f6717);
 }
-
-
-/*
-=========================================
-        VETAS SUTILES
-=========================================
-*/
-
-.orquidea-petalo::before {
-    content: "";
-
-    position: absolute;
-
-    width: 2px;
-    height: 48%;
-
-    left: 50%;
-    bottom: 12%;
-
-    transform:
-        translateX(-50%);
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(164,55,111,.20),
-            transparent
-        );
-}
-
-
-/*
-=========================================
-        HOJAS
-=========================================
-*/
 
 .orquidea-hoja {
-    position: absolute;
+  position: absolute;
 
-    width: 95px;
-    height: 52px;
+  width: 95px;
+  height: 52px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #315c39 0%,
-            #638a54 50%,
-            #86a46d 100%
-        );
+  z-index: 2;
 
-    box-shadow:
-        inset 0 3px 7px
-        rgba(255,255,255,.09),
+  border-radius: 100% 5% 100% 5%;
 
-        0 3px 6px
-        rgba(35,60,30,.13);
-
-    z-index: 2;
-
-    border-radius:
-        100% 5% 100% 5%;
+  background: linear-gradient(145deg, #315c39, #638a54, #86a46d);
 }
-
-
-.orquidea-hoja::before {
-    content: "";
-
-    position: absolute;
-
-    width: 70px;
-    height: 2px;
-
-    left: 12px;
-    top: 25px;
-
-    background:
-        rgba(215,230,194,.25);
-}
-
-
-/*
-=========================================
-        HOJA IZQUIERDA
-=========================================
-*/
 
 .orquidea-hoja-izquierda {
-    left: 60px;
-    top: 253px;
+  left: 60px;
+  top: 253px;
 
-    transform:
-        rotate(-21deg);
+  transform: rotate(-21deg);
 }
-
-
-/*
-=========================================
-        HOJA DERECHA
-=========================================
-*/
 
 .orquidea-hoja-derecha {
-    left: 144px;
-    top: 258px;
+  left: 144px;
+  top: 258px;
 
-    transform:
-        rotate(19deg)
-        scaleX(-1);
+  transform: rotate(19deg) scaleX(-1);
 }
 
-
-/*
-=========================================
-    LAVANDA
-=========================================
-*/
+/* =====================================================
+   LAVANDA
+===================================================== */
 
 .lavanda {
-    position: relative;
-    width: 280px;
-    height: 360px;
-    animation: crecer 1.8s ease, lavanda-balanceo 5.6s ease-in-out infinite;
+  width: 280px;
 }
 
 .lavanda-tallo {
-    position: absolute;
-    width: 30px;
-    height: 220px;
-    transform-origin: bottom center;
+  position: absolute;
+
+  width: 30px;
+  height: 220px;
+
+  transform-origin: bottom center;
 }
 
-.lavanda-tallo-1 { transform: rotate(-12deg); }
-.lavanda-tallo-2 { transform: rotate(-4deg); }
-.lavanda-tallo-3 { transform: rotate(8deg); }
-.lavanda-tallo-4 { transform: rotate(16deg); }
-
 .lavanda-linea {
-    position: absolute;
-    width: 4px;
-    height: 220px;
-    left: 13px;
-    top: 0;
-    border-radius: 10px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to bottom,
-            #769055,
-            #50703f,
-            #3f6030
-        );
+  width: 4px;
+  height: 220px;
+
+  left: 13px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(#769055, #50703f, #3f6030);
 }
 
 .lavanda-brote {
-    position: absolute;
-    width: 18px;
-    height: 12px;
-    border-radius: 60% 60% 60% 60%;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            135deg,
-            #c8a0ff,
-            #9c6ee8,
-            #744bc8
-        );
+  width: 18px;
+  height: 12px;
 
-    box-shadow:
-        inset 0 1px 4px rgba(255,255,255,.28),
-        0 2px 4px rgba(94,58,143,.12);
+  border-radius: 60%;
+
+  background: linear-gradient(135deg, #c8a0ff, #9c6ee8, #744bc8);
 }
 
 .lavanda-brote.izq {
-    left: -2px;
-    transform: rotate(-26deg);
+  left: -2px;
+
+  transform: rotate(-26deg);
 }
 
 .lavanda-brote.der {
-    right: -2px;
-    transform: rotate(26deg);
+  right: -2px;
+
+  transform: rotate(26deg);
 }
 
 .lavanda-base-tallo {
-    position: absolute;
-    width: 14px;
-    height: 165px;
-    left: 133px;
-    top: 175px;
-    border-radius: 10px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #44653b,
-            #69814b,
-            #44653b
-        );
+  width: 14px;
+  height: 165px;
+
+  left: 133px;
+  top: 175px;
+
+  border-radius: 10px;
+
+  background: #587342;
 }
 
 .lavanda-hoja {
-    position: absolute;
-    width: 85px;
-    height: 26px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            135deg,
-            #4e7340,
-            #7f9a61
-        );
+  width: 85px;
+  height: 26px;
 
-    border-radius: 100% 0 100% 0;
+  border-radius: 100% 0 100% 0;
+
+  background: #6d8a52;
 }
 
 .lavanda-hoja-izquierda {
-    left: 58px;
-    top: 258px;
-    transform: rotate(-24deg);
+  left: 58px;
+  top: 258px;
+
+  transform: rotate(-24deg);
 }
 
 .lavanda-hoja-derecha {
-    left: 140px;
-    top: 278px;
-    transform: rotate(20deg) scaleX(-1);
+  left: 140px;
+  top: 278px;
+
+  transform: rotate(20deg) scaleX(-1);
 }
 
-
-
-/*
-=========================================
-    ANÉMONA
-=========================================
-*/
-
-.anemona {
-    position: relative;
-    width: 300px;
-    height: 360px;
-    animation: crecer 1.8s ease, anemona-balanceo 5.3s ease-in-out infinite;
-    transform-origin: center bottom;
-}
+/* =====================================================
+   ANÉMONA
+===================================================== */
 
 .anemona-cabeza {
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    left: 35px;
-    top: 0;
-    z-index: 8;
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  left: 35px;
+  top: 0;
+
+  z-index: 8;
 }
 
 .anemona-petalo-wrap {
-    position: absolute;
-    width: 74px;
-    height: 125px;
-    left: 78px;
-    top: 53px;
-    transform-origin: 37px 62px;
-    transform: rotate(var(--angulo));
+  position: absolute;
+
+  width: 74px;
+  height: 125px;
+
+  left: 78px;
+  top: 53px;
+
+  transform-origin: 37px 62px;
+
+  transform: rotate(var(--angulo));
 }
 
 .anemona-petalo {
-    position: absolute;
-    width: 74px;
-    height: 90px;
-    left: 0;
-    top: 0;
+  position: absolute;
 
-    transform: translateY(-47px);
-    transform-origin: center bottom;
+  width: 74px;
+  height: 90px;
 
-    border-radius:
-        55% 55% 45% 45%
-        / 70% 70% 38% 38%;
+  transform: translateY(-47px);
 
-    background:
-        linear-gradient(
-            150deg,
-            #ffffff 0%,
-            #fbfaf5 55%,
-            #e8e7df 100%
-        );
+  border-radius: 55% 55% 45% 45% / 70% 70% 38% 38%;
 
-    box-shadow:
-        inset 5px 6px 9px rgba(255, 255, 255, .65),
-        inset -4px -5px 8px rgba(167, 167, 157, .12),
-        0 3px 7px rgba(65, 65, 60, .08);
-
-    animation:
-        anemona-petalo-movimiento 4.2s ease-in-out infinite;
-
-    animation-delay: var(--delay);
-}
-
-.anemona-petalo::before {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 55%;
-    left: 50%;
-    bottom: 8%;
-    transform: translateX(-50%);
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(74, 71, 86, .15),
-            transparent
-        );
+  background: linear-gradient(150deg, white, #fbfaf5, #e8e7df);
 }
 
 .anemona-centro {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    left: 80px;
-    top: 80px;
-    border-radius: 50%;
-    z-index: 25;
+  position: absolute;
 
-    background:
-        radial-gradient(
-            circle,
-            #504a5d 0%,
-            #292633 35%,
-            #15131d 70%,
-            #09080d 100%
-        );
+  width: 70px;
+  height: 70px;
 
-    box-shadow:
-        0 3px 10px rgba(17, 14, 25, .25);
+  left: 80px;
+  top: 80px;
+
+  z-index: 25;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #504a5d, #292633, #09080d);
 }
 
 .anemona-estambre {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #777083;
-    box-shadow: 0 0 2px rgba(255,255,255,.12);
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #777083;
 }
 
 .anemona-tallo {
-    position: absolute;
-    width: 9px;
-    height: 195px;
-    left: 146px;
-    top: 158px;
-    border-radius: 20px;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            to right,
-            #315537,
-            #628160,
-            #315537
-        );
+  width: 9px;
+  height: 195px;
 
-    z-index: 1;
+  left: 146px;
+  top: 158px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(to right, #315537, #628160, #315537);
 }
 
 .anemona-hoja {
-    position: absolute;
+  position: absolute;
 
-    background:
-        linear-gradient(
-            145deg,
-            #284c32,
-            #52744a,
-            #758b60
-        );
+  z-index: 3;
 
-    z-index: 3;
+  background: linear-gradient(145deg, #284c32, #52744a, #758b60);
 
-    clip-path:
-        polygon(
-            50% 0%,
-            63% 27%,
-            91% 18%,
-            78% 45%,
-            100% 63%,
-            69% 68%,
-            71% 100%,
-            48% 76%,
-            21% 100%,
-            28% 67%,
-            0% 58%,
-            25% 42%,
-            12% 18%,
-            40% 29%
-        );
+  clip-path: polygon(
+    50% 0%,
+    63% 27%,
+    91% 18%,
+    78% 45%,
+    100% 63%,
+    69% 68%,
+    71% 100%,
+    48% 76%,
+    21% 100%,
+    28% 67%,
+    0% 58%,
+    25% 42%
+  );
 }
 
 .anemona-hoja-izquierda {
-    width: 92px;
-    height: 92px;
-    left: 60px;
-    top: 225px;
-    transform: rotate(-28deg);
+  width: 92px;
+  height: 92px;
+
+  left: 60px;
+  top: 225px;
+
+  transform: rotate(-28deg);
 }
 
 .anemona-hoja-derecha {
-    width: 88px;
-    height: 88px;
-    left: 151px;
-    top: 242px;
-    transform: rotate(28deg) scaleX(-1);
+  width: 88px;
+  height: 88px;
+
+  left: 151px;
+  top: 242px;
+
+  transform: rotate(28deg) scaleX(-1);
 }
 
 .anemona-hoja-centro {
-    width: 72px;
-    height: 70px;
-    left: 111px;
-    top: 190px;
-    transform: rotate(3deg) scale(.75);
+  width: 72px;
+  height: 70px;
+
+  left: 111px;
+  top: 190px;
+
+  transform: scale(0.75);
 }
 
+/* =====================================================
+   MAGNOLIA ROSA
+===================================================== */
 
-
-/*
-=========================================
-    ANIMACIONES
-=========================================
-*/
-
-@keyframes crecer {
-    0% {
-        opacity: 0;
-        transform: translateY(150px) scale(.2);
-    }
-
-    70% {
-        transform: translateY(0) scale(1.05);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+.magnolia {
+  width: 290px;
 }
 
-@keyframes movimiento {
-    0%, 100% { transform: rotate(-1deg); }
-    50% { transform: rotate(1deg); }
+.magnolia-tallo {
+  position: absolute;
+
+  width: 11px;
+  height: 185px;
+
+  left: 140px;
+  top: 164px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(to right, #4a5933, #778354, #435130);
 }
 
-@keyframes movimiento-tulipan {
-    0%, 100% { transform: rotate(-1deg); }
-    50% { transform: rotate(1deg); }
+.magnolia-cabeza {
+  position: absolute;
+
+  width: 230px;
+  height: 215px;
+
+  left: 30px;
+  top: 3px;
+
+  z-index: 6;
+
+  transition: transform 0.5s ease;
 }
 
-@keyframes petalo-izq {
-    0%, 100% { transform: rotate(-18deg) translateY(0); }
-    50% { transform: rotate(-21deg) translateY(-3px); }
+.magnolia-petalo {
+  position: absolute;
+
+  width: 78px;
+  height: 132px;
+
+  left: 76px;
+  top: 40px;
+
+  transform-origin: 39px 94px;
+
+  border-radius: 55% 55% 40% 40% / 72% 72% 28% 28%;
+
+  background: linear-gradient(160deg, #fff0f2 0%, #f7bdc9 55%, #d77d9c 100%);
+
+  box-shadow: inset 4px 5px 8px rgba(255, 255, 255, 0.28);
 }
 
-@keyframes petalo-der {
-    0%, 100% { transform: rotate(18deg) translateY(0); }
-    50% { transform: rotate(21deg) translateY(-3px); }
+.magnolia-petalo-1 {
+  transform: translateY(-44px) rotate(0deg);
 }
 
-@keyframes petalo-centro-izq {
-    0%, 100% { transform: rotate(-8deg); }
-    50% { transform: rotate(-10deg) translateY(-4px); }
+.magnolia-petalo-2 {
+  transform: translate(-54px, -10px) rotate(-52deg);
 }
 
-@keyframes petalo-centro-der {
-    0%, 100% { transform: rotate(8deg); }
-    50% { transform: rotate(10deg) translateY(-4px); }
+.magnolia-petalo-3 {
+  transform: translate(54px, -10px) rotate(52deg);
 }
 
-@keyframes petalo-frontal {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+.magnolia-petalo-4 {
+  transform: translate(-57px, 48px) rotate(-110deg);
 }
 
-@keyframes lirio-balanceo {
-    0%, 100% { transform: rotate(-.8deg); }
-    50% { transform: rotate(.8deg); }
+.magnolia-petalo-5 {
+  transform: translate(57px, 48px) rotate(110deg);
 }
 
-@keyframes lirio-petalo-arriba {
-    0%, 100% { transform: translateY(-35px) scaleX(.82); }
-    50% { transform: translateY(-39px) scaleX(.84); }
+.magnolia-petalo-6 {
+  transform: translateY(60px) rotate(180deg);
 }
 
-@keyframes lirio-petalo-izq {
-    0%, 100% { transform: translate(-55px,-2px) rotate(-52deg); }
-    50% { transform: translate(-58px,-5px) rotate(-55deg); }
+.magnolia-petalo-interno {
+  position: absolute;
+
+  width: 62px;
+  height: 95px;
+
+  left: 84px;
+  top: 62px;
+
+  z-index: 5;
+
+  transform-origin: 31px 70px;
+
+  border-radius: 58% 58% 40% 40% / 72% 72% 30% 30%;
+
+  background: linear-gradient(170deg, #ffe7ed, #eba7bc, #cf7597);
 }
 
-@keyframes lirio-petalo-der {
-    0%, 100% { transform: translate(55px,-2px) rotate(52deg); }
-    50% { transform: translate(58px,-5px) rotate(55deg); }
+.magnolia-interno-1 {
+  transform: rotate(-25deg) translateY(-8px);
 }
 
-@keyframes lirio-petalo-abajo-izq {
-    0%, 100% { transform: translate(-58px,55px) rotate(-108deg); }
-    50% { transform: translate(-61px,57px) rotate(-111deg); }
+.magnolia-interno-2 {
+  transform: rotate(0deg) translateY(-13px);
 }
 
-@keyframes lirio-petalo-abajo-der {
-    0%, 100% { transform: translate(58px,55px) rotate(108deg); }
-    50% { transform: translate(61px,57px) rotate(111deg); }
+.magnolia-interno-3 {
+  transform: rotate(25deg) translateY(-8px);
 }
 
-@keyframes lirio-petalo-frontal {
-    0%, 100% { transform: rotate(180deg); }
-    50% { transform: rotate(180deg) translateY(-3px); }
+.magnolia-centro {
+  position: absolute;
+
+  width: 44px;
+  height: 51px;
+
+  left: 93px;
+  top: 101px;
+
+  z-index: 12;
+
+  border-radius: 48% 48% 42% 42%;
+
+  background: radial-gradient(circle at 50% 30%, #f1d569, #c69d2d, #87651b);
 }
 
-@keyframes nube-balanceo {
-    0%, 100% { transform: rotate(-.7deg); }
-    50% { transform: rotate(.7deg); }
+.magnolia-estambre {
+  position: absolute;
+
+  width: 3px;
+  height: 17px;
+
+  left: 20px;
+  top: 16px;
+
+  transform-origin: center bottom;
+
+  border-radius: 10px;
+
+  background: #73501b;
 }
 
-@keyframes nube-florecita-movimiento {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
+.magnolia-hoja {
+  position: absolute;
+
+  width: 102px;
+  height: 58px;
+
+  z-index: 3;
+
+  border-radius: 100% 0 100% 0;
+
+  background: linear-gradient(145deg, #304b2c, #587444, #849564);
 }
 
-@keyframes peonia-balanceo {
-    0%, 100% { transform: rotate(-.8deg); }
-    50% { transform: rotate(.8deg); }
+.magnolia-hoja-izquierda {
+  left: 48px;
+  top: 244px;
+
+  transform: rotate(-20deg);
 }
 
-@keyframes peonia-petalo-movimiento {
-    0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.06); }
+.magnolia-hoja-derecha {
+  left: 140px;
+  top: 254px;
+
+  transform: rotate(18deg) scaleX(-1);
 }
 
-@keyframes camelia-balanceo {
-    0%, 100% { transform: rotate(-.65deg); }
-    50% { transform: rotate(.65deg); }
+/* =====================================================
+   DALIA SECRETA
+===================================================== */
+
+.dalia {
+  width: 290px;
 }
 
-@keyframes camelia-petalo-respirar {
-    0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.06); }
+.dalia-tallo {
+  position: absolute;
+
+  width: 12px;
+  height: 185px;
+
+  left: 139px;
+  top: 166px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(to right, #263b2c, #52664d, #233629);
 }
 
-@keyframes jazmin-balanceo {
-    0%, 100% { transform: rotate(-.65deg); }
-    50% { transform: rotate(.65deg); }
+.dalia-cabeza {
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  left: 30px;
+  top: 0;
+
+  z-index: 6;
+
+  transition: transform 0.6s ease;
 }
 
-@keyframes jazmin-boton-movimiento {
-    0%, 100% { margin-top: 0; }
-    50% { margin-top: -2px; }
+.dalia-wrap {
+  position: absolute;
+
+  width: 44px;
+  height: 100px;
+
+  left: 93px;
+  top: 64px;
+
+  transform-origin: 22px 52px;
+
+  transform: rotate(var(--angulo));
 }
 
-@keyframes orquidea-balanceo {
-    0%, 100% { transform: rotate(-.55deg); }
-    50% { transform: rotate(.55deg); }
+.dalia-petalo {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%) translateY(calc(-1 * var(--radio)));
+
+  transform-origin: center bottom;
+
+  border-radius: 60% 60% 18% 18% / 80% 80% 20% 20%;
+
+  background: linear-gradient(180deg, #7f5297 0%, #3d2851 55%, #1d1727 100%);
+
+  box-shadow: inset 2px 3px 5px rgba(255, 255, 255, 0.08);
 }
 
-@keyframes lavanda-balanceo {
-    0%, 100% { transform: rotate(-.8deg); }
-    50% { transform: rotate(.8deg); }
+.dalia-capa-2 .dalia-petalo {
+  background: linear-gradient(#8a59a3, #49305d, #241a2e);
 }
 
-@keyframes anemona-balanceo {
-    0%, 100% { transform: rotate(-.65deg); }
-    50% { transform: rotate(.65deg); }
+.dalia-capa-3 .dalia-petalo {
+  background: linear-gradient(#9c69b2, #5d3d70, #2d2138);
 }
 
-@keyframes anemona-petalo-movimiento {
-    0%, 100% {
-        transform: translateY(-47px);
-        filter: brightness(1);
-    }
+.dalia-centro {
+  position: absolute;
 
-    50% {
-        transform: translateY(-50px) scaleX(1.025);
-        filter: brightness(1.04);
-    }
+  width: 42px;
+  height: 42px;
+
+  left: 94px;
+  top: 94px;
+
+  z-index: 12;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #b58cbe, #654574, #251c2d);
 }
 
+.dalia-hoja {
+  position: absolute;
 
+  width: 90px;
+  height: 70px;
 
-/*
-=========================================
-    CELULARES
-=========================================
-*/
+  z-index: 2;
+
+  background: linear-gradient(#233d2d, #4b684d);
+
+  clip-path: polygon(
+    50% 0,
+    67% 26%,
+    100% 25%,
+    78% 52%,
+    92% 90%,
+    52% 72%,
+    21% 100%,
+    27% 62%,
+    0 42%,
+    34% 30%
+  );
+}
+
+.dalia-hoja-izquierda {
+  left: 61px;
+  top: 232px;
+
+  transform: rotate(-24deg);
+}
+
+.dalia-hoja-derecha {
+  left: 140px;
+  top: 249px;
+
+  transform: rotate(25deg) scaleX(-1);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media (max-width: 600px) {
-    .girasol,
-    .tulipan,
-    .lirio,
-    .flor-nube,
-    .peonia,
-    .camelia,
-    .jazmin,
-    .orquidea,
-    .lavanda,
-    .anemona {
-        max-width: 100%;
-    }
+  .girasol,
+  .tulipan,
+  .lirio,
+  .flor-nube,
+  .peonia,
+  .camelia,
+  .jazmin,
+  .orquidea,
+  .lavanda,
+  .anemona,
+  .magnolia,
+  .dalia {
+    max-width: 100%;
+  }
 }
