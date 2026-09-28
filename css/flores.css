@@ -1,6 +1,6 @@
 /*
 =========================================
-            GIRASOL
+    GIRASOL
 =========================================
 */
 
@@ -8,12 +8,8 @@
     position: relative;
     width: 280px;
     height: 360px;
-
-    animation:
-        crecer 1.8s ease,
-        movimiento 4s ease-in-out infinite;
+    animation: crecer 1.8s ease, movimiento 4s ease-in-out infinite;
 }
-
 
 .girasol-cabeza {
     position: absolute;
@@ -23,16 +19,12 @@
     left: 30px;
 }
 
-
 .girasol-petalo {
     position: absolute;
-
     width: 55px;
     height: 120px;
-
     left: 82px;
     top: 0;
-
     border-radius: 50% 50% 45% 45%;
     transform-origin: 27px 110px;
 
@@ -49,16 +41,12 @@
         0 3px 7px rgba(0,0,0,.15);
 }
 
-
 .girasol-centro {
     position: absolute;
-
     width: 95px;
     height: 95px;
-
     left: 62px;
     top: 63px;
-
     border-radius: 50%;
     z-index: 20;
 
@@ -71,7 +59,6 @@
         );
 }
 
-
 .semilla {
     position: absolute;
     width: 4px;
@@ -80,16 +67,12 @@
     border-radius: 50%;
 }
 
-
 .girasol-tallo {
     position: absolute;
-
     width: 14px;
     height: 190px;
-
     left: 133px;
     top: 170px;
-
     border-radius: 20px;
 
     background:
@@ -103,10 +86,8 @@
     z-index: -1;
 }
 
-
 .girasol-hoja {
     position: absolute;
-
     width: 85px;
     height: 48px;
 
@@ -121,13 +102,11 @@
     z-index: 2;
 }
 
-
 .hoja-izquierda {
     top: 245px;
     left: 55px;
     transform: rotate(15deg);
 }
-
 
 .hoja-derecha {
     top: 285px;
@@ -139,7 +118,7 @@
 
 /*
 =========================================
-            TULIPÁN
+    TULIPÁN
 =========================================
 */
 
@@ -147,12 +126,8 @@
     position: relative;
     width: 230px;
     height: 350px;
-
-    animation:
-        crecer 1.8s ease,
-        movimiento-tulipan 4.8s ease-in-out infinite;
+    animation: crecer 1.8s ease, movimiento-tulipan 4.8s ease-in-out infinite;
 }
-
 
 .tulipan-cabeza {
     position: absolute;
@@ -162,11 +137,9 @@
     left: 38px;
 }
 
-
 .tulipan-petalo {
     position: absolute;
     bottom: 0;
-
     border-radius: 50% 50% 35% 35%;
 
     background:
@@ -182,7 +155,6 @@
         0 4px 10px rgba(85,23,105,.18);
 }
 
-
 .petalo-fondo-izq {
     width: 54px;
     height: 94px;
@@ -190,7 +162,6 @@
     bottom: 22px;
     animation: petalo-izq 3.1s ease-in-out infinite;
 }
-
 
 .petalo-fondo-der {
     width: 54px;
@@ -200,7 +171,6 @@
     animation: petalo-der 3.2s ease-in-out infinite;
 }
 
-
 .petalo-centro-izq {
     width: 58px;
     height: 110px;
@@ -209,7 +179,6 @@
     animation: petalo-centro-izq 3.3s ease-in-out infinite;
 }
 
-
 .petalo-centro-der {
     width: 58px;
     height: 110px;
@@ -217,7 +186,6 @@
     bottom: 28px;
     animation: petalo-centro-der 3.4s ease-in-out infinite;
 }
-
 
 .petalo-frontal {
     width: 72px;
@@ -237,7 +205,6 @@
     animation: petalo-frontal 3.5s ease-in-out infinite;
 }
 
-
 .vena {
     position: absolute;
     width: 2px;
@@ -246,33 +213,26 @@
     background: rgba(126,45,160,.28);
 }
 
-
 .vena-1 {
     left: 26px;
     transform: rotate(-6deg);
 }
 
-
 .vena-2 {
     left: 35px;
 }
-
 
 .vena-3 {
     left: 45px;
     transform: rotate(6deg);
 }
 
-
 .tulipan-tallo {
     position: absolute;
-
     width: 11px;
     height: 185px;
-
     left: 109px;
     top: 136px;
-
     border-radius: 20px;
 
     background:
@@ -286,62 +246,62 @@
     z-index: -1;
 }
 
-
 .tulipan-hoja {
     position: absolute;
-
     background:
         linear-gradient(
-            135deg,
-            #719b1a,
-            #9cbd31,
-            #648d17
+            145deg,
+            #70991b,
+            #a7c42f,
+            #729619
         );
+
+    box-shadow:
+        inset 0 3px 8px rgba(255,255,255,.10),
+        0 4px 8px rgba(74,105,19,.14);
 }
 
+.tulipan-hoja::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 78%;
+    left: 48%;
+    top: 11%;
+    background: rgba(236,255,193,.22);
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
 
 .tulipan-hoja-izquierda {
-    width: 86px;
-    height: 170px;
+    width: 68px;
+    height: 145px;
+    left: 44px;
+    top: 150px;
+    transform: rotate(-18deg);
 
-    left: 30px;
-    top: 140px;
-
-    transform: rotate(-20deg);
-
-    clip-path:
-        polygon(
-            45% 0%,
-            100% 18%,
-            78% 100%,
-            0% 76%
-        );
+    border-radius:
+        0 75% 8% 75%
+        / 0 100% 14% 100%;
 }
 
-
 .tulipan-hoja-derecha {
-    width: 92px;
-    height: 118px;
-
-    left: 116px;
-    top: 155px;
-
+    width: 70px;
+    height: 120px;
+    left: 120px;
+    top: 165px;
     transform: rotate(18deg);
 
-    clip-path:
-        polygon(
-            0% 18%,
-            58% 0%,
-            100% 68%,
-            18% 100%
-        );
+    border-radius:
+        75% 0 75% 8%
+        / 100% 0 100% 14%;
 }
 
 
 
 /*
 =========================================
-            LIRIO
+    LIRIO
 =========================================
 */
 
@@ -349,12 +309,8 @@
     position: relative;
     width: 300px;
     height: 360px;
-
-    animation:
-        crecer 1.8s ease,
-        lirio-balanceo 5s ease-in-out infinite;
+    animation: crecer 1.8s ease, lirio-balanceo 5s ease-in-out infinite;
 }
-
 
 .lirio-cabeza {
     position: absolute;
@@ -365,16 +321,12 @@
     z-index: 5;
 }
 
-
 .lirio-petalo {
     position: absolute;
-
     width: 105px;
     height: 155px;
-
     left: 83px;
     top: 39px;
-
     transform-origin: 52px 125px;
 
     border-radius:
@@ -391,15 +343,11 @@
         );
 }
 
-
 .lirio-petalo::before {
     content: "";
-
     position: absolute;
-
     width: 15px;
     height: 100px;
-
     left: 45px;
     bottom: 0;
 
@@ -412,7 +360,6 @@
         );
 }
 
-
 .lirio-petalo-1 { animation: lirio-petalo-arriba 4s ease-in-out infinite; }
 .lirio-petalo-2 { animation: lirio-petalo-izq 4.3s ease-in-out infinite; }
 .lirio-petalo-3 { animation: lirio-petalo-der 4.2s ease-in-out infinite; }
@@ -420,17 +367,14 @@
 .lirio-petalo-5 { animation: lirio-petalo-abajo-der 4.5s ease-in-out infinite; }
 .lirio-petalo-6 { animation: lirio-petalo-frontal 4.1s ease-in-out infinite; }
 
-
 .lirio-centro {
     position: absolute;
-
     width: 66px;
     height: 43px;
-
     left: 102px;
     top: 120px;
-
     border-radius: 50%;
+    z-index: 8;
 
     background:
         radial-gradient(
@@ -440,10 +384,7 @@
             #849338,
             transparent
         );
-
-    z-index: 8;
 }
-
 
 .lirio-pistilo {
     position: absolute;
@@ -454,7 +395,6 @@
     background: #8ca044;
     z-index: 10;
 }
-
 
 .lirio-estambre {
     position: absolute;
@@ -467,7 +407,6 @@
     z-index: 9;
 }
 
-
 .lirio-antera {
     position: absolute;
     width: 14px;
@@ -478,14 +417,12 @@
     background: #c89a29;
 }
 
-
 .lirio-estambre-1 { transform: rotate(-30deg); }
 .lirio-estambre-2 { transform: rotate(-18deg); }
 .lirio-estambre-3 { transform: rotate(-7deg); }
 .lirio-estambre-4 { transform: rotate(10deg); }
 .lirio-estambre-5 { transform: rotate(22deg); }
 .lirio-estambre-6 { transform: rotate(34deg); }
-
 
 .lirio-tallo {
     position: absolute;
@@ -503,12 +440,10 @@
         );
 }
 
-
 .lirio-hoja {
     position: absolute;
     background: #537c3d;
 }
-
 
 .lirio-hoja-izquierda {
     width: 62px;
@@ -525,7 +460,6 @@
             0 100%
         );
 }
-
 
 .lirio-hoja-derecha {
     width: 62px;
@@ -547,7 +481,7 @@
 
 /*
 =========================================
-            FLOR DE NUBE
+    FLOR DE NUBE
 =========================================
 */
 
@@ -555,22 +489,17 @@
     position: relative;
     width: 310px;
     height: 360px;
-
-    animation:
-        crecer 1.8s ease,
-        nube-balanceo 5.5s ease-in-out infinite;
+    animation: crecer 1.8s ease, nube-balanceo 5.5s ease-in-out infinite;
 }
-
 
 .nube-ramo {
     position: absolute;
     width: 310px;
     height: 225px;
-    top: 10px;
+    top: 8px;
     left: 0;
     z-index: 5;
 }
-
 
 .nube-tallo-principal {
     position: absolute;
@@ -582,34 +511,29 @@
     border-radius: 10px;
 }
 
-
 .nube-rama {
     position: absolute;
     width: 3px;
     background: #698861;
     transform-origin: bottom center;
+    z-index: 1;
 }
-
 
 .nube-florecita-wrap {
     position: absolute;
     width: 30px;
     height: 30px;
     transform: translate(-50%, -50%) scale(var(--escala));
+    z-index: 3;
 }
-
 
 .nube-florecita {
     position: relative;
     width: 30px;
     height: 30px;
-
-    animation:
-        nube-florecita-movimiento 3.8s ease-in-out infinite;
-
+    animation: nube-florecita-movimiento 3.8s ease-in-out infinite;
     animation-delay: var(--delay);
 }
-
 
 .nube-petalo {
     position: absolute;
@@ -627,13 +551,11 @@
         );
 }
 
-
 .nube-petalo-1 { transform: translateY(-8px); }
 .nube-petalo-2 { transform: translate(8px, -2px); }
 .nube-petalo-3 { transform: translate(5px, 7px); }
 .nube-petalo-4 { transform: translate(-5px, 7px); }
 .nube-petalo-5 { transform: translate(-8px, -2px); }
-
 
 .nube-centro {
     position: absolute;
@@ -645,7 +567,6 @@
     background: #ddd08a;
 }
 
-
 .nube-hoja {
     position: absolute;
     width: 42px;
@@ -653,14 +574,12 @@
     background: #55764a;
 }
 
-
 .nube-hoja-1 {
     left: 115px;
     top: 245px;
     border-radius: 100% 0 100% 0;
     transform: rotate(-38deg);
 }
-
 
 .nube-hoja-2 {
     left: 158px;
@@ -673,7 +592,7 @@
 
 /*
 =========================================
-            PEONÍA
+    PEONÍA
 =========================================
 */
 
@@ -681,12 +600,8 @@
     position: relative;
     width: 290px;
     height: 360px;
-
-    animation:
-        crecer 1.8s ease,
-        peonia-balanceo 5s ease-in-out infinite;
+    animation: crecer 1.8s ease, peonia-balanceo 5s ease-in-out infinite;
 }
-
 
 .peonia-cabeza {
     position: absolute;
@@ -695,7 +610,6 @@
     left: 30px;
     top: 0;
 }
-
 
 .peonia-petalo-wrap {
     position: absolute;
@@ -707,15 +621,11 @@
     transform: rotate(var(--angulo));
 }
 
-
 .peonia-petalo {
     position: absolute;
     width: 60px;
     height: 82px;
-
-    transform:
-        translateY(calc(-1 * var(--radio)))
-        scale(var(--escala));
+    transform: translateY(calc(-1 * var(--radio))) scale(var(--escala));
 
     border-radius:
         55% 55% 45% 45%
@@ -736,7 +646,6 @@
     animation-delay: var(--delay);
 }
 
-
 .peonia-centro {
     position: absolute;
     width: 64px;
@@ -745,14 +654,12 @@
     top: 83px;
 }
 
-
 .peonia-centro-petalo {
     position: absolute;
     width: 27px;
     height: 43px;
     left: 19px;
     top: 1px;
-
     transform-origin: 13px 31px;
     border-radius: 60% 60% 40% 40%;
 
@@ -762,7 +669,6 @@
             #c44773
         );
 }
-
 
 .peonia-tallo {
     position: absolute;
@@ -781,63 +687,45 @@
         );
 }
 
-
 .peonia-hoja {
     position: absolute;
-    background: #4e7741;
-}
 
+    background:
+        linear-gradient(
+            145deg,
+            #487240,
+            #6e9a5a,
+            #436c3c
+        );
+
+    box-shadow:
+        inset 0 3px 8px rgba(255,255,255,.08),
+        0 4px 8px rgba(37,69,34,.14);
+}
 
 .peonia-hoja-izquierda {
-    width: 78px;
-    height: 105px;
-    left: 70px;
-    top: 210px;
-    transform: rotate(-34deg);
-
-    clip-path:
-        polygon(
-            50% 0%,
-            72% 28%,
-            100% 34%,
-            76% 56%,
-            88% 100%,
-            51% 76%,
-            18% 100%,
-            28% 58%,
-            0 36%,
-            30% 29%
-        );
+    width: 92px;
+    height: 62px;
+    left: 54px;
+    top: 232px;
+    transform: rotate(-24deg);
+    border-radius: 100% 0 100% 0;
 }
 
-
 .peonia-hoja-derecha {
-    width: 78px;
-    height: 100px;
-    left: 143px;
-    top: 238px;
-    transform: rotate(32deg);
-
-    clip-path:
-        polygon(
-            50% 0%,
-            72% 28%,
-            100% 34%,
-            76% 56%,
-            88% 100%,
-            51% 76%,
-            18% 100%,
-            28% 58%,
-            0 36%,
-            30% 29%
-        );
+    width: 96px;
+    height: 66px;
+    left: 139px;
+    top: 246px;
+    transform: rotate(27deg) scaleX(-1);
+    border-radius: 100% 0 100% 0;
 }
 
 
 
 /*
 =========================================
-            CAMELIA
+    CAMELIA
 =========================================
 */
 
@@ -845,12 +733,8 @@
     position: relative;
     width: 290px;
     height: 360px;
-
-    animation:
-        crecer 1.8s ease,
-        camelia-balanceo 5.2s ease-in-out infinite;
+    animation: crecer 1.8s ease, camelia-balanceo 5.2s ease-in-out infinite;
 }
-
 
 .camelia-cabeza {
     position: absolute;
@@ -859,7 +743,6 @@
     left: 22px;
     top: 2px;
 }
-
 
 .camelia-petalo {
     position: absolute;
@@ -877,7 +760,6 @@
         camelia-petalo-respirar 4s ease-in-out infinite;
 }
 
-
 .camelia-petalo-exterior {
     width: 105px;
     height: 88px;
@@ -887,7 +769,6 @@
         / 68% 64% 42% 45%;
 }
 
-
 .camelia-exterior-1 { left: 69px; top: 0; transform: rotate(-2deg); }
 .camelia-exterior-2 { left: 126px; top: 26px; transform: rotate(43deg); }
 .camelia-exterior-3 { left: 137px; top: 79px; transform: rotate(87deg); }
@@ -896,7 +777,6 @@
 .camelia-exterior-6 { left: 17px; top: 115px; transform: rotate(225deg); }
 .camelia-exterior-7 { left: 0; top: 63px; transform: rotate(271deg); }
 .camelia-exterior-8 { left: 19px; top: 18px; transform: rotate(317deg); }
-
 
 .camelia-petalo-interior {
     width: 82px;
@@ -917,14 +797,12 @@
         );
 }
 
-
 .camelia-interior-1 { left: 80px; top: 44px; transform: rotate(-7deg); }
 .camelia-interior-2 { left: 116px; top: 67px; transform: rotate(53deg); }
 .camelia-interior-3 { left: 112px; top: 108px; transform: rotate(115deg); }
 .camelia-interior-4 { left: 72px; top: 118px; transform: rotate(177deg); }
 .camelia-interior-5 { left: 43px; top: 90px; transform: rotate(238deg); }
 .camelia-interior-6 { left: 46px; top: 50px; transform: rotate(298deg); }
-
 
 .camelia-centro {
     position: absolute;
@@ -946,7 +824,6 @@
         );
 }
 
-
 .camelia-estambre {
     position: absolute;
     width: 3px;
@@ -954,7 +831,6 @@
     border-radius: 10px;
     background: #f0c54b;
 }
-
 
 .camelia-tallo {
     position: absolute;
@@ -973,11 +849,10 @@
         );
 }
 
-
 .camelia-hoja {
     position: absolute;
-    width: 105px;
-    height: 64px;
+    width: 92px;
+    height: 58px;
 
     background:
         linear-gradient(
@@ -989,19 +864,17 @@
         );
 }
 
-
 .camelia-hoja-izquierda {
-    left: 40px;
-    top: 228px;
-    transform: rotate(-23deg);
+    left: 56px;
+    top: 245px;
+    transform: rotate(-22deg);
     border-radius: 100% 0 100% 0;
 }
 
-
 .camelia-hoja-derecha {
-    left: 145px;
-    top: 256px;
-    transform: rotate(21deg) scaleX(-1);
+    left: 143px;
+    top: 252px;
+    transform: rotate(19deg) scaleX(-1);
     border-radius: 100% 0 100% 0;
 }
 
@@ -1009,7 +882,7 @@
 
 /*
 =========================================
-            JAZMÍN
+    JAZMÍN
 =========================================
 */
 
@@ -1017,12 +890,8 @@
     position: relative;
     width: 280px;
     height: 360px;
-
-    animation:
-        crecer 1.8s ease,
-        jazmin-balanceo 5.2s ease-in-out infinite;
+    animation: crecer 1.8s ease, jazmin-balanceo 5.2s ease-in-out infinite;
 }
-
 
 .jazmin-tallo {
     position: absolute;
@@ -1044,7 +913,6 @@
     z-index: 0;
 }
 
-
 .jazmin-cabeza {
     position: absolute;
     width: 170px;
@@ -1054,14 +922,12 @@
     z-index: 10;
 }
 
-
 .jazmin-petalo {
     position: absolute;
     width: 67px;
     height: 86px;
     left: 52px;
     top: 40px;
-
     transform-origin: 33px 48px;
 
     border-radius:
@@ -1082,24 +948,6 @@
         0 3px 6px rgba(85,85,65,.08);
 }
 
-
-.jazmin-petalo::before {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 48px;
-    left: 32px;
-    bottom: 7px;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(110,110,95,.15),
-            transparent
-        );
-}
-
-
 .jazmin-petalo-1 { transform: rotate(0deg) translateY(-43px); }
 .jazmin-petalo-2 { transform: rotate(45deg) translateY(-43px); }
 .jazmin-petalo-3 { transform: rotate(90deg) translateY(-43px); }
@@ -1108,7 +956,6 @@
 .jazmin-petalo-6 { transform: rotate(225deg) translateY(-43px); }
 .jazmin-petalo-7 { transform: rotate(270deg) translateY(-43px); }
 .jazmin-petalo-8 { transform: rotate(315deg) translateY(-43px); }
-
 
 .jazmin-centro {
     position: absolute;
@@ -1128,16 +975,13 @@
         );
 }
 
-
 .jazmin-estambre {
     position: absolute;
     width: 3px;
     height: 3px;
     border-radius: 50%;
     background: #1f1a0c;
-    box-shadow: 0 0 2px rgba(40,30,10,.3);
 }
-
 
 .jazmin-rama {
     position: absolute;
@@ -1155,14 +999,12 @@
     z-index: 2;
 }
 
-
 .jazmin-rama-izquierda {
     height: 74px;
     left: 113px;
     top: 103px;
     transform: rotate(-40deg);
 }
-
 
 .jazmin-rama-derecha {
     height: 72px;
@@ -1171,19 +1013,13 @@
     transform: rotate(43deg);
 }
 
-
 .jazmin-boton {
     position: absolute;
     width: 42px;
     height: 57px;
     z-index: 8;
-
-    transform-origin: center bottom;
-
-    animation:
-        jazmin-boton-movimiento 4s ease-in-out infinite;
+    animation: jazmin-boton-movimiento 4s ease-in-out infinite;
 }
-
 
 .jazmin-boton-petalo {
     position: absolute;
@@ -1207,21 +1043,17 @@
     transform-origin: center bottom;
 }
 
-
 .jazmin-boton-petalo-1 {
     transform: rotate(-18deg) translateX(-7px);
 }
-
 
 .jazmin-boton-petalo-2 {
     transform: rotate(0deg);
 }
 
-
 .jazmin-boton-petalo-3 {
     transform: rotate(18deg) translateX(7px);
 }
-
 
 .jazmin-boton::after {
     content: "";
@@ -1234,20 +1066,17 @@
     background: #648052;
 }
 
-
 .jazmin-boton-izquierdo {
     left: 59px;
     top: 76px;
     transform: rotate(-30deg);
 }
 
-
 .jazmin-boton-derecho {
     left: 182px;
     top: 70px;
     transform: rotate(28deg);
 }
-
 
 .jazmin-boton-centro {
     width: 34px;
@@ -1257,11 +1086,10 @@
     transform: rotate(-8deg) scale(.75);
 }
 
-
 .jazmin-hoja {
     position: absolute;
-    width: 122px;
-    height: 68px;
+    width: 95px;
+    height: 52px;
 
     background:
         linear-gradient(
@@ -1276,63 +1104,19 @@
         0 3px 7px rgba(35,55,30,.13);
 
     z-index: 4;
+    border-radius: 100% 8% 100% 8%;
 }
-
-
-.jazmin-hoja::before {
-    content: "";
-    position: absolute;
-    width: 90px;
-    height: 2px;
-    left: 15px;
-    top: 34px;
-    background: rgba(210,225,192,.32);
-}
-
 
 .jazmin-hoja-izquierda {
-    left: 14px;
-    top: 196px;
-    transform: rotate(-13deg);
-
-    border-radius: 100% 8% 100% 8%;
-
-    clip-path:
-        polygon(
-            0% 50%,
-            15% 25%,
-            38% 10%,
-            65% 5%,
-            88% 19%,
-            100% 45%,
-            90% 66%,
-            66% 84%,
-            38% 91%,
-            13% 76%
-        );
+    left: 54px;
+    top: 230px;
+    transform: rotate(-18deg);
 }
 
-
 .jazmin-hoja-derecha {
-    left: 145px;
-    top: 205px;
-    transform: rotate(15deg) scaleX(-1);
-
-    border-radius: 100% 8% 100% 8%;
-
-    clip-path:
-        polygon(
-            0% 50%,
-            15% 25%,
-            38% 10%,
-            65% 5%,
-            88% 19%,
-            100% 45%,
-            90% 66%,
-            66% 84%,
-            38% 91%,
-            13% 76%
-        );
+    left: 133px;
+    top: 237px;
+    transform: rotate(16deg) scaleX(-1);
 }
 
 
@@ -1345,6 +1129,7 @@
 
 .orquidea {
     position: relative;
+
     width: 300px;
     height: 360px;
 
@@ -1352,239 +1137,533 @@
         crecer 1.8s ease,
         orquidea-balanceo 5.2s ease-in-out infinite;
 
-    transform-origin: center bottom;
+    transform-origin:
+        center bottom;
 }
 
 
+/*
+=========================================
+        TALLO
+=========================================
+*/
+
 .orquidea-tallo {
     position: absolute;
-    width: 10px;
-    height: 210px;
-    left: 145px;
-    top: 120px;
+
+    width: 9px;
+    height: 205px;
+
+    left: 146px;
+    top: 126px;
+
     border-radius: 20px;
 
     background:
         linear-gradient(
             to right,
-            #41703a,
-            #7ea15f,
-            #41703a
+            #3e6938,
+            #79a05e,
+            #3e6938
         );
+
+    z-index: 1;
 }
 
 
+/*
+=========================================
+        RAMITA
+=========================================
+*/
+
 .orquidea-rama {
     position: absolute;
+
     width: 4px;
-    height: 80px;
-    left: 158px;
-    top: 95px;
-    border-radius: 10px;
+    height: 73px;
+
+    left: 153px;
+    top: 103px;
+
+    border-radius: 20px;
 
     background:
         linear-gradient(
             to right,
-            #5b844a,
-            #8daa6b
+            #577d49,
+            #8aa56c
         );
 
-    transform: rotate(28deg);
-    transform-origin: bottom center;
+    transform:
+        rotate(25deg);
+
+    transform-origin:
+        bottom center;
+
+    z-index: 1;
 }
 
+
+/*
+=========================================
+        CABEZA
+=========================================
+*/
 
 .orquidea-cabeza {
     position: absolute;
+
     width: 220px;
     height: 220px;
+
     left: 40px;
-    top: 0;
-    z-index: 5;
+    top: 4px;
+
+    z-index: 6;
 }
 
+
+/*
+=========================================
+        PÉTALOS GENERALES
+=========================================
+*/
 
 .orquidea-petalo,
 .orquidea-labelo {
     position: absolute;
 
-    background:
-        linear-gradient(
-            180deg,
-            #ffd1e4,
-            #f39ac0,
-            #da6da3
-        );
-
     box-shadow:
-        inset 0 2px 8px rgba(255,255,255,.35),
-        0 4px 8px rgba(133,58,94,.14);
+        inset 4px 5px 10px
+        rgba(255,255,255,.25),
+
+        inset -4px -5px 10px
+        rgba(156,55,108,.10),
+
+        0 4px 8px
+        rgba(119,50,87,.12);
+
+    transition:
+        transform .3s ease;
 }
 
 
-.orquidea-petalo::before,
-.orquidea-labelo::before {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 55%;
-    left: 50%;
-    top: 18%;
-    transform: translateX(-50%);
-    background: rgba(160, 64, 114, .20);
-    border-radius: 10px;
-}
-
+/*
+=========================================
+        PÉTALO SUPERIOR
+=========================================
+*/
 
 .orquidea-petalo.superior {
-    width: 72px;
-    height: 96px;
-    left: 73px;
-    top: 8px;
+    width: 68px;
+    height: 102px;
+
+    left: 76px;
+    top: 7px;
 
     border-radius:
-        60% 60% 48% 48%
-        / 70% 70% 32% 32%;
-
-    transform: rotate(0deg);
-}
-
-
-.orquidea-petalo.lateral-izq {
-    width: 80px;
-    height: 110px;
-    left: 28px;
-    top: 48px;
-
-    border-radius:
-        65% 55% 45% 55%
-        / 72% 60% 45% 45%;
-
-    transform: rotate(-36deg);
-}
-
-
-.orquidea-petalo.lateral-der {
-    width: 80px;
-    height: 110px;
-    right: 28px;
-    top: 48px;
-
-    border-radius:
-        55% 65% 55% 45%
-        / 60% 72% 45% 45%;
-
-    transform: rotate(36deg);
-}
-
-
-.orquidea-petalo.inferior-izq {
-    width: 74px;
-    height: 92px;
-    left: 48px;
-    top: 108px;
-
-    border-radius:
-        50% 60% 60% 45%
-        / 50% 55% 65% 45%;
-
-    transform: rotate(20deg);
-}
-
-
-.orquidea-petalo.inferior-der {
-    width: 74px;
-    height: 92px;
-    right: 48px;
-    top: 108px;
-
-    border-radius:
-        60% 50% 45% 60%
-        / 55% 50% 45% 65%;
-
-    transform: rotate(-20deg);
-}
-
-
-.orquidea-labelo {
-    width: 92px;
-    height: 84px;
-    left: 64px;
-    top: 104px;
-
-    border-radius:
-        35% 35% 55% 55%
-        / 40% 40% 65% 65%;
+        52% 52% 42% 42%
+        / 66% 66% 35% 35%;
 
     background:
         linear-gradient(
             180deg,
-            #ffcae1,
-            #ef82b7,
-            #d55497
+            #ffd4e7 0%,
+            #f7aacb 55%,
+            #e67eaf 100%
         );
 
-    z-index: 12;
-}
-
-
-.orquidea-centro {
-    position: absolute;
-    width: 34px;
-    height: 34px;
-    left: 93px;
-    top: 96px;
-    border-radius: 50%;
-    z-index: 20;
-
-    background:
-        radial-gradient(
-            circle,
-            #ffe17f 0%,
-            #f0c749 50%,
-            #9f6a1c 100%
-        );
-}
-
-
-.orquidea-hoja {
-    position: absolute;
-
-    width: 110px;
-    height: 58px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #2f5b35,
-            #648a52,
-            #8bab73
-        );
+    transform:
+        rotate(0deg);
 
     z-index: 2;
 }
 
 
-.orquidea-hoja-izquierda {
+/*
+=========================================
+        PÉTALO IZQUIERDO
+=========================================
+*/
+
+.orquidea-petalo.lateral-izq {
+    width: 92px;
+    height: 108px;
+
     left: 18px;
-    top: 245px;
-    transform: rotate(-18deg);
-    border-radius: 100% 0 100% 0;
+    top: 50px;
+
+    border-radius:
+        68% 45% 62% 38%
+        / 65% 44% 65% 42%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffd5e8,
+            #f39ec5,
+            #dc72aa
+        );
+
+    transform:
+        rotate(-40deg);
+
+    z-index: 3;
 }
-
-
-.orquidea-hoja-derecha {
-    left: 170px;
-    top: 258px;
-    transform: rotate(16deg) scaleX(-1);
-    border-radius: 100% 0 100% 0;
-}
-
 
 
 /*
 =========================================
-            LAVANDA
+        PÉTALO DERECHO
+=========================================
+*/
+
+.orquidea-petalo.lateral-der {
+    width: 92px;
+    height: 108px;
+
+    right: 18px;
+    top: 50px;
+
+    border-radius:
+        45% 68% 38% 62%
+        / 44% 65% 42% 65%;
+
+    background:
+        linear-gradient(
+            215deg,
+            #ffd5e8,
+            #f39ec5,
+            #dc72aa
+        );
+
+    transform:
+        rotate(40deg);
+
+    z-index: 3;
+}
+
+
+/*
+=========================================
+        PÉTALO INFERIOR IZQUIERDO
+=========================================
+*/
+
+.orquidea-petalo.inferior-izq {
+    width: 72px;
+    height: 88px;
+
+    left: 51px;
+    top: 111px;
+
+    border-radius:
+        60% 45% 58% 42%
+        / 62% 45% 60% 40%;
+
+    background:
+        linear-gradient(
+            150deg,
+            #f9bad4,
+            #e984b5,
+            #cf5c9b
+        );
+
+    transform:
+        rotate(22deg);
+
+    z-index: 5;
+}
+
+
+/*
+=========================================
+        PÉTALO INFERIOR DERECHO
+=========================================
+*/
+
+.orquidea-petalo.inferior-der {
+    width: 72px;
+    height: 88px;
+
+    right: 51px;
+    top: 111px;
+
+    border-radius:
+        45% 60% 42% 58%
+        / 45% 62% 40% 60%;
+
+    background:
+        linear-gradient(
+            210deg,
+            #f9bad4,
+            #e984b5,
+            #cf5c9b
+        );
+
+    transform:
+        rotate(-22deg);
+
+    z-index: 5;
+}
+
+
+/*
+=========================================
+        LABEL0 / PÉTALO FRONTAL
+=========================================
+*/
+
+.orquidea-labelo {
+    width: 74px;
+    height: 77px;
+
+    left: 73px;
+    top: 112px;
+
+    z-index: 12;
+
+    border-radius:
+        42% 42% 58% 58%
+        / 35% 35% 68% 68%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8add0 0%,
+            #e86bad 52%,
+            #c9488d 100%
+        );
+
+    transform:
+        rotate(0deg);
+}
+
+
+/*
+=========================================
+        LÓBULOS DEL LABEL0
+=========================================
+*/
+
+.orquidea-labelo::before,
+.orquidea-labelo::after {
+    content: "";
+
+    position: absolute;
+
+    width: 37px;
+    height: 45px;
+
+    top: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffc3dd,
+            #e976af
+        );
+
+    z-index: -1;
+}
+
+
+.orquidea-labelo::before {
+    left: -15px;
+
+    border-radius:
+        75% 30% 60% 45%
+        / 65% 35% 70% 45%;
+
+    transform:
+        rotate(-24deg);
+}
+
+
+.orquidea-labelo::after {
+    right: -15px;
+
+    border-radius:
+        30% 75% 45% 60%
+        / 35% 65% 45% 70%;
+
+    transform:
+        rotate(24deg);
+}
+
+
+/*
+=========================================
+        DETALLE CENTRAL DEL LABEL0
+=========================================
+*/
+
+.orquidea-labelo {
+    overflow:
+        visible;
+}
+
+
+.orquidea-labelo span {
+    pointer-events:
+        none;
+}
+
+
+/*
+=========================================
+        CENTRO
+=========================================
+*/
+
+.orquidea-centro {
+    position: absolute;
+
+    width: 31px;
+    height: 31px;
+
+    left: 95px;
+    top: 103px;
+
+    border-radius:
+        50% 50% 48% 48%;
+
+    z-index: 20;
+
+    background:
+        radial-gradient(
+            circle at 45% 35%,
+            #fff2a4 0%,
+            #f4d24d 38%,
+            #dca827 67%,
+            #9f6717 100%
+        );
+
+    box-shadow:
+        inset 0 2px 5px
+        rgba(255,255,255,.35),
+
+        0 2px 5px
+        rgba(111,70,15,.20);
+}
+
+
+/*
+=========================================
+        VETAS SUTILES
+=========================================
+*/
+
+.orquidea-petalo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+    height: 48%;
+
+    left: 50%;
+    bottom: 12%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(164,55,111,.20),
+            transparent
+        );
+}
+
+
+/*
+=========================================
+        HOJAS
+=========================================
+*/
+
+.orquidea-hoja {
+    position: absolute;
+
+    width: 95px;
+    height: 52px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #315c39 0%,
+            #638a54 50%,
+            #86a46d 100%
+        );
+
+    box-shadow:
+        inset 0 3px 7px
+        rgba(255,255,255,.09),
+
+        0 3px 6px
+        rgba(35,60,30,.13);
+
+    z-index: 2;
+
+    border-radius:
+        100% 5% 100% 5%;
+}
+
+
+.orquidea-hoja::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 2px;
+
+    left: 12px;
+    top: 25px;
+
+    background:
+        rgba(215,230,194,.25);
+}
+
+
+/*
+=========================================
+        HOJA IZQUIERDA
+=========================================
+*/
+
+.orquidea-hoja-izquierda {
+    left: 60px;
+    top: 253px;
+
+    transform:
+        rotate(-21deg);
+}
+
+
+/*
+=========================================
+        HOJA DERECHA
+=========================================
+*/
+
+.orquidea-hoja-derecha {
+    left: 144px;
+    top: 258px;
+
+    transform:
+        rotate(19deg)
+        scaleX(-1);
+}
+
+
+/*
+=========================================
+    LAVANDA
 =========================================
 */
 
@@ -1592,12 +1671,8 @@
     position: relative;
     width: 280px;
     height: 360px;
-
-    animation:
-        crecer 1.8s ease,
-        lavanda-balanceo 5.6s ease-in-out infinite;
+    animation: crecer 1.8s ease, lavanda-balanceo 5.6s ease-in-out infinite;
 }
-
 
 .lavanda-tallo {
     position: absolute;
@@ -1606,12 +1681,10 @@
     transform-origin: bottom center;
 }
 
-
 .lavanda-tallo-1 { transform: rotate(-12deg); }
 .lavanda-tallo-2 { transform: rotate(-4deg); }
 .lavanda-tallo-3 { transform: rotate(8deg); }
 .lavanda-tallo-4 { transform: rotate(16deg); }
-
 
 .lavanda-linea {
     position: absolute;
@@ -1629,7 +1702,6 @@
             #3f6030
         );
 }
-
 
 .lavanda-brote {
     position: absolute;
@@ -1650,18 +1722,15 @@
         0 2px 4px rgba(94,58,143,.12);
 }
 
-
 .lavanda-brote.izq {
     left: -2px;
     transform: rotate(-26deg);
 }
 
-
 .lavanda-brote.der {
     right: -2px;
     transform: rotate(26deg);
 }
-
 
 .lavanda-base-tallo {
     position: absolute;
@@ -1680,7 +1749,6 @@
         );
 }
 
-
 .lavanda-hoja {
     position: absolute;
     width: 85px;
@@ -1696,13 +1764,11 @@
     border-radius: 100% 0 100% 0;
 }
 
-
 .lavanda-hoja-izquierda {
     left: 58px;
     top: 258px;
     transform: rotate(-24deg);
 }
-
 
 .lavanda-hoja-derecha {
     left: 140px;
@@ -1714,7 +1780,198 @@
 
 /*
 =========================================
-        ANIMACIONES GENERALES
+    ANÉMONA
+=========================================
+*/
+
+.anemona {
+    position: relative;
+    width: 300px;
+    height: 360px;
+    animation: crecer 1.8s ease, anemona-balanceo 5.3s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+.anemona-cabeza {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    left: 35px;
+    top: 0;
+    z-index: 8;
+}
+
+.anemona-petalo-wrap {
+    position: absolute;
+    width: 74px;
+    height: 125px;
+    left: 78px;
+    top: 53px;
+    transform-origin: 37px 62px;
+    transform: rotate(var(--angulo));
+}
+
+.anemona-petalo {
+    position: absolute;
+    width: 74px;
+    height: 90px;
+    left: 0;
+    top: 0;
+
+    transform: translateY(-47px);
+    transform-origin: center bottom;
+
+    border-radius:
+        55% 55% 45% 45%
+        / 70% 70% 38% 38%;
+
+    background:
+        linear-gradient(
+            150deg,
+            #ffffff 0%,
+            #fbfaf5 55%,
+            #e8e7df 100%
+        );
+
+    box-shadow:
+        inset 5px 6px 9px rgba(255, 255, 255, .65),
+        inset -4px -5px 8px rgba(167, 167, 157, .12),
+        0 3px 7px rgba(65, 65, 60, .08);
+
+    animation:
+        anemona-petalo-movimiento 4.2s ease-in-out infinite;
+
+    animation-delay: var(--delay);
+}
+
+.anemona-petalo::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 55%;
+    left: 50%;
+    bottom: 8%;
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(74, 71, 86, .15),
+            transparent
+        );
+}
+
+.anemona-centro {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 80px;
+    top: 80px;
+    border-radius: 50%;
+    z-index: 25;
+
+    background:
+        radial-gradient(
+            circle,
+            #504a5d 0%,
+            #292633 35%,
+            #15131d 70%,
+            #09080d 100%
+        );
+
+    box-shadow:
+        0 3px 10px rgba(17, 14, 25, .25);
+}
+
+.anemona-estambre {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #777083;
+    box-shadow: 0 0 2px rgba(255,255,255,.12);
+}
+
+.anemona-tallo {
+    position: absolute;
+    width: 9px;
+    height: 195px;
+    left: 146px;
+    top: 158px;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            to right,
+            #315537,
+            #628160,
+            #315537
+        );
+
+    z-index: 1;
+}
+
+.anemona-hoja {
+    position: absolute;
+
+    background:
+        linear-gradient(
+            145deg,
+            #284c32,
+            #52744a,
+            #758b60
+        );
+
+    z-index: 3;
+
+    clip-path:
+        polygon(
+            50% 0%,
+            63% 27%,
+            91% 18%,
+            78% 45%,
+            100% 63%,
+            69% 68%,
+            71% 100%,
+            48% 76%,
+            21% 100%,
+            28% 67%,
+            0% 58%,
+            25% 42%,
+            12% 18%,
+            40% 29%
+        );
+}
+
+.anemona-hoja-izquierda {
+    width: 92px;
+    height: 92px;
+    left: 60px;
+    top: 225px;
+    transform: rotate(-28deg);
+}
+
+.anemona-hoja-derecha {
+    width: 88px;
+    height: 88px;
+    left: 151px;
+    top: 242px;
+    transform: rotate(28deg) scaleX(-1);
+}
+
+.anemona-hoja-centro {
+    width: 72px;
+    height: 70px;
+    left: 111px;
+    top: 190px;
+    transform: rotate(3deg) scale(.75);
+}
+
+
+
+/*
+=========================================
+    ANIMACIONES
 =========================================
 */
 
@@ -1734,155 +1991,148 @@
     }
 }
 
-
 @keyframes movimiento {
     0%, 100% { transform: rotate(-1deg); }
     50% { transform: rotate(1deg); }
 }
-
 
 @keyframes movimiento-tulipan {
     0%, 100% { transform: rotate(-1deg); }
     50% { transform: rotate(1deg); }
 }
 
-
 @keyframes petalo-izq {
     0%, 100% { transform: rotate(-18deg) translateY(0); }
     50% { transform: rotate(-21deg) translateY(-3px); }
 }
-
 
 @keyframes petalo-der {
     0%, 100% { transform: rotate(18deg) translateY(0); }
     50% { transform: rotate(21deg) translateY(-3px); }
 }
 
-
 @keyframes petalo-centro-izq {
     0%, 100% { transform: rotate(-8deg); }
     50% { transform: rotate(-10deg) translateY(-4px); }
 }
-
 
 @keyframes petalo-centro-der {
     0%, 100% { transform: rotate(8deg); }
     50% { transform: rotate(10deg) translateY(-4px); }
 }
 
-
 @keyframes petalo-frontal {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-4px); }
 }
-
 
 @keyframes lirio-balanceo {
     0%, 100% { transform: rotate(-.8deg); }
     50% { transform: rotate(.8deg); }
 }
 
-
 @keyframes lirio-petalo-arriba {
     0%, 100% { transform: translateY(-35px) scaleX(.82); }
     50% { transform: translateY(-39px) scaleX(.84); }
 }
-
 
 @keyframes lirio-petalo-izq {
     0%, 100% { transform: translate(-55px,-2px) rotate(-52deg); }
     50% { transform: translate(-58px,-5px) rotate(-55deg); }
 }
 
-
 @keyframes lirio-petalo-der {
     0%, 100% { transform: translate(55px,-2px) rotate(52deg); }
     50% { transform: translate(58px,-5px) rotate(55deg); }
 }
-
 
 @keyframes lirio-petalo-abajo-izq {
     0%, 100% { transform: translate(-58px,55px) rotate(-108deg); }
     50% { transform: translate(-61px,57px) rotate(-111deg); }
 }
 
-
 @keyframes lirio-petalo-abajo-der {
     0%, 100% { transform: translate(58px,55px) rotate(108deg); }
     50% { transform: translate(61px,57px) rotate(111deg); }
 }
-
 
 @keyframes lirio-petalo-frontal {
     0%, 100% { transform: rotate(180deg); }
     50% { transform: rotate(180deg) translateY(-3px); }
 }
 
-
 @keyframes nube-balanceo {
     0%, 100% { transform: rotate(-.7deg); }
     50% { transform: rotate(.7deg); }
 }
-
 
 @keyframes nube-florecita-movimiento {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-3px); }
 }
 
-
 @keyframes peonia-balanceo {
     0%, 100% { transform: rotate(-.8deg); }
     50% { transform: rotate(.8deg); }
 }
-
 
 @keyframes peonia-petalo-movimiento {
     0%, 100% { filter: brightness(1); }
     50% { filter: brightness(1.06); }
 }
 
-
 @keyframes camelia-balanceo {
     0%, 100% { transform: rotate(-.65deg); }
     50% { transform: rotate(.65deg); }
 }
-
 
 @keyframes camelia-petalo-respirar {
     0%, 100% { filter: brightness(1); }
     50% { filter: brightness(1.06); }
 }
 
-
 @keyframes jazmin-balanceo {
     0%, 100% { transform: rotate(-.65deg); }
     50% { transform: rotate(.65deg); }
 }
-
 
 @keyframes jazmin-boton-movimiento {
     0%, 100% { margin-top: 0; }
     50% { margin-top: -2px; }
 }
 
-
 @keyframes orquidea-balanceo {
     0%, 100% { transform: rotate(-.55deg); }
     50% { transform: rotate(.55deg); }
 }
-
 
 @keyframes lavanda-balanceo {
     0%, 100% { transform: rotate(-.8deg); }
     50% { transform: rotate(.8deg); }
 }
 
+@keyframes anemona-balanceo {
+    0%, 100% { transform: rotate(-.65deg); }
+    50% { transform: rotate(.65deg); }
+}
+
+@keyframes anemona-petalo-movimiento {
+    0%, 100% {
+        transform: translateY(-47px);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: translateY(-50px) scaleX(1.025);
+        filter: brightness(1.04);
+    }
+}
+
 
 
 /*
 =========================================
-        CELULARES
+    CELULARES
 =========================================
 */
 
@@ -1895,7 +2145,8 @@
     .camelia,
     .jazmin,
     .orquidea,
-    .lavanda {
+    .lavanda,
+    .anemona {
         max-width: 100%;
     }
 }

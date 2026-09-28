@@ -8,6 +8,93 @@ const jardin =
 
 /*
 =========================================
+    MODAL DE CARTA
+=========================================
+*/
+
+const modalCarta =
+    document.createElement("div");
+
+modalCarta.className =
+    "modal-carta";
+
+modalCarta.innerHTML = `
+    <div class="modal-carta-contenido">
+        <button class="cerrar-carta" type="button" aria-label="Cerrar carta">×</button>
+        <h3 class="titulo-carta"></h3>
+        <div class="papel-carta">
+            <p class="texto-carta"></p>
+        </div>
+    </div>
+`;
+
+document.body.appendChild(
+    modalCarta
+);
+
+const tituloCarta =
+    modalCarta.querySelector(".titulo-carta");
+
+const textoCarta =
+    modalCarta.querySelector(".texto-carta");
+
+const botonCerrarCarta =
+    modalCarta.querySelector(".cerrar-carta");
+
+
+function abrirCarta(
+    titulo,
+    mensaje
+) {
+    tituloCarta.textContent =
+        titulo;
+
+    textoCarta.textContent =
+        mensaje;
+
+    modalCarta.classList.add(
+        "mostrar"
+    );
+}
+
+
+function cerrarCarta() {
+    modalCarta.classList.remove(
+        "mostrar"
+    );
+}
+
+
+botonCerrarCarta.addEventListener(
+    "click",
+    cerrarCarta
+);
+
+modalCarta.addEventListener(
+    "click",
+    (evento) => {
+        if (evento.target === modalCarta) {
+            cerrarCarta();
+        }
+    }
+);
+
+document.addEventListener(
+    "keydown",
+    (evento) => {
+        if (
+            evento.key === "Escape" &&
+            modalCarta.classList.contains("mostrar")
+        ) {
+            cerrarCarta();
+        }
+    }
+);
+
+
+
+/*
+=========================================
     PANEL SUPERIOR
 =========================================
 */
@@ -83,16 +170,12 @@ function crearPanelSuperior(config) {
                     "tema-morado"
                 )
             ) {
-
                 botonFondo.textContent =
                     "Cambiar a fondo amarillo";
-
             } else {
-
                 botonFondo.textContent =
                     "Cambiar a fondo morado";
             }
-
         }
     );
 
@@ -142,7 +225,22 @@ function crearTarjetaFlor(config) {
         document.createElement("div");
 
     envolturaFlor.className =
-        "envoltura-flor";
+        "envoltura-flor flor-interactiva";
+
+    envolturaFlor.setAttribute(
+        "tabindex",
+        "0"
+    );
+
+    envolturaFlor.setAttribute(
+        "role",
+        "button"
+    );
+
+    envolturaFlor.setAttribute(
+        "aria-label",
+        `Abrir carta de ${config.titulo}`
+    );
 
 
     if (Flores[config.tipo]) {
@@ -155,12 +253,48 @@ function crearTarjetaFlor(config) {
         );
 
     } else {
-
         console.error(
             `La flor "${config.tipo}" no existe.`
         );
-
     }
+
+
+    envolturaFlor.addEventListener(
+        "click",
+        () => {
+            abrirCarta(
+                config.titulo,
+                config.carta || config.mensaje
+            );
+        }
+    );
+
+    envolturaFlor.addEventListener(
+        "keydown",
+        (evento) => {
+            if (
+                evento.key === "Enter" ||
+                evento.key === " "
+            ) {
+                evento.preventDefault();
+
+                abrirCarta(
+                    config.titulo,
+                    config.carta || config.mensaje
+                );
+            }
+        }
+    );
+
+
+    const pistaCarta =
+        document.createElement("p");
+
+    pistaCarta.className =
+        "pista-carta";
+
+    pistaCarta.textContent =
+        "Haz clic en la flor para abrir una carta";
 
 
     const nota =
@@ -176,7 +310,9 @@ function crearTarjetaFlor(config) {
     textoNota.textContent =
         config.mensaje;
 
-    nota.appendChild(textoNota);
+    nota.appendChild(
+        textoNota
+    );
 
 
     if (config.linkCancion) {
@@ -207,9 +343,21 @@ function crearTarjetaFlor(config) {
     }
 
 
-    tarjeta.appendChild(titulo);
-    tarjeta.appendChild(envolturaFlor);
-    tarjeta.appendChild(nota);
+    tarjeta.appendChild(
+        titulo
+    );
+
+    tarjeta.appendChild(
+        envolturaFlor
+    );
+
+    tarjeta.appendChild(
+        pistaCarta
+    );
+
+    tarjeta.appendChild(
+        nota
+    );
 
     return tarjeta;
 }
@@ -223,13 +371,10 @@ function crearTarjetaFlor(config) {
 */
 
 const datosPanel = {
-
     texto:
         "Todas las canciones que acompañan este pequeño jardín están reunidas aquí.",
-
     textoBotonPlaylist:
         "Abrir playlist en Spotify",
-
     linkPlaylist:
         "https://open.spotify.com/playlist/6XCeXM270zHmOE1vY9MeXA?si=wHKqXyp-SyKISRnlus0oMQ&utm_source=whatsapp&pi=wjAzlEK-QASgo"
 };
@@ -246,140 +391,128 @@ const floresDelJardin = [
 
     {
         tipo: "girasol",
-
-        titulo:
-            "Girasol 🌻",
-
+        titulo: "Girasol 🌻",
         mensaje:
-            "Esta es la primera flor de este pequeño jardín."
+            "Esta es la primera flor de este pequeño jardín.",
+        carta:
+            "Quise que el jardín empezara con un girasol, porque hay cosas que desde el inicio se sienten cálidas y bonitas. Tal vez esta flor no lo dice todo, pero sí abre la puerta a todo lo demás que poco a poco he querido dejar aquí."
     },
 
     {
         tipo: "tulipan",
-
-        titulo:
-            "Tulipán morado 💜",
-
+        titulo: "Tulipán morado 💜",
         mensaje:
             "Quise dejarte este tulipán morado como un detalle lindo, suave y especial para ti.",
-
+        carta:
+            "Este tulipán lo pensé como un detalle tranquilo, bonito y delicado. A veces no hace falta decir demasiado cuando algo simplemente nace con intención y cariño. Me gustó dejarlo aquí como una manera de hacerte saber que pensé en ti.",
         linkCancion:
             "https://www.youtube.com/watch?v=3AsvjEGlwyY",
-
         textoBoton:
             "♪ Escuchar canción"
     },
 
     {
         tipo: "lirio",
-
-        titulo:
-            "Lirio blanco 🤍",
-
+        titulo: "Lirio blanco 🤍",
         mensaje:
             "Te dejo este lirio blanco como un detalle lleno de calma, ternura y luz, para recordarte lo bonita que eres.",
-
+        carta:
+            "El lirio blanco tiene algo muy sereno, y por eso me gustó para ti. Quise que esta flor hablara de calma, de ternura y de esa sensación bonita que dejan algunas personas sin proponérselo demasiado.",
         linkCancion:
             "https://www.youtube.com/watch?v=-XZud3y0aLI&list=RDF193VAMdcBg&index=6",
-
         textoBoton:
             "♪ Escuchar canción"
     },
 
     {
         tipo: "nube",
-
-        titulo:
-            "Flor de nube 🤍",
-
+        titulo: "Flor de nube 🤍",
         mensaje:
             "Hay detalles pequeños que, sin hacer mucho ruido, terminan significando más de lo que parecen. Esta flor de nube es uno de ellos: algo sencillo, bonito y especial que quise dejar aquí para ti. Tal vez algunas cosas no necesitan explicarse demasiado para entenderse. 🤍",
-
+        carta:
+            "Hay cosas pequeñas que terminan quedándose más de lo que uno imagina. Esta flor de nube la dejé así, sencilla y ligera, como esos detalles que parecen discretos pero que en realidad guardan bastante intención.",
         linkCancion:
             "https://youtu.be/k3Uz-UI2IgY?is=kEqXKDfnneC-rH2Z",
-
         textoBoton:
             "♪ Tú y yo y tú"
     },
 
     {
         tipo: "peonia",
-
-        titulo:
-            "Peonía rosa 🌸",
-
+        titulo: "Peonía rosa 🌸",
         mensaje:
             "Hay cosas que se vuelven especiales sin necesidad de buscarles demasiadas explicaciones. A veces basta con mirar un poco más de cerca para darse cuenta de que los motivos siempre estuvieron ahí. 🌸",
-
+        carta:
+            "La peonía me gusta porque se ve llena, suave y bonita, pero también porque transmite esa idea de que algunas cosas se vuelven importantes casi sin avisar. A veces los motivos sobran, aunque al principio no parezca tan evidente.",
         linkCancion:
             "https://youtu.be/6wgTJm5ns7A?si=3Es4iR3dYLfdKBXN",
-
         textoBoton:
             "♪ Me sobran motivos"
     },
 
     {
         tipo: "camelia",
-
-        titulo:
-            "Camelia roja ❤️",
-
+        titulo: "Camelia roja ❤️",
         mensaje:
             "Algunas flores llaman la atención sin intentarlo. Tal vez sea el color, la forma o simplemente la manera en que terminan destacando entre todas las demás. ❤️",
-
+        carta:
+            "La camelia roja la imaginé para esas presencias que sobresalen solas, sin esfuerzo. Hay personas que por alguna razón terminan quedándose en la vista, en la cabeza o en el ánimo un poco más de lo normal.",
         linkCancion:
             "https://www.youtube.com/watch?v=yhuop3GEf-4",
-
         textoBoton:
             "♪ NADIE MÁS!"
     },
 
     {
         tipo: "jazmin",
-
-        titulo:
-            "Jazmín blanco 🤍",
-
+        titulo: "Jazmín blanco 🤍",
         mensaje:
             "Hay flores cuyo aroma parece quedarse incluso cuando ya no están cerca. Tal vez algunas presencias funcionan de la misma manera. 🤍",
-
+        carta:
+            "El jazmín me pareció bonito para hablar de eso que permanece aun cuando ya no está enfrente. Algunas presencias dejan una impresión suave, pero duradera, como si siguieran ahí incluso después.",
         linkCancion:
             "https://www.youtube.com/watch?v=PSjeJrDI4a4",
-
         textoBoton:
             "♪ Cómo dormiste"
     },
 
     {
         tipo: "orquidea",
-
-        titulo:
-            "Orquídea rosa 🌺",
-
+        titulo: "Orquídea rosa 🌺",
         mensaje:
             "Hay dedicatorias que se hacen por bonito detalle, y otras que nacen porque alguien realmente inspira algo especial. Esta canción es de esas que no elegí al azar.",
-
+        carta:
+            "Esta orquídea sí la quise dejar como una dedicatoria más especial. Hay canciones que uno no escoge por casualidad, sino porque alguien en particular termina dándoles sentido. Esta fue una de esas veces.",
         linkCancion:
             "https://www.youtube.com/watch?v=4O1CNtVG7s8",
-
         textoBoton:
             "♪ AMOR DE CINE"
     },
 
     {
         tipo: "lavanda",
-
-        titulo:
-            "Lavanda violeta 💜",
-
+        titulo: "Lavanda violeta 💜",
         mensaje:
             "Hay aromas que uno reconoce incluso antes de darse cuenta de dónde vienen. Supongo que algunas cosas se quedan en la memoria de una forma parecida.",
-
+        carta:
+            "La lavanda tiene algo que permanece de forma muy sutil, y por eso me gustó para esta canción. A veces hay cosas que no son escandalosas, pero aun así dejan marca y se quedan rondando más tiempo del esperado.",
         linkCancion:
             "https://www.youtube.com/watch?v=2vo_BzD9gu0",
-
         textoBoton:
             "♪ Te diré"
+    },
+
+    {
+        tipo: "anemona",
+        titulo: "Anémona blanca 🤍",
+        mensaje:
+            "Supongo que hay cosas que uno termina admitiendo poco a poco, incluso cuando al principio intenta hacer como si no pasara nada.",
+        carta:
+            "Esta anémona quedó para esas cosas que uno primero intenta guardar, luego acepta a medias y al final termina admitiendo. No siempre es inmediato, pero hay sentimientos o ideas que poco a poco se van haciendo imposibles de ignorar.",
+        linkCancion:
+            "https://www.youtube.com/watch?v=4Ja6WLrZlAE",
+        textoBoton:
+            "♪ Confieso"
     }
 
 ];
@@ -403,6 +536,7 @@ jardin.insertBefore(
 );
 
 
+
 /*
 =========================================
     MOSTRAR FLORES
@@ -411,10 +545,8 @@ jardin.insertBefore(
 
 floresDelJardin.forEach(
     (flor) => {
-
         contenedorFlores.appendChild(
             crearTarjetaFlor(flor)
         );
-
     }
 );

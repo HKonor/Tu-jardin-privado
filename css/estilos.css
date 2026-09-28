@@ -26,13 +26,11 @@ body.tema-morado {
     --texto-pequeno: #5d4388;
 }
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 html,
 body {
@@ -40,14 +38,9 @@ body {
     min-height: 100%;
 }
 
-
 body {
     min-height: 100vh;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family: Georgia, "Times New Roman", serif;
 
     background:
         radial-gradient(
@@ -82,7 +75,6 @@ body {
     align-items: center;
 
     padding: 55px 20px;
-
     overflow-x: hidden;
 }
 
@@ -97,56 +89,33 @@ body {
 .encabezado {
     width: 100%;
     max-width: 850px;
-
     text-align: center;
-
     margin-bottom: 20px;
-
-    animation:
-        aparecer 1.5s ease;
+    animation: aparecer 1.5s ease;
 }
 
-
 .pequeno {
-    font-family:
-        Arial,
-        sans-serif;
-
+    font-family: Arial, sans-serif;
     font-size: 11px;
     font-weight: 600;
-
     letter-spacing: 5px;
-
     color: var(--texto-pequeno);
-
     margin-bottom: 15px;
 }
 
-
 h1 {
-    font-size:
-        clamp(30px, 4vw, 48px);
-
+    font-size: clamp(30px, 4vw, 48px);
     font-weight: normal;
-
     line-height: 1.15;
-
     color: var(--texto-principal);
-
-    text-shadow:
-        0 2px 3px
-        rgba(255, 255, 255, .40);
+    text-shadow: 0 2px 3px rgba(255, 255, 255, .40);
 }
-
 
 .linea {
     width: 65px;
     height: 2px;
-
     background: #d6a719;
-
     margin: 22px auto 0;
-
     border-radius: 10px;
 }
 
@@ -165,9 +134,7 @@ body.tema-morado .linea {
 .panel-superior {
     width: 100%;
     max-width: 760px;
-
     margin: 5px auto 28px;
-
     padding: 18px 20px;
 
     display: flex;
@@ -177,38 +144,27 @@ body.tema-morado .linea {
     gap: 13px;
 
     text-align: center;
-
     border-radius: 24px;
 
     background: var(--panel-bg);
     border: 1px solid var(--panel-border);
 
-    box-shadow:
-        0 14px 30px
-        rgba(76, 55, 15, .14);
-
+    box-shadow: 0 14px 30px rgba(76, 55, 15, .14);
     backdrop-filter: blur(7px);
 
-    animation:
-        aparecer 1.5s ease;
+    animation: aparecer 1.5s ease;
 
     transition:
         background .35s ease,
         border .35s ease;
 }
 
-
 .texto-playlist {
-    font-family:
-        Arial,
-        sans-serif;
-
+    font-family: Arial, sans-serif;
     color: var(--texto-secundario);
-
     font-size: 14px;
     line-height: 1.5;
 }
-
 
 .acciones-superiores {
     display: flex;
@@ -217,7 +173,6 @@ body.tema-morado .linea {
     gap: 12px;
 }
 
-
 .boton-playlist,
 .boton-fondo {
     display: inline-flex;
@@ -225,26 +180,19 @@ body.tema-morado .linea {
     align-items: center;
 
     padding: 12px 23px;
-
     border-radius: 999px;
 
-    font-family:
-        Arial,
-        sans-serif;
-
+    font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: 600;
-
     text-decoration: none;
 
     border: none;
     cursor: pointer;
 }
 
-
 .boton-playlist {
     color: #ffffff;
-
     background:
         linear-gradient(
             135deg,
@@ -253,23 +201,19 @@ body.tema-morado .linea {
         );
 
     box-shadow:
-        0 8px 18px
-        rgba(26, 112, 67, .25);
+        0 8px 18px rgba(26, 112, 67, .25);
 
     transition:
         transform .25s ease,
         box-shadow .25s ease;
 }
 
-
 .boton-playlist:hover {
     transform: translateY(-2px);
 
     box-shadow:
-        0 12px 23px
-        rgba(26, 112, 67, .33);
+        0 12px 23px rgba(26, 112, 67, .33);
 }
-
 
 .boton-fondo {
     color: #ffffff;
@@ -282,21 +226,18 @@ body.tema-morado .linea {
         );
 
     box-shadow:
-        0 8px 18px
-        rgba(103, 66, 173, .26);
+        0 8px 18px rgba(103, 66, 173, .26);
 
     transition:
         transform .25s ease,
         box-shadow .25s ease;
 }
 
-
 .boton-fondo:hover {
     transform: translateY(-2px);
 
     box-shadow:
-        0 12px 23px
-        rgba(103, 66, 173, .35);
+        0 12px 23px rgba(103, 66, 173, .35);
 }
 
 
@@ -331,22 +272,20 @@ body.tema-morado .linea {
 .tarjeta-flor {
     width: 100%;
     max-width: 390px;
-    min-height: 520px;
+    min-height: 550px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
     padding: 25px 20px 22px;
-
     border-radius: 30px;
 
     background: var(--panel-bg);
     border: 1px solid var(--panel-border);
 
     box-shadow:
-        0 18px 38px
-        rgba(76, 55, 15, .16);
+        0 18px 38px rgba(76, 55, 15, .16);
 
     backdrop-filter: blur(7px);
 
@@ -359,13 +298,11 @@ body.tema-morado .linea {
         border .35s ease;
 }
 
-
 .tarjeta-flor:hover {
     transform: translateY(-5px);
 
     box-shadow:
-        0 24px 45px
-        rgba(76, 55, 15, .22);
+        0 24px 45px rgba(76, 55, 15, .22);
 }
 
 
@@ -379,11 +316,8 @@ body.tema-morado .linea {
 .titulo-flor {
     font-size: 27px;
     font-weight: normal;
-
     color: var(--texto-secundario);
-
     margin-bottom: 10px;
-
     text-align: center;
 }
 
@@ -397,13 +331,39 @@ body.tema-morado .linea {
 
 .envoltura-flor {
     width: 100%;
-    height: 370px;
+    height: 360px;
 
     display: flex;
     justify-content: center;
     align-items: flex-end;
 
     position: relative;
+}
+
+.flor-interactiva {
+    cursor: pointer;
+    outline: none;
+    border-radius: 22px;
+    transition: transform .25s ease;
+}
+
+.flor-interactiva:hover {
+    transform: translateY(-4px) scale(1.01);
+}
+
+.flor-interactiva:focus {
+    box-shadow: 0 0 0 3px rgba(255,255,255,.25);
+}
+
+.pista-carta {
+    margin-top: 4px;
+    margin-bottom: 10px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: .2px;
+    color: var(--texto-pequeno);
+    text-align: center;
 }
 
 
@@ -417,37 +377,24 @@ body.tema-morado .linea {
 .nota-flor {
     width: 100%;
     text-align: center;
-
-    margin-top: 8px;
+    margin-top: 2px;
 }
-
 
 .nota-flor p {
     width: 100%;
-
     padding: 15px 17px;
 
-    font-family:
-        Arial,
-        sans-serif;
-
+    font-family: Arial, sans-serif;
     font-size: 14px;
     line-height: 1.6;
-
     color: var(--texto-secundario);
 
-    background:
-        rgba(255, 255, 255, .48);
-
-    border:
-        1px solid
-        rgba(255, 255, 255, .55);
-
+    background: rgba(255, 255, 255, .48);
+    border: 1px solid rgba(255, 255, 255, .55);
     border-radius: 20px;
 
     box-shadow:
-        0 5px 15px
-        rgba(80, 55, 15, .08);
+        0 5px 15px rgba(80, 55, 15, .08);
 }
 
 
@@ -464,17 +411,12 @@ body.tema-morado .linea {
     justify-content: center;
 
     margin-top: 14px;
-
     padding: 12px 21px;
 
     border-radius: 999px;
-
     text-decoration: none;
 
-    font-family:
-        Arial,
-        sans-serif;
-
+    font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: bold;
 
@@ -488,19 +430,15 @@ body.tema-morado .linea {
         );
 
     box-shadow:
-        0 8px 18px
-        rgba(120, 61, 154, .25);
+        0 8px 18px rgba(120, 61, 154, .25);
 
     transition:
         transform .25s ease,
         box-shadow .25s ease;
 }
 
-
 .boton-cancion:hover {
-    transform:
-        translateY(-2px)
-        scale(1.03);
+    transform: translateY(-2px) scale(1.03);
 }
 
 
@@ -520,10 +458,8 @@ body.tema-morado .linea {
         );
 }
 
-
 .tarjeta-nube .boton-cancion {
     color: #44523d;
-
     background:
         linear-gradient(
             135deg,
@@ -531,7 +467,6 @@ body.tema-morado .linea {
             #e8eddf
         );
 }
-
 
 .tarjeta-peonia .boton-cancion {
     background:
@@ -542,7 +477,6 @@ body.tema-morado .linea {
         );
 }
 
-
 .tarjeta-camelia .boton-cancion {
     background:
         linear-gradient(
@@ -552,10 +486,8 @@ body.tema-morado .linea {
         );
 }
 
-
 .tarjeta-jazmin .boton-cancion {
     color: #48533f;
-
     background:
         linear-gradient(
             135deg,
@@ -563,15 +495,8 @@ body.tema-morado .linea {
             #e8eddd
         );
 
-    border:
-        1px solid
-        rgba(104, 128, 81, .25);
-
-    box-shadow:
-        0 8px 18px
-        rgba(78, 99, 60, .18);
+    border: 1px solid rgba(104, 128, 81, .25);
 }
-
 
 .tarjeta-orquidea .boton-cancion {
     background:
@@ -582,7 +507,6 @@ body.tema-morado .linea {
         );
 }
 
-
 .tarjeta-lavanda .boton-cancion {
     background:
         linear-gradient(
@@ -590,6 +514,122 @@ body.tema-morado .linea {
             #7752b8,
             #ab84e9
         );
+}
+
+.tarjeta-anemona .boton-cancion {
+    color: #ffffff;
+    background:
+        linear-gradient(
+            135deg,
+            #252430,
+            #514d66
+        );
+
+    box-shadow:
+        0 8px 18px rgba(31, 29, 42, .28);
+}
+
+
+
+/*
+=========================================
+    MODAL CARTA
+=========================================
+*/
+
+.modal-carta {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(32, 21, 48, .45);
+    backdrop-filter: blur(5px);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+.modal-carta.mostrar {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-carta-contenido {
+    width: 100%;
+    max-width: 470px;
+
+    position: relative;
+
+    padding: 26px 22px 22px;
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.95),
+            rgba(250,245,255,.96)
+        );
+
+    box-shadow:
+        0 20px 45px rgba(36, 19, 57, .25);
+
+    animation: aparecer .25s ease;
+}
+
+.cerrar-carta {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    font-size: 24px;
+    line-height: 1;
+
+    color: #6d4d8d;
+    background: rgba(204, 180, 235, .25);
+}
+
+.titulo-carta {
+    font-size: 24px;
+    font-weight: normal;
+    color: #5b3f77;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.papel-carta {
+    padding: 18px 18px 20px;
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffefc,
+            #f7f1ff
+        );
+
+    border: 1px solid rgba(182, 153, 222, .35);
+}
+
+.texto-carta {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #5c4a70;
+    text-align: left;
 }
 
 
@@ -601,7 +641,6 @@ body.tema-morado .linea {
 */
 
 @keyframes aparecer {
-
     from {
         opacity: 0;
         transform: translateY(22px);
@@ -611,7 +650,6 @@ body.tema-morado .linea {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
 
@@ -623,7 +661,6 @@ body.tema-morado .linea {
 */
 
 @media (max-width: 600px) {
-
     .jardin {
         padding: 35px 12px 40px;
     }
@@ -670,7 +707,7 @@ body.tema-morado .linea {
     }
 
     .envoltura-flor {
-        height: 340px;
+        height: 338px;
     }
 
     .nota-flor p {
@@ -681,4 +718,12 @@ body.tema-morado .linea {
         font-size: 13px;
     }
 
+    .titulo-carta {
+        font-size: 22px;
+    }
+
+    .texto-carta {
+        font-size: 14px;
+        line-height: 1.7;
+    }
 }
