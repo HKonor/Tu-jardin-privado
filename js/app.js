@@ -4,22 +4,38 @@ const jardin =
   document.querySelector(".jardin") || contenedorFlores.parentElement;
 
 /* =====================================================
-   ALMACENAMIENTO
+   CLAVES DE LOCALSTORAGE
 ===================================================== */
 
 const CLAVES = {
-  aviso: "jardin_no_mostrar_aviso_v1",
-  coleccionables: "jardin_coleccionables_v1",
-  horas: "jardin_horas_reclamadas_v1",
-  noche: "jardin_modo_noche_descubierto_v1",
+  aviso: "jardin_no_mostrar_aviso_v3",
+
+  notas: "jardin_notas_v3",
+  horasNotas: "jardin_horas_notas_v3",
+
+  despedidas: "jardin_despedidas_v3",
+  diasDespedidas: "jardin_dias_despedidas_v3",
+
+  visitasJardin: "jardin_visitas_v3",
+  visitasFlores: "jardin_visitas_flores_v3",
+
+  favorita: "jardin_flor_favorita_v3",
+
+  nocheDescubierta: "jardin_noche_descubierta_v3",
+
+  nota1111: "jardin_1111_v3",
 };
+
+/* =====================================================
+   FUNCIONES DE ALMACENAMIENTO
+===================================================== */
 
 function leerJSON(clave, valorInicial) {
   try {
     const valor = localStorage.getItem(clave);
 
     return valor ? JSON.parse(valor) : valorInicial;
-  } catch {
+  } catch (error) {
     return valorInicial;
   }
 }
@@ -29,7 +45,21 @@ function guardarJSON(clave, valor) {
 }
 
 /* =====================================================
-   20 COLECCIONABLES
+   VISITAS DEL JARDÍN
+===================================================== */
+
+let visitasJardin = Number(localStorage.getItem(CLAVES.visitasJardin) || 0);
+
+visitasJardin++;
+
+localStorage.setItem(CLAVES.visitasJardin, visitasJardin);
+
+let visitasFlores = leerJSON(CLAVES.visitasFlores, {});
+
+let florFavorita = localStorage.getItem(CLAVES.favorita) || "";
+
+/* =====================================================
+   20 COLECCIONABLES DE HORAS PARES
 ===================================================== */
 
 const coleccionables = [
@@ -65,7 +95,7 @@ const coleccionables = [
     id: 5,
     titulo: "Nota 05",
     fragmento: "y",
-    nota: "Incluso las palabras más pequeñas pueden unir cosas mucho más grandes.",
+    nota: "Incluso las palabras pequeñas pueden unir cosas mucho más grandes.",
   },
 
   {
@@ -79,7 +109,7 @@ const coleccionables = [
     id: 7,
     titulo: "Nota 07",
     fragmento: "terminan",
-    nota: "Algunas historias no se entienden en el primer capítulo.",
+    nota: "Algunas historias no se entienden desde el primer capítulo.",
   },
 
   {
@@ -107,7 +137,7 @@ const coleccionables = [
     id: 11,
     titulo: "Nota 11",
     fragmento: "que uno",
-    nota: "Algunas cosas solo cobran sentido dependiendo de quién las mira.",
+    nota: "Algunas cosas cobran sentido dependiendo de quién las mira.",
   },
 
   {
@@ -121,7 +151,7 @@ const coleccionables = [
     id: 13,
     titulo: "Nota 13",
     fragmento: "buscando,",
-    nota: "Y quizá ahí esté lo interesante de algunas coincidencias.",
+    nota: "Quizá ahí esté lo interesante de algunas coincidencias.",
   },
 
   {
@@ -174,12 +204,110 @@ const coleccionables = [
   },
 ];
 
-let notasObtenidas = leerJSON(CLAVES.coleccionables, []);
+let notasObtenidas = leerJSON(CLAVES.notas, []);
 
-let horasReclamadas = leerJSON(CLAVES.horas, []);
+let horasNotas = leerJSON(CLAVES.horasNotas, []);
 
 /* =====================================================
-   MODAL GENERAL
+   20 DESPEDIDAS
+===================================================== */
+
+const despedidas = [
+  "Por hoy, el jardín se queda aquí. Mañana quizá tenga algo nuevo que decir.",
+
+  "Gracias por quedarte un ratito entre las flores.",
+
+  "Algunas visitas son cortas, pero eso no las hace menos bonitas.",
+
+  "Parece que hoy ya viste suficiente... aunque nunca se sabe.",
+
+  "Las flores seguirán aquí cuando quieras volver.",
+
+  "Otro pequeño recorrido termina aquí.",
+
+  "Hoy el jardín estuvo un poquito menos solo.",
+
+  "Tal vez mañana encuentres algo que hoy todavía no estaba listo.",
+
+  "Hay días en los que basta con pasar un momento por aquí.",
+
+  "Una visita más quedó guardada entre estas flores.",
+
+  "El jardín descansa, pero algunas cosas siguen creciendo.",
+
+  "Hasta aquí llegó el recorrido de hoy.",
+
+  "No todo tiene que descubrirse el mismo día.",
+
+  "Algunas cosas se entienden mejor después de volver.",
+
+  "Otra página pequeña quedó escrita hoy.",
+
+  "El jardín cambia poco a poco, igual que algunas historias.",
+
+  "Hoy encontraste lo que estaba listo para ser encontrado.",
+
+  "Todavía quedan rincones que quizá no hayas visto.",
+
+  "Ya casi conoces todas las formas que tiene este jardín de despedirse.",
+
+  "Veinte despedidas después y, curiosamente, esto todavía no se siente como un final.",
+];
+
+let despedidasObtenidas = leerJSON(CLAVES.despedidas, []);
+
+let diasDespedidas = leerJSON(CLAVES.diasDespedidas, []);
+
+/* =====================================================
+   FECHAS
+===================================================== */
+
+function claveDia(fecha = new Date()) {
+  const anio = fecha.getFullYear();
+
+  const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+
+  const dia = String(fecha.getDate()).padStart(2, "0");
+
+  return `${anio}-${mes}-${dia}`;
+}
+
+function claveHora(fecha = new Date()) {
+  const hora = String(fecha.getHours()).padStart(2, "0");
+
+  return `${claveDia(fecha)}-${hora}`;
+}
+
+/* =====================================================
+   DESPEDIDA DIARIA
+===================================================== */
+
+function registrarDespedidaDelDia() {
+  const hoy = claveDia();
+
+  if (diasDespedidas.includes(hoy)) {
+    return;
+  }
+
+  if (despedidasObtenidas.length >= despedidas.length) {
+    return;
+  }
+
+  const siguiente = despedidasObtenidas.length + 1;
+
+  despedidasObtenidas.push(siguiente);
+
+  diasDespedidas.push(hoy);
+
+  guardarJSON(CLAVES.despedidas, despedidasObtenidas);
+
+  guardarJSON(CLAVES.diasDespedidas, diasDespedidas);
+}
+
+registrarDespedidaDelDia();
+
+/* =====================================================
+   MODAL
 ===================================================== */
 
 const capaModal = document.createElement("div");
@@ -188,6 +316,7 @@ capaModal.className = "capa-modal";
 
 capaModal.innerHTML = `
     <div class="ventana-modal">
+
         <button
             class="cerrar-modal"
             type="button"
@@ -197,6 +326,7 @@ capaModal.innerHTML = `
         </button>
 
         <div class="contenido-modal"></div>
+
     </div>
 `;
 
@@ -245,7 +375,7 @@ function mostrarToast(texto) {
 
   temporizadorToast = setTimeout(() => {
     toast.classList.remove("mostrar");
-  }, 3000);
+  }, 3200);
 }
 
 /* =====================================================
@@ -253,9 +383,9 @@ function mostrarToast(texto) {
 ===================================================== */
 
 function mostrarAvisoInicial() {
-  const ocultarAviso = localStorage.getItem(CLAVES.aviso);
+  const ocultar = localStorage.getItem(CLAVES.aviso);
 
-  if (ocultarAviso === "si") {
+  if (ocultar === "si") {
     revisarHoraColeccionable();
 
     return;
@@ -265,28 +395,44 @@ function mostrarAvisoInicial() {
         <div class="aviso-coleccionables">
 
             <p class="modal-etiqueta">
-                ALGO NUEVO
+                ANTES DE ENTRAR
             </p>
 
             <h2>
-                Hay cosas escondidas en este jardín
+                Este jardín guarda más de lo que parece
             </h2>
 
+            <div class="icono-aviso">
+                20
+            </div>
+
             <p>
-                Algunas no aparecen inmediatamente.
-                En ciertas horas puede surgir una pequeña
-                nota entre las flores.
+                Entre las flores existen
+                <strong>
+                    20 notas ocultas
+                </strong>
+                que pueden aparecer durante
+                las horas pares.
             </p>
 
             <p>
-                Existen <strong>20 coleccionables</strong>
-                y no es posible encontrarlos todos en un
-                solo día.
+                También existen
+                <strong>
+                    20 despedidas diferentes
+                </strong>.
+                Solo puede descubrirse una nueva
+                por día.
             </p>
 
             <p>
-                Cada nota guarda además una pequeña parte
-                de algo más grande.
+                Algunas flores recuerdan tus visitas,
+                otras reaccionan de forma diferente
+                y hay cosas que solamente aparecen
+                después de pasar tiempo aquí.
+            </p>
+
+            <p class="aviso-pista">
+                No todo está señalado.
             </p>
 
             <div class="acciones-aviso">
@@ -296,7 +442,7 @@ function mostrarAvisoInicial() {
                     class="boton-modal-principal"
                     type="button"
                 >
-                    Aceptar
+                    Entrar al jardín
                 </button>
 
                 <button
@@ -336,7 +482,276 @@ function mostrarAvisoInicial() {
 }
 
 /* =====================================================
-   CARTAS DE LAS FLORES
+   FLORES DEL JARDÍN
+===================================================== */
+
+const floresDelJardin = [
+  {
+    tipo: "girasol",
+
+    titulo: "Girasol 🌻",
+
+    mensaje: "Esta es la primera flor de este pequeño jardín.",
+
+    carta:
+      "Todo jardín necesita un comienzo. Este girasol fue el primero y por eso siempre tendrá algo distinto: fue una pequeña idea que terminó convirtiéndose en todo lo demás.",
+
+    secretoCarta:
+      "Las primeras cosas suelen guardar un lugar que ninguna otra puede ocupar.",
+
+    microMensaje: "Esta fue la primera.",
+  },
+
+  {
+    tipo: "tulipan",
+
+    titulo: "Tulipán morado 💜",
+
+    mensaje:
+      "Quise dejarte este tulipán morado como un detalle lindo, suave y especial para ti.",
+
+    carta:
+      "Este tulipán empezó como un detalle sencillo. Tal vez por eso me gusta: no necesita llamar demasiado la atención para tener un lugar especial dentro del jardín.",
+
+    secretoCarta:
+      "Hay detalles que empiezan pequeños y terminan significando bastante.",
+
+    microMensaje: "Los pétalos también guardan cosas.",
+
+    linkCancion: "https://www.youtube.com/watch?v=3AsvjEGlwyY",
+
+    textoBoton: "♪ Escuchar canción",
+  },
+
+  {
+    tipo: "lirio",
+
+    titulo: "Lirio blanco 🤍",
+
+    mensaje:
+      "Te dejo este lirio blanco como un detalle lleno de calma, ternura y luz, para recordarte lo bonita que eres.",
+
+    carta:
+      "El lirio tiene algo tranquilo. Tal vez por eso terminó aquí: para representar esos momentos en los que basta con que algo bonito esté presente para cambiar un poco el ambiente.",
+
+    secretoCarta: "A veces la calma también puede venir de una persona.",
+
+    microMensaje: "Mira un poco más de cerca.",
+
+    linkCancion:
+      "https://www.youtube.com/watch?v=-XZud3y0aLI&list=RDF193VAMdcBg&index=6",
+
+    textoBoton: "♪ Escuchar canción",
+  },
+
+  {
+    tipo: "nube",
+
+    titulo: "Flor de nube 🤍",
+
+    mensaje:
+      "Hay detalles pequeños que, sin hacer mucho ruido, terminan significando más de lo que parecen. Esta flor de nube es uno de ellos: algo sencillo, bonito y especial que quise dejar aquí para ti. Tal vez algunas cosas no necesitan explicarse demasiado para entenderse. 🤍",
+
+    carta:
+      "La flor de nube está hecha de muchas cosas pequeñas que juntas terminan formando algo mucho más bonito. Me pareció una buena forma de esconder una idea sin escribirla directamente.",
+
+    secretoCarta: "Quizá este jardín también se ha ido formando así.",
+
+    microMensaje: "Una sola florecita no hace toda la nube.",
+
+    linkCancion: "https://youtu.be/k3Uz-UI2IgY?is=kEqXKDfnneC-rH2Z",
+
+    textoBoton: "♪ Tú y yo y tú",
+  },
+
+  {
+    tipo: "peonia",
+
+    titulo: "Peonía rosa 🌸",
+
+    mensaje:
+      "Hay cosas que se vuelven especiales sin necesidad de buscarles demasiadas explicaciones. A veces basta con mirar un poco más de cerca para darse cuenta de que los motivos siempre estuvieron ahí. 🌸",
+
+    carta:
+      "La peonía parece complicada cuando uno mira todos sus pétalos, aunque en realidad cada uno simplemente ocupa su lugar. Algunas cosas se entienden mejor de esa manera.",
+
+    secretoCarta: "Tal vez por eso sobraban motivos.",
+
+    microMensaje: "Tiene más capas de las que parece.",
+
+    linkCancion: "https://youtu.be/6wgTJm5ns7A?si=3Es4iR3dYLfdKBXN",
+
+    textoBoton: "♪ Me sobran motivos",
+  },
+
+  {
+    tipo: "camelia",
+
+    titulo: "Camelia roja ❤️",
+
+    mensaje:
+      "Algunas flores llaman la atención sin intentarlo. Tal vez sea el color, la forma o simplemente la manera en que terminan destacando entre todas las demás. ❤️",
+
+    carta:
+      "No escogí la camelia porque necesitara destacar. La escogí precisamente porque lo hace sin intentarlo.",
+
+    secretoCarta:
+      "Supongo que el título de la canción tampoco quedó ahí por accidente.",
+
+    microMensaje: "Entre todas, alguna termina destacando.",
+
+    linkCancion: "https://www.youtube.com/watch?v=yhuop3GEf-4",
+
+    textoBoton: "♪ NADIE MÁS!",
+  },
+
+  {
+    tipo: "jazmin",
+
+    titulo: "Jazmín blanco 🤍",
+
+    mensaje:
+      "Hay flores cuyo aroma parece quedarse incluso cuando ya no están cerca. Tal vez algunas presencias funcionan de la misma manera. 🤍",
+
+    carta:
+      "El jazmín tiene esa extraña capacidad de seguir presente incluso cuando uno ya no lo está mirando.",
+
+    secretoCarta:
+      "Algunas personas también consiguen quedarse un rato en la cabeza.",
+
+    microMensaje: "Todavía queda un poco de su aroma.",
+
+    linkCancion: "https://www.youtube.com/watch?v=PSjeJrDI4a4",
+
+    textoBoton: "♪ Cómo dormiste",
+  },
+
+  {
+    tipo: "orquidea",
+
+    titulo: "Orquídea rosa 🌺",
+
+    mensaje:
+      "Hay dedicatorias que se hacen por bonito detalle, y otras que nacen porque alguien realmente inspira algo especial. Esta canción es de esas que no elegí al azar.",
+
+    carta:
+      "Esta orquídea ocupa un lugar un poco diferente. Desde antes de agregarla ya sabía que su canción tenía que funcionar como una dedicatoria especial.",
+
+    secretoCarta: "Te dije que esta dedicatoria iba a ser diferente.",
+
+    microMensaje: "Esta sabe exactamente por qué está aquí.",
+
+    linkCancion: "https://www.youtube.com/watch?v=4O1CNtVG7s8",
+
+    textoBoton: "♪ AMOR DE CINE",
+  },
+
+  {
+    tipo: "lavanda",
+
+    titulo: "Lavanda violeta 💜",
+
+    mensaje:
+      "Hay aromas que uno reconoce incluso antes de darse cuenta de dónde vienen. Supongo que algunas cosas se quedan en la memoria de una forma parecida.",
+
+    carta:
+      "Hay recuerdos que funcionan como ciertos aromas: aparecen sin que uno los llame y de repente están ahí.",
+
+    secretoCarta: "Tal vez hay cosas que uno todavía no ha dicho.",
+
+    microMensaje: "Algo se quedó por aquí.",
+
+    linkCancion: "https://www.youtube.com/watch?v=2vo_BzD9gu0",
+
+    textoBoton: "♪ Te diré",
+  },
+
+  {
+    tipo: "anemona",
+
+    titulo: "Anémona blanca 🤍",
+
+    mensaje:
+      "Supongo que hay cosas que uno termina admitiendo poco a poco, incluso cuando al principio intenta hacer como si no pasara nada.",
+
+    carta:
+      "La anémona parece sencilla desde lejos, pero su centro cambia por completo cuando uno se acerca.",
+
+    secretoCarta: "Supongo que el título ya decía suficiente.",
+
+    microMensaje: "Quizá aquí había algo que confesar.",
+
+    linkCancion: "https://www.youtube.com/watch?v=4Ja6WLrZlAE",
+
+    textoBoton: "♪ Confieso",
+  },
+
+  {
+    tipo: "magnolia",
+
+    titulo: "Magnolia rosa 🌸",
+
+    mensaje:
+      "Hay personas que desde el primer momento dejan algo difícil de explicar. A veces uno tarda en entender qué fue, pero no en notar que algo cambió.",
+
+    carta:
+      "Elegí una magnolia porque hay algo especial en la forma en que abre sus pétalos: no necesita demasiados para hacerse notar.",
+
+    secretoCarta:
+      "Algunas primeras impresiones duran bastante más de lo esperado.",
+
+    microMensaje: "Algunas cosas comienzan antes de que uno las entienda.",
+
+    linkCancion: "https://www.youtube.com/watch?v=PKZFG4BTQL4",
+
+    textoBoton: "♪ Amor a Primera",
+  },
+
+  {
+    tipo: "nomeolvides",
+
+    titulo: "No me olvides 💙",
+
+    mensaje:
+      "Este es mi artista favorito y esta canción es un pedacito de mí para ti.",
+
+    carta:
+      "Hay canciones que uno simplemente escucha y otras que se sienten un poco más propias. Esta viene de mi artista favorito, así que dejarla aquí se siente como compartir contigo una parte pequeña de algo que significa mucho para mí.",
+
+    secretoCarta:
+      "Compartir una canción favorita también puede ser una forma de compartir un poquito de uno mismo.",
+
+    microMensaje: "Esta lleva algo un poco más personal.",
+
+    linkCancion: "https://www.youtube.com/watch?v=J5RyC2nW0Oo",
+
+    textoBoton: "♪ Si supieras",
+  },
+];
+
+/* =====================================================
+   FLOR SECRETA
+===================================================== */
+
+const florSecreta = {
+  tipo: "dalia",
+
+  titulo: "Dalia nocturna",
+
+  mensaje:
+    "Algunas flores tardan un poco más en aparecer. No porque no estuvieran ahí, sino porque necesitaban su momento.",
+
+  carta:
+    "Esta flor estuvo escondida desde que comenzó el jardín. Solo hacía falta regresar suficientes veces para que tuviera sentido aparecer.",
+
+  secretoCarta:
+    "Si encontraste esta flor, ya sabes que todavía quedan cosas escondidas.",
+
+  microMensaje: "No siempre estuvo visible.",
+};
+
+/* =====================================================
+   CARTAS
 ===================================================== */
 
 function abrirCarta(config) {
@@ -364,17 +779,24 @@ function abrirCarta(config) {
                             class="marca-secreta"
                             id="abrir-postdata"
                             type="button"
-                            aria-label="Detalle oculto"
+                            aria-label="Ver algo más"
                         >
-                            •
+                            •••
                         </button>
 
                         <div
                             class="postdata-carta"
                             id="postdata-carta"
                         >
-                            <strong>P.D.</strong>
-                            ${config.secretoCarta}
+
+                            <span>
+                                P.D.
+                            </span>
+
+                            <p>
+                                ${config.secretoCarta}
+                            </p>
+
                         </div>
                         `
                     : ""
@@ -389,17 +811,78 @@ function abrirCarta(config) {
 
   capaModal.classList.add("mostrar");
 
-  const botonPostdata = document.getElementById("abrir-postdata");
+  const boton = document.getElementById("abrir-postdata");
 
-  if (botonPostdata) {
-    botonPostdata.addEventListener("click", () => {
+  if (boton) {
+    boton.addEventListener("click", () => {
       document.getElementById("postdata-carta").classList.toggle("mostrar");
     });
   }
 }
 
 /* =====================================================
-   PANEL SUPERIOR
+   INTRO
+===================================================== */
+
+function crearIntroJardin() {
+  const intro = document.createElement("section");
+
+  intro.className = "intro-jardin";
+
+  let mensajeVisita = "No todo aparece durante la primera visita.";
+
+  if (visitasJardin >= 3) {
+    mensajeVisita = "Parece que este jardín ya reconoce esta visita.";
+  }
+
+  if (visitasJardin >= 7) {
+    mensajeVisita = "A estas alturas, algunas flores ya saben que volverás.";
+  }
+
+  intro.innerHTML = `
+        <div class="intro-destello"></div>
+
+        <p class="intro-kicker">
+            UN JARDÍN QUE CAMBIA POCO A POCO
+        </p>
+
+        <h2>
+            Algunas flores dicen más
+            cuando las miras de cerca.
+        </h2>
+
+        <p class="resumen-intro">
+            Cada flor guarda una canción,
+            una pequeña nota y, de vez en cuando,
+            algo que no aparece a simple vista.
+        </p>
+
+        <div class="intro-badges">
+
+            <span class="intro-badge">
+                ${floresDelJardin.length} flores
+            </span>
+
+            <span class="intro-badge">
+                20 notas
+            </span>
+
+            <span class="intro-badge">
+                20 despedidas
+            </span>
+
+        </div>
+
+        <p class="intro-frase">
+            ${mensajeVisita}
+        </p>
+    `;
+
+  return intro;
+}
+
+/* =====================================================
+   PANEL DE MÚSICA
 ===================================================== */
 
 function crearPanelSuperior() {
@@ -408,10 +891,26 @@ function crearPanelSuperior() {
   panel.className = "panel-superior";
 
   panel.innerHTML = `
-        <p class="texto-playlist">
-            Todas las canciones que acompañan este
-            pequeño jardín están reunidas aquí.
-        </p>
+        <div class="panel-icono-musica">
+            ♫
+        </div>
+
+        <div class="panel-superior-texto">
+
+            <p class="panel-etiqueta">
+                BANDA SONORA
+            </p>
+
+            <h3>
+                Las canciones del jardín
+            </h3>
+
+            <p class="texto-playlist">
+                Todas las canciones que acompañan
+                las flores están reunidas aquí.
+            </p>
+
+        </div>
 
         <div class="acciones-superiores">
 
@@ -446,36 +945,93 @@ const panelProgreso = document.createElement("section");
 
 panelProgreso.className = "panel-progreso";
 
-const normalCantidadInicial = 11;
+function crearHTMLFrase() {
+  return coleccionables
+    .map((item) => {
+      const encontrada = notasObtenidas.includes(item.id);
+
+      return `
+                    <span
+                        class="
+                            fragmento-frase
+                            ${encontrada ? "descubierto" : "oculto"}
+                        "
+                    >
+                        ${encontrada ? item.fragmento : "•••"}
+                    </span>
+                `;
+    })
+    .join("");
+}
 
 function actualizarProgreso() {
-  const cantidad = notasObtenidas.length;
+  const notas = notasObtenidas.length;
 
-  const secreta = cantidad >= 10;
+  const salidas = despedidasObtenidas.length;
 
-  const flores = secreta ? normalCantidadInicial + 1 : normalCantidadInicial;
+  const secreta = notas >= 10;
 
-  const textoFlores = secreta ? `${flores} flores` : `${flores}/? flores`;
+  const numeroFlores = floresDelJardin.length + (secreta ? 1 : 0);
 
-  const frase = coleccionables
-    .map((item) =>
-      notasObtenidas.includes(item.id) ? item.fragmento : "_____",
-    )
-    .join(" ");
+  const porcentaje = Math.min(100, ((notas + salidas) / 40) * 100);
 
   panelProgreso.innerHTML = `
-        <div class="contador-jardin">
+        <div class="progreso-cabecera">
+
+            <div>
+
+                <p class="panel-etiqueta">
+                    TU RECORRIDO
+                </p>
+
+                <h3>
+                    Coleccionables
+                </h3>
+
+            </div>
+
+            <div class="contador-jardin">
+
+                <strong>
+                    ${notas + salidas}
+                </strong>
+
+                <span>
+                    /40
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="barra-progreso">
+
+            <span
+                style="
+                    width: ${porcentaje}%
+                "
+            ></span>
+
+        </div>
+
+        <div class="datos-progreso">
+
             <span>
-                ${textoFlores}
+                ${
+                  secreta
+                    ? `${numeroFlores} flores`
+                    : `${numeroFlores}/? flores`
+                }
             </span>
 
-            <span class="separador-contador">
-                ·
+            <span>
+                ${notas}/20 notas
             </span>
 
             <span>
-                ${cantidad}/20 notas
+                ${salidas}/20 despedidas
             </span>
+
         </div>
 
         <button
@@ -483,71 +1039,73 @@ function actualizarProgreso() {
             id="abrir-coleccion"
             type="button"
         >
-            Coleccionables
+            Ver coleccionables
         </button>
 
-        <p class="frase-progreso">
-            ${frase}
-        </p>
+        <p
+            class="favorita-actual"
+            id="favorita-actual"
+        ></p>
+
+        <div class="mensaje-en-construccion">
+
+            <p>
+                MENSAJE EN CONSTRUCCIÓN
+            </p>
+
+            <div class="frase-fragmentos">
+                ${crearHTMLFrase()}
+            </div>
+
+        </div>
     `;
 
   document
     .getElementById("abrir-coleccion")
     .addEventListener("click", abrirColeccion);
+
+  actualizarTextoFavorita();
 }
 
 /* =====================================================
-   COLECCIÓN
+   FAVORITA
+===================================================== */
+
+function obtenerConfigFlor(tipo) {
+  if (tipo === florSecreta.tipo) {
+    return florSecreta;
+  }
+
+  return floresDelJardin.find((flor) => flor.tipo === tipo);
+}
+
+function actualizarTextoFavorita() {
+  const elemento = document.getElementById("favorita-actual");
+
+  if (!elemento) {
+    return;
+  }
+
+  if (!florFavorita) {
+    elemento.textContent = "Aún no has elegido una flor favorita.";
+
+    return;
+  }
+
+  const config = obtenerConfigFlor(florFavorita);
+
+  if (!config) {
+    return;
+  }
+
+  elemento.textContent = `Flor favorita: ${config.titulo}`;
+}
+
+/* =====================================================
+   COLECCIONABLES
 ===================================================== */
 
 function abrirColeccion() {
-  const tarjetas = coleccionables
-    .map((item) => {
-      const conseguido = notasObtenidas.includes(item.id);
-
-      return `
-                        <article
-                            class="
-                                coleccion-item
-                                ${conseguido ? "conseguido" : "bloqueado"}
-                            "
-                        >
-
-                            <span class="numero-coleccion">
-                                ${String(item.id).padStart(2, "0")}
-                            </span>
-
-                            ${
-                              conseguido
-                                ? `
-                                        <h4>
-                                            ${item.titulo}
-                                        </h4>
-
-                                        <p>
-                                            ${item.nota}
-                                        </p>
-
-                                        <small>
-                                            ${item.fragmento}
-                                        </small>
-                                    `
-                                : `
-                                        <h4>
-                                            Nota desconocida
-                                        </h4>
-
-                                        <p>
-                                            Todavía no ha aparecido.
-                                        </p>
-                                    `
-                            }
-
-                        </article>
-                    `;
-    })
-    .join("");
-
   contenidoModal.innerHTML = `
         <div class="coleccion-modal">
 
@@ -556,46 +1114,231 @@ function abrirColeccion() {
             </p>
 
             <h2>
-                ${notasObtenidas.length}/20 encontradas
+                Tu colección
             </h2>
 
-            <div class="frase-coleccion">
+            <div class="tabs-coleccion">
 
-                ${coleccionables
-                  .map((item) =>
-                    notasObtenidas.includes(item.id) ? item.fragmento : "_____",
-                  )
-                  .join(" ")}
+                <button
+                    class="tab-coleccion activo"
+                    data-tab="notas"
+                    type="button"
+                >
+                    Notas ${notasObtenidas.length}/20
+                </button>
+
+                <button
+                    class="tab-coleccion"
+                    data-tab="despedidas"
+                    type="button"
+                >
+                    Despedidas ${despedidasObtenidas.length}/20
+                </button>
 
             </div>
 
-            <div class="rejilla-coleccion">
-                ${tarjetas}
-            </div>
+            <div
+                class="contenido-tab-coleccion"
+                id="tab-notas"
+            ></div>
+
+            <div
+                class="contenido-tab-coleccion oculto"
+                id="tab-despedidas"
+            ></div>
 
         </div>
     `;
+
+  renderNotasColeccion();
+
+  renderDespedidasColeccion();
+
+  document.querySelectorAll(".tab-coleccion").forEach((boton) => {
+    boton.addEventListener("click", () => {
+      document
+        .querySelectorAll(".tab-coleccion")
+        .forEach((otro) => otro.classList.remove("activo"));
+
+      boton.classList.add("activo");
+
+      const tab = boton.dataset.tab;
+
+      document
+        .getElementById("tab-notas")
+        .classList.toggle("oculto", tab !== "notas");
+
+      document
+        .getElementById("tab-despedidas")
+        .classList.toggle("oculto", tab !== "despedidas");
+    });
+  });
 
   cerrarModalBoton.style.display = "";
 
   capaModal.classList.add("mostrar");
 }
 
-/* =====================================================
-   COLECCIONABLES POR HORA PAR
-===================================================== */
+function renderNotasColeccion() {
+  const contenedor = document.getElementById("tab-notas");
 
-function claveHoraActual(fecha) {
-  const anio = fecha.getFullYear();
+  contenedor.innerHTML = `
+        <div class="frase-coleccion">
 
-  const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+            <p>
+                Lo que llevas descubierto:
+            </p>
 
-  const dia = String(fecha.getDate()).padStart(2, "0");
+            <div class="frase-fragmentos">
+                ${crearHTMLFrase()}
+            </div>
 
-  const hora = String(fecha.getHours()).padStart(2, "0");
+        </div>
 
-  return `${anio}-${mes}-${dia}-${hora}`;
+        <div class="rejilla-coleccion">
+
+            ${coleccionables
+              .map((item) => {
+                const encontrada = notasObtenidas.includes(item.id);
+
+                return `
+                                <article
+                                    class="
+                                        coleccion-item
+                                        ${
+                                          encontrada
+                                            ? "conseguido"
+                                            : "bloqueado"
+                                        }
+                                    "
+                                >
+
+                                    <span
+                                        class="numero-coleccion"
+                                    >
+                                        ${String(item.id).padStart(2, "0")}
+                                    </span>
+
+                                    ${
+                                      encontrada
+                                        ? `
+                                            <p class="estado-coleccion">
+                                                ENCONTRADA
+                                            </p>
+
+                                            <h4>
+                                                ${item.titulo}
+                                            </h4>
+
+                                            <p>
+                                                ${item.nota}
+                                            </p>
+
+                                            <small>
+                                                “${item.fragmento}”
+                                            </small>
+                                            `
+                                        : `
+                                            <p class="estado-coleccion">
+                                                BLOQUEADA
+                                            </p>
+
+                                            <h4>
+                                                Nota desconocida
+                                            </h4>
+
+                                            <p>
+                                                Todavía no ha llegado
+                                                su momento.
+                                            </p>
+                                            `
+                                    }
+
+                                </article>
+                            `;
+              })
+              .join("")}
+
+        </div>
+    `;
 }
+
+function renderDespedidasColeccion() {
+  const contenedor = document.getElementById("tab-despedidas");
+
+  contenedor.innerHTML = `
+        <p class="descripcion-despedidas">
+            Solo aparece una despedida nueva por día.
+        </p>
+
+        <div class="rejilla-coleccion">
+
+            ${despedidas
+              .map((texto, indice) => {
+                const id = indice + 1;
+
+                const encontrada = despedidasObtenidas.includes(id);
+
+                return `
+                                <article
+                                    class="
+                                        coleccion-item
+                                        ${
+                                          encontrada
+                                            ? "conseguido"
+                                            : "bloqueado"
+                                        }
+                                    "
+                                >
+
+                                    <span
+                                        class="numero-coleccion"
+                                    >
+                                        ${String(id).padStart(2, "0")}
+                                    </span>
+
+                                    ${
+                                      encontrada
+                                        ? `
+                                            <p class="estado-coleccion">
+                                                GUARDADA
+                                            </p>
+
+                                            <h4>
+                                                Despedida ${String(id).padStart(2, "0")}
+                                            </h4>
+
+                                            <p>
+                                                ${texto}
+                                            </p>
+                                            `
+                                        : `
+                                            <p class="estado-coleccion">
+                                                BLOQUEADA
+                                            </p>
+
+                                            <h4>
+                                                Despedida desconocida
+                                            </h4>
+
+                                            <p>
+                                                Vuelve otro día.
+                                            </p>
+                                            `
+                                    }
+
+                                </article>
+                            `;
+              })
+              .join("")}
+
+        </div>
+    `;
+}
+
+/* =====================================================
+   NOTAS DE HORAS PARES
+===================================================== */
 
 function revisarHoraColeccionable() {
   if (notasObtenidas.length >= coleccionables.length) {
@@ -610,21 +1353,21 @@ function revisarHoraColeccionable() {
     return;
   }
 
-  const clave = claveHoraActual(ahora);
+  const clave = claveHora(ahora);
 
-  if (horasReclamadas.includes(clave)) {
+  if (horasNotas.includes(clave)) {
     return;
   }
 
   const siguiente = coleccionables[notasObtenidas.length];
 
-  horasReclamadas.push(clave);
+  horasNotas.push(clave);
 
   notasObtenidas.push(siguiente.id);
 
-  guardarJSON(CLAVES.horas, horasReclamadas);
+  guardarJSON(CLAVES.horasNotas, horasNotas);
 
-  guardarJSON(CLAVES.coleccionables, notasObtenidas);
+  guardarJSON(CLAVES.notas, notasObtenidas);
 
   actualizarProgreso();
 
@@ -639,12 +1382,12 @@ function mostrarColeccionable(item, fecha) {
   contenidoModal.innerHTML = `
         <div class="nuevo-coleccionable">
 
-            <p class="hora-especial">
+            <div class="reloj-coleccionable">
                 ${hora}
-            </p>
+            </div>
 
             <p class="modal-etiqueta">
-                ENCONTRASTE ALGO NUEVO
+                APARECIÓ ALGO NUEVO
             </p>
 
             <h2>
@@ -658,26 +1401,21 @@ function mostrarColeccionable(item, fecha) {
                 </p>
 
                 <span>
-                    Fragmento encontrado:
+                    NUEVO FRAGMENTO
                 </span>
 
                 <strong>
-                    “${item.fragmento}”
+                    ${item.fragmento}
                 </strong>
 
             </div>
-
-            <p class="texto-secundario-modal">
-                La nota ya fue agregada
-                a tus coleccionables.
-            </p>
 
             <button
                 class="boton-modal-principal"
                 id="cerrar-coleccionable"
                 type="button"
             >
-                Continuar
+                Guardar y continuar
             </button>
 
         </div>
@@ -697,252 +1435,93 @@ function mostrarColeccionable(item, fecha) {
 }
 
 /* =====================================================
-   FLORES
+   NOTA DE 11:11 P.M.
 ===================================================== */
 
-const floresDelJardin = [
-  {
-    tipo: "girasol",
-    titulo: "Girasol 🌻",
-
-    mensaje: "Esta es la primera flor de este pequeño jardín.",
-
-    carta:
-      "Todo jardín necesita un comienzo. Este girasol fue el primero y por eso siempre tendrá algo distinto: fue la primera pequeña idea que terminó convirtiéndose en todo lo demás.",
-
-    secretoCarta:
-      "Las primeras cosas suelen tener un lugar que ninguna otra puede ocupar.",
-
-    microMensaje: "Esta fue la primera.",
-  },
-
-  {
-    tipo: "tulipan",
-    titulo: "Tulipán morado 💜",
-
-    mensaje:
-      "Quise dejarte este tulipán morado como un detalle lindo, suave y especial para ti.",
-
-    carta:
-      "Este tulipán empezó como un detalle sencillo. Tal vez por eso me gusta: no necesita llamar demasiado la atención para tener un lugar especial dentro del jardín.",
-
-    secretoCarta:
-      "Hay detalles que empiezan pequeños y terminan significando bastante.",
-
-    microMensaje: "Los pétalos también guardan cosas.",
-
-    linkCancion: "https://www.youtube.com/watch?v=3AsvjEGlwyY",
-
-    textoBoton: "♪ Escuchar canción",
-  },
-
-  {
-    tipo: "lirio",
-    titulo: "Lirio blanco 🤍",
-
-    mensaje:
-      "Te dejo este lirio blanco como un detalle lleno de calma, ternura y luz, para recordarte lo bonita que eres.",
-
-    carta:
-      "El lirio tiene algo tranquilo. Tal vez por eso terminó aquí: para representar esos momentos en los que basta con que algo bonito esté presente para cambiar un poco el ambiente.",
-
-    secretoCarta: "A veces la calma también puede venir de una persona.",
-
-    microMensaje: "Mira el centro.",
-
-    linkCancion:
-      "https://www.youtube.com/watch?v=-XZud3y0aLI&list=RDF193VAMdcBg&index=6",
-
-    textoBoton: "♪ Escuchar canción",
-  },
-
-  {
-    tipo: "nube",
-    titulo: "Flor de nube 🤍",
-
-    mensaje:
-      "Hay detalles pequeños que, sin hacer mucho ruido, terminan significando más de lo que parecen. Esta flor de nube es uno de ellos: algo sencillo, bonito y especial que quise dejar aquí para ti. Tal vez algunas cosas no necesitan explicarse demasiado para entenderse. 🤍",
-
-    carta:
-      "La flor de nube está hecha de muchas cosas pequeñas que juntas terminan formando algo mucho más bonito. Me pareció una buena forma de esconder una idea sin escribirla directamente.",
-
-    secretoCarta: "Quizá este jardín también se ha ido formando así.",
-
-    microMensaje: "Una sola flor no hace toda la nube.",
-
-    linkCancion: "https://youtu.be/k3Uz-UI2IgY?is=kEqXKDfnneC-rH2Z",
-
-    textoBoton: "♪ Tú y yo y tú",
-  },
-
-  {
-    tipo: "peonia",
-    titulo: "Peonía rosa 🌸",
-
-    mensaje:
-      "Hay cosas que se vuelven especiales sin necesidad de buscarles demasiadas explicaciones. A veces basta con mirar un poco más de cerca para darse cuenta de que los motivos siempre estuvieron ahí. 🌸",
-
-    carta:
-      "La peonía parece complicada cuando uno mira todos sus pétalos, aunque en realidad cada uno simplemente ocupa su lugar. Algunas cosas se entienden mejor de esa manera.",
-
-    secretoCarta: "Tal vez por eso sobraban motivos.",
-
-    microMensaje: "Tiene más capas de las que parece.",
-
-    linkCancion: "https://youtu.be/6wgTJm5ns7A?si=3Es4iR3dYLfdKBXN",
-
-    textoBoton: "♪ Me sobran motivos",
-  },
-
-  {
-    tipo: "camelia",
-    titulo: "Camelia roja ❤️",
-
-    mensaje:
-      "Algunas flores llaman la atención sin intentarlo. Tal vez sea el color, la forma o simplemente la manera en que terminan destacando entre todas las demás. ❤️",
-
-    carta:
-      "No escogí la camelia porque necesitara destacar. La escogí precisamente porque lo hace sin intentarlo. Algunas cosas simplemente terminan llamando nuestra atención de esa forma.",
-
-    secretoCarta:
-      "Supongo que el título de la canción tampoco quedó ahí por accidente.",
-
-    microMensaje: "Entre todas, alguna termina destacando.",
-
-    linkCancion: "https://www.youtube.com/watch?v=yhuop3GEf-4",
-
-    textoBoton: "♪ NADIE MÁS!",
-  },
-
-  {
-    tipo: "jazmin",
-    titulo: "Jazmín blanco 🤍",
-
-    mensaje:
-      "Hay flores cuyo aroma parece quedarse incluso cuando ya no están cerca. Tal vez algunas presencias funcionan de la misma manera. 🤍",
-
-    carta:
-      "El jazmín tiene esa extraña capacidad de seguir presente incluso cuando uno ya no lo está mirando. Esta flor quedó aquí por algo bastante parecido.",
-
-    secretoCarta:
-      "Algunas personas también consiguen quedarse un rato en la cabeza.",
-
-    microMensaje: "Todavía queda un poco de su aroma.",
-
-    linkCancion: "https://www.youtube.com/watch?v=PSjeJrDI4a4",
-
-    textoBoton: "♪ Cómo dormiste",
-  },
-
-  {
-    tipo: "orquidea",
-    titulo: "Orquídea rosa 🌺",
-
-    mensaje:
-      "Hay dedicatorias que se hacen por bonito detalle, y otras que nacen porque alguien realmente inspira algo especial. Esta canción es de esas que no elegí al azar.",
-
-    carta:
-      "Esta orquídea sí ocupa un lugar un poco diferente. Desde antes de agregarla ya sabía que su canción tenía que funcionar como una dedicatoria especial. Así que no, esta no apareció aquí por casualidad.",
-
-    secretoCarta: "Te dije que esta dedicatoria iba a ser diferente.",
-
-    microMensaje: "Esta sabe exactamente por qué está aquí.",
-
-    linkCancion: "https://www.youtube.com/watch?v=4O1CNtVG7s8",
-
-    textoBoton: "♪ AMOR DE CINE",
-  },
-
-  {
-    tipo: "lavanda",
-    titulo: "Lavanda violeta 💜",
-
-    mensaje:
-      "Hay aromas que uno reconoce incluso antes de darse cuenta de dónde vienen. Supongo que algunas cosas se quedan en la memoria de una forma parecida.",
-
-    carta:
-      "Hay recuerdos que funcionan como ciertos aromas: aparecen sin que uno los llame y de repente están ahí. La lavanda quedó como una pequeña forma de representar eso.",
-
-    secretoCarta: "Tal vez hay cosas que uno todavía no ha dicho.",
-
-    microMensaje: "Algo se quedó por aquí.",
-
-    linkCancion: "https://www.youtube.com/watch?v=2vo_BzD9gu0",
-
-    textoBoton: "♪ Te diré",
-  },
-
-  {
-    tipo: "anemona",
-    titulo: "Anémona blanca 🤍",
-
-    mensaje:
-      "Supongo que hay cosas que uno termina admitiendo poco a poco, incluso cuando al principio intenta hacer como si no pasara nada.",
-
-    carta:
-      "La anémona parece sencilla desde lejos, pero su centro cambia por completo cuando uno se acerca. Supongo que algunas confesiones funcionan parecido: primero parecen pequeñas y luego uno descubre todo lo que había detrás.",
-
-    secretoCarta: "Supongo que el título ya decía suficiente.",
-
-    microMensaje: "Quizá aquí había algo que confesar.",
-
-    linkCancion: "https://www.youtube.com/watch?v=4Ja6WLrZlAE",
-
-    textoBoton: "♪ Confieso",
-  },
-
-  {
-    tipo: "magnolia",
-    titulo: "Magnolia rosa 🌷",
-
-    mensaje:
-      "Hay personas que desde el primer momento dejan algo difícil de explicar. A veces uno tarda en entender qué fue, pero no en notar que algo cambió.",
-
-    carta:
-      "Elegí una magnolia porque hay algo especial en la forma en que abre sus pétalos: no necesita demasiados para hacerse notar. Algunas primeras impresiones funcionan parecido; uno quizá todavía no entiende qué ocurrió, pero sabe que hubo algo distinto desde el comienzo.",
-
-    secretoCarta:
-      "Algunas primeras impresiones duran bastante más de lo esperado.",
-
-    microMensaje: "Algunas cosas comienzan antes de que uno las entienda.",
-
-    linkCancion: "https://www.youtube.com/watch?v=0hoI8IHfse0",
-
-    textoBoton: "♪ Amor a Primera",
-  },
-];
+const nota1111 = document.createElement("aside");
+
+nota1111.className = "nota-1111";
+
+document.body.appendChild(nota1111);
+
+let dias1111 = leerJSON(CLAVES.nota1111, []);
+
+function revisarNota1111() {
+  const ahora = new Date();
+
+  if (ahora.getHours() !== 23 || ahora.getMinutes() !== 11) {
+    return;
+  }
+
+  const hoy = claveDia(ahora);
+
+  if (dias1111.includes(hoy)) {
+    return;
+  }
+
+  dias1111.push(hoy);
+
+  guardarJSON(CLAVES.nota1111, dias1111);
+
+  mostrarNota1111();
+}
+
+function mostrarNota1111() {
+  nota1111.innerHTML = `
+        <button
+            class="cerrar-nota-1111"
+            type="button"
+            aria-label="Cerrar"
+        >
+            ×
+        </button>
+
+        <div class="hora-1111">
+            11:11
+        </div>
+
+        <p class="etiqueta-1111">
+            UNA NOTA QUE SOLO APARECE A ESTA HORA
+        </p>
+
+        <h3>
+            Pide un deseo
+        </h3>
+
+        <p>
+            Hay momentos que duran apenas un minuto,
+            pero consiguen sentirse especiales.
+            Si encontraste esta nota, esta canción
+            estaba esperando justo esta hora.
+        </p>
+
+        <a
+            class="boton-1111"
+            href="https://www.youtube.com/watch?v=qqZGQPukZ-0"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Catorce — Sebastián Romero
+        </a>
+    `;
+
+  nota1111.classList.add("mostrar");
+
+  nota1111.querySelector(".cerrar-nota-1111").addEventListener("click", () => {
+    nota1111.classList.remove("mostrar");
+  });
+}
 
 /* =====================================================
-   FLOR SECRETA
+   CREAR TARJETA DE FLOR
 ===================================================== */
-
-const florSecreta = {
-  tipo: "dalia",
-
-  titulo: "Dalia nocturna",
-
-  mensaje:
-    "Algunas flores tardan un poco más en aparecer. No porque no estuvieran ahí, sino porque necesitaban su momento.",
-
-  carta:
-    "Esta flor estuvo escondida desde que comenzó el jardín. No hacía falta encontrar un botón secreto ni saber una combinación. Solo hacía falta volver suficientes veces para que tuviera sentido aparecer.",
-
-  secretoCarta:
-    "Si encontraste esta flor, ya sabes que todavía quedan más cosas escondidas.",
-
-  microMensaje: "No siempre estuvo visible.",
-};
-
-/* =====================================================
-   CREAR TARJETA
-===================================================== */
-
-const contadorClicksFlor = {};
 
 function crearTarjetaFlor(config, esSecreta = false) {
   const tarjeta = document.createElement("article");
 
   tarjeta.className = `tarjeta-flor tarjeta-${config.tipo}`;
+
+  tarjeta.dataset.flor = config.tipo;
 
   if (esSecreta) {
     tarjeta.classList.add("tarjeta-flor-secreta");
@@ -960,42 +1539,17 @@ function crearTarjetaFlor(config, esSecreta = false) {
 
   envoltura.tabIndex = 0;
 
+  envoltura.setAttribute("role", "button");
+
+  envoltura.setAttribute("aria-label", `Abrir carta de ${config.titulo}`);
+
   if (Flores[config.tipo]) {
     envoltura.appendChild(Flores[config.tipo]());
   }
 
-  function interactuar() {
-    envoltura.classList.remove("reaccion-activa");
+  const memoria = document.createElement("p");
 
-    void envoltura.offsetWidth;
-
-    envoltura.classList.add("reaccion-activa");
-
-    setTimeout(() => {
-      envoltura.classList.remove("reaccion-activa");
-    }, 900);
-
-    contadorClicksFlor[config.tipo] =
-      (contadorClicksFlor[config.tipo] || 0) + 1;
-
-    if (contadorClicksFlor[config.tipo] === 3) {
-      mostrarToast(config.microMensaje);
-    }
-
-    setTimeout(() => {
-      abrirCarta(config);
-    }, 180);
-  }
-
-  envoltura.addEventListener("click", interactuar);
-
-  envoltura.addEventListener("keydown", (evento) => {
-    if (evento.key === "Enter" || evento.key === " ") {
-      evento.preventDefault();
-
-      interactuar();
-    }
-  });
+  memoria.className = "memoria-flor";
 
   const pista = document.createElement("p");
 
@@ -1007,41 +1561,205 @@ function crearTarjetaFlor(config, esSecreta = false) {
 
   nota.className = "nota-flor";
 
-  const textoNota = document.createElement("p");
+  const texto = document.createElement("p");
 
-  textoNota.textContent = config.mensaje;
+  texto.textContent = config.mensaje;
 
-  nota.appendChild(textoNota);
+  nota.appendChild(texto);
 
   if (config.linkCancion) {
-    const boton = document.createElement("a");
+    const botonCancion = document.createElement("a");
 
-    boton.className = "boton-cancion";
+    botonCancion.className = "boton-cancion";
 
-    boton.href = config.linkCancion;
+    botonCancion.href = config.linkCancion;
 
-    boton.target = "_blank";
+    botonCancion.target = "_blank";
 
-    boton.rel = "noopener noreferrer";
+    botonCancion.rel = "noopener noreferrer";
 
-    boton.textContent = config.textoBoton;
+    botonCancion.textContent = config.textoBoton;
 
-    nota.appendChild(boton);
+    nota.appendChild(botonCancion);
   }
+
+  const botonFavorita = document.createElement("button");
+
+  botonFavorita.className = "boton-favorita";
+
+  botonFavorita.type = "button";
+
+  botonFavorita.addEventListener("click", () => {
+    florFavorita = config.tipo;
+
+    localStorage.setItem(CLAVES.favorita, florFavorita);
+
+    actualizarFavoritaUI();
+
+    mostrarToast("Favorita guardada.");
+  });
+
+  function registrarVisitaFlor() {
+    visitasFlores[config.tipo] = (visitasFlores[config.tipo] || 0) + 1;
+
+    guardarJSON(CLAVES.visitasFlores, visitasFlores);
+
+    actualizarMemoriaTarjeta(tarjeta);
+  }
+
+  let ignorarClick = false;
+
+  let temporizadorSecreto;
+
+  envoltura.addEventListener("pointerdown", () => {
+    ignorarClick = false;
+
+    temporizadorSecreto = setTimeout(() => {
+      ignorarClick = true;
+
+      mostrarToast(config.microMensaje);
+
+      envoltura.classList.add("secreto-activo");
+
+      setTimeout(() => {
+        envoltura.classList.remove("secreto-activo");
+      }, 800);
+    }, 1300);
+  });
+
+  ["pointerup", "pointerleave", "pointercancel"].forEach((evento) => {
+    envoltura.addEventListener(evento, () => {
+      clearTimeout(temporizadorSecreto);
+    });
+  });
+
+  function reaccionar() {
+    if (ignorarClick) {
+      ignorarClick = false;
+
+      return;
+    }
+
+    registrarVisitaFlor();
+
+    envoltura.classList.remove("reaccion-activa");
+
+    void envoltura.offsetWidth;
+
+    envoltura.classList.add("reaccion-activa");
+
+    setTimeout(() => {
+      abrirCarta(config);
+    }, 380);
+
+    setTimeout(() => {
+      envoltura.classList.remove("reaccion-activa");
+    }, 900);
+  }
+
+  envoltura.addEventListener("click", reaccionar);
+
+  envoltura.addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter" || evento.key === " ") {
+      evento.preventDefault();
+
+      reaccionar();
+    }
+  });
 
   tarjeta.appendChild(titulo);
 
   tarjeta.appendChild(envoltura);
 
+  tarjeta.appendChild(memoria);
+
   tarjeta.appendChild(pista);
 
   tarjeta.appendChild(nota);
+
+  tarjeta.appendChild(botonFavorita);
 
   return tarjeta;
 }
 
 /* =====================================================
-   RENDER FLORES
+   FLORES QUE RECUERDAN VISITAS
+===================================================== */
+
+function actualizarMemoriaTarjeta(tarjeta) {
+  const tipo = tarjeta.dataset.flor;
+
+  const contador = visitasFlores[tipo] || 0;
+
+  const elemento = tarjeta.querySelector(".memoria-flor");
+
+  if (!elemento) {
+    return;
+  }
+
+  if (tipo === florFavorita && contador >= 2) {
+    elemento.textContent = "Sabía que volverías a esta.";
+
+    elemento.classList.add("visible");
+
+    return;
+  }
+
+  if (contador >= 6) {
+    elemento.textContent = "Esta flor ya te reconoce.";
+
+    elemento.classList.add("visible");
+  } else if (contador >= 3) {
+    elemento.textContent = "Parece que ya conoces esta flor.";
+
+    elemento.classList.add("visible");
+  } else {
+    elemento.textContent = "";
+
+    elemento.classList.remove("visible");
+  }
+}
+
+/* =====================================================
+   ACTUALIZAR FAVORITA
+===================================================== */
+
+function actualizarFavoritaUI() {
+  document.querySelectorAll(".tarjeta-flor").forEach((tarjeta) => {
+    const tipo = tarjeta.dataset.flor;
+
+    const boton = tarjeta.querySelector(".boton-favorita");
+
+    const esFavorita = tipo === florFavorita;
+
+    tarjeta.classList.toggle("es-favorita", esFavorita);
+
+    if (boton) {
+      boton.textContent = esFavorita ? "Tu favorita" : "Guardar como favorita";
+    }
+
+    actualizarMemoriaTarjeta(tarjeta);
+  });
+
+  actualizarTextoFavorita();
+}
+
+/* =====================================================
+   ESTRUCTURA
+===================================================== */
+
+const introJardin = crearIntroJardin();
+
+const panelSuperior = crearPanelSuperior();
+
+jardin.insertBefore(introJardin, contenedorFlores);
+
+jardin.insertBefore(panelSuperior, contenedorFlores);
+
+jardin.insertBefore(panelProgreso, contenedorFlores);
+
+/* =====================================================
+   MOSTRAR FLORES
 ===================================================== */
 
 floresDelJardin.forEach((config) => {
@@ -1052,41 +1770,40 @@ floresDelJardin.forEach((config) => {
    FLOR SECRETA
 ===================================================== */
 
-let florSecretaMostrada = false;
-
-function comprobarFlorSecreta() {
-  if (notasObtenidas.length < 10 || florSecretaMostrada) {
+function comprobarFlorSecreta(silencioso = false) {
+  if (notasObtenidas.length < 10) {
     return;
   }
 
-  florSecretaMostrada = true;
+  if (document.querySelector('[data-flor="dalia"]')) {
+    return;
+  }
 
   const tarjeta = crearTarjetaFlor(florSecreta, true);
 
   contenedorFlores.appendChild(tarjeta);
 
-  setTimeout(() => {
+  requestAnimationFrame(() => {
     tarjeta.classList.add("revelada");
-  }, 100);
+  });
 
-  mostrarToast("Algo cambió entre las flores...");
+  actualizarFavoritaUI();
 
   actualizarProgreso();
+
+  if (!silencioso) {
+    mostrarToast("Algo cambió entre las flores...");
+  }
 }
 
 /* =====================================================
-   MODO DE FONDO
+   CAMBIAR TEMA
 ===================================================== */
-
-const panelSuperior = crearPanelSuperior();
-
-jardin.insertBefore(panelSuperior, contenedorFlores);
-
-jardin.insertBefore(panelProgreso, contenedorFlores);
 
 const botonFondo = document.getElementById("boton-fondo");
 
 let temporizadorNoche;
+
 let pulsacionLarga = false;
 
 function actualizarTextoFondo() {
@@ -1103,12 +1820,12 @@ function actualizarTextoFondo() {
   }
 }
 
-function activarModoNoche() {
+function activarModoEspecial() {
   pulsacionLarga = true;
 
   const activado = document.body.classList.toggle("modo-noche");
 
-  localStorage.setItem(CLAVES.noche, "si");
+  localStorage.setItem(CLAVES.nocheDescubierta, "si");
 
   actualizarTextoFondo();
 
@@ -1124,7 +1841,7 @@ function activarModoNoche() {
 }
 
 botonFondo.addEventListener("pointerdown", () => {
-  temporizadorNoche = setTimeout(activarModoNoche, 2800);
+  temporizadorNoche = setTimeout(activarModoEspecial, 2800);
 });
 
 ["pointerup", "pointerleave", "pointercancel"].forEach((evento) => {
@@ -1152,7 +1869,131 @@ botonFondo.addEventListener("click", () => {
 });
 
 /* =====================================================
-   MENSAJE FINAL
+   LLUVIA DESPUÉS DE 2 MINUTOS
+===================================================== */
+
+function iniciarLluviaEspecial() {
+  if (document.querySelector(".lluvia-especial")) {
+    return;
+  }
+
+  const lluvia = document.createElement("div");
+
+  lluvia.className = "lluvia-especial";
+
+  for (let i = 0; i < 48; i++) {
+    const particula = document.createElement("span");
+
+    particula.className = "particula-lluvia";
+
+    particula.style.left = `${Math.random() * 100}%`;
+
+    particula.style.setProperty("--retraso", `${Math.random() * -8}s`);
+
+    particula.style.setProperty("--duracion", `${5 + Math.random() * 5}s`);
+
+    particula.style.setProperty("--tamano", `${6 + Math.random() * 8}px`);
+
+    lluvia.appendChild(particula);
+  }
+
+  document.body.appendChild(lluvia);
+
+  mostrarToast("Llevas un rato por aquí...");
+
+  setTimeout(() => {
+    lluvia.classList.add("desaparecer");
+  }, 12000);
+
+  setTimeout(() => {
+    lluvia.remove();
+  }, 14500);
+}
+
+setTimeout(iniciarLluviaEspecial, 120000);
+
+/* =====================================================
+   MARIPOSA OCASIONAL
+===================================================== */
+
+function crearMariposa() {
+  if (document.querySelector(".mariposa-jardin")) {
+    return;
+  }
+
+  const mariposa = document.createElement("button");
+
+  mariposa.type = "button";
+
+  mariposa.className = "mariposa-jardin";
+
+  mariposa.setAttribute("aria-label", "Mariposa");
+
+  mariposa.innerHTML = `
+        <span class="ala ala-izquierda"></span>
+
+        <span class="cuerpo-mariposa"></span>
+
+        <span class="ala ala-derecha"></span>
+    `;
+
+  mariposa.style.top = `${20 + Math.random() * 55}%`;
+
+  mariposa.addEventListener("click", () => {
+    const mensajes = [
+      "La alcanzaste.",
+      "Parece que también estaba recorriendo el jardín.",
+      "Por un momento decidió quedarse.",
+    ];
+
+    mostrarToast(mensajes[Math.floor(Math.random() * mensajes.length)]);
+
+    mariposa.classList.add("mariposa-atrapada");
+
+    setTimeout(() => {
+      mariposa.remove();
+    }, 700);
+  });
+
+  document.body.appendChild(mariposa);
+
+  setTimeout(() => {
+    if (document.body.contains(mariposa)) {
+      mariposa.remove();
+    }
+  }, 18000);
+}
+
+function programarMariposa(primera = false) {
+  const espera = primera
+    ? 35000 + Math.random() * 55000
+    : 180000 + Math.random() * 120000;
+
+  setTimeout(() => {
+    crearMariposa();
+
+    programarMariposa(false);
+  }, espera);
+}
+
+programarMariposa(true);
+
+/* =====================================================
+   DESPEDIDA ACTUAL
+===================================================== */
+
+function obtenerDespedidaActual() {
+  if (despedidasObtenidas.length === 0) {
+    return "Vuelve de vez en cuando.";
+  }
+
+  const ultimoId = despedidasObtenidas[despedidasObtenidas.length - 1];
+
+  return despedidas[ultimoId - 1];
+}
+
+/* =====================================================
+   FINAL DEL JARDÍN
 ===================================================== */
 
 const finalJardin = document.createElement("section");
@@ -1168,27 +2009,113 @@ finalJardin.innerHTML = `
         Por ahora.
     </h2>
 
-    <p>
-        Algunas flores todavía pueden no haber aparecido,
-        algunas notas necesitan su hora y probablemente
-        quede algo que todavía no has tocado.
+    <p class="despedida-dia">
+        ${obtenerDespedidaActual()}
     </p>
 
-    <span>
-        Vuelve de vez en cuando.
-    </span>
+    <div class="final-linea"></div>
+
+    <p class="final-pista">
+        Algunas cosas necesitan su momento.
+        Otras necesitan que vuelvas.
+    </p>
+
+    <button
+        class="boton-no-tocar"
+        id="boton-no-tocar"
+        type="button"
+    >
+        No tocar
+    </button>
 `;
 
 jardin.appendChild(finalJardin);
 
 /* =====================================================
-   INICIAR
+   BOTÓN NO TOCAR
+===================================================== */
+
+let nivelNoTocar = 0;
+
+const botonNoTocar = document.getElementById("boton-no-tocar");
+
+botonNoTocar.addEventListener("click", () => {
+  nivelNoTocar++;
+
+  if (nivelNoTocar === 1) {
+    botonNoTocar.textContent = "¿Segura?";
+
+    return;
+  }
+
+  if (nivelNoTocar === 2) {
+    botonNoTocar.textContent = "¿Segura, segura?";
+
+    return;
+  }
+
+  if (nivelNoTocar === 3) {
+    botonNoTocar.textContent = "Bueno...";
+
+    setTimeout(abrirSecretoNoTocar, 400);
+
+    return;
+  }
+
+  abrirSecretoNoTocar();
+});
+
+function abrirSecretoNoTocar() {
+  contenidoModal.innerHTML = `
+        <div class="secreto-no-tocar">
+
+            <p class="modal-etiqueta">
+                ENCONTRASTE ALGO
+            </p>
+
+            <h2>
+                La curiosidad ganó
+            </h2>
+
+            <div class="papel-carta">
+
+                <p>
+                    Si llegaste hasta aquí y además
+                    presionaste algo que decía claramente
+                    que no tocaras, supongo que la
+                    curiosidad ganó otra vez.
+                </p>
+
+                <p class="secreto-no-tocar-final">
+                    Por suerte había algo esperando.
+                </p>
+
+            </div>
+
+        </div>
+    `;
+
+  cerrarModalBoton.style.display = "";
+
+  capaModal.classList.add("mostrar");
+}
+
+/* =====================================================
+   INICIALIZACIÓN
 ===================================================== */
 
 actualizarProgreso();
 
-comprobarFlorSecreta();
+comprobarFlorSecreta(true);
+
+actualizarFavoritaUI();
+
+actualizarTextoFondo();
 
 mostrarAvisoInicial();
 
+revisarNota1111();
+
 setInterval(revisarHoraColeccionable, 30000);
+
+setInterval(revisarNota1111, 15000);
