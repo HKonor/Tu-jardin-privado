@@ -5,18 +5,23 @@ const jardin =
 
 /* =====================================================
    CLAVES DE LOCALSTORAGE
+
+   NO CAMBIAR LAS CLAVES V3.
 ===================================================== */
 
 const CLAVES = {
   aviso: "jardin_no_mostrar_aviso_v3",
 
   notas: "jardin_notas_v3",
+
   horasNotas: "jardin_horas_notas_v3",
 
   despedidas: "jardin_despedidas_v3",
+
   diasDespedidas: "jardin_dias_despedidas_v3",
 
   visitasJardin: "jardin_visitas_v3",
+
   visitasFlores: "jardin_visitas_flores_v3",
 
   favorita: "jardin_flor_favorita_v3",
@@ -24,10 +29,22 @@ const CLAVES = {
   nocheDescubierta: "jardin_noche_descubierta_v3",
 
   nota1111: "jardin_1111_v3",
+
+  /* CLAVES NUEVAS */
+
+  toquesSecreto: "jardin_toques_secreto_v1",
+
+  secretoDesbloqueado: "jardin_secreto_desbloqueado_v1",
+
+  secretosVistos: "jardin_canciones_secretas_vistas_v1",
+
+  mariposasAplastadas: "jardin_mariposas_aplastadas_v1",
+
+  respaldo: "jardin_respaldo_progreso_v1",
 };
 
 /* =====================================================
-   FUNCIONES DE ALMACENAMIENTO
+   ALMACENAMIENTO
 ===================================================== */
 
 function leerJSON(clave, valorInicial) {
@@ -45,7 +62,54 @@ function guardarJSON(clave, valor) {
 }
 
 /* =====================================================
-   VISITAS DEL JARDÍN
+   RESPALDO
+===================================================== */
+
+function crearRespaldoProgreso() {
+  const respaldo = {
+    notas: leerJSON(CLAVES.notas, []),
+
+    horasNotas: leerJSON(CLAVES.horasNotas, []),
+
+    despedidas: leerJSON(CLAVES.despedidas, []),
+
+    diasDespedidas: leerJSON(CLAVES.diasDespedidas, []),
+
+    visitasJardin: localStorage.getItem(CLAVES.visitasJardin),
+
+    visitasFlores: leerJSON(CLAVES.visitasFlores, {}),
+
+    favorita: localStorage.getItem(CLAVES.favorita),
+
+    nocheDescubierta: localStorage.getItem(CLAVES.nocheDescubierta),
+
+    nota1111: leerJSON(CLAVES.nota1111, []),
+
+    toquesSecreto: localStorage.getItem(CLAVES.toquesSecreto),
+
+    secretoDesbloqueado: localStorage.getItem(CLAVES.secretoDesbloqueado),
+
+    secretosVistos: leerJSON(CLAVES.secretosVistos, []),
+
+    mariposasAplastadas: localStorage.getItem(CLAVES.mariposasAplastadas),
+  };
+
+  localStorage.setItem(CLAVES.respaldo, JSON.stringify(respaldo));
+}
+
+/* =====================================================
+   YOUTUBE
+===================================================== */
+
+function crearEnlaceYouTube(busqueda) {
+  return (
+    "https://www.youtube.com/results?search_query=" +
+    encodeURIComponent(busqueda)
+  );
+}
+
+/* =====================================================
+   VISITAS
 ===================================================== */
 
 let visitasJardin = Number(localStorage.getItem(CLAVES.visitasJardin) || 0);
@@ -59,7 +123,9 @@ let visitasFlores = leerJSON(CLAVES.visitasFlores, {});
 let florFavorita = localStorage.getItem(CLAVES.favorita) || "";
 
 /* =====================================================
-   20 COLECCIONABLES DE HORAS PARES
+   20 COLECCIONABLES
+
+   NO CAMBIAR ID 1 - 20.
 ===================================================== */
 
 const coleccionables = [
@@ -302,6 +368,8 @@ function registrarDespedidaDelDia() {
   guardarJSON(CLAVES.despedidas, despedidasObtenidas);
 
   guardarJSON(CLAVES.diasDespedidas, diasDespedidas);
+
+  crearRespaldoProgreso();
 }
 
 registrarDespedidaDelDia();
@@ -325,7 +393,9 @@ capaModal.innerHTML = `
             ×
         </button>
 
-        <div class="contenido-modal"></div>
+        <div
+            class="contenido-modal"
+        ></div>
 
     </div>
 `;
@@ -425,10 +495,9 @@ function mostrarAvisoInicial() {
             </p>
 
             <p>
-                Algunas flores recuerdan tus visitas,
-                otras reaccionan de forma diferente
-                y hay cosas que solamente aparecen
-                después de pasar tiempo aquí.
+                Algunas flores recuerdan tus visitas
+                y otras esconden cosas que no aparecen
+                a simple vista.
             </p>
 
             <p class="aviso-pista">
@@ -482,7 +551,7 @@ function mostrarAvisoInicial() {
 }
 
 /* =====================================================
-   FLORES DEL JARDÍN
+   FLORES
 ===================================================== */
 
 const floresDelJardin = [
@@ -500,6 +569,15 @@ const floresDelJardin = [
       "Las primeras cosas suelen guardar un lugar que ninguna otra puede ocupar.",
 
     microMensaje: "Esta fue la primera.",
+
+    linkCancion:
+      "https://open.spotify.com/playlist/1ogLdpmc1bbYjMQCOBoVfx?si=dfa95b5cf50747a0",
+
+    textoBoton: "Abrir playlist en Spotify",
+
+    claseBoton: "boton-playlist-secreta",
+
+    tipoAccion: "playlist-secreta",
   },
 
   {
@@ -727,10 +805,31 @@ const floresDelJardin = [
 
     textoBoton: "♪ Si supieras",
   },
+
+  {
+    tipo: "clavel",
+
+    titulo: "Clavel rojo ❤️",
+
+    mensaje:
+      "Hay canciones que dicen demasiado por uno. Esta vez preferí dejar que la música hablara y que esta flor simplemente la acompañara.",
+
+    carta:
+      "Elegí un clavel porque tiene una forma distinta de llamar la atención. Sus pétalos parecen desordenados, pero juntos terminan teniendo sentido. La canción que lo acompaña tampoco necesita demasiada explicación.",
+
+    secretoCarta:
+      "Esta vez la canción probablemente diga más de lo que yo iba a escribir aquí.",
+
+    microMensaje: "Esta flor llegó con algo bastante difícil de esconder.",
+
+    busquedaCancion: "Te Amo y Más El Libro de la Vida",
+
+    textoBoton: "♪ Te Amo y Más",
+  },
 ];
 
 /* =====================================================
-   FLOR SECRETA
+   DALIA
 ===================================================== */
 
 const florSecreta = {
@@ -751,7 +850,210 @@ const florSecreta = {
 };
 
 /* =====================================================
-   CARTAS
+   CANCIONES SECRETAS POR FLOR
+===================================================== */
+
+const cancionesSecretas = [
+  {
+    tipo: "tulipan",
+
+    flor: "Tulipán morado 💜",
+
+    cancion: "Te quiero tanto",
+
+    artista: "Kevin Kaarl",
+
+    nota: "Aunque no te he besado, ya me clavé.",
+
+    postdata: "Esta sí estaba escondida a propósito.",
+
+    busqueda: "Te quiero tanto Kevin Kaarl",
+  },
+
+  {
+    tipo: "lirio",
+
+    flor: "Lirio blanco 🤍",
+
+    cancion: "Te lo prometo",
+
+    artista: "HUMBE",
+
+    nota: "Hay promesas que suenan mejor cuando todavía no necesitan explicarse.",
+
+    postdata: "Tal vez esta canción explique un poquito más.",
+
+    busqueda: "Te lo prometo HUMBE",
+  },
+
+  {
+    tipo: "nube",
+
+    flor: "Flor de nube 🤍",
+
+    cancion: "Morfina",
+
+    artista: "HUMBE",
+
+    nota: "Hay canciones que consiguen quedarse flotando bastante más de lo esperado.",
+
+    postdata: "Algunas cosas se quedan aunque nadie se los pida.",
+
+    busqueda: "Morfina HUMBE",
+  },
+
+  {
+    tipo: "peonia",
+
+    flor: "Peonía rosa 🌸",
+
+    cancion: "Aquí hay para llevar",
+
+    artista: "La Arrolladora Banda El Limón",
+
+    nota: "Por si algún día alguien pregunta si aquí había de sobra.",
+
+    postdata: "Esta parte ya estaba poniéndose menos discreta.",
+
+    busqueda: "Aquí hay para llevar La Arrolladora Banda El Limón",
+  },
+
+  {
+    tipo: "camelia",
+
+    flor: "Camelia roja ❤️",
+
+    cancion: "309",
+
+    artista: "NSQK",
+
+    nota: "Hay números que no significan nada hasta que una canción decide convertirlos en otra cosa.",
+
+    postdata: "Supongo que algunas canciones encuentran solas dónde quedarse.",
+
+    busqueda: "309 NSQK",
+  },
+
+  {
+    tipo: "jazmin",
+
+    flor: "Jazmín blanco 🤍",
+
+    cancion: "Enculado",
+
+    artista: "NSQK y Yakun",
+
+    nota: "Esta mejor se queda en la parte secreta por razones bastante obvias.",
+
+    postdata: "Sí... por eso hubo que tocar tres veces.",
+
+    busqueda: "Enculado NSQK Yakun",
+  },
+
+  {
+    tipo: "orquidea",
+
+    flor: "Orquídea rosa 🌺",
+
+    cancion: "Viento",
+
+    artista: "Caifanes",
+
+    nota: "Hay cosas que no se ven, pero de todas formas terminan moviéndolo todo.",
+
+    postdata: "Quizá algunas presencias funcionan un poco así.",
+
+    busqueda: "Viento Caifanes",
+  },
+
+  {
+    tipo: "lavanda",
+
+    flor: "Lavanda violeta 💜",
+
+    cancion: "Flores",
+
+    artista: "LATIN MAFIA",
+
+    nota: "Era imposible hacer todo un jardín y no terminar escondiendo esta canción en algún lugar.",
+
+    postdata: "Tenía que estar aquí.",
+
+    busqueda: "Flores LATIN MAFIA",
+  },
+
+  {
+    tipo: "anemona",
+
+    flor: "Anémona blanca 🤍",
+
+    cancion: "Ropa de bazar",
+
+    artista: "Ed Maverick",
+
+    nota: "Hay cosas que parecen comunes hasta que alguien termina dándoles otro significado.",
+
+    postdata: "Algunas cosas cambian dependiendo de quién las mire.",
+
+    busqueda: "Ropa de bazar Ed Maverick",
+  },
+
+  {
+    tipo: "magnolia",
+
+    flor: "Magnolia rosa 🌸",
+
+    cancion: "Paraíso Lunar",
+
+    artista: "Siddhartha",
+
+    nota: "Hay lugares a los que uno llega solamente por unos minutos y aun así quisiera quedarse.",
+
+    postdata: "Esta canción sí ocupa un lugar especial.",
+
+    busqueda: "Paraíso Lunar Siddhartha",
+  },
+
+  {
+    tipo: "nomeolvides",
+
+    flor: "No me olvides 💙",
+
+    cancion: "Paraíso Lunar",
+
+    artista: "Siddhartha",
+
+    nota: "Tal vez por eso esta canción terminó encontrando más de un lugar dentro del jardín.",
+
+    postdata: "Hay canciones que simplemente merecen repetirse.",
+
+    busqueda: "Paraíso Lunar Siddhartha",
+  },
+
+  {
+    tipo: "clavel",
+
+    flor: "Clavel rojo ❤️",
+
+    cancion: "Me Hace Falta",
+
+    artista: "Siddhartha",
+
+    nota: "A veces se puede notar que algo haría falta incluso antes de que realmente se vaya.",
+
+    postdata: "Esta canción tampoco llegó aquí por accidente.",
+
+    busqueda: "Me Hace Falta Siddhartha",
+  },
+];
+
+let secretosVistos = leerJSON(CLAVES.secretosVistos, []);
+
+let secretoDesbloqueado =
+  localStorage.getItem(CLAVES.secretoDesbloqueado) === "si";
+
+/* =====================================================
+   CARTA NORMAL
 ===================================================== */
 
 function abrirCarta(config) {
@@ -788,7 +1090,6 @@ function abrirCarta(config) {
                             class="postdata-carta"
                             id="postdata-carta"
                         >
-
                             <span>
                                 P.D.
                             </span>
@@ -796,7 +1097,6 @@ function abrirCarta(config) {
                             <p>
                                 ${config.secretoCarta}
                             </p>
-
                         </div>
                         `
                     : ""
@@ -818,6 +1118,217 @@ function abrirCarta(config) {
       document.getElementById("postdata-carta").classList.toggle("mostrar");
     });
   }
+}
+
+/* =====================================================
+   POPUP DE CANCIÓN SECRETA
+
+   APARECE AL TOCAR 3 VECES LA FLOR.
+===================================================== */
+
+function abrirCancionSecreta(tipo) {
+  const secreto = cancionesSecretas.find((item) => item.tipo === tipo);
+
+  if (!secreto) {
+    return;
+  }
+
+  if (!secretosVistos.includes(secreto.tipo)) {
+    secretosVistos.push(secreto.tipo);
+
+    guardarJSON(CLAVES.secretosVistos, secretosVistos);
+
+    crearRespaldoProgreso();
+  }
+
+  revelarApartadoSecreto(false);
+
+  actualizarPanelSecreto();
+
+  contenidoModal.innerHTML = `
+        <div class="carta-flor carta-secreta">
+
+            <p class="modal-etiqueta">
+                UNA PEQUEÑA CARTA
+            </p>
+
+            <h2>
+                ${secreto.flor}
+            </h2>
+
+            <div class="papel-carta">
+
+                <p>
+                    ${secreto.nota}
+                </p>
+
+                <div class="cancion-escondida">
+
+                    <span>
+                        CANCIÓN ESCONDIDA
+                    </span>
+
+                    <strong>
+                        ${secreto.cancion}
+                    </strong>
+
+                    <small>
+                        ${secreto.artista}
+                    </small>
+
+                    <a
+                        href="${crearEnlaceYouTube(secreto.busqueda)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="boton-cancion-secreta-modal"
+                    >
+                        Escuchar canción
+                    </a>
+
+                </div>
+
+
+                <button
+                    class="marca-secreta"
+                    id="abrir-postdata-secreta"
+                    type="button"
+                    aria-label="Ver algo más"
+                >
+                    •••
+                </button>
+
+
+                <div
+                    class="postdata-carta"
+                    id="postdata-carta-secreta"
+                >
+
+                    <span>
+                        P.D.
+                    </span>
+
+                    <p>
+                        ${secreto.postdata}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+  cerrarModalBoton.style.display = "";
+
+  capaModal.classList.add("mostrar");
+
+  document
+    .getElementById("abrir-postdata-secreta")
+    .addEventListener("click", () => {
+      document
+        .getElementById("postdata-carta-secreta")
+        .classList.toggle("mostrar");
+    });
+}
+
+/* =====================================================
+   PLAYLIST SECRETA DEL GIRASOL
+
+   TAMBIÉN NECESITA 3 CLICS.
+===================================================== */
+
+function abrirPlaylistSecretaGirasol(enlace) {
+  secretoDesbloqueado = true;
+
+  localStorage.setItem(CLAVES.secretoDesbloqueado, "si");
+
+  crearRespaldoProgreso();
+
+  seccionSecreto.classList.add("desbloqueado");
+
+  contenidoModal.innerHTML = `
+        <div class="carta-flor carta-playlist-secreta">
+
+            <p class="modal-etiqueta">
+                UNA PEQUEÑA CARTA
+            </p>
+
+            <h2>
+                Girasol 🌻
+            </h2>
+
+            <div class="papel-carta">
+
+                <p>
+                    La primera flor también guardaba algo.
+                    Esta vez no era otra canción,
+                    sino un lugar donde quedaron reunidas
+                    algunas de las que han ido apareciendo
+                    por aquí.
+                </p>
+
+
+                <div class="cancion-escondida playlist-escondida">
+
+                    <span>
+                        PLAYLIST ESCONDIDA
+                    </span>
+
+                    <strong>
+                        Otra parte del jardín
+                    </strong>
+
+                    <a
+                        href="${enlace}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="boton-spotify-secreto"
+                    >
+                        Abrir en Spotify
+                    </a>
+
+                </div>
+
+
+                <button
+                    class="marca-secreta"
+                    id="abrir-postdata-playlist"
+                    type="button"
+                    aria-label="Ver algo más"
+                >
+                    •••
+                </button>
+
+
+                <div
+                    class="postdata-carta"
+                    id="postdata-playlist"
+                >
+
+                    <span>
+                        P.D.
+                    </span>
+
+                    <p>
+                        La primera flor tenía que esconder algo diferente.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+  cerrarModalBoton.style.display = "";
+
+  capaModal.classList.add("mostrar");
+
+  document
+    .getElementById("abrir-postdata-playlist")
+    .addEventListener("click", () => {
+      document.getElementById("postdata-playlist").classList.toggle("mostrar");
+    });
 }
 
 /* =====================================================
@@ -871,6 +1382,10 @@ function crearIntroJardin() {
                 20 despedidas
             </span>
 
+            <span class="intro-badge">
+                secretos
+            </span>
+
         </div>
 
         <p class="intro-frase">
@@ -882,7 +1397,7 @@ function crearIntroJardin() {
 }
 
 /* =====================================================
-   PANEL DE MÚSICA
+   PANEL SUPERIOR
 ===================================================== */
 
 function crearPanelSuperior() {
@@ -914,14 +1429,13 @@ function crearPanelSuperior() {
 
         <div class="acciones-superiores">
 
-            <a
+            <button
                 class="boton-playlist"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://open.spotify.com/playlist/6XCeXM270zHmOE1vY9MeXA?si=wHKqXyp-SyKISRnlus0oMQ&utm_source=whatsapp&pi=wjAzlEK-QASgo"
+                id="boton-playlist-principal"
+                type="button"
             >
                 Abrir playlist en Spotify
-            </a>
+            </button>
 
             <button
                 class="boton-fondo"
@@ -933,6 +1447,47 @@ function crearPanelSuperior() {
 
         </div>
     `;
+
+  panel
+    .querySelector("#boton-playlist-principal")
+    .addEventListener("click", () => {
+      contenidoModal.innerHTML = `
+                    <div class="carta-flor">
+
+                        <p class="modal-etiqueta">
+                            LAS CANCIONES DEL JARDÍN
+                        </p>
+
+                        <h2>
+                            Playlist
+                        </h2>
+
+                        <div class="papel-carta">
+
+                            <p>
+                                Las canciones que acompañan
+                                este pequeño jardín están
+                                reunidas aquí.
+                            </p>
+
+                            <a
+                                href="https://open.spotify.com/playlist/6XCeXM270zHmOE1vY9MeXA?si=wHKqXyp-SyKISRnlus0oMQ&utm_source=whatsapp&pi=wjAzlEK-QASgo"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="boton-spotify-secreto"
+                            >
+                                Abrir en Spotify
+                            </a>
+
+                        </div>
+
+                    </div>
+                `;
+
+      cerrarModalBoton.style.display = "";
+
+      capaModal.classList.add("mostrar");
+    });
 
   return panel;
 }
@@ -1008,7 +1563,8 @@ function actualizarProgreso() {
 
             <span
                 style="
-                    width: ${porcentaje}%
+                    width:
+                    ${porcentaje}%
                 "
             ></span>
 
@@ -1102,7 +1658,7 @@ function actualizarTextoFavorita() {
 }
 
 /* =====================================================
-   COLECCIONABLES
+   COLECCIÓN
 ===================================================== */
 
 function abrirColeccion() {
@@ -1156,9 +1712,9 @@ function abrirColeccion() {
 
   document.querySelectorAll(".tab-coleccion").forEach((boton) => {
     boton.addEventListener("click", () => {
-      document
-        .querySelectorAll(".tab-coleccion")
-        .forEach((otro) => otro.classList.remove("activo"));
+      document.querySelectorAll(".tab-coleccion").forEach((otro) => {
+        otro.classList.remove("activo");
+      });
 
       boton.classList.add("activo");
 
@@ -1337,7 +1893,7 @@ function renderDespedidasColeccion() {
 }
 
 /* =====================================================
-   NOTAS DE HORAS PARES
+   HORAS PARES
 ===================================================== */
 
 function revisarHoraColeccionable() {
@@ -1368,6 +1924,8 @@ function revisarHoraColeccionable() {
   guardarJSON(CLAVES.horasNotas, horasNotas);
 
   guardarJSON(CLAVES.notas, notasObtenidas);
+
+  crearRespaldoProgreso();
 
   actualizarProgreso();
 
@@ -1435,7 +1993,7 @@ function mostrarColeccionable(item, fecha) {
 }
 
 /* =====================================================
-   NOTA DE 11:11 P.M.
+   11:11
 ===================================================== */
 
 const nota1111 = document.createElement("aside");
@@ -1463,6 +2021,8 @@ function revisarNota1111() {
 
   guardarJSON(CLAVES.nota1111, dias1111);
 
+  crearRespaldoProgreso();
+
   mostrarNota1111();
 }
 
@@ -1471,7 +2031,6 @@ function mostrarNota1111() {
         <button
             class="cerrar-nota-1111"
             type="button"
-            aria-label="Cerrar"
         >
             ×
         </button>
@@ -1513,7 +2072,44 @@ function mostrarNota1111() {
 }
 
 /* =====================================================
-   CREAR TARJETA DE FLOR
+   SISTEMA DE 3 TOQUES EN FLORES
+===================================================== */
+
+const secuenciasSecretas = {};
+
+function registrarToqueSecreto(tipo) {
+  if (!cancionesSecretas.some((secreto) => secreto.tipo === tipo)) {
+    return false;
+  }
+
+  if (!secuenciasSecretas[tipo]) {
+    secuenciasSecretas[tipo] = {
+      cantidad: 0,
+      temporizador: null,
+    };
+  }
+
+  const estado = secuenciasSecretas[tipo];
+
+  clearTimeout(estado.temporizador);
+
+  estado.cantidad++;
+
+  if (estado.cantidad >= 3) {
+    estado.cantidad = 0;
+
+    return true;
+  }
+
+  estado.temporizador = setTimeout(() => {
+    estado.cantidad = 0;
+  }, 1300);
+
+  return false;
+}
+
+/* =====================================================
+   TARJETA DE FLOR
 ===================================================== */
 
 function crearTarjetaFlor(config, esSecreta = false) {
@@ -1541,8 +2137,6 @@ function crearTarjetaFlor(config, esSecreta = false) {
 
   envoltura.setAttribute("role", "button");
 
-  envoltura.setAttribute("aria-label", `Abrir carta de ${config.titulo}`);
-
   if (Flores[config.tipo]) {
     envoltura.appendChild(Flores[config.tipo]());
   }
@@ -1567,20 +2161,77 @@ function crearTarjetaFlor(config, esSecreta = false) {
 
   nota.appendChild(texto);
 
-  if (config.linkCancion) {
-    const botonCancion = document.createElement("a");
+  const enlaceCancion =
+    config.linkCancion ||
+    (config.busquedaCancion ? crearEnlaceYouTube(config.busquedaCancion) : "");
 
-    botonCancion.className = "boton-cancion";
+  if (enlaceCancion) {
+    /*
+           GIRASOL:
+           SU BOTÓN NECESITA 3 TOQUES.
+        */
 
-    botonCancion.href = config.linkCancion;
+    if (config.tipoAccion === "playlist-secreta") {
+      const botonPlaylist = document.createElement("button");
 
-    botonCancion.target = "_blank";
+      botonPlaylist.type = "button";
 
-    botonCancion.rel = "noopener noreferrer";
+      botonPlaylist.className = `boton-cancion ${
+        config.claseBoton || ""
+      }`.trim();
 
-    botonCancion.textContent = config.textoBoton;
+      botonPlaylist.textContent = config.textoBoton;
 
-    nota.appendChild(botonCancion);
+      let toquesPlaylist = 0;
+
+      let temporizadorPlaylist;
+
+      botonPlaylist.addEventListener("click", (evento) => {
+        evento.stopPropagation();
+
+        clearTimeout(temporizadorPlaylist);
+
+        toquesPlaylist++;
+
+        botonPlaylist.classList.remove("boton-pulsado");
+
+        void botonPlaylist.offsetWidth;
+
+        botonPlaylist.classList.add("boton-pulsado");
+
+        if (toquesPlaylist >= 3) {
+          toquesPlaylist = 0;
+
+          botonPlaylist.classList.remove("boton-pulsado");
+
+          abrirPlaylistSecretaGirasol(enlaceCancion);
+
+          return;
+        }
+
+        temporizadorPlaylist = setTimeout(() => {
+          toquesPlaylist = 0;
+        }, 1500);
+      });
+
+      nota.appendChild(botonPlaylist);
+    } else {
+      const botonCancion = document.createElement("a");
+
+      botonCancion.className = `boton-cancion ${
+        config.claseBoton || ""
+      }`.trim();
+
+      botonCancion.href = enlaceCancion;
+
+      botonCancion.target = "_blank";
+
+      botonCancion.rel = "noopener noreferrer";
+
+      botonCancion.textContent = config.textoBoton;
+
+      nota.appendChild(botonCancion);
+    }
   }
 
   const botonFavorita = document.createElement("button");
@@ -1589,10 +2240,14 @@ function crearTarjetaFlor(config, esSecreta = false) {
 
   botonFavorita.type = "button";
 
-  botonFavorita.addEventListener("click", () => {
+  botonFavorita.addEventListener("click", (evento) => {
+    evento.stopPropagation();
+
     florFavorita = config.tipo;
 
     localStorage.setItem(CLAVES.favorita, florFavorita);
+
+    crearRespaldoProgreso();
 
     actualizarFavoritaUI();
 
@@ -1604,17 +2259,21 @@ function crearTarjetaFlor(config, esSecreta = false) {
 
     guardarJSON(CLAVES.visitasFlores, visitasFlores);
 
+    crearRespaldoProgreso();
+
     actualizarMemoriaTarjeta(tarjeta);
   }
 
   let ignorarClick = false;
 
-  let temporizadorSecreto;
+  let temporizadorSecretoLargo;
+
+  let temporizadorCartaNormal;
 
   envoltura.addEventListener("pointerdown", () => {
     ignorarClick = false;
 
-    temporizadorSecreto = setTimeout(() => {
+    temporizadorSecretoLargo = setTimeout(() => {
       ignorarClick = true;
 
       mostrarToast(config.microMensaje);
@@ -1629,7 +2288,7 @@ function crearTarjetaFlor(config, esSecreta = false) {
 
   ["pointerup", "pointerleave", "pointercancel"].forEach((evento) => {
     envoltura.addEventListener(evento, () => {
-      clearTimeout(temporizadorSecreto);
+      clearTimeout(temporizadorSecretoLargo);
     });
   });
 
@@ -1642,15 +2301,35 @@ function crearTarjetaFlor(config, esSecreta = false) {
 
     registrarVisitaFlor();
 
+    /*
+           DETECTAMOS LOS 3 TOQUES
+           ANTES DE ABRIR LA CARTA NORMAL.
+        */
+
+    const activarSecreto = registrarToqueSecreto(config.tipo);
+
+    clearTimeout(temporizadorCartaNormal);
+
     envoltura.classList.remove("reaccion-activa");
 
     void envoltura.offsetWidth;
 
     envoltura.classList.add("reaccion-activa");
 
-    setTimeout(() => {
+    if (activarSecreto) {
+      abrirCancionSecreta(config.tipo);
+
+      return;
+    }
+
+    /*
+           ESPERA UN POCO PARA SABER
+           SI VIENEN EL SEGUNDO Y TERCER TOQUE.
+        */
+
+    temporizadorCartaNormal = setTimeout(() => {
       abrirCarta(config);
-    }, 380);
+    }, 720);
 
     setTimeout(() => {
       envoltura.classList.remove("reaccion-activa");
@@ -1659,11 +2338,18 @@ function crearTarjetaFlor(config, esSecreta = false) {
 
   envoltura.addEventListener("click", reaccionar);
 
+  /*
+       TECLADO:
+       ABRE DIRECTAMENTE LA CARTA NORMAL.
+    */
+
   envoltura.addEventListener("keydown", (evento) => {
     if (evento.key === "Enter" || evento.key === " ") {
       evento.preventDefault();
 
-      reaccionar();
+      registrarVisitaFlor();
+
+      abrirCarta(config);
     }
   });
 
@@ -1683,7 +2369,7 @@ function crearTarjetaFlor(config, esSecreta = false) {
 }
 
 /* =====================================================
-   FLORES QUE RECUERDAN VISITAS
+   MEMORIA DE FLORES
 ===================================================== */
 
 function actualizarMemoriaTarjeta(tarjeta) {
@@ -1721,7 +2407,7 @@ function actualizarMemoriaTarjeta(tarjeta) {
 }
 
 /* =====================================================
-   ACTUALIZAR FAVORITA
+   FAVORITA
 ===================================================== */
 
 function actualizarFavoritaUI() {
@@ -1745,7 +2431,7 @@ function actualizarFavoritaUI() {
 }
 
 /* =====================================================
-   ESTRUCTURA
+   ESTRUCTURA SUPERIOR
 ===================================================== */
 
 const introJardin = crearIntroJardin();
@@ -1767,7 +2453,7 @@ floresDelJardin.forEach((config) => {
 });
 
 /* =====================================================
-   FLOR SECRETA
+   DALIA SECRETA
 ===================================================== */
 
 function comprobarFlorSecreta(silencioso = false) {
@@ -1797,7 +2483,7 @@ function comprobarFlorSecreta(silencioso = false) {
 }
 
 /* =====================================================
-   CAMBIAR TEMA
+   FONDOS
 ===================================================== */
 
 const botonFondo = document.getElementById("boton-fondo");
@@ -1813,11 +2499,9 @@ function actualizarTextoFondo() {
     return;
   }
 
-  if (document.body.classList.contains("tema-morado")) {
-    botonFondo.textContent = "Cambiar a fondo amarillo";
-  } else {
-    botonFondo.textContent = "Cambiar a fondo morado";
-  }
+  botonFondo.textContent = document.body.classList.contains("tema-morado")
+    ? "Cambiar a fondo amarillo"
+    : "Cambiar a fondo morado";
 }
 
 function activarModoEspecial() {
@@ -1826,6 +2510,8 @@ function activarModoEspecial() {
   const activado = document.body.classList.toggle("modo-noche");
 
   localStorage.setItem(CLAVES.nocheDescubierta, "si");
+
+  crearRespaldoProgreso();
 
   actualizarTextoFondo();
 
@@ -1869,7 +2555,7 @@ botonFondo.addEventListener("click", () => {
 });
 
 /* =====================================================
-   LLUVIA DESPUÉS DE 2 MINUTOS
+   LLUVIA
 ===================================================== */
 
 function iniciarLluviaEspecial() {
@@ -1913,11 +2599,81 @@ function iniciarLluviaEspecial() {
 setTimeout(iniciarLluviaEspecial, 120000);
 
 /* =====================================================
-   MARIPOSA OCASIONAL
+   PÉTALOS
 ===================================================== */
 
+function crearExplosionPetalos(x, y, color1, color2) {
+  const explosion = document.createElement("div");
+
+  explosion.className = "explosion-petalos";
+
+  explosion.style.left = `${x}px`;
+
+  explosion.style.top = `${y}px`;
+
+  if (color1) {
+    explosion.style.setProperty("--petalo-golpe-1", color1);
+  }
+
+  if (color2) {
+    explosion.style.setProperty("--petalo-golpe-2", color2);
+  }
+
+  for (let i = 0; i < 22; i++) {
+    const petalo = document.createElement("span");
+
+    petalo.className = "petalo-explosion";
+
+    const angulo = Math.random() * Math.PI * 2;
+
+    const distancia = 45 + Math.random() * 90;
+
+    petalo.style.setProperty("--petalo-x", `${Math.cos(angulo) * distancia}px`);
+
+    petalo.style.setProperty("--petalo-y", `${Math.sin(angulo) * distancia}px`);
+
+    petalo.style.setProperty(
+      "--petalo-rotacion",
+      `${Math.random() * 600 - 300}deg`,
+    );
+
+    petalo.style.setProperty("--petalo-retraso", `${Math.random() * 0.12}s`);
+
+    petalo.style.setProperty("--petalo-tamano", `${6 + Math.random() * 8}px`);
+
+    explosion.appendChild(petalo);
+  }
+
+  document.body.appendChild(explosion);
+
+  setTimeout(() => {
+    explosion.remove();
+  }, 1500);
+}
+
+/* =====================================================
+   MARIPOSAS
+===================================================== */
+
+let mariposasAplastadas = Number(
+  localStorage.getItem(CLAVES.mariposasAplastadas) || 0,
+);
+
+const coloresMariposas = [
+  "mariposa-rosa",
+  "mariposa-azul",
+  "mariposa-morada",
+  "mariposa-naranja",
+  "mariposa-verde",
+  "mariposa-roja",
+  "mariposa-blanca",
+  "mariposa-turquesa",
+];
+
 function crearMariposa() {
-  if (document.querySelector(".mariposa-jardin")) {
+  const actuales = document.querySelectorAll(".mariposa-jardin").length;
+
+  if (actuales >= 4) {
     return;
   }
 
@@ -1926,6 +2682,15 @@ function crearMariposa() {
   mariposa.type = "button";
 
   mariposa.className = "mariposa-jardin";
+
+  const claseColor =
+    coloresMariposas[Math.floor(Math.random() * coloresMariposas.length)];
+
+  mariposa.classList.add(claseColor);
+
+  if (Math.random() < 0.4) {
+    mariposa.classList.add("mariposa-inversa");
+  }
 
   mariposa.setAttribute("aria-label", "Mariposa");
 
@@ -1937,13 +2702,44 @@ function crearMariposa() {
         <span class="ala ala-derecha"></span>
     `;
 
-  mariposa.style.top = `${20 + Math.random() * 55}%`;
+  mariposa.style.top = `${10 + Math.random() * 72}%`;
 
-  mariposa.addEventListener("click", () => {
+  mariposa.style.animationDuration = `${9 + Math.random() * 6}s`;
+
+  mariposa.addEventListener("click", (evento) => {
+    evento.stopPropagation();
+
+    const estilos = getComputedStyle(mariposa);
+
+    const color1 = estilos.getPropertyValue("--mariposa-color-1").trim();
+
+    const color2 = estilos.getPropertyValue("--mariposa-color-2").trim();
+
+    crearExplosionPetalos(evento.clientX, evento.clientY, color1, color2);
+
+    mariposasAplastadas++;
+
+    localStorage.setItem(
+      CLAVES.mariposasAplastadas,
+      String(mariposasAplastadas),
+    );
+
+    crearRespaldoProgreso();
+
     const mensajes = [
       "La alcanzaste.",
-      "Parece que también estaba recorriendo el jardín.",
-      "Por un momento decidió quedarse.",
+
+      "Pobre mariposa...",
+
+      "Otra cayó en el jardín.",
+
+      "Definitivamente te gusta aplastarlas.",
+
+      "Bueno... esa tampoco sobrevivió.",
+
+      "Los pétalos fueron lo único que quedó.",
+
+      "Otra más. Ya les estás agarrando práctica.",
     ];
 
     mostrarToast(mensajes[Math.floor(Math.random() * mensajes.length)]);
@@ -1952,7 +2748,7 @@ function crearMariposa() {
 
     setTimeout(() => {
       mariposa.remove();
-    }, 700);
+    }, 500);
   });
 
   document.body.appendChild(mariposa);
@@ -1961,16 +2757,40 @@ function crearMariposa() {
     if (document.body.contains(mariposa)) {
       mariposa.remove();
     }
-  }, 18000);
+  }, 17000);
 }
 
 function programarMariposa(primera = false) {
+  /*
+       PRIMERA:
+       ENTRE 4 Y 8 SEGUNDOS.
+
+       DESPUÉS:
+       ENTRE 8 Y 16 SEGUNDOS.
+    */
+
   const espera = primera
-    ? 35000 + Math.random() * 55000
-    : 180000 + Math.random() * 120000;
+    ? 4000 + Math.random() * 4000
+    : 8000 + Math.random() * 8000;
 
   setTimeout(() => {
     crearMariposa();
+
+    /*
+               MUY SEGUIDO SALE UNA SEGUNDA.
+            */
+
+    if (Math.random() < 0.65) {
+      setTimeout(crearMariposa, 900 + Math.random() * 1700);
+    }
+
+    /*
+               A VECES UNA TERCERA.
+            */
+
+    if (Math.random() < 0.28) {
+      setTimeout(crearMariposa, 2600 + Math.random() * 1800);
+    }
 
     programarMariposa(false);
   }, espera);
@@ -1979,7 +2799,189 @@ function programarMariposa(primera = false) {
 programarMariposa(true);
 
 /* =====================================================
-   DESPEDIDA ACTUAL
+   APARTADO SECRETO CON KUROMI
+
+   NO MUESTRA TODAS LAS CANCIONES.
+   SOLO INDICA CUÁNTAS HA DESCUBIERTO.
+===================================================== */
+
+const seccionSecreto = document.createElement("section");
+
+seccionSecreto.className = "seccion-secreto";
+
+seccionSecreto.innerHTML = `
+    <div class="encabezado-secreto">
+
+        <p class="secreto-etiqueta">
+            ENCONTRASTE ALGO MÁS
+        </p>
+
+        <h2>
+            Secreto
+        </h2>
+
+        <p>
+            Hay cosas escondidas entre las flores.
+            Algunas solo aparecen cuando insistes
+            un poquito más de lo normal.
+        </p>
+
+    </div>
+
+
+    <div class="kuromi-area">
+
+        <div class="kuromi-css">
+
+            <div
+                class="kuromi-oreja kuromi-oreja-izq"
+            ></div>
+
+            <div
+                class="kuromi-oreja kuromi-oreja-der"
+            ></div>
+
+
+            <div class="kuromi-capucha">
+
+                <div class="kuromi-calavera">
+                    ☠
+                </div>
+
+
+                <div class="kuromi-cara">
+
+                    <span
+                        class="kuromi-ojo kuromi-ojo-izq"
+                    ></span>
+
+                    <span
+                        class="kuromi-ojo kuromi-ojo-der"
+                    ></span>
+
+                    <span
+                        class="kuromi-nariz"
+                    ></span>
+
+                    <span
+                        class="kuromi-boca"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="kuromi-cuerpo"
+            ></div>
+
+            <div
+                class="kuromi-cola"
+            ></div>
+
+        </div>
+
+
+        <p class="kuromi-texto">
+            Parece que ella estaba cuidando esta parte.
+        </p>
+
+    </div>
+
+
+    <div class="secreto-control">
+
+        <p class="contador-secretos">
+
+            <span
+                id="secretos-encontrados"
+            >
+                0
+            </span>
+
+            /
+
+            <span
+                id="secretos-totales"
+            >
+                ${cancionesSecretas.length}
+            </span>
+
+            secretos encontrados
+
+        </p>
+
+
+        <div class="barra-secretos">
+
+            <span
+                id="barra-secretos-progreso"
+            ></span>
+
+        </div>
+
+
+        <p class="pista-secretos">
+            Aquí no aparecerán las canciones.
+            Para encontrarlas tendrás que volver
+            a las flores.
+        </p>
+
+    </div>
+`;
+
+jardin.appendChild(seccionSecreto);
+
+/* =====================================================
+   PANEL SECRETO
+===================================================== */
+
+function actualizarPanelSecreto() {
+  const encontrados = document.getElementById("secretos-encontrados");
+
+  const barra = document.getElementById("barra-secretos-progreso");
+
+  if (!encontrados || !barra) {
+    return;
+  }
+
+  encontrados.textContent = secretosVistos.length;
+
+  const porcentaje = Math.min(
+    100,
+    (secretosVistos.length / cancionesSecretas.length) * 100,
+  );
+
+  barra.style.width = `${porcentaje}%`;
+}
+
+/* =====================================================
+   REVELAR APARTADO SECRETO
+===================================================== */
+
+function revelarApartadoSecreto(conAviso = true) {
+  secretoDesbloqueado = true;
+
+  localStorage.setItem(CLAVES.secretoDesbloqueado, "si");
+
+  crearRespaldoProgreso();
+
+  seccionSecreto.classList.add("desbloqueado");
+
+  actualizarPanelSecreto();
+
+  if (conAviso) {
+    mostrarToast("Se desbloqueó el apartado Secreto.");
+  }
+}
+
+if (secretoDesbloqueado || secretosVistos.length > 0) {
+  revelarApartadoSecreto(false);
+}
+
+/* =====================================================
+   DESPEDIDA
 ===================================================== */
 
 function obtenerDespedidaActual() {
@@ -1993,7 +2995,7 @@ function obtenerDespedidaActual() {
 }
 
 /* =====================================================
-   FINAL DEL JARDÍN
+   FINAL
 ===================================================== */
 
 const finalJardin = document.createElement("section");
@@ -2032,7 +3034,7 @@ finalJardin.innerHTML = `
 jardin.appendChild(finalJardin);
 
 /* =====================================================
-   BOTÓN NO TOCAR
+   NO TOCAR
 ===================================================== */
 
 let nivelNoTocar = 0;
@@ -2111,6 +3113,10 @@ comprobarFlorSecreta(true);
 actualizarFavoritaUI();
 
 actualizarTextoFondo();
+
+actualizarPanelSecreto();
+
+crearRespaldoProgreso();
 
 mostrarAvisoInicial();
 
