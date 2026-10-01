@@ -1,19 +1,24 @@
 const contenedorFlores =
-    document.getElementById("contenedor-flores");
+    document.getElementById(
+        "contenedor-flores"
+    );
+
 
 const jardin =
-    document.querySelector(".jardin") ||
+    document.querySelector(
+        ".jardin"
+    ) ||
     contenedorFlores.parentElement;
 
 
 /* =====================================================
-   CLAVES DE LOCALSTORAGE
+   LOCALSTORAGE
 
-   IMPORTANTE:
-   NO CAMBIAR LAS CLAVES V3.
+   NO CAMBIAR.
 ===================================================== */
 
 const CLAVES = {
+
     aviso:
         "jardin_no_mostrar_aviso_v3",
 
@@ -62,13 +67,14 @@ const CLAVES = {
 
 
 /* =====================================================
-   ALMACENAMIENTO
+   STORAGE
 ===================================================== */
 
 function leerJSON(
     clave,
-    valorInicial
+    inicial
 ) {
+
     try {
 
         const valor =
@@ -76,13 +82,16 @@ function leerJSON(
                 clave
             );
 
+
         return valor
-            ? JSON.parse(valor)
-            : valorInicial;
+            ?
+            JSON.parse(valor)
+            :
+            inicial;
 
-    } catch (error) {
+    } catch {
 
-        return valorInicial;
+        return inicial;
     }
 }
 
@@ -99,1223 +108,17 @@ function guardarJSON(
 }
 
 
-/* =====================================================
-   RESPALDO
-===================================================== */
-
-function crearRespaldoProgreso() {
-
-    const respaldo = {
-
-        notas:
-            leerJSON(
-                CLAVES.notas,
-                []
-            ),
-
-        horasNotas:
-            leerJSON(
-                CLAVES.horasNotas,
-                []
-            ),
-
-        despedidas:
-            leerJSON(
-                CLAVES.despedidas,
-                []
-            ),
-
-        diasDespedidas:
-            leerJSON(
-                CLAVES.diasDespedidas,
-                []
-            ),
-
-        visitasJardin:
-            localStorage.getItem(
-                CLAVES.visitasJardin
-            ),
-
-        visitasFlores:
-            leerJSON(
-                CLAVES.visitasFlores,
-                {}
-            ),
-
-        favorita:
-            localStorage.getItem(
-                CLAVES.favorita
-            ),
-
-        nocheDescubierta:
-            localStorage.getItem(
-                CLAVES.nocheDescubierta
-            ),
-
-        nota1111:
-            leerJSON(
-                CLAVES.nota1111,
-                []
-            ),
-
-        toquesSecreto:
-            localStorage.getItem(
-                CLAVES.toquesSecreto
-            ),
-
-        secretoDesbloqueado:
-            localStorage.getItem(
-                CLAVES.secretoDesbloqueado
-            ),
-
-        secretosVistos:
-            leerJSON(
-                CLAVES.secretosVistos,
-                []
-            ),
-
-        mariposasAplastadas:
-            localStorage.getItem(
-                CLAVES.mariposasAplastadas
-            )
-    };
-
-
-    localStorage.setItem(
-        CLAVES.respaldo,
-        JSON.stringify(respaldo)
-    );
-}
-
-
-/* =====================================================
-   YOUTUBE
-===================================================== */
-
-function crearEnlaceYouTube(
+function enlaceYouTube(
     busqueda
 ) {
 
     return (
         "https://www.youtube.com/results?search_query=" +
-        encodeURIComponent(busqueda)
-    );
-}
-
-
-/* =====================================================
-   ESTILOS ESPECIALES DEL LOTO
-
-   LOS METEMOS DESDE JS PARA NO TOCAR
-   TUS OTROS ARCHIVOS.
-===================================================== */
-
-function instalarEstilosLoto() {
-
-    if (
-        document.getElementById(
-            "estilos-loto-especial"
+        encodeURIComponent(
+            busqueda
         )
-    ) {
-        return;
-    }
-
-
-    const estilo =
-        document.createElement(
-            "style"
-        );
-
-
-    estilo.id =
-        "estilos-loto-especial";
-
-
-    estilo.textContent = `
-
-        /* =========================================
-           TARJETA DEL LOTO
-        ========================================= */
-
-        .tarjeta-loto {
-            position: relative;
-        }
-
-
-        .tarjeta-loto .envoltura-flor {
-            height: 370px;
-        }
-
-
-        .tarjeta-loto .nota-flor {
-            margin-top: 4px;
-        }
-
-
-        .tarjeta-loto .nota-flor > p {
-            display: none;
-        }
-
-
-        .tarjeta-loto .pista-carta {
-            margin-top: 4px;
-        }
-
-
-        .tarjeta-loto .boton-cancion {
-            color: #ffffff;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #bd659d,
-                    #d989b8,
-                    #9d6bc8
-                );
-
-            box-shadow:
-                0 9px 22px
-                rgba(154, 85, 143, .22);
-        }
-
-
-        /* =========================================
-           FLOR DE LOTO
-        ========================================= */
-
-        .loto {
-            position: relative;
-
-            width: 300px;
-            height: 350px;
-
-            transform-origin:
-                center bottom;
-
-            animation:
-                loto-aparecer
-                1.1s ease both;
-        }
-
-
-        @keyframes loto-aparecer {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(50px)
-                    scale(.82);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-        }
-
-
-        /* =========================================
-           TALLO
-        ========================================= */
-
-        .loto-tallo {
-            position: absolute;
-
-            width: 12px;
-            height: 150px;
-
-            left: 144px;
-            top: 195px;
-
-            z-index: 1;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    to right,
-                    #426b48,
-                    #79a46d,
-                    #426b48
-                );
-
-            box-shadow:
-                inset 2px 0 3px
-                rgba(255,255,255,.16);
-        }
-
-
-        /* =========================================
-           HOJAS
-        ========================================= */
-
-        .loto-hoja {
-            position: absolute;
-
-            z-index: 2;
-
-            width: 105px;
-            height: 58px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #416e52,
-                    #6f9b68,
-                    #89aa73
-                );
-
-            box-shadow:
-                inset 0 3px 7px
-                rgba(255,255,255,.10);
-        }
-
-
-        .loto-hoja-izq {
-            left: 48px;
-            top: 255px;
-
-            border-radius:
-                100% 0 100% 0;
-
-            transform:
-                rotate(-18deg);
-        }
-
-
-        .loto-hoja-der {
-            left: 146px;
-            top: 269px;
-
-            border-radius:
-                0 100% 0 100%;
-
-            transform:
-                rotate(17deg);
-        }
-
-
-        /* =========================================
-           BASE DE LA FLOR
-        ========================================= */
-
-        .loto-cabeza {
-            position: absolute;
-
-            width: 270px;
-            height: 230px;
-
-            left: 15px;
-            top: 12px;
-
-            z-index: 5;
-
-            transform-origin:
-                center 78%;
-        }
-
-
-        /* =========================================
-           PÉTALOS
-        ========================================= */
-
-        .loto-petalo {
-            position: absolute;
-
-            left: 50%;
-
-            transform-origin:
-                50% 90%;
-
-            transition:
-                transform .85s
-                cubic-bezier(.22,.8,.25,1),
-                opacity .65s ease,
-                filter .65s ease;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #fff6fb 0%,
-                    #ffd5e9 25%,
-                    #f3a9cd 62%,
-                    #cf70aa 100%
-                );
-
-            box-shadow:
-                inset 0 4px 8px
-                rgba(255,255,255,.45),
-                0 5px 12px
-                rgba(117,56,93,.10);
-        }
-
-
-        /* PÉTALOS TRASEROS */
-
-        .loto-petalo-trasero {
-            width: 72px;
-            height: 138px;
-
-            top: 14px;
-
-            margin-left: -36px;
-
-            border-radius:
-                60% 60% 42% 42%
-                / 72% 72% 30% 30%;
-        }
-
-
-        .loto-petalo-trasero-1 {
-            transform:
-                translateX(-80px)
-                translateY(45px)
-                rotate(-43deg)
-                scale(.88);
-        }
-
-
-        .loto-petalo-trasero-2 {
-            transform:
-                translateX(-43px)
-                translateY(14px)
-                rotate(-21deg)
-                scale(.95);
-        }
-
-
-        .loto-petalo-trasero-3 {
-            transform:
-                translateX(0)
-                translateY(0)
-                rotate(0deg);
-        }
-
-
-        .loto-petalo-trasero-4 {
-            transform:
-                translateX(43px)
-                translateY(14px)
-                rotate(21deg)
-                scale(.95);
-        }
-
-
-        .loto-petalo-trasero-5 {
-            transform:
-                translateX(80px)
-                translateY(45px)
-                rotate(43deg)
-                scale(.88);
-        }
-
-
-        /* PÉTALOS MEDIOS */
-
-        .loto-petalo-medio {
-            width: 79px;
-            height: 125px;
-
-            top: 64px;
-
-            margin-left: -39.5px;
-
-            z-index: 3;
-
-            border-radius:
-                58% 58% 45% 45%
-                / 70% 70% 34% 34%;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #fff7fb,
-                    #f9c8df 35%,
-                    #e796c0 72%,
-                    #c969a2
-                );
-        }
-
-
-        .loto-petalo-medio-1 {
-            transform:
-                translateX(-73px)
-                translateY(19px)
-                rotate(-40deg);
-        }
-
-
-        .loto-petalo-medio-2 {
-            transform:
-                translateX(-33px)
-                translateY(3px)
-                rotate(-18deg);
-        }
-
-
-        .loto-petalo-medio-3 {
-            transform:
-                translateX(33px)
-                translateY(3px)
-                rotate(18deg);
-        }
-
-
-        .loto-petalo-medio-4 {
-            transform:
-                translateX(73px)
-                translateY(19px)
-                rotate(40deg);
-        }
-
-
-        /* PÉTALOS DELANTEROS */
-
-        .loto-petalo-frontal {
-            width: 90px;
-            height: 110px;
-
-            top: 105px;
-
-            margin-left: -45px;
-
-            z-index: 7;
-
-            border-radius:
-                55% 55% 48% 48%
-                / 63% 63% 43% 43%;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #ffe6f1,
-                    #f1a1c8 48%,
-                    #cf699f 100%
-                );
-        }
-
-
-        .loto-petalo-frontal-1 {
-            transform:
-                translateX(-56px)
-                rotate(-27deg);
-        }
-
-
-        .loto-petalo-frontal-2 {
-            transform:
-                translateX(0)
-                translateY(8px);
-        }
-
-
-        .loto-petalo-frontal-3 {
-            transform:
-                translateX(56px)
-                rotate(27deg);
-        }
-
-
-        /* =========================================
-           CENTRO
-        ========================================= */
-
-        .loto-centro {
-            position: absolute;
-
-            width: 46px;
-            height: 42px;
-
-            left: 112px;
-            top: 118px;
-
-            z-index: 10;
-
-            border-radius:
-                50% 50% 44% 44%;
-
-            opacity: .35;
-
-            transform:
-                translateY(15px)
-                scale(.75);
-
-            transition:
-                opacity .65s ease,
-                transform .75s ease;
-
-            background:
-                radial-gradient(
-                    circle at 50% 38%,
-                    #fff39b,
-                    #e6bf4a 45%,
-                    #b17a28 100%
-                );
-
-            box-shadow:
-                0 0 12px
-                rgba(236,190,75,.28);
-        }
-
-
-        .loto-centro::before,
-        .loto-centro::after {
-            content: "";
-
-            position: absolute;
-
-            width: 5px;
-            height: 5px;
-
-            border-radius: 50%;
-
-            background:
-                #9a6c28;
-
-            box-shadow:
-                10px 3px #9a6c28,
-                20px 0 #9a6c28,
-                5px 12px #9a6c28,
-                16px 13px #9a6c28,
-                26px 10px #9a6c28;
-        }
-
-
-        .loto-centro::before {
-            left: 8px;
-            top: 9px;
-        }
-
-
-        .loto-centro::after {
-            left: 4px;
-            top: 20px;
-        }
-
-
-        /* =========================================
-           LOTO ABIERTO
-        ========================================= */
-
-        .loto.abierta
-        .loto-petalo-trasero-1 {
-            transform:
-                translateX(-96px)
-                translateY(61px)
-                rotate(-61deg)
-                scale(.90);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-trasero-2 {
-            transform:
-                translateX(-55px)
-                translateY(19px)
-                rotate(-34deg)
-                scale(.97);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-trasero-3 {
-            transform:
-                translateX(0)
-                translateY(-15px)
-                rotate(0deg)
-                scale(1.03);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-trasero-4 {
-            transform:
-                translateX(55px)
-                translateY(19px)
-                rotate(34deg)
-                scale(.97);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-trasero-5 {
-            transform:
-                translateX(96px)
-                translateY(61px)
-                rotate(61deg)
-                scale(.90);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-medio-1 {
-            transform:
-                translateX(-91px)
-                translateY(35px)
-                rotate(-55deg);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-medio-2 {
-            transform:
-                translateX(-49px)
-                translateY(3px)
-                rotate(-32deg);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-medio-3 {
-            transform:
-                translateX(49px)
-                translateY(3px)
-                rotate(32deg);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-medio-4 {
-            transform:
-                translateX(91px)
-                translateY(35px)
-                rotate(55deg);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-frontal-1 {
-            transform:
-                translateX(-73px)
-                translateY(23px)
-                rotate(-42deg);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-frontal-2 {
-            transform:
-                translateX(0)
-                translateY(30px)
-                scaleY(.92);
-        }
-
-
-        .loto.abierta
-        .loto-petalo-frontal-3 {
-            transform:
-                translateX(73px)
-                translateY(23px)
-                rotate(42deg);
-        }
-
-
-        .loto.abierta
-        .loto-centro {
-            opacity: 1;
-
-            transform:
-                translateY(0)
-                scale(1);
-        }
-
-
-        .loto.abierta
-        .loto-cabeza {
-            animation:
-                loto-resplandor
-                .95s ease;
-        }
-
-
-        @keyframes loto-resplandor {
-
-            50% {
-                filter:
-                    drop-shadow(
-                        0 0 16px
-                        rgba(238,159,204,.35)
-                    );
-            }
-        }
-
-
-        /* =========================================
-           CARTA DEL LOTO
-        ========================================= */
-
-        .carta-loto {
-            text-align: center;
-        }
-
-
-        .carta-loto
-        .papel-carta {
-            position: relative;
-
-            overflow: hidden;
-
-            padding:
-                27px 25px;
-
-            border:
-                1px solid
-                rgba(197,120,170,.20);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #fffefd,
-                    #fff6fb,
-                    #f5edff
-                );
-        }
-
-
-        .carta-loto
-        .papel-carta::before {
-            content: "";
-
-            position: absolute;
-
-            width: 180px;
-            height: 180px;
-
-            right: -95px;
-            top: -100px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(220,141,191,.16),
-                    transparent 70%
-                );
-        }
-
-
-        .carta-loto
-        .confesion-loto {
-            position: relative;
-
-            z-index: 2;
-
-            font-size: 15px;
-
-            line-height: 1.9;
-
-            color:
-                #644c6d;
-        }
-
-
-        .carta-loto
-        .firma-loto {
-            display: block;
-
-            position: relative;
-
-            z-index: 2;
-
-            width: 50px;
-            height: 1px;
-
-            margin:
-                20px auto 14px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    #c487ae,
-                    transparent
-                );
-        }
-
-
-        .carta-loto
-        .detalle-loto {
-            position: relative;
-
-            z-index: 2;
-
-            font-family:
-                Arial,
-                sans-serif;
-
-            font-size: 10px;
-
-            letter-spacing: 2px;
-
-            color:
-                #a07a9d;
-        }
-
-
-        /* =========================================
-           LLUVIA DE PÉTALOS DEL LOTO
-        ========================================= */
-
-        .lluvia-petalos-loto {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 12000;
-
-            overflow: hidden;
-
-            pointer-events: none;
-        }
-
-
-        .petalo-lluvia-loto {
-            position: absolute;
-
-            top: -60px;
-
-            width:
-                var(--loto-petalo-ancho);
-
-            height:
-                calc(
-                    var(--loto-petalo-ancho) * .72
-                );
-
-            opacity: .92;
-
-            border-radius:
-                100% 12% 100% 12%;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #fff4fa,
-                    #f6bbd7 42%,
-                    #d37aab
-                );
-
-            filter:
-                drop-shadow(
-                    0 2px 2px
-                    rgba(111,53,89,.08)
-                );
-
-            animation:
-                caer-petalo-loto
-                var(--loto-duracion)
-                linear forwards;
-
-            animation-delay:
-                var(--loto-retraso);
-        }
-
-
-        .petalo-lluvia-loto:nth-child(3n) {
-            background:
-                linear-gradient(
-                    145deg,
-                    #fff6fc,
-                    #e7c7f4,
-                    #ba83d2
-                );
-        }
-
-
-        .petalo-lluvia-loto:nth-child(4n) {
-            background:
-                linear-gradient(
-                    145deg,
-                    #fff9fb,
-                    #f9d5e7,
-                    #e89cbc
-                );
-        }
-
-
-        @keyframes caer-petalo-loto {
-
-            0% {
-                opacity: 0;
-
-                transform:
-                    translate3d(
-                        0,
-                        -70px,
-                        0
-                    )
-                    rotate(0deg);
-            }
-
-
-            8% {
-                opacity: .95;
-            }
-
-
-            35% {
-                transform:
-                    translate3d(
-                        var(--loto-desvio-1),
-                        35vh,
-                        0
-                    )
-                    rotate(170deg);
-            }
-
-
-            70% {
-                transform:
-                    translate3d(
-                        var(--loto-desvio-2),
-                        75vh,
-                        0
-                    )
-                    rotate(390deg);
-            }
-
-
-            100% {
-                opacity: .12;
-
-                transform:
-                    translate3d(
-                        var(--loto-desvio-3),
-                        110vh,
-                        0
-                    )
-                    rotate(650deg);
-            }
-        }
-
-
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
-
-        @media (
-            max-width: 600px
-        ) {
-
-            .loto {
-                transform:
-                    scale(.91);
-
-                transform-origin:
-                    center bottom;
-            }
-
-
-            .tarjeta-loto
-            .envoltura-flor {
-                height: 350px;
-            }
-
-
-            .carta-loto
-            .confesion-loto {
-                font-size: 14px;
-
-                line-height: 1.8;
-            }
-        }
-    `;
-
-
-    document.head.appendChild(
-        estilo
     );
 }
-
-
-instalarEstilosLoto();
-
-
-/* =====================================================
-   CONSTRUCTOR DE LA FLOR DE LOTO
-
-   SE AGREGA A TU LIBRERÍA SIN MODIFICAR
-   flores.js.
-===================================================== */
-
-Flores.loto = function () {
-
-    const flor =
-        document.createElement(
-            "div"
-        );
-
-
-    flor.className =
-        "loto";
-
-
-    const tallo =
-        document.createElement(
-            "div"
-        );
-
-
-    tallo.className =
-        "loto-tallo";
-
-
-    const hojaIzq =
-        document.createElement(
-            "div"
-        );
-
-
-    hojaIzq.className =
-        "loto-hoja loto-hoja-izq";
-
-
-    const hojaDer =
-        document.createElement(
-            "div"
-        );
-
-
-    hojaDer.className =
-        "loto-hoja loto-hoja-der";
-
-
-    const cabeza =
-        document.createElement(
-            "div"
-        );
-
-
-    cabeza.className =
-        "loto-cabeza";
-
-
-    /* PÉTALOS TRASEROS */
-
-    for (
-        let i = 1;
-        i <= 5;
-        i++
-    ) {
-
-        const petalo =
-            document.createElement(
-                "div"
-            );
-
-
-        petalo.className =
-            `
-                loto-petalo
-                loto-petalo-trasero
-                loto-petalo-trasero-${i}
-            `;
-
-
-        cabeza.appendChild(
-            petalo
-        );
-    }
-
-
-    /* PÉTALOS MEDIOS */
-
-    for (
-        let i = 1;
-        i <= 4;
-        i++
-    ) {
-
-        const petalo =
-            document.createElement(
-                "div"
-            );
-
-
-        petalo.className =
-            `
-                loto-petalo
-                loto-petalo-medio
-                loto-petalo-medio-${i}
-            `;
-
-
-        cabeza.appendChild(
-            petalo
-        );
-    }
-
-
-    /* PÉTALOS FRONTALES */
-
-    for (
-        let i = 1;
-        i <= 3;
-        i++
-    ) {
-
-        const petalo =
-            document.createElement(
-                "div"
-            );
-
-
-        petalo.className =
-            `
-                loto-petalo
-                loto-petalo-frontal
-                loto-petalo-frontal-${i}
-            `;
-
-
-        cabeza.appendChild(
-            petalo
-        );
-    }
-
-
-    const centro =
-        document.createElement(
-            "div"
-        );
-
-
-    centro.className =
-        "loto-centro";
-
-
-    cabeza.appendChild(
-        centro
-    );
-
-
-    flor.appendChild(
-        tallo
-    );
-
-
-    flor.appendChild(
-        hojaIzq
-    );
-
-
-    flor.appendChild(
-        hojaDer
-    );
-
-
-    flor.appendChild(
-        cabeza
-    );
-
-
-    return flor;
-};
 
 
 /* =====================================================
@@ -1335,7 +138,7 @@ visitasJardin++;
 
 localStorage.setItem(
     CLAVES.visitasJardin,
-    visitasJardin
+    String(visitasJardin)
 );
 
 
@@ -1353,9 +156,9 @@ let florFavorita =
 
 
 /* =====================================================
-   20 COLECCIONABLES
+   COLECCIONABLES
 
-   LOS ID 1-20 SE CONSERVAN.
+   NO CAMBIAR LOS ID.
 ===================================================== */
 
 const coleccionables = [
@@ -1537,7 +340,7 @@ let horasNotas =
 
 
 /* =====================================================
-   20 DESPEDIDAS
+   DESPEDIDAS
 ===================================================== */
 
 const despedidas = [
@@ -1628,7 +431,9 @@ function claveDia(
         );
 
 
-    return `${anio}-${mes}-${dia}`;
+    return (
+        `${anio}-${mes}-${dia}`
+    );
 }
 
 
@@ -1636,16 +441,14 @@ function claveHora(
     fecha = new Date()
 ) {
 
-    const hora =
-        String(
+    return (
+        `${claveDia(fecha)}-${String(
             fecha.getHours()
         ).padStart(
             2,
             "0"
-        );
-
-
-    return `${claveDia(fecha)}-${hora}`;
+        )}`
+    );
 }
 
 
@@ -1653,7 +456,7 @@ function claveHora(
    DESPEDIDA DIARIA
 ===================================================== */
 
-function registrarDespedidaDelDia() {
+function registrarDespedida() {
 
     const hoy =
         claveDia();
@@ -1700,17 +503,14 @@ function registrarDespedidaDelDia() {
         CLAVES.diasDespedidas,
         diasDespedidas
     );
-
-
-    crearRespaldoProgreso();
 }
 
 
-registrarDespedidaDelDia();
+registrarDespedida();
 
 
 /* =====================================================
-   MODAL GENERAL
+   MODAL
 ===================================================== */
 
 const capaModal =
@@ -1727,9 +527,8 @@ capaModal.innerHTML = `
     <div class="ventana-modal">
 
         <button
-            class="cerrar-modal"
             type="button"
-            aria-label="Cerrar"
+            class="cerrar-modal"
         >
             ×
         </button>
@@ -1788,21 +587,6 @@ capaModal.addEventListener(
 );
 
 
-document.addEventListener(
-    "keydown",
-    evento => {
-
-        if (
-            evento.key ===
-            "Escape"
-        ) {
-
-            cerrarModal();
-        }
-    }
-);
-
-
 /* =====================================================
    TOAST
 ===================================================== */
@@ -1822,7 +606,7 @@ document.body.appendChild(
 );
 
 
-let temporizadorToast;
+let timeoutToast;
 
 
 function mostrarToast(
@@ -1830,7 +614,7 @@ function mostrarToast(
 ) {
 
     clearTimeout(
-        temporizadorToast
+        timeoutToast
     );
 
 
@@ -1843,7 +627,7 @@ function mostrarToast(
     );
 
 
-    temporizadorToast =
+    timeoutToast =
         setTimeout(
             () => {
 
@@ -1852,269 +636,19 @@ function mostrarToast(
                 );
 
             },
-            3200
+            3000
         );
 }
 
 
 /* =====================================================
-   LLUVIA ESPECIAL DEL LOTO
-===================================================== */
-
-function iniciarLluviaPetalosLoto() {
-
-    const anterior =
-        document.querySelector(
-            ".lluvia-petalos-loto"
-        );
-
-
-    if (anterior) {
-
-        anterior.remove();
-    }
-
-
-    const lluvia =
-        document.createElement(
-            "div"
-        );
-
-
-    lluvia.className =
-        "lluvia-petalos-loto";
-
-
-    for (
-        let i = 0;
-        i < 65;
-        i++
-    ) {
-
-        const petalo =
-            document.createElement(
-                "span"
-            );
-
-
-        petalo.className =
-            "petalo-lluvia-loto";
-
-
-        petalo.style.left =
-            `${Math.random() * 100}%`;
-
-
-        petalo.style.setProperty(
-            "--loto-petalo-ancho",
-            `${8 + Math.random() * 11}px`
-        );
-
-
-        petalo.style.setProperty(
-            "--loto-duracion",
-            `${4.7 + Math.random() * 3.8}s`
-        );
-
-
-        petalo.style.setProperty(
-            "--loto-retraso",
-            `${Math.random() * 1.2}s`
-        );
-
-
-        petalo.style.setProperty(
-            "--loto-desvio-1",
-            `${-45 + Math.random() * 90}px`
-        );
-
-
-        petalo.style.setProperty(
-            "--loto-desvio-2",
-            `${-70 + Math.random() * 140}px`
-        );
-
-
-        petalo.style.setProperty(
-            "--loto-desvio-3",
-            `${-95 + Math.random() * 190}px`
-        );
-
-
-        lluvia.appendChild(
-            petalo
-        );
-    }
-
-
-    document.body.appendChild(
-        lluvia
-    );
-
-
-    setTimeout(
-        () => {
-
-            lluvia.remove();
-
-        },
-        9000
-    );
-}
-
-
-/* =====================================================
-   AVISO INICIAL
-===================================================== */
-
-function mostrarAvisoInicial() {
-
-    const ocultar =
-        localStorage.getItem(
-            CLAVES.aviso
-        );
-
-
-    if (
-        ocultar === "si"
-    ) {
-
-        revisarHoraColeccionable();
-
-        return;
-    }
-
-
-    contenidoModal.innerHTML = `
-        <div class="aviso-coleccionables">
-
-            <p class="modal-etiqueta">
-                ANTES DE ENTRAR
-            </p>
-
-            <h2>
-                Este jardín guarda más de lo que parece
-            </h2>
-
-            <div class="icono-aviso">
-                20
-            </div>
-
-            <p>
-                Entre las flores existen
-                <strong>
-                    20 notas ocultas
-                </strong>
-                que pueden aparecer durante
-                las horas pares.
-            </p>
-
-            <p>
-                También existen
-                <strong>
-                    20 despedidas diferentes
-                </strong>.
-                Solo puede descubrirse una nueva
-                por día.
-            </p>
-
-            <p>
-                Algunas flores recuerdan tus visitas
-                y otras esconden cosas que no aparecen
-                a simple vista.
-            </p>
-
-            <p class="aviso-pista">
-                No todo está señalado.
-            </p>
-
-            <div class="acciones-aviso">
-
-                <button
-                    id="aceptar-aviso"
-                    class="boton-modal-principal"
-                    type="button"
-                >
-                    Entrar al jardín
-                </button>
-
-                <button
-                    id="ocultar-aviso"
-                    class="boton-modal-secundario"
-                    type="button"
-                >
-                    No volver a mostrar
-                </button>
-
-            </div>
-
-        </div>
-    `;
-
-
-    cerrarModalBoton.style.display =
-        "none";
-
-
-    capaModal.classList.add(
-        "mostrar"
-    );
-
-
-    document
-        .getElementById(
-            "aceptar-aviso"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                cerrarModal();
-
-                cerrarModalBoton.style.display =
-                    "";
-
-                revisarHoraColeccionable();
-            }
-        );
-
-
-    document
-        .getElementById(
-            "ocultar-aviso"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                localStorage.setItem(
-                    CLAVES.aviso,
-                    "si"
-                );
-
-
-                cerrarModal();
-
-
-                cerrarModalBoton.style.display =
-                    "";
-
-
-                revisarHoraColeccionable();
-            }
-        );
-}
-
-
-/* =====================================================
-   FLORES DEL JARDÍN
+   FLORES
 ===================================================== */
 
 const floresDelJardin = [
 
     {
-        tipo:
-            "girasol",
+        tipo: "girasol",
 
         titulo:
             "Girasol 🌻",
@@ -2123,13 +657,7 @@ const floresDelJardin = [
             "Esta es la primera flor de este pequeño jardín.",
 
         carta:
-            "Todo jardín necesita un comienzo. Este girasol fue el primero y por eso siempre tendrá algo distinto: fue una pequeña idea que terminó convirtiéndose en todo lo demás.",
-
-        secretoCarta:
-            "Las primeras cosas suelen guardar un lugar que ninguna otra puede ocupar.",
-
-        microMensaje:
-            "Esta fue la primera.",
+            "Todo jardín necesita un comienzo. Este girasol fue el primero y por eso siempre tendrá algo distinto.",
 
         linkCancion:
             "https://open.spotify.com/playlist/1ogLdpmc1bbYjMQCOBoVfx?si=dfa95b5cf50747a0",
@@ -2137,17 +665,13 @@ const floresDelJardin = [
         textoBoton:
             "Abrir playlist en Spotify",
 
-        claseBoton:
-            "boton-playlist-secreta",
-
         tipoAccion:
             "playlist-secreta"
     },
 
 
     {
-        tipo:
-            "tulipan",
+        tipo: "tulipan",
 
         titulo:
             "Tulipán morado 💜",
@@ -2158,12 +682,6 @@ const floresDelJardin = [
         carta:
             "Este tulipán empezó como un detalle sencillo. Tal vez por eso me gusta: no necesita llamar demasiado la atención para tener un lugar especial dentro del jardín.",
 
-        secretoCarta:
-            "Hay detalles que empiezan pequeños y terminan significando bastante.",
-
-        microMensaje:
-            "Los pétalos también guardan cosas.",
-
         linkCancion:
             "https://www.youtube.com/watch?v=3AsvjEGlwyY",
 
@@ -2173,8 +691,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "lirio",
+        tipo: "lirio",
 
         titulo:
             "Lirio blanco 🤍",
@@ -2183,13 +700,7 @@ const floresDelJardin = [
             "Te dejo este lirio blanco como un detalle lleno de calma, ternura y luz, para recordarte lo bonita que eres.",
 
         carta:
-            "El lirio tiene algo tranquilo. Tal vez por eso terminó aquí: para representar esos momentos en los que basta con que algo bonito esté presente para cambiar un poco el ambiente.",
-
-        secretoCarta:
-            "A veces la calma también puede venir de una persona.",
-
-        microMensaje:
-            "Mira un poco más de cerca.",
+            "El lirio tiene algo tranquilo. Tal vez por eso terminó aquí.",
 
         linkCancion:
             "https://www.youtube.com/watch?v=-XZud3y0aLI&list=RDF193VAMdcBg&index=6",
@@ -2200,8 +711,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "nube",
+        tipo: "nube",
 
         titulo:
             "Flor de nube 🤍",
@@ -2210,13 +720,7 @@ const floresDelJardin = [
             "Hay detalles pequeños que, sin hacer mucho ruido, terminan significando más de lo que parecen. Esta flor de nube es uno de ellos: algo sencillo, bonito y especial que quise dejar aquí para ti. Tal vez algunas cosas no necesitan explicarse demasiado para entenderse. 🤍",
 
         carta:
-            "La flor de nube está hecha de muchas cosas pequeñas que juntas terminan formando algo mucho más bonito. Me pareció una buena forma de esconder una idea sin escribirla directamente.",
-
-        secretoCarta:
-            "Quizá este jardín también se ha ido formando así.",
-
-        microMensaje:
-            "Una sola florecita no hace toda la nube.",
+            "La flor de nube está hecha de muchas cosas pequeñas que juntas terminan formando algo mucho más bonito.",
 
         linkCancion:
             "https://youtu.be/k3Uz-UI2IgY?is=kEqXKDfnneC-rH2Z",
@@ -2227,8 +731,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "peonia",
+        tipo: "peonia",
 
         titulo:
             "Peonía rosa 🌸",
@@ -2237,13 +740,7 @@ const floresDelJardin = [
             "Hay cosas que se vuelven especiales sin necesidad de buscarles demasiadas explicaciones. A veces basta con mirar un poco más de cerca para darse cuenta de que los motivos siempre estuvieron ahí. 🌸",
 
         carta:
-            "La peonía parece complicada cuando uno mira todos sus pétalos, aunque en realidad cada uno simplemente ocupa su lugar. Algunas cosas se entienden mejor de esa manera.",
-
-        secretoCarta:
-            "Tal vez por eso sobraban motivos.",
-
-        microMensaje:
-            "Tiene más capas de las que parece.",
+            "La peonía parece complicada cuando uno mira todos sus pétalos, aunque en realidad cada uno simplemente ocupa su lugar.",
 
         linkCancion:
             "https://youtu.be/6wgTJm5ns7A?si=3Es4iR3dYLfdKBXN",
@@ -2254,8 +751,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "camelia",
+        tipo: "camelia",
 
         titulo:
             "Camelia roja ❤️",
@@ -2266,12 +762,6 @@ const floresDelJardin = [
         carta:
             "No escogí la camelia porque necesitara destacar. La escogí precisamente porque lo hace sin intentarlo.",
 
-        secretoCarta:
-            "Supongo que el título de la canción tampoco quedó ahí por accidente.",
-
-        microMensaje:
-            "Entre todas, alguna termina destacando.",
-
         linkCancion:
             "https://www.youtube.com/watch?v=yhuop3GEf-4",
 
@@ -2281,8 +771,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "jazmin",
+        tipo: "jazmin",
 
         titulo:
             "Jazmín blanco 🤍",
@@ -2293,12 +782,6 @@ const floresDelJardin = [
         carta:
             "El jazmín tiene esa extraña capacidad de seguir presente incluso cuando uno ya no lo está mirando.",
 
-        secretoCarta:
-            "Algunas personas también consiguen quedarse un rato en la cabeza.",
-
-        microMensaje:
-            "Todavía queda un poco de su aroma.",
-
         linkCancion:
             "https://www.youtube.com/watch?v=PSjeJrDI4a4",
 
@@ -2308,8 +791,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "orquidea",
+        tipo: "orquidea",
 
         titulo:
             "Orquídea rosa 🌺",
@@ -2320,12 +802,6 @@ const floresDelJardin = [
         carta:
             "Esta orquídea ocupa un lugar un poco diferente. Desde antes de agregarla ya sabía que su canción tenía que funcionar como una dedicatoria especial.",
 
-        secretoCarta:
-            "Te dije que esta dedicatoria iba a ser diferente.",
-
-        microMensaje:
-            "Esta sabe exactamente por qué está aquí.",
-
         linkCancion:
             "https://www.youtube.com/watch?v=4O1CNtVG7s8",
 
@@ -2335,8 +811,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "lavanda",
+        tipo: "lavanda",
 
         titulo:
             "Lavanda violeta 💜",
@@ -2347,12 +822,6 @@ const floresDelJardin = [
         carta:
             "Hay recuerdos que funcionan como ciertos aromas: aparecen sin que uno los llame y de repente están ahí.",
 
-        secretoCarta:
-            "Tal vez hay cosas que uno todavía no ha dicho.",
-
-        microMensaje:
-            "Algo se quedó por aquí.",
-
         linkCancion:
             "https://www.youtube.com/watch?v=2vo_BzD9gu0",
 
@@ -2362,8 +831,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "anemona",
+        tipo: "anemona",
 
         titulo:
             "Anémona blanca 🤍",
@@ -2374,12 +842,6 @@ const floresDelJardin = [
         carta:
             "La anémona parece sencilla desde lejos, pero su centro cambia por completo cuando uno se acerca.",
 
-        secretoCarta:
-            "Supongo que el título ya decía suficiente.",
-
-        microMensaje:
-            "Quizá aquí había algo que confesar.",
-
         linkCancion:
             "https://www.youtube.com/watch?v=4Ja6WLrZlAE",
 
@@ -2389,8 +851,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "magnolia",
+        tipo: "magnolia",
 
         titulo:
             "Magnolia rosa 🌸",
@@ -2399,13 +860,7 @@ const floresDelJardin = [
             "Hay personas que desde el primer momento dejan algo difícil de explicar. A veces uno tarda en entender qué fue, pero no en notar que algo cambió.",
 
         carta:
-            "Elegí una magnolia porque hay algo especial en la forma en que abre sus pétalos: no necesita demasiados para hacerse notar.",
-
-        secretoCarta:
-            "Algunas primeras impresiones duran bastante más de lo esperado.",
-
-        microMensaje:
-            "Algunas cosas comienzan antes de que uno las entienda.",
+            "Elegí una magnolia porque hay algo especial en la forma en que abre sus pétalos.",
 
         linkCancion:
             "https://www.youtube.com/watch?v=PKZFG4BTQL4",
@@ -2416,8 +871,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "nomeolvides",
+        tipo: "nomeolvides",
 
         titulo:
             "No me olvides 💙",
@@ -2426,13 +880,7 @@ const floresDelJardin = [
             "Este es mi artista favorito y esta canción es un pedacito de mí para ti.",
 
         carta:
-            "Hay canciones que uno simplemente escucha y otras que se sienten un poco más propias. Esta viene de mi artista favorito, así que dejarla aquí se siente como compartir contigo una parte pequeña de algo que significa mucho para mí.",
-
-        secretoCarta:
-            "Compartir una canción favorita también puede ser una forma de compartir un poquito de uno mismo.",
-
-        microMensaje:
-            "Esta lleva algo un poco más personal.",
+            "Hay canciones que uno simplemente escucha y otras que se sienten un poco más propias. Esta viene de mi artista favorito.",
 
         linkCancion:
             "https://www.youtube.com/watch?v=J5RyC2nW0Oo",
@@ -2443,8 +891,7 @@ const floresDelJardin = [
 
 
     {
-        tipo:
-            "clavel",
+        tipo: "clavel",
 
         titulo:
             "Clavel rojo ❤️",
@@ -2453,13 +900,7 @@ const floresDelJardin = [
             "Hay canciones que dicen demasiado por uno. Esta vez preferí dejar que la música hablara y que esta flor simplemente la acompañara.",
 
         carta:
-            "Elegí un clavel porque tiene una forma distinta de llamar la atención. Sus pétalos parecen desordenados, pero juntos terminan teniendo sentido. La canción que lo acompaña tampoco necesita demasiada explicación.",
-
-        secretoCarta:
-            "Esta vez la canción probablemente diga más de lo que yo iba a escribir aquí.",
-
-        microMensaje:
-            "Esta flor llegó con algo bastante difícil de esconder.",
+            "Elegí un clavel porque tiene una forma distinta de llamar la atención.",
 
         busquedaCancion:
             "Te Amo y Más El Libro de la Vida",
@@ -2471,12 +912,10 @@ const floresDelJardin = [
 
     /* =================================================
        FLOR DE HOY
-       FLOR DE LOTO
     ================================================= */
 
     {
-        tipo:
-            "loto",
+        tipo: "loto",
 
         titulo:
             "Flor de loto 🪷",
@@ -2487,11 +926,8 @@ const floresDelJardin = [
         carta:
             "Si ya lo sospechabas, entonces sí: me clavé en ti incluso sin haberte besado. Este jardín fue mi manera de acercarme, de decirte lo que sentía poco a poco, escondiéndolo entre flores, canciones y detalles. Y aunque intenté disimularlo con indirectas, al final tuve que ser más claro en la nota del tulipán, solo para ver si así lograba que lo notaras.",
 
-        microMensaje:
-            "Esta flor tenía algo más que mostrar.",
-
-        linkCancion:
-            "https://www.youtube.com/watch?v=hj779IgqlfM",
+        busquedaCancion:
+            "Permíteme Los Parras",
 
         textoBoton:
             "♪ Permíteme",
@@ -2518,10 +954,7 @@ const florSecreta = {
         "Algunas flores tardan un poco más en aparecer. No porque no estuvieran ahí, sino porque necesitaban su momento.",
 
     carta:
-        "Esta flor estuvo escondida desde que comenzó el jardín. Solo hacía falta regresar suficientes veces para que tuviera sentido aparecer.",
-
-    secretoCarta:
-        "Si encontraste esta flor, ya sabes que todavía quedan cosas escondidas.",
+        "Esta flor estuvo escondida desde que comenzó el jardín.",
 
     microMensaje:
         "No siempre estuvo visible."
@@ -2529,14 +962,13 @@ const florSecreta = {
 
 
 /* =====================================================
-   CANCIONES SECRETAS
+   SECRETOS DE 3 TOQUES
 ===================================================== */
 
 const cancionesSecretas = [
 
     {
-        tipo:
-            "tulipan",
+        tipo: "tulipan",
 
         flor:
             "Tulipán morado 💜",
@@ -2550,17 +982,13 @@ const cancionesSecretas = [
         nota:
             "Aunque no te he besado, ya me clavé.",
 
-        postdata:
-            "Esta sí estaba escondida a propósito.",
-
         busqueda:
             "Te quiero tanto Kevin Kaarl"
     },
 
 
     {
-        tipo:
-            "lirio",
+        tipo: "lirio",
 
         flor:
             "Lirio blanco 🤍",
@@ -2574,17 +1002,13 @@ const cancionesSecretas = [
         nota:
             "Hay promesas que suenan mejor cuando todavía no necesitan explicarse.",
 
-        postdata:
-            "Tal vez esta canción explique un poquito más.",
-
         busqueda:
             "Te lo prometo HUMBE"
     },
 
 
     {
-        tipo:
-            "nube",
+        tipo: "nube",
 
         flor:
             "Flor de nube 🤍",
@@ -2598,17 +1022,13 @@ const cancionesSecretas = [
         nota:
             "Hay canciones que consiguen quedarse flotando bastante más de lo esperado.",
 
-        postdata:
-            "Algunas cosas se quedan aunque nadie se los pida.",
-
         busqueda:
             "Morfina HUMBE"
     },
 
 
     {
-        tipo:
-            "peonia",
+        tipo: "peonia",
 
         flor:
             "Peonía rosa 🌸",
@@ -2622,17 +1042,13 @@ const cancionesSecretas = [
         nota:
             "Por si algún día alguien pregunta si aquí había de sobra.",
 
-        postdata:
-            "Esta parte ya estaba poniéndose menos discreta.",
-
         busqueda:
             "Aquí hay para llevar La Arrolladora Banda El Limón"
     },
 
 
     {
-        tipo:
-            "camelia",
+        tipo: "camelia",
 
         flor:
             "Camelia roja ❤️",
@@ -2646,17 +1062,13 @@ const cancionesSecretas = [
         nota:
             "Hay números que no significan nada hasta que una canción decide convertirlos en otra cosa.",
 
-        postdata:
-            "Supongo que algunas canciones encuentran solas dónde quedarse.",
-
         busqueda:
             "309 NSQK"
     },
 
 
     {
-        tipo:
-            "jazmin",
+        tipo: "jazmin",
 
         flor:
             "Jazmín blanco 🤍",
@@ -2670,17 +1082,13 @@ const cancionesSecretas = [
         nota:
             "Esta mejor se queda en la parte secreta por razones bastante obvias.",
 
-        postdata:
-            "Sí... por eso hubo que tocar tres veces.",
-
         busqueda:
             "Enculado NSQK Yakun"
     },
 
 
     {
-        tipo:
-            "orquidea",
+        tipo: "orquidea",
 
         flor:
             "Orquídea rosa 🌺",
@@ -2694,17 +1102,13 @@ const cancionesSecretas = [
         nota:
             "Hay cosas que no se ven, pero de todas formas terminan moviéndolo todo.",
 
-        postdata:
-            "Quizá algunas presencias funcionan un poco así.",
-
         busqueda:
             "Viento Caifanes"
     },
 
 
     {
-        tipo:
-            "lavanda",
+        tipo: "lavanda",
 
         flor:
             "Lavanda violeta 💜",
@@ -2718,17 +1122,13 @@ const cancionesSecretas = [
         nota:
             "Era imposible hacer todo un jardín y no terminar escondiendo esta canción en algún lugar.",
 
-        postdata:
-            "Tenía que estar aquí.",
-
         busqueda:
             "Flores LATIN MAFIA"
     },
 
 
     {
-        tipo:
-            "anemona",
+        tipo: "anemona",
 
         flor:
             "Anémona blanca 🤍",
@@ -2742,17 +1142,13 @@ const cancionesSecretas = [
         nota:
             "Hay cosas que parecen comunes hasta que alguien termina dándoles otro significado.",
 
-        postdata:
-            "Algunas cosas cambian dependiendo de quién las mire.",
-
         busqueda:
             "Ropa de bazar Ed Maverick"
     },
 
 
     {
-        tipo:
-            "magnolia",
+        tipo: "magnolia",
 
         flor:
             "Magnolia rosa 🌸",
@@ -2766,17 +1162,13 @@ const cancionesSecretas = [
         nota:
             "Hay lugares a los que uno llega solamente por unos minutos y aun así quisiera quedarse.",
 
-        postdata:
-            "Esta canción sí ocupa un lugar especial.",
-
         busqueda:
             "Paraíso Lunar Siddhartha"
     },
 
 
     {
-        tipo:
-            "nomeolvides",
+        tipo: "nomeolvides",
 
         flor:
             "No me olvides 💙",
@@ -2790,17 +1182,13 @@ const cancionesSecretas = [
         nota:
             "Tal vez por eso esta canción terminó encontrando más de un lugar dentro del jardín.",
 
-        postdata:
-            "Hay canciones que simplemente merecen repetirse.",
-
         busqueda:
             "Paraíso Lunar Siddhartha"
     },
 
 
     {
-        tipo:
-            "clavel",
+        tipo: "clavel",
 
         flor:
             "Clavel rojo ❤️",
@@ -2813,9 +1201,6 @@ const cancionesSecretas = [
 
         nota:
             "A veces se puede notar que algo haría falta incluso antes de que realmente se vaya.",
-
-        postdata:
-            "Esta canción tampoco llegó aquí por accidente.",
 
         busqueda:
             "Me Hace Falta Siddhartha"
@@ -2834,6 +1219,108 @@ let secretoDesbloqueado =
     localStorage.getItem(
         CLAVES.secretoDesbloqueado
     ) === "si";
+
+
+/* =====================================================
+   LLUVIA DE PÉTALOS DEL LOTO
+===================================================== */
+
+function lluviaLoto() {
+
+    const anterior =
+        document.querySelector(
+            ".lluvia-petalos-loto"
+        );
+
+
+    if (anterior) {
+
+        anterior.remove();
+    }
+
+
+    const lluvia =
+        document.createElement(
+            "div"
+        );
+
+
+    lluvia.className =
+        "lluvia-petalos-loto";
+
+
+    for (let i = 0; i < 70; i++) {
+
+        const petalo =
+            document.createElement(
+                "span"
+            );
+
+
+        petalo.className =
+            "petalo-lluvia-loto";
+
+
+        petalo.style.left =
+            `${Math.random() * 100}%`;
+
+
+        petalo.style.setProperty(
+            "--loto-ancho",
+            `${8 + Math.random() * 12}px`
+        );
+
+
+        petalo.style.setProperty(
+            "--loto-duracion",
+            `${4.5 + Math.random() * 4}s`
+        );
+
+
+        petalo.style.setProperty(
+            "--loto-retraso",
+            `${Math.random() * 1.3}s`
+        );
+
+
+        petalo.style.setProperty(
+            "--desvio-1",
+            `${-50 + Math.random() * 100}px`
+        );
+
+
+        petalo.style.setProperty(
+            "--desvio-2",
+            `${-80 + Math.random() * 160}px`
+        );
+
+
+        petalo.style.setProperty(
+            "--desvio-3",
+            `${-110 + Math.random() * 220}px`
+        );
+
+
+        lluvia.appendChild(
+            petalo
+        );
+    }
+
+
+    document.body.appendChild(
+        lluvia
+    );
+
+
+    setTimeout(
+        () => {
+
+            lluvia.remove();
+
+        },
+        9500
+    );
+}
 
 
 /* =====================================================
@@ -2861,40 +1348,6 @@ function abrirCarta(
                     ${config.carta}
                 </p>
 
-
-                ${
-                    config.secretoCarta
-                        ?
-                        `
-                        <button
-                            class="marca-secreta"
-                            id="abrir-postdata"
-                            type="button"
-                            aria-label="Ver algo más"
-                        >
-                            •••
-                        </button>
-
-
-                        <div
-                            class="postdata-carta"
-                            id="postdata-carta"
-                        >
-
-                            <span>
-                                P.D.
-                            </span>
-
-                            <p>
-                                ${config.secretoCarta}
-                            </p>
-
-                        </div>
-                        `
-                        :
-                        ""
-                }
-
             </div>
 
         </div>
@@ -2908,35 +1361,11 @@ function abrirCarta(
     capaModal.classList.add(
         "mostrar"
     );
-
-
-    const boton =
-        document.getElementById(
-            "abrir-postdata"
-        );
-
-
-    if (boton) {
-
-        boton.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .getElementById(
-                        "postdata-carta"
-                    )
-                    .classList.toggle(
-                        "mostrar"
-                    );
-            }
-        );
-    }
 }
 
 
 /* =====================================================
-   CARTA ESPECIAL DEL LOTO
+   CARTA DEL LOTO
 ===================================================== */
 
 function abrirCartaLoto(
@@ -2978,21 +1407,12 @@ function abrirCartaLoto(
     `;
 
 
-    cerrarModalBoton.style.display =
-        "";
-
-
     capaModal.classList.add(
         "mostrar"
     );
 
 
-    /*
-       LA LLUVIA EMPIEZA JUSTO
-       CUANDO LA NOTA YA SE ABRIÓ.
-    */
-
-    iniciarLluviaPetalosLoto();
+    lluviaLoto();
 }
 
 
@@ -3006,8 +1426,9 @@ function abrirCancionSecreta(
 
     const secreto =
         cancionesSecretas.find(
-            item =>
-                item.tipo === tipo
+            elemento =>
+                elemento.tipo ===
+                tipo
         );
 
 
@@ -3032,24 +1453,19 @@ function abrirCancionSecreta(
             CLAVES.secretosVistos,
             secretosVistos
         );
-
-
-        crearRespaldoProgreso();
     }
 
 
-    revelarApartadoSecreto(
+    revelarSecreto(
         false
     );
 
 
-    actualizarPanelSecreto();
+    actualizarSecreto();
 
 
     contenidoModal.innerHTML = `
-        <div
-            class="carta-flor carta-secreta"
-        >
+        <div class="carta-flor">
 
             <p class="modal-etiqueta">
                 UNA PEQUEÑA CARTA
@@ -3065,7 +1481,6 @@ function abrirCancionSecreta(
                     ${secreto.nota}
                 </p>
 
-
                 <div class="cancion-escondida">
 
                     <span>
@@ -3080,209 +1495,655 @@ function abrirCancionSecreta(
                         ${secreto.artista}
                     </small>
 
-
                     <a
-                        href="${crearEnlaceYouTube(secreto.busqueda)}"
-                        target="_blank"
-                        rel="noopener noreferrer"
                         class="boton-cancion-secreta-modal"
+                        href="${enlaceYouTube(secreto.busqueda)}"
+                        target="_blank"
                     >
                         Escuchar canción
                     </a>
 
                 </div>
 
-
-                <button
-                    class="marca-secreta"
-                    id="abrir-postdata-secreta"
-                    type="button"
-                >
-                    •••
-                </button>
-
-
-                <div
-                    class="postdata-carta"
-                    id="postdata-carta-secreta"
-                >
-
-                    <span>
-                        P.D.
-                    </span>
-
-                    <p>
-                        ${secreto.postdata}
-                    </p>
-
-                </div>
-
             </div>
 
         </div>
     `;
 
 
-    cerrarModalBoton.style.display =
-        "";
-
-
     capaModal.classList.add(
         "mostrar"
     );
-
-
-    document
-        .getElementById(
-            "abrir-postdata-secreta"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                document
-                    .getElementById(
-                        "postdata-carta-secreta"
-                    )
-                    .classList.toggle(
-                        "mostrar"
-                    );
-            }
-        );
 }
 
 
 /* =====================================================
-   PLAYLIST SECRETA DEL GIRASOL
+   3 TOQUES
 ===================================================== */
 
-function abrirPlaylistSecretaGirasol(
-    enlace
+const secuenciasSecretas =
+    {};
+
+
+function toqueSecreto(
+    tipo
 ) {
 
-    secretoDesbloqueado =
-        true;
+    const existe =
+        cancionesSecretas.some(
+            item =>
+                item.tipo === tipo
+        );
 
 
-    localStorage.setItem(
-        CLAVES.secretoDesbloqueado,
-        "si"
+    if (!existe) {
+
+        return false;
+    }
+
+
+    if (
+        !secuenciasSecretas[tipo]
+    ) {
+
+        secuenciasSecretas[tipo] = {
+
+            cantidad:
+                0,
+
+            timer:
+                null
+        };
+    }
+
+
+    const estado =
+        secuenciasSecretas[tipo];
+
+
+    clearTimeout(
+        estado.timer
     );
 
 
-    crearRespaldoProgreso();
+    estado.cantidad++;
 
 
-    seccionSecreto.classList.add(
-        "desbloqueado"
-    );
+    if (
+        estado.cantidad >= 3
+    ) {
+
+        estado.cantidad =
+            0;
 
 
-    contenidoModal.innerHTML = `
-        <div
-            class="carta-flor carta-playlist-secreta"
-        >
-
-            <p class="modal-etiqueta">
-                UNA PEQUEÑA CARTA
-            </p>
-
-            <h2>
-                Girasol 🌻
-            </h2>
-
-            <div class="papel-carta">
-
-                <p>
-                    La primera flor también guardaba algo.
-                    Esta vez no era otra canción,
-                    sino un lugar donde quedaron reunidas
-                    algunas de las que han ido apareciendo
-                    por aquí.
-                </p>
+        return true;
+    }
 
 
-                <div
-                    class="cancion-escondida playlist-escondida"
-                >
-
-                    <span>
-                        PLAYLIST ESCONDIDA
-                    </span>
-
-                    <strong>
-                        Otra parte del jardín
-                    </strong>
-
-
-                    <a
-                        href="${enlace}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="boton-spotify-secreto"
-                    >
-                        Abrir en Spotify
-                    </a>
-
-                </div>
-
-
-                <button
-                    class="marca-secreta"
-                    id="abrir-postdata-playlist"
-                    type="button"
-                >
-                    •••
-                </button>
-
-
-                <div
-                    class="postdata-carta"
-                    id="postdata-playlist"
-                >
-
-                    <span>
-                        P.D.
-                    </span>
-
-                    <p>
-                        La primera flor tenía que esconder algo diferente.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-    `;
-
-
-    cerrarModalBoton.style.display =
-        "";
-
-
-    capaModal.classList.add(
-        "mostrar"
-    );
-
-
-    document
-        .getElementById(
-            "abrir-postdata-playlist"
-        )
-        .addEventListener(
-            "click",
+    estado.timer =
+        setTimeout(
             () => {
 
-                document
-                    .getElementById(
-                        "postdata-playlist"
-                    )
-                    .classList.toggle(
-                        "mostrar"
+                estado.cantidad =
+                    0;
+
+            },
+            1300
+        );
+
+
+    return false;
+}
+
+
+/* =====================================================
+   TARJETA DE FLOR
+===================================================== */
+
+function crearTarjetaFlor(
+    config,
+    esSecreta = false
+) {
+
+    const esLoto =
+        config.tipo === "loto";
+
+
+    const tarjeta =
+        document.createElement(
+            "article"
+        );
+
+
+    tarjeta.className =
+        `tarjeta-flor tarjeta-${config.tipo}`;
+
+
+    tarjeta.dataset.flor =
+        config.tipo;
+
+
+    if (esSecreta) {
+
+        tarjeta.classList.add(
+            "tarjeta-flor-secreta"
+        );
+    }
+
+
+    const titulo =
+        document.createElement(
+            "h2"
+        );
+
+
+    titulo.className =
+        "titulo-flor";
+
+
+    titulo.textContent =
+        config.titulo;
+
+
+    const envoltura =
+        document.createElement(
+            "div"
+        );
+
+
+    envoltura.className =
+        "envoltura-flor flor-interactiva";
+
+
+    envoltura.tabIndex =
+        0;
+
+
+    if (
+        Flores[config.tipo]
+    ) {
+
+        envoltura.appendChild(
+            Flores[config.tipo]()
+        );
+    }
+
+
+    const memoria =
+        document.createElement(
+            "p"
+        );
+
+
+    memoria.className =
+        "memoria-flor";
+
+
+    const pista =
+        document.createElement(
+            "p"
+        );
+
+
+    pista.className =
+        "pista-carta";
+
+
+    pista.textContent =
+        esLoto
+            ?
+            "Toca el loto"
+            :
+            "Toca la flor";
+
+
+    const nota =
+        document.createElement(
+            "div"
+        );
+
+
+    nota.className =
+        "nota-flor";
+
+
+    if (
+        !esLoto &&
+        config.mensaje
+    ) {
+
+        const texto =
+            document.createElement(
+                "p"
+            );
+
+
+        texto.textContent =
+            config.mensaje;
+
+
+        nota.appendChild(
+            texto
+        );
+    }
+
+
+    const enlace =
+        config.linkCancion ||
+        (
+            config.busquedaCancion
+                ?
+                enlaceYouTube(
+                    config.busquedaCancion
+                )
+                :
+                ""
+        );
+
+
+    if (enlace) {
+
+        if (
+            config.tipoAccion ===
+            "playlist-secreta"
+        ) {
+
+            const boton =
+                document.createElement(
+                    "button"
+                );
+
+
+            boton.type =
+                "button";
+
+
+            boton.className =
+                "boton-cancion boton-playlist-secreta";
+
+
+            boton.textContent =
+                config.textoBoton;
+
+
+            let clicks =
+                0;
+
+
+            let timer;
+
+
+            boton.addEventListener(
+                "click",
+                evento => {
+
+                    evento.stopPropagation();
+
+
+                    clearTimeout(
+                        timer
                     );
+
+
+                    clicks++;
+
+
+                    boton.classList.remove(
+                        "boton-pulsado"
+                    );
+
+
+                    void boton.offsetWidth;
+
+
+                    boton.classList.add(
+                        "boton-pulsado"
+                    );
+
+
+                    if (
+                        clicks === 3
+                    ) {
+
+                        clicks = 0;
+
+
+                        contenidoModal.innerHTML = `
+                            <div class="carta-flor">
+
+                                <p class="modal-etiqueta">
+                                    UNA PEQUEÑA CARTA
+                                </p>
+
+                                <h2>
+                                    Girasol 🌻
+                                </h2>
+
+                                <div class="papel-carta">
+
+                                    <p>
+                                        La primera flor también guardaba algo. Esta vez no era otra canción, sino una playlist que estaba escondida aquí desde el principio.
+                                    </p>
+
+                                    <div class="cancion-escondida">
+
+                                        <span>
+                                            PLAYLIST ESCONDIDA
+                                        </span>
+
+                                        <strong>
+                                            Otra parte del jardín
+                                        </strong>
+
+                                        <a
+                                            href="${enlace}"
+                                            target="_blank"
+                                            class="boton-spotify-secreto"
+                                        >
+                                            Abrir en Spotify
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        `;
+
+
+                        capaModal.classList.add(
+                            "mostrar"
+                        );
+
+
+                        revelarSecreto(
+                            false
+                        );
+
+
+                        return;
+                    }
+
+
+                    timer =
+                        setTimeout(
+                            () => {
+
+                                clicks = 0;
+
+                            },
+                            1500
+                        );
+                }
+            );
+
+
+            nota.appendChild(
+                boton
+            );
+
+        } else {
+
+            const boton =
+                document.createElement(
+                    "a"
+                );
+
+
+            boton.className =
+                "boton-cancion";
+
+
+            boton.href =
+                enlace;
+
+
+            boton.target =
+                "_blank";
+
+
+            boton.rel =
+                "noopener noreferrer";
+
+
+            boton.textContent =
+                config.textoBoton;
+
+
+            nota.appendChild(
+                boton
+            );
+        }
+    }
+
+
+    let botonFavorita =
+        null;
+
+
+    if (!esLoto) {
+
+        botonFavorita =
+            document.createElement(
+                "button"
+            );
+
+
+        botonFavorita.className =
+            "boton-favorita";
+
+
+        botonFavorita.type =
+            "button";
+
+
+        botonFavorita.addEventListener(
+            "click",
+            evento => {
+
+                evento.stopPropagation();
+
+
+                florFavorita =
+                    config.tipo;
+
+
+                localStorage.setItem(
+                    CLAVES.favorita,
+                    florFavorita
+                );
+
+
+                actualizarFavoritas();
+
+
+                mostrarToast(
+                    "Favorita guardada."
+                );
             }
         );
+    }
+
+
+    let timerCarta;
+
+
+    function reaccionar() {
+
+        visitasFlores[
+            config.tipo
+        ] =
+            (
+                visitasFlores[
+                    config.tipo
+                ] || 0
+            ) + 1;
+
+
+        guardarJSON(
+            CLAVES.visitasFlores,
+            visitasFlores
+        );
+
+
+        /* =========================================
+           LOTO
+        ========================================= */
+
+        if (esLoto) {
+
+            const loto =
+                envoltura.querySelector(
+                    ".loto"
+                );
+
+
+            if (!loto) {
+
+                return;
+            }
+
+
+            loto.classList.remove(
+                "abierta"
+            );
+
+
+            void loto.offsetWidth;
+
+
+            loto.classList.add(
+                "abierta"
+            );
+
+
+            setTimeout(
+                () => {
+
+                    abrirCartaLoto(
+                        config
+                    );
+
+                },
+                900
+            );
+
+
+            setTimeout(
+                () => {
+
+                    loto.classList.remove(
+                        "abierta"
+                    );
+
+                },
+                4500
+            );
+
+
+            return;
+        }
+
+
+        /* =========================================
+           FLORES NORMALES
+        ========================================= */
+
+        const secreto =
+            toqueSecreto(
+                config.tipo
+            );
+
+
+        clearTimeout(
+            timerCarta
+        );
+
+
+        if (secreto) {
+
+            abrirCancionSecreta(
+                config.tipo
+            );
+
+
+            return;
+        }
+
+
+        timerCarta =
+            setTimeout(
+                () => {
+
+                    abrirCarta(
+                        config
+                    );
+
+                },
+                720
+            );
+    }
+
+
+    envoltura.addEventListener(
+        "click",
+        reaccionar
+    );
+
+
+    envoltura.addEventListener(
+        "keydown",
+        evento => {
+
+            if (
+                evento.key ===
+                "Enter" ||
+                evento.key === " "
+            ) {
+
+                evento.preventDefault();
+
+                reaccionar();
+            }
+        }
+    );
+
+
+    tarjeta.appendChild(
+        titulo
+    );
+
+
+    tarjeta.appendChild(
+        envoltura
+    );
+
+
+    tarjeta.appendChild(
+        memoria
+    );
+
+
+    tarjeta.appendChild(
+        pista
+    );
+
+
+    tarjeta.appendChild(
+        nota
+    );
+
+
+    if (botonFavorita) {
+
+        tarjeta.appendChild(
+            botonFavorita
+        );
+    }
+
+
+    return tarjeta;
 }
 
 
@@ -3290,7 +2151,7 @@ function abrirPlaylistSecretaGirasol(
    INTRO
 ===================================================== */
 
-function crearIntroJardin() {
+function crearIntro() {
 
     const intro =
         document.createElement(
@@ -3302,7 +2163,7 @@ function crearIntroJardin() {
         "intro-jardin";
 
 
-    let mensajeVisita =
+    let texto =
         "No todo aparece durante la primera visita.";
 
 
@@ -3310,7 +2171,7 @@ function crearIntroJardin() {
         visitasJardin >= 3
     ) {
 
-        mensajeVisita =
+        texto =
             "Parece que este jardín ya reconoce esta visita.";
     }
 
@@ -3319,15 +2180,13 @@ function crearIntroJardin() {
         visitasJardin >= 7
     ) {
 
-        mensajeVisita =
+        texto =
             "A estas alturas, algunas flores ya saben que volverás.";
     }
 
 
     intro.innerHTML = `
-        <div
-            class="intro-destello"
-        ></div>
+        <div class="intro-destello"></div>
 
         <p class="intro-kicker">
             UN JARDÍN QUE CAMBIA POCO A POCO
@@ -3340,7 +2199,7 @@ function crearIntroJardin() {
 
         <p class="resumen-intro">
             Cada flor guarda una canción,
-            una pequeña nota y, de vez en cuando,
+            una nota y, de vez en cuando,
             algo que no aparece a simple vista.
         </p>
 
@@ -3365,7 +2224,7 @@ function crearIntroJardin() {
         </div>
 
         <p class="intro-frase">
-            ${mensajeVisita}
+            ${texto}
         </p>
     `;
 
@@ -3395,7 +2254,6 @@ function crearPanelSuperior() {
             ♫
         </div>
 
-
         <div class="panel-superior-texto">
 
             <p class="panel-etiqueta">
@@ -3413,21 +2271,18 @@ function crearPanelSuperior() {
 
         </div>
 
-
         <div class="acciones-superiores">
 
             <button
-                class="boton-playlist"
                 id="boton-playlist-principal"
-                type="button"
+                class="boton-playlist"
             >
                 Abrir playlist en Spotify
             </button>
 
             <button
-                class="boton-fondo"
                 id="boton-fondo"
-                type="button"
+                class="boton-fondo"
             >
                 Cambiar a fondo morado
             </button>
@@ -3458,16 +2313,13 @@ function crearPanelSuperior() {
                         <div class="papel-carta">
 
                             <p>
-                                Las canciones que acompañan
-                                este pequeño jardín están
-                                reunidas aquí.
+                                Todas las canciones que han ido apareciendo entre las flores están reunidas aquí.
                             </p>
 
                             <a
+                                class="boton-spotify-secreto"
                                 href="https://open.spotify.com/playlist/6XCeXM270zHmOE1vY9MeXA?si=wHKqXyp-SyKISRnlus0oMQ&utm_source=whatsapp&pi=wjAzlEK-QASgo"
                                 target="_blank"
-                                rel="noopener noreferrer"
-                                class="boton-spotify-secreto"
                             >
                                 Abrir en Spotify
                             </a>
@@ -3476,10 +2328,6 @@ function crearPanelSuperior() {
 
                     </div>
                 `;
-
-
-                cerrarModalBoton.style.display =
-                    "";
 
 
                 capaModal.classList.add(
@@ -3494,7 +2342,7 @@ function crearPanelSuperior() {
 
 
 /* =====================================================
-   PROGRESO
+   PANEL PROGRESO
 ===================================================== */
 
 const panelProgreso =
@@ -3507,7 +2355,7 @@ panelProgreso.className =
     "panel-progreso";
 
 
-function crearHTMLFrase() {
+function htmlFrase() {
 
     return coleccionables
         .map(
@@ -3525,15 +2373,19 @@ function crearHTMLFrase() {
                             fragmento-frase
                             ${
                                 encontrada
-                                    ? "descubierto"
-                                    : "oculto"
+                                    ?
+                                    "descubierto"
+                                    :
+                                    "oculto"
                             }
                         "
                     >
                         ${
                             encontrada
-                                ? item.fragmento
-                                : "•••"
+                                ?
+                                item.fragmento
+                                :
+                                "•••"
                         }
                     </span>
                 `;
@@ -3545,36 +2397,15 @@ function crearHTMLFrase() {
 
 function actualizarProgreso() {
 
-    const notas =
-        notasObtenidas.length;
-
-
-    const salidas =
+    const total =
+        notasObtenidas.length +
         despedidasObtenidas.length;
-
-
-    const secreta =
-        notas >= 10;
-
-
-    const numeroFlores =
-        floresDelJardin.length +
-        (
-            secreta
-                ? 1
-                : 0
-        );
 
 
     const porcentaje =
         Math.min(
             100,
-            (
-                notas +
-                salidas
-            ) /
-            40 *
-            100
+            total / 40 * 100
         );
 
 
@@ -3593,11 +2424,10 @@ function actualizarProgreso() {
 
             </div>
 
-
             <div class="contador-jardin">
 
                 <strong>
-                    ${notas + salidas}
+                    ${total}
                 </strong>
 
                 <span>
@@ -3608,54 +2438,43 @@ function actualizarProgreso() {
 
         </div>
 
-
         <div class="barra-progreso">
 
             <span
                 style="
-                    width:
-                    ${porcentaje}%
+                    width:${porcentaje}%
                 "
             ></span>
 
         </div>
 
-
         <div class="datos-progreso">
 
             <span>
-                ${
-                    secreta
-                        ? `${numeroFlores} flores`
-                        : `${numeroFlores}/? flores`
-                }
+                ${floresDelJardin.length} flores
             </span>
 
             <span>
-                ${notas}/20 notas
+                ${notasObtenidas.length}/20 notas
             </span>
 
             <span>
-                ${salidas}/20 despedidas
+                ${despedidasObtenidas.length}/20 despedidas
             </span>
 
         </div>
 
-
         <button
-            class="abrir-coleccion"
             id="abrir-coleccion"
-            type="button"
+            class="abrir-coleccion"
         >
             Ver coleccionables
         </button>
 
-
         <p
-            class="favorita-actual"
             id="favorita-actual"
+            class="favorita-actual"
         ></p>
-
 
         <div class="mensaje-en-construccion">
 
@@ -3664,7 +2483,7 @@ function actualizarProgreso() {
             </p>
 
             <div class="frase-fragmentos">
-                ${crearHTMLFrase()}
+                ${htmlFrase()}
             </div>
 
         </div>
@@ -3681,7 +2500,7 @@ function actualizarProgreso() {
         );
 
 
-    actualizarTextoFavorita();
+    actualizarFavoritas();
 }
 
 
@@ -3689,35 +2508,55 @@ function actualizarProgreso() {
    FAVORITA
 ===================================================== */
 
-function obtenerConfigFlor(
-    tipo
-) {
+function actualizarFavoritas() {
 
-    if (
-        tipo ===
-        florSecreta.tipo
-    ) {
+    document
+        .querySelectorAll(
+            ".tarjeta-flor"
+        )
+        .forEach(
+            tarjeta => {
 
-        return florSecreta;
-    }
-
-
-    return floresDelJardin.find(
-        flor =>
-            flor.tipo === tipo
-    );
-}
+                const boton =
+                    tarjeta.querySelector(
+                        ".boton-favorita"
+                    );
 
 
-function actualizarTextoFavorita() {
+                if (!boton) {
 
-    const elemento =
+                    return;
+                }
+
+
+                const activa =
+                    tarjeta.dataset.flor ===
+                    florFavorita;
+
+
+                tarjeta.classList.toggle(
+                    "es-favorita",
+                    activa
+                );
+
+
+                boton.textContent =
+                    activa
+                        ?
+                        "Tu favorita"
+                        :
+                        "Guardar como favorita";
+            }
+        );
+
+
+    const texto =
         document.getElementById(
             "favorita-actual"
         );
 
 
-    if (!elemento) {
+    if (!texto) {
 
         return;
     }
@@ -3725,27 +2564,27 @@ function actualizarTextoFavorita() {
 
     if (!florFavorita) {
 
-        elemento.textContent =
+        texto.textContent =
             "Aún no has elegido una flor favorita.";
 
         return;
     }
 
 
-    const config =
-        obtenerConfigFlor(
-            florFavorita
+    const flor =
+        floresDelJardin.find(
+            item =>
+                item.tipo ===
+                florFavorita
         );
 
 
-    if (!config) {
-
-        return;
-    }
-
-
-    elemento.textContent =
-        `Flor favorita: ${config.titulo}`;
+    texto.textContent =
+        flor
+            ?
+            `Flor favorita: ${flor.titulo}`
+            :
+            "Flor favorita guardada.";
 }
 
 
@@ -3766,13 +2605,11 @@ function abrirColeccion() {
                 Tu colección
             </h2>
 
-
             <div class="tabs-coleccion">
 
                 <button
                     class="tab-coleccion activo"
                     data-tab="notas"
-                    type="button"
                 >
                     Notas ${notasObtenidas.length}/20
                 </button>
@@ -3780,32 +2617,187 @@ function abrirColeccion() {
                 <button
                     class="tab-coleccion"
                     data-tab="despedidas"
-                    type="button"
                 >
                     Despedidas ${despedidasObtenidas.length}/20
                 </button>
 
             </div>
 
-
             <div
-                class="contenido-tab-coleccion"
                 id="tab-notas"
+                class="contenido-tab-coleccion"
             ></div>
 
-
             <div
-                class="contenido-tab-coleccion oculto"
                 id="tab-despedidas"
+                class="contenido-tab-coleccion oculto"
             ></div>
 
         </div>
     `;
 
 
-    renderNotasColeccion();
+    const notas =
+        document.getElementById(
+            "tab-notas"
+        );
 
-    renderDespedidasColeccion();
+
+    notas.innerHTML = `
+        <div class="frase-coleccion">
+
+            <p>
+                Lo que llevas descubierto:
+            </p>
+
+            <div class="frase-fragmentos">
+                ${htmlFrase()}
+            </div>
+
+        </div>
+
+        <div class="rejilla-coleccion">
+
+            ${
+                coleccionables.map(
+                    item => {
+
+                        const encontrada =
+                            notasObtenidas.includes(
+                                item.id
+                            );
+
+
+                        return `
+                            <article
+                                class="
+                                    coleccion-item
+                                    ${
+                                        encontrada
+                                            ?
+                                            "conseguido"
+                                            :
+                                            "bloqueado"
+                                    }
+                                "
+                            >
+
+                                <span class="numero-coleccion">
+                                    ${String(item.id).padStart(2,"0")}
+                                </span>
+
+                                <p class="estado-coleccion">
+                                    ${
+                                        encontrada
+                                            ?
+                                            "ENCONTRADA"
+                                            :
+                                            "BLOQUEADA"
+                                    }
+                                </p>
+
+                                <h4>
+                                    ${
+                                        encontrada
+                                            ?
+                                            item.titulo
+                                            :
+                                            "Nota desconocida"
+                                    }
+                                </h4>
+
+                                <p>
+                                    ${
+                                        encontrada
+                                            ?
+                                            item.nota
+                                            :
+                                            "Todavía no ha llegado su momento."
+                                    }
+                                </p>
+
+                            </article>
+                        `;
+                    }
+                ).join("")
+            }
+
+        </div>
+    `;
+
+
+    const desp =
+        document.getElementById(
+            "tab-despedidas"
+        );
+
+
+    desp.innerHTML = `
+        <div class="rejilla-coleccion">
+
+            ${
+                despedidas.map(
+                    (
+                        texto,
+                        indice
+                    ) => {
+
+                        const id =
+                            indice + 1;
+
+
+                        const encontrada =
+                            despedidasObtenidas.includes(
+                                id
+                            );
+
+
+                        return `
+                            <article
+                                class="
+                                    coleccion-item
+                                    ${
+                                        encontrada
+                                            ?
+                                            "conseguido"
+                                            :
+                                            "bloqueado"
+                                    }
+                                "
+                            >
+
+                                <span class="numero-coleccion">
+                                    ${String(id).padStart(2,"0")}
+                                </span>
+
+                                <p class="estado-coleccion">
+                                    ${
+                                        encontrada
+                                            ?
+                                            "GUARDADA"
+                                            :
+                                            "BLOQUEADA"
+                                    }
+                                </p>
+
+                                <p>
+                                    ${
+                                        encontrada
+                                            ?
+                                            texto
+                                            :
+                                            "Vuelve otro día."
+                                    }
+                                </p>
+
+                            </article>
+                        `;
+                    }
+                ).join("")
+            }
+
+        </div>
+    `;
 
 
     document
@@ -3824,12 +2816,10 @@ function abrirColeccion() {
                                 ".tab-coleccion"
                             )
                             .forEach(
-                                otro => {
-
+                                otro =>
                                     otro.classList.remove(
                                         "activo"
-                                    );
-                                }
+                                    )
                             );
 
 
@@ -3842,237 +2832,25 @@ function abrirColeccion() {
                             boton.dataset.tab;
 
 
-                        document
-                            .getElementById(
-                                "tab-notas"
-                            )
-                            .classList.toggle(
-                                "oculto",
-                                tab !== "notas"
-                            );
+                        notas.classList.toggle(
+                            "oculto",
+                            tab !== "notas"
+                        );
 
 
-                        document
-                            .getElementById(
-                                "tab-despedidas"
-                            )
-                            .classList.toggle(
-                                "oculto",
-                                tab !== "despedidas"
-                            );
+                        desp.classList.toggle(
+                            "oculto",
+                            tab !== "despedidas"
+                        );
                     }
                 );
             }
         );
 
 
-    cerrarModalBoton.style.display =
-        "";
-
-
     capaModal.classList.add(
         "mostrar"
     );
-}
-
-
-function renderNotasColeccion() {
-
-    const contenedor =
-        document.getElementById(
-            "tab-notas"
-        );
-
-
-    contenedor.innerHTML = `
-        <div class="frase-coleccion">
-
-            <p>
-                Lo que llevas descubierto:
-            </p>
-
-            <div class="frase-fragmentos">
-                ${crearHTMLFrase()}
-            </div>
-
-        </div>
-
-
-        <div class="rejilla-coleccion">
-
-            ${
-                coleccionables
-                    .map(
-                        item => {
-
-                            const encontrada =
-                                notasObtenidas.includes(
-                                    item.id
-                                );
-
-
-                            return `
-                                <article
-                                    class="
-                                        coleccion-item
-                                        ${
-                                            encontrada
-                                                ? "conseguido"
-                                                : "bloqueado"
-                                        }
-                                    "
-                                >
-
-                                    <span
-                                        class="numero-coleccion"
-                                    >
-                                        ${String(item.id).padStart(2, "0")}
-                                    </span>
-
-
-                                    ${
-                                        encontrada
-                                            ?
-                                            `
-                                            <p class="estado-coleccion">
-                                                ENCONTRADA
-                                            </p>
-
-                                            <h4>
-                                                ${item.titulo}
-                                            </h4>
-
-                                            <p>
-                                                ${item.nota}
-                                            </p>
-
-                                            <small>
-                                                “${item.fragmento}”
-                                            </small>
-                                            `
-                                            :
-                                            `
-                                            <p class="estado-coleccion">
-                                                BLOQUEADA
-                                            </p>
-
-                                            <h4>
-                                                Nota desconocida
-                                            </h4>
-
-                                            <p>
-                                                Todavía no ha llegado
-                                                su momento.
-                                            </p>
-                                            `
-                                    }
-
-                                </article>
-                            `;
-                        }
-                    )
-                    .join("")
-            }
-
-        </div>
-    `;
-}
-
-
-function renderDespedidasColeccion() {
-
-    const contenedor =
-        document.getElementById(
-            "tab-despedidas"
-        );
-
-
-    contenedor.innerHTML = `
-        <p class="descripcion-despedidas">
-            Solo aparece una despedida nueva por día.
-        </p>
-
-
-        <div class="rejilla-coleccion">
-
-            ${
-                despedidas
-                    .map(
-                        (
-                            texto,
-                            indice
-                        ) => {
-
-                            const id =
-                                indice + 1;
-
-
-                            const encontrada =
-                                despedidasObtenidas.includes(
-                                    id
-                                );
-
-
-                            return `
-                                <article
-                                    class="
-                                        coleccion-item
-                                        ${
-                                            encontrada
-                                                ? "conseguido"
-                                                : "bloqueado"
-                                        }
-                                    "
-                                >
-
-                                    <span
-                                        class="numero-coleccion"
-                                    >
-                                        ${String(id).padStart(2, "0")}
-                                    </span>
-
-
-                                    ${
-                                        encontrada
-                                            ?
-                                            `
-                                            <p class="estado-coleccion">
-                                                GUARDADA
-                                            </p>
-
-                                            <h4>
-                                                Despedida ${String(id).padStart(2, "0")}
-                                            </h4>
-
-                                            <p>
-                                                ${texto}
-                                            </p>
-                                            `
-                                            :
-                                            `
-                                            <p class="estado-coleccion">
-                                                BLOQUEADA
-                                            </p>
-
-                                            <h4>
-                                                Despedida desconocida
-                                            </h4>
-
-                                            <p>
-                                                Vuelve otro día.
-                                            </p>
-                                            `
-                                    }
-
-                                </article>
-                            `;
-                        }
-                    )
-                    .join("")
-            }
-
-        </div>
-    `;
 }
 
 
@@ -4083,10 +2861,8 @@ function renderDespedidasColeccion() {
 function revisarHoraColeccionable() {
 
     if (
-        notasObtenidas.length >=
-        coleccionables.length
+        notasObtenidas.length >= 20
     ) {
-
         return;
     }
 
@@ -4095,14 +2871,9 @@ function revisarHoraColeccionable() {
         new Date();
 
 
-    const hora =
-        ahora.getHours();
-
-
     if (
-        hora % 2 !== 0
+        ahora.getHours() % 2 !== 0
     ) {
-
         return;
     }
 
@@ -4118,7 +2889,6 @@ function revisarHoraColeccionable() {
             clave
         )
     ) {
-
         return;
     }
 
@@ -4151,102 +2921,832 @@ function revisarHoraColeccionable() {
     );
 
 
-    crearRespaldoProgreso();
-
-
     actualizarProgreso();
 
 
-    comprobarFlorSecreta();
-
-
-    mostrarColeccionable(
-        siguiente,
-        ahora
-    );
-}
-
-
-function mostrarColeccionable(
-    item,
-    fecha
-) {
-
-    const hora =
-        `${String(
-            fecha.getHours()
-        ).padStart(
-            2,
-            "0"
-        )}:00`;
+    comprobarDalia();
 
 
     contenidoModal.innerHTML = `
         <div class="nuevo-coleccionable">
-
-            <div class="reloj-coleccionable">
-                ${hora}
-            </div>
 
             <p class="modal-etiqueta">
                 APARECIÓ ALGO NUEVO
             </p>
 
             <h2>
-                ${item.titulo}
+                ${siguiente.titulo}
             </h2>
 
             <div class="nota-encontrada">
 
                 <p>
-                    ${item.nota}
+                    ${siguiente.nota}
                 </p>
 
-                <span>
-                    NUEVO FRAGMENTO
-                </span>
-
                 <strong>
-                    ${item.fragmento}
+                    ${siguiente.fragmento}
                 </strong>
 
             </div>
-
-            <button
-                class="boton-modal-principal"
-                id="cerrar-coleccionable"
-                type="button"
-            >
-                Guardar y continuar
-            </button>
 
         </div>
     `;
 
 
-    cerrarModalBoton.style.display =
-        "none";
-
-
     capaModal.classList.add(
         "mostrar"
     );
+}
 
 
-    document
-        .getElementById(
-            "cerrar-coleccionable"
+/* =====================================================
+   ESTRUCTURA
+===================================================== */
+
+const intro =
+    crearIntro();
+
+
+const panelSuperior =
+    crearPanelSuperior();
+
+
+jardin.insertBefore(
+    intro,
+    contenedorFlores
+);
+
+
+jardin.insertBefore(
+    panelSuperior,
+    contenedorFlores
+);
+
+
+jardin.insertBefore(
+    panelProgreso,
+    contenedorFlores
+);
+
+
+/* =====================================================
+   MOSTRAR FLORES
+===================================================== */
+
+floresDelJardin.forEach(
+    flor => {
+
+        contenedorFlores.appendChild(
+            crearTarjetaFlor(
+                flor
+            )
+        );
+    }
+);
+
+
+/* =====================================================
+   DALIA
+===================================================== */
+
+function comprobarDalia() {
+
+    if (
+        notasObtenidas.length < 10
+    ) {
+
+        return;
+    }
+
+
+    if (
+        document.querySelector(
+            '[data-flor="dalia"]'
         )
-        .addEventListener(
-            "click",
+    ) {
+
+        return;
+    }
+
+
+    const tarjeta =
+        crearTarjetaFlor(
+            florSecreta,
+            true
+        );
+
+
+    contenedorFlores.appendChild(
+        tarjeta
+    );
+
+
+    requestAnimationFrame(
+        () => {
+
+            tarjeta.classList.add(
+                "revelada"
+            );
+        }
+    );
+}
+
+
+/* =====================================================
+   FONDO
+===================================================== */
+
+const botonFondo =
+    document.getElementById(
+        "boton-fondo"
+    );
+
+
+let timerNoche;
+
+
+let larga =
+    false;
+
+
+botonFondo.addEventListener(
+    "pointerdown",
+    () => {
+
+        timerNoche =
+            setTimeout(
+                () => {
+
+                    larga = true;
+
+
+                    document.body.classList.toggle(
+                        "modo-noche"
+                    );
+
+
+                    setTimeout(
+                        () => {
+
+                            larga = false;
+
+                        },
+                        500
+                    );
+
+                },
+                2800
+            );
+    }
+);
+
+
+[
+    "pointerup",
+    "pointerleave",
+    "pointercancel"
+].forEach(
+    evento => {
+
+        botonFondo.addEventListener(
+            evento,
             () => {
 
-                cerrarModal();
-
-                cerrarModalBoton.style.display =
-                    "";
+                clearTimeout(
+                    timerNoche
+                );
             }
         );
+    }
+);
+
+
+botonFondo.addEventListener(
+    "click",
+    () => {
+
+        if (larga) {
+
+            return;
+        }
+
+
+        if (
+            document.body.classList.contains(
+                "modo-noche"
+            )
+        ) {
+
+            document.body.classList.remove(
+                "modo-noche"
+            );
+
+            return;
+        }
+
+
+        document.body.classList.toggle(
+            "tema-morado"
+        );
+
+
+        botonFondo.textContent =
+            document.body.classList.contains(
+                "tema-morado"
+            )
+                ?
+                "Cambiar a fondo amarillo"
+                :
+                "Cambiar a fondo morado";
+    }
+);
+
+
+/* =====================================================
+   LLUVIA DESPUÉS DE 2 MIN
+===================================================== */
+
+function lluviaEspecial() {
+
+    const lluvia =
+        document.createElement(
+            "div"
+        );
+
+
+    lluvia.className =
+        "lluvia-especial";
+
+
+    for (let i = 0; i < 48; i++) {
+
+        const petalo =
+            document.createElement(
+                "span"
+            );
+
+
+        petalo.className =
+            "particula-lluvia";
+
+
+        petalo.style.left =
+            `${Math.random() * 100}%`;
+
+
+        petalo.style.setProperty(
+            "--retraso",
+            `${Math.random() * -8}s`
+        );
+
+
+        petalo.style.setProperty(
+            "--duracion",
+            `${5 + Math.random() * 5}s`
+        );
+
+
+        petalo.style.setProperty(
+            "--tamano",
+            `${6 + Math.random() * 8}px`
+        );
+
+
+        lluvia.appendChild(
+            petalo
+        );
+    }
+
+
+    document.body.appendChild(
+        lluvia
+    );
+
+
+    setTimeout(
+        () => {
+
+            lluvia.remove();
+
+        },
+        14500
+    );
+}
+
+
+setTimeout(
+    lluviaEspecial,
+    120000
+);
+
+
+/* =====================================================
+   MARIPOSAS
+===================================================== */
+
+const coloresMariposas = [
+
+    "mariposa-rosa",
+
+    "mariposa-azul",
+
+    "mariposa-morada",
+
+    "mariposa-naranja",
+
+    "mariposa-verde",
+
+    "mariposa-roja",
+
+    "mariposa-blanca",
+
+    "mariposa-turquesa"
+];
+
+
+function explosionPetalos(
+    x,
+    y,
+    color1,
+    color2
+) {
+
+    const explosion =
+        document.createElement(
+            "div"
+        );
+
+
+    explosion.className =
+        "explosion-petalos";
+
+
+    explosion.style.left =
+        `${x}px`;
+
+
+    explosion.style.top =
+        `${y}px`;
+
+
+    explosion.style.setProperty(
+        "--petalo-golpe-1",
+        color1
+    );
+
+
+    explosion.style.setProperty(
+        "--petalo-golpe-2",
+        color2
+    );
+
+
+    for (let i = 0; i < 22; i++) {
+
+        const petalo =
+            document.createElement(
+                "span"
+            );
+
+
+        const angulo =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const distancia =
+            45 +
+            Math.random() *
+            90;
+
+
+        petalo.className =
+            "petalo-explosion";
+
+
+        petalo.style.setProperty(
+            "--petalo-x",
+            `${Math.cos(angulo) * distancia}px`
+        );
+
+
+        petalo.style.setProperty(
+            "--petalo-y",
+            `${Math.sin(angulo) * distancia}px`
+        );
+
+
+        petalo.style.setProperty(
+            "--petalo-rotacion",
+            `${Math.random() * 600 - 300}deg`
+        );
+
+
+        petalo.style.setProperty(
+            "--petalo-retraso",
+            `${Math.random() * .12}s`
+        );
+
+
+        petalo.style.setProperty(
+            "--petalo-tamano",
+            `${6 + Math.random() * 8}px`
+        );
+
+
+        explosion.appendChild(
+            petalo
+        );
+    }
+
+
+    document.body.appendChild(
+        explosion
+    );
+
+
+    setTimeout(
+        () => {
+
+            explosion.remove();
+
+        },
+        1500
+    );
+}
+
+
+function crearMariposa() {
+
+    if (
+        document.querySelectorAll(
+            ".mariposa-jardin"
+        ).length >= 4
+    ) {
+
+        return;
+    }
+
+
+    const mariposa =
+        document.createElement(
+            "button"
+        );
+
+
+    mariposa.className =
+        "mariposa-jardin";
+
+
+    mariposa.classList.add(
+        coloresMariposas[
+            Math.floor(
+                Math.random() *
+                coloresMariposas.length
+            )
+        ]
+    );
+
+
+    if (
+        Math.random() < .4
+    ) {
+
+        mariposa.classList.add(
+            "mariposa-inversa"
+        );
+    }
+
+
+    mariposa.innerHTML = `
+        <span
+            class="ala ala-izquierda"
+        ></span>
+
+        <span
+            class="cuerpo-mariposa"
+        ></span>
+
+        <span
+            class="ala ala-derecha"
+        ></span>
+    `;
+
+
+    mariposa.style.top =
+        `${10 + Math.random() * 72}%`;
+
+
+    mariposa.style.animationDuration =
+        `${9 + Math.random() * 6}s`;
+
+
+    mariposa.addEventListener(
+        "click",
+        evento => {
+
+            const estilo =
+                getComputedStyle(
+                    mariposa
+                );
+
+
+            explosionPetalos(
+
+                evento.clientX,
+
+                evento.clientY,
+
+                estilo.getPropertyValue(
+                    "--mariposa-color-1"
+                ),
+
+                estilo.getPropertyValue(
+                    "--mariposa-color-2"
+                )
+            );
+
+
+            mariposa.classList.add(
+                "mariposa-atrapada"
+            );
+
+
+            setTimeout(
+                () => {
+
+                    mariposa.remove();
+
+                },
+                500
+            );
+        }
+    );
+
+
+    document.body.appendChild(
+        mariposa
+    );
+
+
+    setTimeout(
+        () => {
+
+            mariposa.remove();
+
+        },
+        17000
+    );
+}
+
+
+function programarMariposa() {
+
+    setTimeout(
+        () => {
+
+            crearMariposa();
+
+
+            if (
+                Math.random() < .65
+            ) {
+
+                setTimeout(
+                    crearMariposa,
+                    1200
+                );
+            }
+
+
+            programarMariposa();
+
+        },
+        8000 +
+        Math.random() *
+        8000
+    );
+}
+
+
+setTimeout(
+    () => {
+
+        crearMariposa();
+
+        programarMariposa();
+
+    },
+    4000
+);
+
+
+/* =====================================================
+   SECCIÓN SECRETO
+===================================================== */
+
+const seccionSecreto =
+    document.createElement(
+        "section"
+    );
+
+
+seccionSecreto.className =
+    "seccion-secreto";
+
+
+seccionSecreto.innerHTML = `
+    <div class="encabezado-secreto">
+
+        <p class="secreto-etiqueta">
+            ENCONTRASTE ALGO MÁS
+        </p>
+
+        <h2>
+            Secreto
+        </h2>
+
+        <p>
+            Hay cosas escondidas entre las flores.
+            Algunas solo aparecen cuando insistes
+            un poquito más de lo normal.
+        </p>
+
+    </div>
+
+    <div class="kuromi-area">
+
+        <div class="kuromi-css">
+
+            <div
+                class="kuromi-oreja kuromi-oreja-izq"
+            ></div>
+
+            <div
+                class="kuromi-oreja kuromi-oreja-der"
+            ></div>
+
+            <div class="kuromi-capucha">
+
+                <div class="kuromi-calavera">
+                    ☠
+                </div>
+
+                <div class="kuromi-cara">
+
+                    <span
+                        class="kuromi-ojo kuromi-ojo-izq"
+                    ></span>
+
+                    <span
+                        class="kuromi-ojo kuromi-ojo-der"
+                    ></span>
+
+                    <span
+                        class="kuromi-nariz"
+                    ></span>
+
+                    <span
+                        class="kuromi-boca"
+                    ></span>
+
+                </div>
+
+            </div>
+
+            <div
+                class="kuromi-cuerpo"
+            ></div>
+
+            <div
+                class="kuromi-cola"
+            ></div>
+
+        </div>
+
+        <p class="kuromi-texto">
+            Parece que ella estaba cuidando esta parte.
+        </p>
+
+    </div>
+
+    <div class="secreto-control">
+
+        <p class="contador-secretos">
+
+            <span
+                id="secretos-encontrados"
+            >
+                0
+            </span>
+
+            /
+
+            <span>
+                ${cancionesSecretas.length}
+            </span>
+
+            secretos encontrados
+
+        </p>
+
+        <div class="barra-secretos">
+
+            <span
+                id="barra-secretos-progreso"
+            ></span>
+
+        </div>
+
+        <p class="pista-secretos">
+            Aquí no aparecen las canciones.
+            Hay que encontrarlas tocando las flores.
+        </p>
+
+    </div>
+`;
+
+
+jardin.appendChild(
+    seccionSecreto
+);
+
+
+function revelarSecreto(
+    aviso = true
+) {
+
+    secretoDesbloqueado =
+        true;
+
+
+    localStorage.setItem(
+        CLAVES.secretoDesbloqueado,
+        "si"
+    );
+
+
+    seccionSecreto.classList.add(
+        "desbloqueado"
+    );
+
+
+    actualizarSecreto();
+
+
+    if (aviso) {
+
+        mostrarToast(
+            "Se desbloqueó el apartado Secreto."
+        );
+    }
+}
+
+
+function actualizarSecreto() {
+
+    const texto =
+        document.getElementById(
+            "secretos-encontrados"
+        );
+
+
+    const barra =
+        document.getElementById(
+            "barra-secretos-progreso"
+        );
+
+
+    if (!texto || !barra) {
+
+        return;
+    }
+
+
+    texto.textContent =
+        secretosVistos.length;
+
+
+    barra.style.width =
+        `${Math.min(
+            100,
+            secretosVistos.length /
+            cancionesSecretas.length *
+            100
+        )}%`;
+}
+
+
+if (
+    secretoDesbloqueado ||
+    secretosVistos.length
+) {
+
+    revelarSecreto(
+        false
+    );
 }
 
 
@@ -4276,7 +3776,7 @@ let dias1111 =
     );
 
 
-function revisarNota1111() {
+function revisar1111() {
 
     const ahora =
         new Date();
@@ -4318,19 +3818,9 @@ function revisarNota1111() {
     );
 
 
-    crearRespaldoProgreso();
-
-
-    mostrarNota1111();
-}
-
-
-function mostrarNota1111() {
-
     nota1111.innerHTML = `
         <button
             class="cerrar-nota-1111"
-            type="button"
         >
             ×
         </button>
@@ -4339,10 +3829,6 @@ function mostrarNota1111() {
             11:11
         </div>
 
-        <p class="etiqueta-1111">
-            UNA NOTA QUE SOLO APARECE A ESTA HORA
-        </p>
-
         <h3>
             Pide un deseo
         </h3>
@@ -4350,15 +3836,14 @@ function mostrarNota1111() {
         <p>
             Hay momentos que duran apenas un minuto,
             pero consiguen sentirse especiales.
-            Si encontraste esta nota, esta canción
-            estaba esperando justo esta hora.
         </p>
 
         <a
             class="boton-1111"
-            href="https://www.youtube.com/watch?v=qqZGQPukZ-0"
+            href="${enlaceYouTube(
+                "Catorce Sebastián Romero"
+            )}"
             target="_blank"
-            rel="noopener noreferrer"
         >
             Catorce — Sebastián Romero
         </a>
@@ -4387,2007 +3872,7 @@ function mostrarNota1111() {
 
 
 /* =====================================================
-   3 TOQUES DE LOS SECRETOS
-===================================================== */
-
-const secuenciasSecretas =
-    {};
-
-
-function registrarToqueSecreto(
-    tipo
-) {
-
-    if (
-        !cancionesSecretas.some(
-            secreto =>
-                secreto.tipo === tipo
-        )
-    ) {
-
-        return false;
-    }
-
-
-    if (
-        !secuenciasSecretas[
-            tipo
-        ]
-    ) {
-
-        secuenciasSecretas[
-            tipo
-        ] = {
-
-            cantidad:
-                0,
-
-            temporizador:
-                null
-        };
-    }
-
-
-    const estado =
-        secuenciasSecretas[
-            tipo
-        ];
-
-
-    clearTimeout(
-        estado.temporizador
-    );
-
-
-    estado.cantidad++;
-
-
-    if (
-        estado.cantidad >= 3
-    ) {
-
-        estado.cantidad =
-            0;
-
-
-        return true;
-    }
-
-
-    estado.temporizador =
-        setTimeout(
-            () => {
-
-                estado.cantidad =
-                    0;
-
-            },
-            1300
-        );
-
-
-    return false;
-}
-
-
-/* =====================================================
-   TARJETA DE FLOR
-===================================================== */
-
-function crearTarjetaFlor(
-    config,
-    esSecreta = false
-) {
-
-    const esLoto =
-        config.tipo ===
-        "loto";
-
-
-    const tarjeta =
-        document.createElement(
-            "article"
-        );
-
-
-    tarjeta.className =
-        `tarjeta-flor tarjeta-${config.tipo}`;
-
-
-    tarjeta.dataset.flor =
-        config.tipo;
-
-
-    if (
-        esSecreta
-    ) {
-
-        tarjeta.classList.add(
-            "tarjeta-flor-secreta"
-        );
-    }
-
-
-    const titulo =
-        document.createElement(
-            "h2"
-        );
-
-
-    titulo.className =
-        "titulo-flor";
-
-
-    titulo.textContent =
-        config.titulo;
-
-
-    const envoltura =
-        document.createElement(
-            "div"
-        );
-
-
-    envoltura.className =
-        "envoltura-flor flor-interactiva";
-
-
-    envoltura.tabIndex =
-        0;
-
-
-    envoltura.setAttribute(
-        "role",
-        "button"
-    );
-
-
-    if (
-        Flores[
-            config.tipo
-        ]
-    ) {
-
-        envoltura.appendChild(
-            Flores[
-                config.tipo
-            ]()
-        );
-    }
-
-
-    const memoria =
-        document.createElement(
-            "p"
-        );
-
-
-    memoria.className =
-        "memoria-flor";
-
-
-    const pista =
-        document.createElement(
-            "p"
-        );
-
-
-    pista.className =
-        "pista-carta";
-
-
-    pista.textContent =
-        esLoto
-            ? "Toca el loto"
-            : "Toca la flor";
-
-
-    const nota =
-        document.createElement(
-            "div"
-        );
-
-
-    nota.className =
-        "nota-flor";
-
-
-    /*
-       EN EL LOTO NO MOSTRAMOS
-       LA NOTA DEBAJO.
-    */
-
-    if (
-        !esLoto &&
-        config.mensaje
-    ) {
-
-        const texto =
-            document.createElement(
-                "p"
-            );
-
-
-        texto.textContent =
-            config.mensaje;
-
-
-        nota.appendChild(
-            texto
-        );
-    }
-
-
-    const enlaceCancion =
-        config.linkCancion ||
-        (
-            config.busquedaCancion
-                ?
-                crearEnlaceYouTube(
-                    config.busquedaCancion
-                )
-                :
-                ""
-        );
-
-
-    if (
-        enlaceCancion
-    ) {
-
-        /*
-           GIRASOL:
-           3 TOQUES PARA SU PLAYLIST.
-        */
-
-        if (
-            config.tipoAccion ===
-            "playlist-secreta"
-        ) {
-
-            const botonPlaylist =
-                document.createElement(
-                    "button"
-                );
-
-
-            botonPlaylist.type =
-                "button";
-
-
-            botonPlaylist.className =
-                `boton-cancion ${
-                    config.claseBoton || ""
-                }`.trim();
-
-
-            botonPlaylist.textContent =
-                config.textoBoton;
-
-
-            let toquesPlaylist =
-                0;
-
-
-            let temporizadorPlaylist;
-
-
-            botonPlaylist.addEventListener(
-                "click",
-                evento => {
-
-                    evento.stopPropagation();
-
-
-                    clearTimeout(
-                        temporizadorPlaylist
-                    );
-
-
-                    toquesPlaylist++;
-
-
-                    botonPlaylist.classList.remove(
-                        "boton-pulsado"
-                    );
-
-
-                    void botonPlaylist.offsetWidth;
-
-
-                    botonPlaylist.classList.add(
-                        "boton-pulsado"
-                    );
-
-
-                    if (
-                        toquesPlaylist >= 3
-                    ) {
-
-                        toquesPlaylist =
-                            0;
-
-
-                        abrirPlaylistSecretaGirasol(
-                            enlaceCancion
-                        );
-
-
-                        return;
-                    }
-
-
-                    temporizadorPlaylist =
-                        setTimeout(
-                            () => {
-
-                                toquesPlaylist =
-                                    0;
-
-                            },
-                            1500
-                        );
-                }
-            );
-
-
-            nota.appendChild(
-                botonPlaylist
-            );
-
-        } else {
-
-            const botonCancion =
-                document.createElement(
-                    "a"
-                );
-
-
-            botonCancion.className =
-                `boton-cancion ${
-                    config.claseBoton || ""
-                }`.trim();
-
-
-            botonCancion.href =
-                enlaceCancion;
-
-
-            botonCancion.target =
-                "_blank";
-
-
-            botonCancion.rel =
-                "noopener noreferrer";
-
-
-            botonCancion.textContent =
-                config.textoBoton;
-
-
-            nota.appendChild(
-                botonCancion
-            );
-        }
-    }
-
-
-    /* =========================================
-       FAVORITA
-
-       EL LOTO NO LLEVA ESTE BOTÓN.
-    ========================================= */
-
-    let botonFavorita =
-        null;
-
-
-    if (!esLoto) {
-
-        botonFavorita =
-            document.createElement(
-                "button"
-            );
-
-
-        botonFavorita.className =
-            "boton-favorita";
-
-
-        botonFavorita.type =
-            "button";
-
-
-        botonFavorita.addEventListener(
-            "click",
-            evento => {
-
-                evento.stopPropagation();
-
-
-                florFavorita =
-                    config.tipo;
-
-
-                localStorage.setItem(
-                    CLAVES.favorita,
-                    florFavorita
-                );
-
-
-                crearRespaldoProgreso();
-
-
-                actualizarFavoritaUI();
-
-
-                mostrarToast(
-                    "Favorita guardada."
-                );
-            }
-        );
-    }
-
-
-    function registrarVisitaFlor() {
-
-        visitasFlores[
-            config.tipo
-        ] =
-            (
-                visitasFlores[
-                    config.tipo
-                ] || 0
-            ) + 1;
-
-
-        guardarJSON(
-            CLAVES.visitasFlores,
-            visitasFlores
-        );
-
-
-        crearRespaldoProgreso();
-
-
-        actualizarMemoriaTarjeta(
-            tarjeta
-        );
-    }
-
-
-    let ignorarClick =
-        false;
-
-
-    let temporizadorSecretoLargo;
-
-
-    let temporizadorCartaNormal;
-
-
-    envoltura.addEventListener(
-        "pointerdown",
-        () => {
-
-            ignorarClick =
-                false;
-
-
-            /*
-               EL LOTO NO NECESITA
-               PULSACIÓN LARGA.
-            */
-
-            if (esLoto) {
-
-                return;
-            }
-
-
-            temporizadorSecretoLargo =
-                setTimeout(
-                    () => {
-
-                        ignorarClick =
-                            true;
-
-
-                        mostrarToast(
-                            config.microMensaje
-                        );
-
-
-                        envoltura.classList.add(
-                            "secreto-activo"
-                        );
-
-
-                        setTimeout(
-                            () => {
-
-                                envoltura.classList.remove(
-                                    "secreto-activo"
-                                );
-
-                            },
-                            800
-                        );
-
-                    },
-                    1300
-                );
-        }
-    );
-
-
-    [
-        "pointerup",
-        "pointerleave",
-        "pointercancel"
-    ].forEach(
-        evento => {
-
-            envoltura.addEventListener(
-                evento,
-                () => {
-
-                    clearTimeout(
-                        temporizadorSecretoLargo
-                    );
-                }
-            );
-        }
-    );
-
-
-    function reaccionar() {
-
-        if (
-            ignorarClick
-        ) {
-
-            ignorarClick =
-                false;
-
-            return;
-        }
-
-
-        registrarVisitaFlor();
-
-
-        /* =========================================
-           COMPORTAMIENTO ESPECIAL DEL LOTO
-        ========================================= */
-
-        if (esLoto) {
-
-            const loto =
-                envoltura.querySelector(
-                    ".loto"
-                );
-
-
-            if (loto) {
-
-                /*
-                   REINICIAMOS LA ANIMACIÓN
-                   PARA QUE SE ABRA CADA VEZ.
-                */
-
-                loto.classList.remove(
-                    "abierta"
-                );
-
-
-                void loto.offsetWidth;
-
-
-                loto.classList.add(
-                    "abierta"
-                );
-
-
-                /*
-                   DESPUÉS DE UN MOMENTO
-                   APARECE LA CARTA Y LA LLUVIA.
-                */
-
-                setTimeout(
-                    () => {
-
-                        abrirCartaLoto(
-                            config
-                        );
-
-                    },
-                    780
-                );
-
-
-                /*
-                   DESPUÉS DE CERRARSE LA CARTA
-                   EL LOTO PUEDE VOLVERSE A ABRIR
-                   EN EL SIGUIENTE TOQUE.
-                */
-
-                setTimeout(
-                    () => {
-
-                        loto.classList.remove(
-                            "abierta"
-                        );
-
-                    },
-                    4200
-                );
-            }
-
-
-            return;
-        }
-
-
-        /* =========================================
-           RESTO DE LAS FLORES
-        ========================================= */
-
-        const activarSecreto =
-            registrarToqueSecreto(
-                config.tipo
-            );
-
-
-        clearTimeout(
-            temporizadorCartaNormal
-        );
-
-
-        envoltura.classList.remove(
-            "reaccion-activa"
-        );
-
-
-        void envoltura.offsetWidth;
-
-
-        envoltura.classList.add(
-            "reaccion-activa"
-        );
-
-
-        if (
-            activarSecreto
-        ) {
-
-            abrirCancionSecreta(
-                config.tipo
-            );
-
-
-            return;
-        }
-
-
-        temporizadorCartaNormal =
-            setTimeout(
-                () => {
-
-                    abrirCarta(
-                        config
-                    );
-
-                },
-                720
-            );
-
-
-        setTimeout(
-            () => {
-
-                envoltura.classList.remove(
-                    "reaccion-activa"
-                );
-
-            },
-            900
-        );
-    }
-
-
-    envoltura.addEventListener(
-        "click",
-        reaccionar
-    );
-
-
-    envoltura.addEventListener(
-        "keydown",
-        evento => {
-
-            if (
-                evento.key ===
-                "Enter" ||
-                evento.key ===
-                " "
-            ) {
-
-                evento.preventDefault();
-
-
-                reaccionar();
-            }
-        }
-    );
-
-
-    tarjeta.appendChild(
-        titulo
-    );
-
-
-    tarjeta.appendChild(
-        envoltura
-    );
-
-
-    tarjeta.appendChild(
-        memoria
-    );
-
-
-    tarjeta.appendChild(
-        pista
-    );
-
-
-    tarjeta.appendChild(
-        nota
-    );
-
-
-    if (
-        botonFavorita
-    ) {
-
-        tarjeta.appendChild(
-            botonFavorita
-        );
-    }
-
-
-    return tarjeta;
-}
-
-
-/* =====================================================
-   MEMORIA
-===================================================== */
-
-function actualizarMemoriaTarjeta(
-    tarjeta
-) {
-
-    const tipo =
-        tarjeta.dataset.flor;
-
-
-    const contador =
-        visitasFlores[
-            tipo
-        ] || 0;
-
-
-    const elemento =
-        tarjeta.querySelector(
-            ".memoria-flor"
-        );
-
-
-    if (!elemento) {
-
-        return;
-    }
-
-
-    if (
-        tipo === florFavorita &&
-        contador >= 2
-    ) {
-
-        elemento.textContent =
-            "Sabía que volverías a esta.";
-
-
-        elemento.classList.add(
-            "visible"
-        );
-
-
-        return;
-    }
-
-
-    if (
-        contador >= 6
-    ) {
-
-        elemento.textContent =
-            "Esta flor ya te reconoce.";
-
-
-        elemento.classList.add(
-            "visible"
-        );
-
-
-    } else if (
-        contador >= 3
-    ) {
-
-        elemento.textContent =
-            "Parece que ya conoces esta flor.";
-
-
-        elemento.classList.add(
-            "visible"
-        );
-
-
-    } else {
-
-        elemento.textContent =
-            "";
-
-
-        elemento.classList.remove(
-            "visible"
-        );
-    }
-}
-
-
-/* =====================================================
-   FAVORITA
-===================================================== */
-
-function actualizarFavoritaUI() {
-
-    document
-        .querySelectorAll(
-            ".tarjeta-flor"
-        )
-        .forEach(
-            tarjeta => {
-
-                const tipo =
-                    tarjeta.dataset.flor;
-
-
-                const boton =
-                    tarjeta.querySelector(
-                        ".boton-favorita"
-                    );
-
-
-                const esFavorita =
-                    tipo ===
-                    florFavorita;
-
-
-                tarjeta.classList.toggle(
-                    "es-favorita",
-                    esFavorita
-                );
-
-
-                if (boton) {
-
-                    boton.textContent =
-                        esFavorita
-                            ?
-                            "Tu favorita"
-                            :
-                            "Guardar como favorita";
-                }
-
-
-                actualizarMemoriaTarjeta(
-                    tarjeta
-                );
-            }
-        );
-
-
-    actualizarTextoFavorita();
-}
-
-
-/* =====================================================
-   ESTRUCTURA SUPERIOR
-===================================================== */
-
-const introJardin =
-    crearIntroJardin();
-
-
-const panelSuperior =
-    crearPanelSuperior();
-
-
-jardin.insertBefore(
-    introJardin,
-    contenedorFlores
-);
-
-
-jardin.insertBefore(
-    panelSuperior,
-    contenedorFlores
-);
-
-
-jardin.insertBefore(
-    panelProgreso,
-    contenedorFlores
-);
-
-
-/* =====================================================
-   MOSTRAR FLORES
-===================================================== */
-
-floresDelJardin.forEach(
-    config => {
-
-        contenedorFlores.appendChild(
-            crearTarjetaFlor(
-                config
-            )
-        );
-    }
-);
-
-
-/* =====================================================
-   DALIA SECRETA
-===================================================== */
-
-function comprobarFlorSecreta(
-    silencioso = false
-) {
-
-    if (
-        notasObtenidas.length < 10
-    ) {
-
-        return;
-    }
-
-
-    if (
-        document.querySelector(
-            '[data-flor="dalia"]'
-        )
-    ) {
-
-        return;
-    }
-
-
-    const tarjeta =
-        crearTarjetaFlor(
-            florSecreta,
-            true
-        );
-
-
-    contenedorFlores.appendChild(
-        tarjeta
-    );
-
-
-    requestAnimationFrame(
-        () => {
-
-            tarjeta.classList.add(
-                "revelada"
-            );
-        }
-    );
-
-
-    actualizarFavoritaUI();
-
-
-    actualizarProgreso();
-
-
-    if (
-        !silencioso
-    ) {
-
-        mostrarToast(
-            "Algo cambió entre las flores..."
-        );
-    }
-}
-
-
-/* =====================================================
-   FONDOS
-===================================================== */
-
-const botonFondo =
-    document.getElementById(
-        "boton-fondo"
-    );
-
-
-let temporizadorNoche;
-
-
-let pulsacionLarga =
-    false;
-
-
-function actualizarTextoFondo() {
-
-    if (
-        document.body.classList.contains(
-            "modo-noche"
-        )
-    ) {
-
-        botonFondo.textContent =
-            "Volver al jardín";
-
-
-        return;
-    }
-
-
-    botonFondo.textContent =
-        document.body.classList.contains(
-            "tema-morado"
-        )
-            ?
-            "Cambiar a fondo amarillo"
-            :
-            "Cambiar a fondo morado";
-}
-
-
-function activarModoEspecial() {
-
-    pulsacionLarga =
-        true;
-
-
-    const activado =
-        document.body.classList.toggle(
-            "modo-noche"
-        );
-
-
-    localStorage.setItem(
-        CLAVES.nocheDescubierta,
-        "si"
-    );
-
-
-    crearRespaldoProgreso();
-
-
-    actualizarTextoFondo();
-
-
-    mostrarToast(
-        activado
-            ?
-            "Encontraste otra forma de ver el jardín."
-            :
-            "Volviste al jardín."
-    );
-
-
-    setTimeout(
-        () => {
-
-            pulsacionLarga =
-                false;
-
-        },
-        500
-    );
-}
-
-
-botonFondo.addEventListener(
-    "pointerdown",
-    () => {
-
-        temporizadorNoche =
-            setTimeout(
-                activarModoEspecial,
-                2800
-            );
-    }
-);
-
-
-[
-    "pointerup",
-    "pointerleave",
-    "pointercancel"
-].forEach(
-    evento => {
-
-        botonFondo.addEventListener(
-            evento,
-            () => {
-
-                clearTimeout(
-                    temporizadorNoche
-                );
-            }
-        );
-    }
-);
-
-
-botonFondo.addEventListener(
-    "click",
-    () => {
-
-        if (
-            pulsacionLarga
-        ) {
-
-            return;
-        }
-
-
-        if (
-            document.body.classList.contains(
-                "modo-noche"
-            )
-        ) {
-
-            document.body.classList.remove(
-                "modo-noche"
-            );
-
-
-            actualizarTextoFondo();
-
-
-            return;
-        }
-
-
-        document.body.classList.toggle(
-            "tema-morado"
-        );
-
-
-        actualizarTextoFondo();
-    }
-);
-
-
-/* =====================================================
-   LLUVIA GENERAL A LOS 2 MINUTOS
-===================================================== */
-
-function iniciarLluviaEspecial() {
-
-    if (
-        document.querySelector(
-            ".lluvia-especial"
-        )
-    ) {
-
-        return;
-    }
-
-
-    const lluvia =
-        document.createElement(
-            "div"
-        );
-
-
-    lluvia.className =
-        "lluvia-especial";
-
-
-    for (
-        let i = 0;
-        i < 48;
-        i++
-    ) {
-
-        const particula =
-            document.createElement(
-                "span"
-            );
-
-
-        particula.className =
-            "particula-lluvia";
-
-
-        particula.style.left =
-            `${Math.random() * 100}%`;
-
-
-        particula.style.setProperty(
-            "--retraso",
-            `${Math.random() * -8}s`
-        );
-
-
-        particula.style.setProperty(
-            "--duracion",
-            `${5 + Math.random() * 5}s`
-        );
-
-
-        particula.style.setProperty(
-            "--tamano",
-            `${6 + Math.random() * 8}px`
-        );
-
-
-        lluvia.appendChild(
-            particula
-        );
-    }
-
-
-    document.body.appendChild(
-        lluvia
-    );
-
-
-    mostrarToast(
-        "Llevas un rato por aquí..."
-    );
-
-
-    setTimeout(
-        () => {
-
-            lluvia.classList.add(
-                "desaparecer"
-            );
-
-        },
-        12000
-    );
-
-
-    setTimeout(
-        () => {
-
-            lluvia.remove();
-
-        },
-        14500
-    );
-}
-
-
-setTimeout(
-    iniciarLluviaEspecial,
-    120000
-);
-
-
-/* =====================================================
-   PÉTALOS DE MARIPOSA
-===================================================== */
-
-function crearExplosionPetalos(
-    x,
-    y,
-    color1,
-    color2
-) {
-
-    const explosion =
-        document.createElement(
-            "div"
-        );
-
-
-    explosion.className =
-        "explosion-petalos";
-
-
-    explosion.style.left =
-        `${x}px`;
-
-
-    explosion.style.top =
-        `${y}px`;
-
-
-    if (color1) {
-
-        explosion.style.setProperty(
-            "--petalo-golpe-1",
-            color1
-        );
-    }
-
-
-    if (color2) {
-
-        explosion.style.setProperty(
-            "--petalo-golpe-2",
-            color2
-        );
-    }
-
-
-    for (
-        let i = 0;
-        i < 22;
-        i++
-    ) {
-
-        const petalo =
-            document.createElement(
-                "span"
-            );
-
-
-        petalo.className =
-            "petalo-explosion";
-
-
-        const angulo =
-            Math.random() *
-            Math.PI *
-            2;
-
-
-        const distancia =
-            45 +
-            Math.random() *
-            90;
-
-
-        petalo.style.setProperty(
-            "--petalo-x",
-            `${
-                Math.cos(angulo) *
-                distancia
-            }px`
-        );
-
-
-        petalo.style.setProperty(
-            "--petalo-y",
-            `${
-                Math.sin(angulo) *
-                distancia
-            }px`
-        );
-
-
-        petalo.style.setProperty(
-            "--petalo-rotacion",
-            `${
-                Math.random() *
-                600 -
-                300
-            }deg`
-        );
-
-
-        petalo.style.setProperty(
-            "--petalo-retraso",
-            `${
-                Math.random() *
-                .12
-            }s`
-        );
-
-
-        petalo.style.setProperty(
-            "--petalo-tamano",
-            `${
-                6 +
-                Math.random() *
-                8
-            }px`
-        );
-
-
-        explosion.appendChild(
-            petalo
-        );
-    }
-
-
-    document.body.appendChild(
-        explosion
-    );
-
-
-    setTimeout(
-        () => {
-
-            explosion.remove();
-
-        },
-        1500
-    );
-}
-
-
-/* =====================================================
-   MARIPOSAS
-===================================================== */
-
-let mariposasAplastadas =
-    Number(
-        localStorage.getItem(
-            CLAVES.mariposasAplastadas
-        ) || 0
-    );
-
-
-const coloresMariposas = [
-
-    "mariposa-rosa",
-
-    "mariposa-azul",
-
-    "mariposa-morada",
-
-    "mariposa-naranja",
-
-    "mariposa-verde",
-
-    "mariposa-roja",
-
-    "mariposa-blanca",
-
-    "mariposa-turquesa"
-];
-
-
-function crearMariposa() {
-
-    const actuales =
-        document.querySelectorAll(
-            ".mariposa-jardin"
-        ).length;
-
-
-    if (
-        actuales >= 4
-    ) {
-
-        return;
-    }
-
-
-    const mariposa =
-        document.createElement(
-            "button"
-        );
-
-
-    mariposa.type =
-        "button";
-
-
-    mariposa.className =
-        "mariposa-jardin";
-
-
-    const claseColor =
-        coloresMariposas[
-            Math.floor(
-                Math.random() *
-                coloresMariposas.length
-            )
-        ];
-
-
-    mariposa.classList.add(
-        claseColor
-    );
-
-
-    if (
-        Math.random() < .40
-    ) {
-
-        mariposa.classList.add(
-            "mariposa-inversa"
-        );
-    }
-
-
-    mariposa.innerHTML = `
-        <span
-            class="ala ala-izquierda"
-        ></span>
-
-        <span
-            class="cuerpo-mariposa"
-        ></span>
-
-        <span
-            class="ala ala-derecha"
-        ></span>
-    `;
-
-
-    mariposa.style.top =
-        `${10 + Math.random() * 72}%`;
-
-
-    mariposa.style.animationDuration =
-        `${9 + Math.random() * 6}s`;
-
-
-    mariposa.addEventListener(
-        "click",
-        evento => {
-
-            evento.stopPropagation();
-
-
-            const estilos =
-                getComputedStyle(
-                    mariposa
-                );
-
-
-            const color1 =
-                estilos
-                    .getPropertyValue(
-                        "--mariposa-color-1"
-                    )
-                    .trim();
-
-
-            const color2 =
-                estilos
-                    .getPropertyValue(
-                        "--mariposa-color-2"
-                    )
-                    .trim();
-
-
-            crearExplosionPetalos(
-                evento.clientX,
-                evento.clientY,
-                color1,
-                color2
-            );
-
-
-            mariposasAplastadas++;
-
-
-            localStorage.setItem(
-                CLAVES.mariposasAplastadas,
-                String(
-                    mariposasAplastadas
-                )
-            );
-
-
-            crearRespaldoProgreso();
-
-
-            const mensajes = [
-
-                "La alcanzaste.",
-
-                "Pobre mariposa...",
-
-                "Otra cayó en el jardín.",
-
-                "Definitivamente te gusta aplastarlas.",
-
-                "Bueno... esa tampoco sobrevivió.",
-
-                "Los pétalos fueron lo único que quedó.",
-
-                "Otra más. Ya les estás agarrando práctica."
-            ];
-
-
-            mostrarToast(
-                mensajes[
-                    Math.floor(
-                        Math.random() *
-                        mensajes.length
-                    )
-                ]
-            );
-
-
-            mariposa.classList.add(
-                "mariposa-atrapada"
-            );
-
-
-            setTimeout(
-                () => {
-
-                    mariposa.remove();
-
-                },
-                500
-            );
-        }
-    );
-
-
-    document.body.appendChild(
-        mariposa
-    );
-
-
-    setTimeout(
-        () => {
-
-            if (
-                document.body.contains(
-                    mariposa
-                )
-            ) {
-
-                mariposa.remove();
-            }
-
-        },
-        17000
-    );
-}
-
-
-function programarMariposa(
-    primera = false
-) {
-
-    const espera =
-        primera
-            ?
-            4000 +
-            Math.random() *
-            4000
-
-            :
-            8000 +
-            Math.random() *
-            8000;
-
-
-    setTimeout(
-        () => {
-
-            crearMariposa();
-
-
-            if (
-                Math.random() < .65
-            ) {
-
-                setTimeout(
-                    crearMariposa,
-                    900 +
-                    Math.random() *
-                    1700
-                );
-            }
-
-
-            if (
-                Math.random() < .28
-            ) {
-
-                setTimeout(
-                    crearMariposa,
-                    2600 +
-                    Math.random() *
-                    1800
-                );
-            }
-
-
-            programarMariposa(
-                false
-            );
-
-        },
-        espera
-    );
-}
-
-
-programarMariposa(
-    true
-);
-
-
-/* =====================================================
-   APARTADO SECRETO
-===================================================== */
-
-const seccionSecreto =
-    document.createElement(
-        "section"
-    );
-
-
-seccionSecreto.className =
-    "seccion-secreto";
-
-
-seccionSecreto.innerHTML = `
-    <div class="encabezado-secreto">
-
-        <p class="secreto-etiqueta">
-            ENCONTRASTE ALGO MÁS
-        </p>
-
-        <h2>
-            Secreto
-        </h2>
-
-        <p>
-            Hay cosas escondidas entre las flores.
-            Algunas solo aparecen cuando insistes
-            un poquito más de lo normal.
-        </p>
-
-    </div>
-
-
-    <div class="kuromi-area">
-
-        <div class="kuromi-css">
-
-            <div
-                class="kuromi-oreja kuromi-oreja-izq"
-            ></div>
-
-            <div
-                class="kuromi-oreja kuromi-oreja-der"
-            ></div>
-
-
-            <div class="kuromi-capucha">
-
-                <div class="kuromi-calavera">
-                    ☠
-                </div>
-
-
-                <div class="kuromi-cara">
-
-                    <span
-                        class="kuromi-ojo kuromi-ojo-izq"
-                    ></span>
-
-                    <span
-                        class="kuromi-ojo kuromi-ojo-der"
-                    ></span>
-
-                    <span
-                        class="kuromi-nariz"
-                    ></span>
-
-                    <span
-                        class="kuromi-boca"
-                    ></span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="kuromi-cuerpo"
-            ></div>
-
-            <div
-                class="kuromi-cola"
-            ></div>
-
-        </div>
-
-
-        <p class="kuromi-texto">
-            Parece que ella estaba cuidando esta parte.
-        </p>
-
-    </div>
-
-
-    <div class="secreto-control">
-
-        <p class="contador-secretos">
-
-            <span
-                id="secretos-encontrados"
-            >
-                0
-            </span>
-
-            /
-
-            <span
-                id="secretos-totales"
-            >
-                ${cancionesSecretas.length}
-            </span>
-
-            secretos encontrados
-
-        </p>
-
-
-        <div class="barra-secretos">
-
-            <span
-                id="barra-secretos-progreso"
-            ></span>
-
-        </div>
-
-
-        <p class="pista-secretos">
-            Aquí no aparecerán las canciones.
-            Para encontrarlas tendrás que volver
-            a las flores.
-        </p>
-
-    </div>
-`;
-
-
-jardin.appendChild(
-    seccionSecreto
-);
-
-
-/* =====================================================
-   PANEL SECRETO
-===================================================== */
-
-function actualizarPanelSecreto() {
-
-    const encontrados =
-        document.getElementById(
-            "secretos-encontrados"
-        );
-
-
-    const barra =
-        document.getElementById(
-            "barra-secretos-progreso"
-        );
-
-
-    if (
-        !encontrados ||
-        !barra
-    ) {
-
-        return;
-    }
-
-
-    encontrados.textContent =
-        secretosVistos.length;
-
-
-    const porcentaje =
-        Math.min(
-            100,
-            secretosVistos.length /
-            cancionesSecretas.length *
-            100
-        );
-
-
-    barra.style.width =
-        `${porcentaje}%`;
-}
-
-
-/* =====================================================
-   REVELAR SECRETO
-===================================================== */
-
-function revelarApartadoSecreto(
-    conAviso = true
-) {
-
-    secretoDesbloqueado =
-        true;
-
-
-    localStorage.setItem(
-        CLAVES.secretoDesbloqueado,
-        "si"
-    );
-
-
-    crearRespaldoProgreso();
-
-
-    seccionSecreto.classList.add(
-        "desbloqueado"
-    );
-
-
-    actualizarPanelSecreto();
-
-
-    if (
-        conAviso
-    ) {
-
-        mostrarToast(
-            "Se desbloqueó el apartado Secreto."
-        );
-    }
-}
-
-
-if (
-    secretoDesbloqueado ||
-    secretosVistos.length > 0
-) {
-
-    revelarApartadoSecreto(
-        false
-    );
-}
-
-
-/* =====================================================
-   DESPEDIDA ACTUAL
-===================================================== */
-
-function obtenerDespedidaActual() {
-
-    if (
-        despedidasObtenidas.length === 0
-    ) {
-
-        return "Vuelve de vez en cuando.";
-    }
-
-
-    const ultimoId =
-        despedidasObtenidas[
-            despedidasObtenidas.length - 1
-        ];
-
-
-    return despedidas[
-        ultimoId - 1
-    ];
-}
-
-
-/* =====================================================
-   FINAL DEL JARDÍN
+   FINAL
 ===================================================== */
 
 const finalJardin =
@@ -6400,6 +3885,18 @@ finalJardin.className =
     "final-jardin";
 
 
+const ultimaDespedida =
+    despedidasObtenidas.length
+        ?
+        despedidas[
+            despedidasObtenidas[
+                despedidasObtenidas.length - 1
+            ] - 1
+        ]
+        :
+        "Vuelve de vez en cuando.";
+
+
 finalJardin.innerHTML = `
     <p class="final-pequeno">
         LLEGASTE AL FINAL DEL JARDÍN
@@ -6410,7 +3907,7 @@ finalJardin.innerHTML = `
     </h2>
 
     <p class="despedida-dia">
-        ${obtenerDespedidaActual()}
+        ${ultimaDespedida}
     </p>
 
     <div class="final-linea"></div>
@@ -6421,9 +3918,8 @@ finalJardin.innerHTML = `
     </p>
 
     <button
-        class="boton-no-tocar"
         id="boton-no-tocar"
-        type="button"
+        class="boton-no-tocar"
     >
         No tocar
     </button>
@@ -6436,98 +3932,136 @@ jardin.appendChild(
 
 
 /* =====================================================
-   NO TOCAR
+   BOTÓN NO TOCAR
 ===================================================== */
 
-let nivelNoTocar =
+let nivel =
     0;
 
 
-const botonNoTocar =
-    document.getElementById(
+document
+    .getElementById(
         "boton-no-tocar"
+    )
+    .addEventListener(
+        "click",
+        evento => {
+
+            nivel++;
+
+
+            if (
+                nivel === 1
+            ) {
+
+                evento.target.textContent =
+                    "¿Segura?";
+
+                return;
+            }
+
+
+            if (
+                nivel === 2
+            ) {
+
+                evento.target.textContent =
+                    "¿Segura, segura?";
+
+                return;
+            }
+
+
+            contenidoModal.innerHTML = `
+                <div class="carta-flor">
+
+                    <p class="modal-etiqueta">
+                        ENCONTRASTE ALGO
+                    </p>
+
+                    <h2>
+                        La curiosidad ganó
+                    </h2>
+
+                    <div class="papel-carta">
+
+                        <p>
+                            Si llegaste hasta aquí y además presionaste algo que decía claramente que no tocaras, supongo que la curiosidad ganó otra vez.
+                        </p>
+
+                    </div>
+
+                </div>
+            `;
+
+
+            capaModal.classList.add(
+                "mostrar"
+            );
+        }
     );
 
 
-botonNoTocar.addEventListener(
-    "click",
-    () => {
+/* =====================================================
+   AVISO INICIAL
+===================================================== */
 
-        nivelNoTocar++;
+function avisoInicial() {
 
+    if (
+        localStorage.getItem(
+            CLAVES.aviso
+        ) === "si"
+    ) {
 
-        if (
-            nivelNoTocar === 1
-        ) {
-
-            botonNoTocar.textContent =
-                "¿Segura?";
-
-
-            return;
-        }
-
-
-        if (
-            nivelNoTocar === 2
-        ) {
-
-            botonNoTocar.textContent =
-                "¿Segura, segura?";
-
-
-            return;
-        }
-
-
-        if (
-            nivelNoTocar === 3
-        ) {
-
-            botonNoTocar.textContent =
-                "Bueno...";
-
-
-            setTimeout(
-                abrirSecretoNoTocar,
-                400
-            );
-
-
-            return;
-        }
-
-
-        abrirSecretoNoTocar();
+        return;
     }
-);
 
-
-function abrirSecretoNoTocar() {
 
     contenidoModal.innerHTML = `
-        <div class="secreto-no-tocar">
+        <div class="aviso-coleccionables">
 
             <p class="modal-etiqueta">
-                ENCONTRASTE ALGO
+                ANTES DE ENTRAR
             </p>
 
             <h2>
-                La curiosidad ganó
+                Este jardín guarda más de lo que parece
             </h2>
 
-            <div class="papel-carta">
+            <div class="icono-aviso">
+                20
+            </div>
 
-                <p>
-                    Si llegaste hasta aquí y además
-                    presionaste algo que decía claramente
-                    que no tocaras, supongo que la
-                    curiosidad ganó otra vez.
-                </p>
+            <p>
+                Existen 20 notas ocultas
+                que aparecen durante horas pares.
+            </p>
 
-                <p class="secreto-no-tocar-final">
-                    Por suerte había algo esperando.
-                </p>
+            <p>
+                También existen 20 despedidas.
+                Solo se consigue una nueva por día.
+            </p>
+
+            <p class="aviso-pista">
+                No todo está señalado.
+            </p>
+
+            <div class="acciones-aviso">
+
+                <button
+                    id="aceptar-aviso"
+                    class="boton-modal-principal"
+                >
+                    Entrar al jardín
+                </button>
+
+                <button
+                    id="ocultar-aviso"
+                    class="boton-modal-secundario"
+                >
+                    No volver a mostrar
+                </button>
 
             </div>
 
@@ -6535,13 +4069,38 @@ function abrirSecretoNoTocar() {
     `;
 
 
-    cerrarModalBoton.style.display =
-        "";
-
-
     capaModal.classList.add(
         "mostrar"
     );
+
+
+    document
+        .getElementById(
+            "aceptar-aviso"
+        )
+        .addEventListener(
+            "click",
+            cerrarModal
+        );
+
+
+    document
+        .getElementById(
+            "ocultar-aviso"
+        )
+        .addEventListener(
+            "click",
+            () => {
+
+                localStorage.setItem(
+                    CLAVES.aviso,
+                    "si"
+                );
+
+
+                cerrarModal();
+            }
+        );
 }
 
 
@@ -6552,27 +4111,22 @@ function abrirSecretoNoTocar() {
 actualizarProgreso();
 
 
-comprobarFlorSecreta(
-    true
-);
+comprobarDalia();
 
 
-actualizarFavoritaUI();
+actualizarFavoritas();
 
 
-actualizarTextoFondo();
+actualizarSecreto();
 
 
-actualizarPanelSecreto();
+avisoInicial();
 
 
-crearRespaldoProgreso();
+revisarHoraColeccionable();
 
 
-mostrarAvisoInicial();
-
-
-revisarNota1111();
+revisar1111();
 
 
 setInterval(
@@ -6582,6 +4136,6 @@ setInterval(
 
 
 setInterval(
-    revisarNota1111,
+    revisar1111,
     15000
 );

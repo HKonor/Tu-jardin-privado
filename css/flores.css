@@ -15,7 +15,8 @@
 .magnolia,
 .nomeolvides,
 .clavel,
-.dalia {
+.dalia,
+.loto {
     position: relative;
 
     width: 300px;
@@ -26,7 +27,7 @@
 
     animation:
         crecer-flor
-        1.25s ease both;
+        1.2s ease both;
 }
 
 
@@ -35,8 +36,8 @@
         opacity: 0;
 
         transform:
-            translateY(70px)
-            scale(.78);
+            translateY(60px)
+            scale(.82);
     }
 
     to {
@@ -82,19 +83,15 @@
         27px 110px;
 
     border-radius:
-        50% 50% 44% 44%;
+        50% 50% 45% 45%;
 
     background:
         linear-gradient(
             to right,
-            #e5a900,
-            #ffe15a,
-            #ffc400
+            #e4a100,
+            #ffe05b,
+            #f2b900
         );
-
-    box-shadow:
-        inset 0 3px 8px
-        rgba(255,255,255,.20);
 }
 
 
@@ -107,16 +104,16 @@
     left: 62px;
     top: 63px;
 
-    z-index: 5;
+    z-index: 6;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            #8c5a25,
-            #613614,
-            #351b0a
+            #8d5822,
+            #603611,
+            #2e1908
         );
 }
 
@@ -130,7 +127,7 @@
     border-radius: 50%;
 
     background:
-        #c58b3c;
+        #d29a46;
 }
 
 
@@ -148,9 +145,9 @@
     background:
         linear-gradient(
             to right,
-            #245a2d,
-            #5b9c4a,
-            #245a2d
+            #285b31,
+            #639a50,
+            #285b31
         );
 }
 
@@ -169,27 +166,27 @@
     background:
         linear-gradient(
             145deg,
-            #3d7435,
-            #6a9f54
+            #3a7138,
+            #73a257
         );
 }
 
 
 .hoja-izquierda {
-    left: 59px;
-    top: 242px;
+    left: 58px;
+    top: 240px;
 
     transform:
-        rotate(15deg);
+        rotate(16deg);
 }
 
 
 .hoja-derecha {
-    left: 136px;
-    top: 277px;
+    left: 139px;
+    top: 280px;
 
     transform:
-        rotate(-16deg)
+        rotate(-17deg)
         scaleX(-1);
 }
 
@@ -220,17 +217,17 @@
     bottom: 0;
 
     border-radius:
-        50% 50% 35% 35%;
+        52% 52% 35% 35%;
 
     background:
         linear-gradient(
-            #d47af2,
-            #ad4ed2,
-            #8530aa
+            #db83f4,
+            #aa4bd0,
+            #7b299e
         );
 
     transition:
-        transform .4s ease;
+        transform .45s ease;
 }
 
 
@@ -289,13 +286,13 @@
     left: 39px;
     bottom: 10px;
 
-    z-index: 3;
+    z-index: 4;
 
     background:
         linear-gradient(
-            #df92fa,
-            #b557d9,
-            #8e35b3
+            #e49af9,
+            #af54d6,
+            #862fa8
         );
 }
 
@@ -309,12 +306,12 @@
     top: 34px;
 
     background:
-        rgba(126,45,160,.24);
+        rgba(112,36,146,.23);
 }
 
 
 .vena-1 {
-    left: 26px;
+    left: 25px;
 
     transform:
         rotate(-6deg);
@@ -348,9 +345,9 @@
     background:
         linear-gradient(
             to right,
-            #4f8e13,
-            #77aa22,
-            #538216
+            #4f8119,
+            #7ea42a,
+            #4d7619
         );
 }
 
@@ -363,10 +360,14 @@
     background:
         linear-gradient(
             155deg,
-            #668e18,
-            #a5be2e,
-            #6e941a
+            #6b941e,
+            #a6be34,
+            #66891c
         );
+
+    box-shadow:
+        inset 0 2px 3px
+        rgba(255,255,255,.12);
 }
 
 
@@ -376,45 +377,43 @@
     position: absolute;
 
     width: 2px;
-    height: 80%;
+    height: 82%;
 
     left: 50%;
-    top: 10%;
+    top: 9%;
 
     background:
-        rgba(240,255,191,.18);
+        rgba(240,255,205,.18);
 }
 
 
 .tulipan-hoja-izquierda {
-    width: 54px;
-    height: 150px;
+    width: 62px;
+    height: 158px;
 
-    left: 62px;
-    top: 157px;
+    left: 51px;
+    top: 158px;
 
     border-radius:
-        8% 100% 12% 88%
-        / 8% 100% 12% 100%;
+        5% 100% 15% 90%;
 
     transform:
-        rotate(-17deg);
+        rotate(-22deg);
 }
 
 
 .tulipan-hoja-derecha {
-    width: 55px;
-    height: 125px;
+    width: 61px;
+    height: 135px;
 
-    left: 116px;
-    top: 177px;
+    left: 117px;
+    top: 176px;
 
     border-radius:
-        100% 8% 88% 12%
-        / 100% 8% 100% 12%;
+        100% 5% 90% 15%;
 
     transform:
-        rotate(18deg);
+        rotate(20deg);
 }
 
 
@@ -454,10 +453,10 @@
     background:
         linear-gradient(
             90deg,
-            #dedfd7,
+            #e0e0d8,
             #ffffff,
-            #fffef7,
-            #e7e8df
+            #fffdf6,
+            #e7e7de
         );
 }
 
@@ -476,8 +475,8 @@
     background:
         linear-gradient(
             to top,
-            rgba(70,100,35,.82),
-            rgba(187,178,62,.58),
+            rgba(74,99,36,.80),
+            rgba(184,175,61,.55),
             transparent
         );
 }
@@ -540,9 +539,9 @@
     background:
         radial-gradient(
             ellipse,
-            #263719,
-            #4f6a28,
-            #849338,
+            #293918,
+            #576d2a,
+            #8b963b,
             transparent
         );
 }
@@ -592,16 +591,39 @@
     border-radius: 50%;
 
     background:
-        #c89a29;
+        #c79a2b;
 }
 
 
-.lirio-estambre-1 { transform:rotate(-30deg); }
-.lirio-estambre-2 { transform:rotate(-18deg); }
-.lirio-estambre-3 { transform:rotate(-7deg); }
-.lirio-estambre-4 { transform:rotate(10deg); }
-.lirio-estambre-5 { transform:rotate(22deg); }
-.lirio-estambre-6 { transform:rotate(34deg); }
+.lirio-estambre-1 {
+    transform:
+        rotate(-30deg);
+}
+
+.lirio-estambre-2 {
+    transform:
+        rotate(-18deg);
+}
+
+.lirio-estambre-3 {
+    transform:
+        rotate(-7deg);
+}
+
+.lirio-estambre-4 {
+    transform:
+        rotate(10deg);
+}
+
+.lirio-estambre-5 {
+    transform:
+        rotate(22deg);
+}
+
+.lirio-estambre-6 {
+    transform:
+        rotate(34deg);
+}
 
 
 .lirio-tallo {
@@ -618,9 +640,9 @@
     background:
         linear-gradient(
             to right,
-            #285329,
-            #598748,
-            #2b582d
+            #2c552d,
+            #5f8a4c,
+            #2b562e
         );
 }
 
@@ -633,8 +655,16 @@
     background:
         linear-gradient(
             145deg,
-            #3f6635,
-            #73904e
+            #416837,
+            #779151
+        );
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 100%,
+            50% 80%,
+            0 100%
         );
 }
 
@@ -648,14 +678,6 @@
 
     transform:
         rotate(-32deg);
-
-    clip-path:
-        polygon(
-            50% 0,
-            100% 100%,
-            48% 80%,
-            0 100%
-        );
 }
 
 
@@ -668,14 +690,6 @@
 
     transform:
         rotate(29deg);
-
-    clip-path:
-        polygon(
-            50% 0,
-            100% 100%,
-            48% 80%,
-            0 100%
-        );
 }
 
 
@@ -694,13 +708,15 @@
     width: 8px;
     height: 220px;
 
-    left: 150px;
+    left: 151px;
     top: 130px;
+
+    z-index: 1;
 
     border-radius: 10px;
 
     background:
-        #55784c;
+        #55794e;
 }
 
 
@@ -710,7 +726,9 @@
     width: 3px;
 
     left: 153px;
-    bottom: 95px;
+    bottom: 91px;
+
+    z-index: 2;
 
     transform-origin:
         bottom center;
@@ -718,7 +736,7 @@
     border-radius: 10px;
 
     background:
-        #698861;
+        #6f8e67;
 }
 
 
@@ -731,7 +749,7 @@
     left: 0;
     top: 0;
 
-    z-index: 4;
+    z-index: 6;
 }
 
 
@@ -755,8 +773,7 @@
 
     animation:
         nube-flotar
-        3.8s ease-in-out
-        infinite;
+        3.8s ease-in-out infinite;
 
     animation-delay:
         var(--delay);
@@ -786,16 +803,35 @@
         radial-gradient(
             circle,
             #ffffff,
-            #ecece2
+            #ecece4
         );
 }
 
 
-.nube-petalo-1 { transform:translateY(-8px); }
-.nube-petalo-2 { transform:translate(8px,-2px); }
-.nube-petalo-3 { transform:translate(5px,7px); }
-.nube-petalo-4 { transform:translate(-5px,7px); }
-.nube-petalo-5 { transform:translate(-8px,-2px); }
+.nube-petalo-1 {
+    transform:
+        translateY(-8px);
+}
+
+.nube-petalo-2 {
+    transform:
+        translate(8px,-2px);
+}
+
+.nube-petalo-3 {
+    transform:
+        translate(5px,7px);
+}
+
+.nube-petalo-4 {
+    transform:
+        translate(-5px,7px);
+}
+
+.nube-petalo-5 {
+    transform:
+        translate(-8px,-2px);
+}
 
 
 .nube-centro {
@@ -810,7 +846,7 @@
     border-radius: 50%;
 
     background:
-        #d7cc86;
+        #d9cc87;
 }
 
 
@@ -819,6 +855,8 @@
 
     width: 42px;
     height: 78px;
+
+    z-index: 3;
 
     background:
         linear-gradient(
@@ -829,7 +867,7 @@
 
 
 .nube-hoja-1 {
-    left: 114px;
+    left: 113px;
     top: 246px;
 
     border-radius:
@@ -871,7 +909,7 @@
     top: 0;
 
     transition:
-        transform .45s ease;
+        transform .4s ease;
 }
 
 
@@ -902,9 +940,7 @@
         translateY(
             calc(-1 * var(--radio))
         )
-        scale(
-            var(--escala)
-        );
+        scale(var(--escala));
 
     border-radius:
         55% 55% 45% 45%
@@ -913,10 +949,10 @@
     background:
         radial-gradient(
             ellipse at 48% 75%,
-            #b93f70,
-            #dd7098,
-            #ef9eb9,
-            #f7bdcd
+            #b53d6c,
+            #df739a,
+            #f0a3bc,
+            #f8c0cf
         );
 }
 
@@ -935,9 +971,9 @@
     background:
         linear-gradient(
             to right,
-            #315c31,
-            #66904c,
-            #315c31
+            #315d32,
+            #66914d,
+            #315d32
         );
 }
 
@@ -946,12 +982,28 @@
     position: absolute;
 
     width: 94px;
-    height: 58px;
+    height: 65px;
 
     z-index: 2;
 
     border-radius:
-        100% 4% 100% 4%;
+        100% 8% 100% 8%;
+
+    clip-path:
+        polygon(
+            0 50%,
+            18% 32%,
+            35% 36%,
+            50% 12%,
+            62% 36%,
+            83% 29%,
+            100% 50%,
+            80% 66%,
+            63% 62%,
+            48% 90%,
+            34% 63%,
+            14% 70%
+        );
 
     background:
         linear-gradient(
@@ -964,20 +1016,20 @@
 
 
 .peonia-hoja-izquierda {
-    left: 55px;
-    top: 235px;
+    left: 56px;
+    top: 230px;
 
     transform:
-        rotate(-24deg);
+        rotate(-21deg);
 }
 
 
 .peonia-hoja-derecha {
     left: 138px;
-    top: 246px;
+    top: 243px;
 
     transform:
-        rotate(26deg)
+        rotate(23deg)
         scaleX(-1);
 }
 
@@ -1009,9 +1061,9 @@
         radial-gradient(
             ellipse at 50% 78%,
             #7d142b,
-            #aa203c,
-            #cf3d58,
-            #eb7486
+            #a9213d,
+            #cc3e58,
+            #e97887
         );
 }
 
@@ -1026,14 +1078,66 @@
 }
 
 
-.camelia-exterior-1 {left:69px;top:0;transform:rotate(-2deg);}
-.camelia-exterior-2 {left:126px;top:26px;transform:rotate(43deg);}
-.camelia-exterior-3 {left:137px;top:79px;transform:rotate(87deg);}
-.camelia-exterior-4 {left:111px;top:126px;transform:rotate(135deg);}
-.camelia-exterior-5 {left:65px;top:135px;transform:rotate(181deg);}
-.camelia-exterior-6 {left:17px;top:115px;transform:rotate(225deg);}
-.camelia-exterior-7 {left:0;top:63px;transform:rotate(271deg);}
-.camelia-exterior-8 {left:19px;top:18px;transform:rotate(317deg);}
+.camelia-exterior-1 {
+    left: 69px;
+    top: 0;
+}
+
+.camelia-exterior-2 {
+    left: 126px;
+    top: 26px;
+
+    transform:
+        rotate(43deg);
+}
+
+.camelia-exterior-3 {
+    left: 137px;
+    top: 79px;
+
+    transform:
+        rotate(87deg);
+}
+
+.camelia-exterior-4 {
+    left: 111px;
+    top: 126px;
+
+    transform:
+        rotate(135deg);
+}
+
+.camelia-exterior-5 {
+    left: 65px;
+    top: 135px;
+
+    transform:
+        rotate(181deg);
+}
+
+.camelia-exterior-6 {
+    left: 17px;
+    top: 115px;
+
+    transform:
+        rotate(225deg);
+}
+
+.camelia-exterior-7 {
+    left: 0;
+    top: 63px;
+
+    transform:
+        rotate(271deg);
+}
+
+.camelia-exterior-8 {
+    left: 19px;
+    top: 18px;
+
+    transform:
+        rotate(317deg);
+}
 
 
 .camelia-petalo-interior {
@@ -1043,24 +1147,53 @@
     z-index: 8;
 
     border-radius: 60%;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 80%,
-            #6f0d25,
-            #9a1934,
-            #c5324e,
-            #e66277
-        );
 }
 
 
-.camelia-interior-1 {left:80px;top:44px;transform:rotate(-7deg);}
-.camelia-interior-2 {left:116px;top:67px;transform:rotate(53deg);}
-.camelia-interior-3 {left:112px;top:108px;transform:rotate(115deg);}
-.camelia-interior-4 {left:72px;top:118px;transform:rotate(177deg);}
-.camelia-interior-5 {left:43px;top:90px;transform:rotate(238deg);}
-.camelia-interior-6 {left:46px;top:50px;transform:rotate(298deg);}
+.camelia-interior-1 {
+    left: 80px;
+    top: 44px;
+}
+
+.camelia-interior-2 {
+    left: 116px;
+    top: 67px;
+
+    transform:
+        rotate(53deg);
+}
+
+.camelia-interior-3 {
+    left: 112px;
+    top: 108px;
+
+    transform:
+        rotate(115deg);
+}
+
+.camelia-interior-4 {
+    left: 72px;
+    top: 118px;
+
+    transform:
+        rotate(177deg);
+}
+
+.camelia-interior-5 {
+    left: 43px;
+    top: 90px;
+
+    transform:
+        rotate(238deg);
+}
+
+.camelia-interior-6 {
+    left: 46px;
+    top: 50px;
+
+    transform:
+        rotate(298deg);
+}
 
 
 .camelia-centro {
@@ -1080,9 +1213,8 @@
         radial-gradient(
             circle,
             #8f6514,
-            #c89120,
-            #e4b938,
-            #f1d15e
+            #d59b26,
+            #efd35b
         );
 }
 
@@ -1114,9 +1246,9 @@
     background:
         linear-gradient(
             to right,
-            #163d25,
-            #46734a,
-            #1a4729
+            #173e26,
+            #49764a,
+            #194529
         );
 }
 
@@ -1124,8 +1256,8 @@
 .camelia-hoja {
     position: absolute;
 
-    width: 92px;
-    height: 56px;
+    width: 94px;
+    height: 57px;
 
     z-index: 2;
 
@@ -1135,28 +1267,28 @@
     background:
         linear-gradient(
             145deg,
-            #123622,
-            #245937,
-            #4c7a4a
+            #143822,
+            #2a603a,
+            #537d4f
         );
 }
 
 
 .camelia-hoja-izquierda {
-    left: 57px;
-    top: 242px;
+    left: 63px;
+    top: 233px;
 
     transform:
-        rotate(-21deg);
+        rotate(-19deg);
 }
 
 
 .camelia-hoja-derecha {
-    left: 140px;
-    top: 250px;
+    left: 134px;
+    top: 246px;
 
     transform:
-        rotate(19deg)
+        rotate(18deg)
         scaleX(-1);
 }
 
@@ -1201,9 +1333,6 @@
     top: 2px;
 
     z-index: 10;
-
-    transition:
-        transform .4s ease;
 }
 
 
@@ -1233,14 +1362,53 @@
 }
 
 
-.jazmin-petalo-1 {transform:rotate(0deg) translateY(-43px);}
-.jazmin-petalo-2 {transform:rotate(45deg) translateY(-43px);}
-.jazmin-petalo-3 {transform:rotate(90deg) translateY(-43px);}
-.jazmin-petalo-4 {transform:rotate(135deg) translateY(-43px);}
-.jazmin-petalo-5 {transform:rotate(180deg) translateY(-43px);}
-.jazmin-petalo-6 {transform:rotate(225deg) translateY(-43px);}
-.jazmin-petalo-7 {transform:rotate(270deg) translateY(-43px);}
-.jazmin-petalo-8 {transform:rotate(315deg) translateY(-43px);}
+.jazmin-petalo-1 {
+    transform:
+        rotate(0deg)
+        translateY(-43px);
+}
+
+.jazmin-petalo-2 {
+    transform:
+        rotate(45deg)
+        translateY(-43px);
+}
+
+.jazmin-petalo-3 {
+    transform:
+        rotate(90deg)
+        translateY(-43px);
+}
+
+.jazmin-petalo-4 {
+    transform:
+        rotate(135deg)
+        translateY(-43px);
+}
+
+.jazmin-petalo-5 {
+    transform:
+        rotate(180deg)
+        translateY(-43px);
+}
+
+.jazmin-petalo-6 {
+    transform:
+        rotate(225deg)
+        translateY(-43px);
+}
+
+.jazmin-petalo-7 {
+    transform:
+        rotate(270deg)
+        translateY(-43px);
+}
+
+.jazmin-petalo-8 {
+    transform:
+        rotate(315deg)
+        translateY(-43px);
+}
 
 
 .jazmin-centro {
@@ -1259,9 +1427,9 @@
     background:
         radial-gradient(
             circle,
-            #5e5128,
-            #756531,
-            #3f351c
+            #605328,
+            #756532,
+            #40361c
         );
 }
 
@@ -1275,7 +1443,7 @@
     border-radius: 50%;
 
     background:
-        #1f1a0c;
+        #211b0d;
 }
 
 
@@ -1295,22 +1463,22 @@
 .jazmin-rama-izquierda {
     height: 74px;
 
-    left: 113px;
-    top: 103px;
+    left: 115px;
+    top: 106px;
 
     transform:
-        rotate(-40deg);
+        rotate(-37deg);
 }
 
 
 .jazmin-rama-derecha {
     height: 72px;
 
-    left: 166px;
-    top: 97px;
+    left: 162px;
+    top: 103px;
 
     transform:
-        rotate(43deg);
+        rotate(38deg);
 }
 
 
@@ -1336,8 +1504,8 @@
 
 
 .jazmin-hoja-izquierda {
-    left: 52px;
-    top: 228px;
+    left: 60px;
+    top: 226px;
 
     transform:
         rotate(-18deg);
@@ -1345,11 +1513,11 @@
 
 
 .jazmin-hoja-derecha {
-    left: 132px;
-    top: 236px;
+    left: 127px;
+    top: 239px;
 
     transform:
-        rotate(16deg)
+        rotate(17deg)
         scaleX(-1);
 }
 
@@ -1497,23 +1665,24 @@
 
 
 .orquidea-labelo {
-    width: 66px;
-    height: 73px;
+    width: 62px;
+    height: 67px;
 
-    left: 77px;
+    left: 79px;
     top: 113px;
 
     z-index: 12;
 
     border-radius:
-        48% 48% 64% 64%
-        / 38% 38% 72% 72%;
+        48% 48% 70% 70%
+        / 38% 38% 75% 75%;
 
     background:
-        linear-gradient(
-            #f8add0,
-            #e86bad,
-            #c9488d
+        radial-gradient(
+            ellipse at 50% 18%,
+            #ffe7f2,
+            #ef94c4 50%,
+            #ca4b8f
         );
 }
 
@@ -1563,20 +1732,20 @@
 
 
 .orquidea-hoja-izquierda {
-    left: 60px;
-    top: 253px;
+    left: 64px;
+    top: 247px;
 
     transform:
-        rotate(-21deg);
+        rotate(-20deg);
 }
 
 
 .orquidea-hoja-derecha {
-    left: 144px;
-    top: 258px;
+    left: 137px;
+    top: 257px;
 
     transform:
-        rotate(19deg)
+        rotate(18deg)
         scaleX(-1);
 }
 
@@ -1701,7 +1870,6 @@
 
 /* =====================================================
    ANÉMONA
-   HOJAS CORREGIDAS
 ===================================================== */
 
 .anemona-cabeza {
@@ -1816,11 +1984,6 @@
 }
 
 
-/*
-   Ya no son cuadrados.
-   Ahora tienen lóbulos y punta.
-*/
-
 .anemona-hoja {
     position: absolute;
 
@@ -1836,59 +1999,27 @@
 
     clip-path:
         polygon(
-            50% 0%,
-
+            50% 0,
             61% 18%,
             79% 8%,
             74% 29%,
-
             96% 25%,
             82% 45%,
-
             100% 58%,
             73% 61%,
-
             86% 83%,
             61% 73%,
-
             50% 100%,
-
             39% 73%,
             14% 83%,
-
             27% 61%,
-            0% 58%,
-
+            0 58%,
             18% 45%,
             4% 25%,
-
             26% 29%,
             21% 8%,
-
             39% 18%
         );
-
-    filter:
-        drop-shadow(
-            0 4px 4px
-            rgba(29,63,34,.10)
-        );
-}
-
-
-.anemona-hoja::after {
-    content: "";
-
-    position: absolute;
-
-    width: 2px;
-    height: 70%;
-
-    left: 50%;
-    top: 15%;
-
-    background:
-        rgba(224,240,197,.20);
 }
 
 
@@ -1972,9 +2103,6 @@
     top: 3px;
 
     z-index: 6;
-
-    transition:
-        transform .4s ease;
 }
 
 
@@ -2008,13 +2136,11 @@
         translateY(-44px);
 }
 
-
 .magnolia-petalo-2 {
     transform:
         translate(-54px,-10px)
         rotate(-52deg);
 }
-
 
 .magnolia-petalo-3 {
     transform:
@@ -2022,20 +2148,17 @@
         rotate(52deg);
 }
 
-
 .magnolia-petalo-4 {
     transform:
         translate(-57px,48px)
         rotate(-110deg);
 }
 
-
 .magnolia-petalo-5 {
     transform:
         translate(57px,48px)
         rotate(110deg);
 }
-
 
 .magnolia-petalo-6 {
     transform:
@@ -2075,12 +2198,10 @@
         translateY(-8px);
 }
 
-
 .magnolia-interno-2 {
     transform:
         translateY(-13px);
 }
-
 
 .magnolia-interno-3 {
     transform:
@@ -2232,8 +2353,7 @@
 
     animation:
         nomeolvides-flotar
-        4.2s ease-in-out
-        infinite;
+        4.2s ease-in-out infinite;
 
     animation-delay:
         var(--delay);
@@ -2267,24 +2387,20 @@
         translateY(-7px);
 }
 
-
 .nomeolvides-petalo-2 {
     transform:
         translate(7px,-2px);
 }
-
 
 .nomeolvides-petalo-3 {
     transform:
         translate(4px,6px);
 }
 
-
 .nomeolvides-petalo-4 {
     transform:
         translate(-4px,6px);
 }
-
 
 .nomeolvides-petalo-5 {
     transform:
@@ -2413,8 +2529,7 @@
 
 @keyframes nomeolvides-flotar {
     50% {
-        margin-top:
-            -3px;
+        margin-top: -3px;
     }
 }
 
@@ -2438,9 +2553,6 @@
     top: 2px;
 
     z-index: 6;
-
-    transition:
-        transform .45s ease;
 }
 
 
@@ -2471,16 +2583,14 @@
         translateY(
             calc(-1 * var(--radio))
         )
-        scale(
-            var(--escala)
-        );
+        scale(var(--escala));
 
     border-radius:
         55% 55% 35% 35%;
 
     clip-path:
         polygon(
-            0% 34%,
+            0 34%,
             8% 20%,
             17% 29%,
             26% 12%,
@@ -2802,12 +2912,459 @@
 
 
 /* =====================================================
+   FLOR DE LOTO
+===================================================== */
+
+.loto {
+    width: 300px;
+
+    transform-origin:
+        center bottom;
+}
+
+
+.loto-tallo {
+    position: absolute;
+
+    width: 12px;
+    height: 155px;
+
+    left: 144px;
+    top: 194px;
+
+    z-index: 1;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            to right,
+            #426b48,
+            #79a46d,
+            #426b48
+        );
+}
+
+
+.loto-hoja {
+    position: absolute;
+
+    z-index: 2;
+
+    width: 105px;
+    height: 58px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #416e52,
+            #6f9b68,
+            #89aa73
+        );
+}
+
+
+.loto-hoja-izquierda {
+    left: 48px;
+    top: 255px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    transform:
+        rotate(-18deg);
+}
+
+
+.loto-hoja-derecha {
+    left: 146px;
+    top: 269px;
+
+    border-radius:
+        0 100% 0 100%;
+
+    transform:
+        rotate(17deg);
+}
+
+
+.loto-cabeza {
+    position: absolute;
+
+    width: 270px;
+    height: 230px;
+
+    left: 15px;
+    top: 12px;
+
+    z-index: 5;
+}
+
+
+.loto-petalo {
+    position: absolute;
+
+    left: 50%;
+
+    transform-origin:
+        50% 90%;
+
+    transition:
+        transform .85s
+        cubic-bezier(.22,.8,.25,1),
+        filter .65s ease;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff6fb,
+            #ffd5e9 25%,
+            #f3a9cd 62%,
+            #cf70aa
+        );
+
+    box-shadow:
+        inset 0 4px 8px
+        rgba(255,255,255,.45),
+        0 5px 12px
+        rgba(117,56,93,.10);
+}
+
+
+.loto-petalo-trasero {
+    width: 72px;
+    height: 138px;
+
+    top: 14px;
+
+    margin-left: -36px;
+
+    border-radius:
+        60% 60% 42% 42%
+        / 72% 72% 30% 30%;
+}
+
+
+.loto-petalo-trasero-1 {
+    transform:
+        translateX(-80px)
+        translateY(45px)
+        rotate(-43deg)
+        scale(.88);
+}
+
+.loto-petalo-trasero-2 {
+    transform:
+        translateX(-43px)
+        translateY(14px)
+        rotate(-21deg)
+        scale(.95);
+}
+
+.loto-petalo-trasero-3 {
+    transform:
+        translateX(0)
+        translateY(0);
+}
+
+.loto-petalo-trasero-4 {
+    transform:
+        translateX(43px)
+        translateY(14px)
+        rotate(21deg)
+        scale(.95);
+}
+
+.loto-petalo-trasero-5 {
+    transform:
+        translateX(80px)
+        translateY(45px)
+        rotate(43deg)
+        scale(.88);
+}
+
+
+.loto-petalo-medio {
+    width: 79px;
+    height: 125px;
+
+    top: 64px;
+
+    margin-left: -39.5px;
+
+    z-index: 3;
+
+    border-radius:
+        58% 58% 45% 45%
+        / 70% 70% 34% 34%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff7fb,
+            #f9c8df 35%,
+            #e796c0 72%,
+            #c969a2
+        );
+}
+
+
+.loto-petalo-medio-1 {
+    transform:
+        translateX(-73px)
+        translateY(19px)
+        rotate(-40deg);
+}
+
+.loto-petalo-medio-2 {
+    transform:
+        translateX(-33px)
+        translateY(3px)
+        rotate(-18deg);
+}
+
+.loto-petalo-medio-3 {
+    transform:
+        translateX(33px)
+        translateY(3px)
+        rotate(18deg);
+}
+
+.loto-petalo-medio-4 {
+    transform:
+        translateX(73px)
+        translateY(19px)
+        rotate(40deg);
+}
+
+
+.loto-petalo-frontal {
+    width: 90px;
+    height: 110px;
+
+    top: 105px;
+
+    margin-left: -45px;
+
+    z-index: 7;
+
+    border-radius:
+        55% 55% 48% 48%
+        / 63% 63% 43% 43%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe6f1,
+            #f1a1c8 48%,
+            #cf699f
+        );
+}
+
+
+.loto-petalo-frontal-1 {
+    transform:
+        translateX(-56px)
+        rotate(-27deg);
+}
+
+.loto-petalo-frontal-2 {
+    transform:
+        translateX(0)
+        translateY(8px);
+}
+
+.loto-petalo-frontal-3 {
+    transform:
+        translateX(56px)
+        rotate(27deg);
+}
+
+
+.loto-centro {
+    position: absolute;
+
+    width: 46px;
+    height: 42px;
+
+    left: 112px;
+    top: 118px;
+
+    z-index: 10;
+
+    border-radius: 50%;
+
+    opacity: .28;
+
+    transform:
+        translateY(15px)
+        scale(.75);
+
+    transition:
+        opacity .7s ease,
+        transform .8s ease;
+
+    background:
+        radial-gradient(
+            circle at 50% 38%,
+            #fff39b,
+            #e6bf4a 45%,
+            #b17a28
+        );
+}
+
+
+/* =====================================================
+   LOTO ABIERTO
+===================================================== */
+
+.loto.abierta
+.loto-petalo-trasero-1 {
+    transform:
+        translateX(-96px)
+        translateY(61px)
+        rotate(-61deg)
+        scale(.90);
+}
+
+
+.loto.abierta
+.loto-petalo-trasero-2 {
+    transform:
+        translateX(-55px)
+        translateY(19px)
+        rotate(-34deg)
+        scale(.97);
+}
+
+
+.loto.abierta
+.loto-petalo-trasero-3 {
+    transform:
+        translateX(0)
+        translateY(-15px)
+        scale(1.03);
+}
+
+
+.loto.abierta
+.loto-petalo-trasero-4 {
+    transform:
+        translateX(55px)
+        translateY(19px)
+        rotate(34deg)
+        scale(.97);
+}
+
+
+.loto.abierta
+.loto-petalo-trasero-5 {
+    transform:
+        translateX(96px)
+        translateY(61px)
+        rotate(61deg)
+        scale(.90);
+}
+
+
+.loto.abierta
+.loto-petalo-medio-1 {
+    transform:
+        translateX(-91px)
+        translateY(35px)
+        rotate(-55deg);
+}
+
+
+.loto.abierta
+.loto-petalo-medio-2 {
+    transform:
+        translateX(-49px)
+        translateY(3px)
+        rotate(-32deg);
+}
+
+
+.loto.abierta
+.loto-petalo-medio-3 {
+    transform:
+        translateX(49px)
+        translateY(3px)
+        rotate(32deg);
+}
+
+
+.loto.abierta
+.loto-petalo-medio-4 {
+    transform:
+        translateX(91px)
+        translateY(35px)
+        rotate(55deg);
+}
+
+
+.loto.abierta
+.loto-petalo-frontal-1 {
+    transform:
+        translateX(-73px)
+        translateY(23px)
+        rotate(-42deg);
+}
+
+
+.loto.abierta
+.loto-petalo-frontal-2 {
+    transform:
+        translateX(0)
+        translateY(30px)
+        scaleY(.92);
+}
+
+
+.loto.abierta
+.loto-petalo-frontal-3 {
+    transform:
+        translateX(73px)
+        translateY(23px)
+        rotate(42deg);
+}
+
+
+.loto.abierta
+.loto-centro {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.loto.abierta
+.loto-cabeza {
+    animation:
+        loto-resplandor
+        1s ease;
+}
+
+
+@keyframes loto-resplandor {
+    50% {
+        filter:
+            drop-shadow(
+                0 0 18px
+                rgba(235,145,197,.45)
+            );
+    }
+}
+
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
 
-@media (
-    max-width:600px
-) {
+@media (max-width: 600px) {
+
     .girasol,
     .tulipan,
     .lirio,
@@ -2821,8 +3378,12 @@
     .magnolia,
     .nomeolvides,
     .clavel,
-    .dalia {
-        max-width:
-            100%;
+    .dalia,
+    .loto {
+        transform:
+            scale(.92);
+
+        transform-origin:
+            center bottom;
     }
 }

@@ -1,17 +1,34 @@
 :root {
-    --texto-principal: #4b3817;
-    --texto-secundario: #60481d;
-    --texto-pequeno: #795914;
+    --texto-principal:
+        #4b3817;
 
-    --panel-bg: rgba(255,255,255,.25);
-    --panel-bg-2: rgba(255,255,255,.11);
-    --panel-border: rgba(255,255,255,.55);
+    --texto-secundario:
+        #60481d;
+
+    --texto-pequeno:
+        #795914;
+
+    --panel-bg:
+        rgba(255,255,255,.27);
+
+    --panel-bg-2:
+        rgba(255,255,255,.12);
+
+    --panel-border:
+        rgba(255,255,255,.56);
+
+    --petalo-golpe-1:
+        #d77bd8;
+
+    --petalo-golpe-2:
+        #f1c8f1;
 }
 
 
 * {
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
 
@@ -31,49 +48,50 @@ body {
 body {
     min-height: 100vh;
 
+    overflow-x: hidden;
+
+    color:
+        var(--texto-principal);
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    color:
-        var(--texto-principal);
-
     background:
         radial-gradient(
-            circle at 50% 28%,
-            #fffbe5 0%,
-            #f8e9ab 38%,
-            #dec66f 72%,
-            #786b4b 100%
+            circle at 50% 25%,
+            #fffbe7 0%,
+            #f8e9aa 38%,
+            #dec56e 72%,
+            #786a4b 100%
         );
 
     transition:
         background .7s ease,
         color .5s ease;
-
-    overflow-x: hidden;
 }
 
 
 /* =====================================================
-   MORADO
+   FONDO MORADO
 ===================================================== */
 
 body.tema-morado {
-    --texto-principal: #38244f;
-    --texto-secundario: #4d3568;
-    --texto-pequeno: #60417f;
+    --texto-principal:
+        #38244f;
 
-    --panel-bg: rgba(255,255,255,.24);
-    --panel-bg-2: rgba(255,255,255,.11);
-    --panel-border: rgba(255,255,255,.46);
+    --texto-secundario:
+        #4d3568;
+
+    --texto-pequeno:
+        #60417f;
 
     background:
         radial-gradient(
-            circle at 50% 28%,
-            #f2e7ff 0%,
-            #d9bef8 39%,
+            circle at 50% 25%,
+            #f4eaff 0%,
+            #dbc2f8 38%,
             #ae83df 72%,
             #655176 100%
         );
@@ -85,13 +103,23 @@ body.tema-morado {
 ===================================================== */
 
 body.modo-noche {
-    --texto-principal: #faf6ff;
-    --texto-secundario: #eadff8;
-    --texto-pequeno: #cdb9e7;
+    --texto-principal:
+        #faf6ff;
 
-    --panel-bg: rgba(44,32,64,.76);
-    --panel-bg-2: rgba(27,20,40,.58);
-    --panel-border: rgba(231,218,255,.26);
+    --texto-secundario:
+        #eadff8;
+
+    --texto-pequeno:
+        #d3c2ea;
+
+    --panel-bg:
+        rgba(44,32,64,.76);
+
+    --panel-bg-2:
+        rgba(27,20,40,.61);
+
+    --panel-border:
+        rgba(231,218,255,.26);
 
     background:
         radial-gradient(
@@ -108,6 +136,7 @@ body::before {
     content: "";
 
     position: fixed;
+
     inset: 0;
 
     z-index: 0;
@@ -190,12 +219,12 @@ body.modo-noche::before {
     width: 100%;
     max-width: 950px;
 
-    text-align: center;
-
     padding:
         7px 15px 15px;
 
     margin-bottom: 17px;
+
+    text-align: center;
 }
 
 
@@ -213,6 +242,8 @@ body.modo-noche::before {
     transform:
         translateX(-50%);
 
+    z-index: -1;
+
     border-radius: 50%;
 
     background:
@@ -224,8 +255,6 @@ body.modo-noche::before {
 
     filter:
         blur(15px);
-
-    z-index: -1;
 }
 
 
@@ -266,7 +295,8 @@ body.modo-noche::before {
 h1 {
     max-width: 900px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     font-size:
         clamp(
@@ -304,7 +334,7 @@ h1 {
 
 
 /* =====================================================
-   PANELES
+   PANELES GENERALES
 ===================================================== */
 
 .intro-jardin,
@@ -490,7 +520,7 @@ h1 {
 
 
 /* =====================================================
-   MÚSICA
+   PANEL SUPERIOR
 ===================================================== */
 
 .panel-superior {
@@ -526,8 +556,7 @@ h1 {
 
     border-radius: 18px;
 
-    color:
-        white;
+    color: white;
 
     font-size: 23px;
 
@@ -560,7 +589,6 @@ h1 {
         sans-serif;
 
     font-size: 13px;
-
     line-height: 1.5;
 
     color:
@@ -577,8 +605,15 @@ h1 {
 
 
 /* =====================================================
-   BOTONES
+   BOTONES GENERALES
 ===================================================== */
+
+button,
+a {
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
 
 .boton-playlist,
 .boton-fondo,
@@ -600,8 +635,8 @@ h1 {
 
     transition:
         transform .2s ease,
-        filter .2s ease,
-        box-shadow .2s ease;
+        box-shadow .2s ease,
+        filter .2s ease;
 }
 
 
@@ -619,8 +654,7 @@ h1 {
 
     border: none;
 
-    color:
-        white;
+    color: white;
 }
 
 
@@ -645,7 +679,9 @@ h1 {
 
 
 .boton-playlist:hover,
-.boton-fondo:hover {
+.boton-fondo:hover,
+.abrir-coleccion:hover,
+.boton-favorita:hover {
     transform:
         translateY(-2px);
 }
@@ -865,7 +901,7 @@ h1 {
 
 
 /* =====================================================
-   FLORES
+   CONTENEDORES DE FLORES
 ===================================================== */
 
 .contenedor-flores {
@@ -936,6 +972,8 @@ h1 {
 
 
 .envoltura-flor {
+    position: relative;
+
     width: 100%;
     height: 360px;
 
@@ -943,8 +981,6 @@ h1 {
 
     justify-content: center;
     align-items: flex-end;
-
-    position: relative;
 }
 
 
@@ -1080,7 +1116,47 @@ h1 {
 
 
 /* =====================================================
-   CANCIONES
+   LOTO ESPECIAL
+===================================================== */
+
+.tarjeta-loto {
+    min-height: 540px;
+}
+
+
+.tarjeta-loto
+.nota-flor {
+    margin-top: 0;
+}
+
+
+.tarjeta-loto
+.pista-carta {
+    margin-top: 7px;
+
+    color:
+        #9d5f8a;
+}
+
+
+.tarjeta-loto
+.boton-cancion {
+    background:
+        linear-gradient(
+            135deg,
+            #b55f98,
+            #d986b6,
+            #9465c4
+        );
+
+    box-shadow:
+        0 9px 22px
+        rgba(154,85,143,.22);
+}
+
+
+/* =====================================================
+   BOTONES DE CANCIONES
 ===================================================== */
 
 .boton-cancion {
@@ -1107,8 +1183,7 @@ h1 {
     font-size: 13px;
     font-weight: 700;
 
-    color:
-        white;
+    color: white;
 
     text-decoration: none;
 
@@ -1120,8 +1195,7 @@ h1 {
         );
 
     transition:
-        transform .18s ease,
-        box-shadow .18s ease;
+        transform .18s ease;
 }
 
 
@@ -1141,26 +1215,19 @@ h1 {
 @keyframes pulso-boton {
     50% {
         transform:
-            scale(.93);
+            scale(.92);
     }
 }
 
 
 .tarjeta-girasol
 .boton-playlist-secreta {
-    color:
-        white;
-
     background:
         linear-gradient(
             135deg,
             #11763d,
             #2dbd69
         );
-
-    box-shadow:
-        0 7px 18px
-        rgba(20,112,60,.18);
 }
 
 
@@ -1420,10 +1487,10 @@ h1 {
         Arial,
         sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
     color:
         #9b75b8;
@@ -1450,13 +1517,12 @@ h1 {
         sans-serif;
 
     font-size: 14px;
-
     line-height: 1.75;
 }
 
 
 /* =====================================================
-   PAPEL DE CARTA
+   CARTAS
 ===================================================== */
 
 .papel-carta {
@@ -1482,22 +1548,8 @@ h1 {
             #fffefa,
             #faf5ff
         );
-
-    box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.9),
-        0 5px 14px
-        rgba(75,50,93,.04);
 }
 
-
-.papel-carta > p {
-    color:
-        #604a6d;
-}
-
-
-/* TRES PUNTOS */
 
 .marca-secreta {
     display: flex;
@@ -1527,15 +1579,6 @@ h1 {
 
     background:
         #f1e8f6;
-
-    transition:
-        transform .2s ease;
-}
-
-
-.marca-secreta:hover {
-    transform:
-        scale(1.07);
 }
 
 
@@ -1555,7 +1598,7 @@ h1 {
 
 
 .postdata-carta.mostrar {
-    max-height: 170px;
+    max-height: 190px;
 
     opacity: 1;
 
@@ -1569,26 +1612,115 @@ h1 {
 }
 
 
-.postdata-carta span {
-    display: block;
+/* =====================================================
+   CARTA DEL LOTO
+===================================================== */
 
-    margin-bottom: 5px;
-
-    font-size: 11px;
-
-    color:
-        #8f6ca6;
+.carta-loto {
+    text-align: center;
 }
 
 
-.postdata-carta p {
+.carta-loto
+.papel-carta {
+    overflow: hidden;
+
+    padding:
+        28px 26px;
+
+    border-color:
+        rgba(197,120,170,.20);
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffefd,
+            #fff6fb,
+            #f5edff
+        );
+}
+
+
+.carta-loto
+.papel-carta::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    right: -100px;
+    top: -105px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(220,141,191,.18),
+            transparent 70%
+        );
+}
+
+
+.confesion-loto {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 15px !important;
+
+    line-height: 1.95 !important;
+
     color:
-        #735986;
+        #644c6d;
+}
+
+
+.firma-loto {
+    display: block;
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 50px;
+    height: 1px;
+
+    margin:
+        20px auto 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c487ae,
+            transparent
+        );
+}
+
+
+.detalle-loto {
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color:
+        #a07a9d;
 }
 
 
 /* =====================================================
-   CANCIÓN ESCONDIDA
+   CANCIÓN SECRETA
 ===================================================== */
 
 .cancion-escondida {
@@ -1686,8 +1818,7 @@ h1 {
     font-size: 12px;
     font-weight: 700;
 
-    color:
-        white;
+    color: white;
 
     background:
         linear-gradient(
@@ -1695,10 +1826,6 @@ h1 {
             #8050a8,
             #c76faf
         );
-
-    box-shadow:
-        0 7px 18px
-        rgba(92,54,113,.16);
 }
 
 
@@ -1729,8 +1856,8 @@ h1 {
 .icono-aviso {
     display: flex;
 
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     width: 68px;
     height: 68px;
@@ -1740,8 +1867,7 @@ h1 {
 
     border-radius: 22px;
 
-    color:
-        white;
+    color: white;
 
     font-size: 24px;
 
@@ -1755,10 +1881,10 @@ h1 {
 
 
 .aviso-pista {
-    font-style: italic;
-
     color:
         #89709b;
+
+    font-style: italic;
 }
 
 
@@ -1786,8 +1912,7 @@ h1 {
 .boton-modal-principal {
     border: none;
 
-    color:
-        white;
+    color: white;
 
     background:
         linear-gradient(
@@ -1852,8 +1977,7 @@ h1 {
 
 
 .tab-coleccion.activo {
-    color:
-        white;
+    color: white;
 
     background:
         linear-gradient(
@@ -1937,30 +2061,6 @@ h1 {
 }
 
 
-.coleccion-item h4 {
-    margin-bottom: 8px;
-
-    font-weight: normal;
-}
-
-
-.coleccion-item p {
-    font-size: 12px;
-
-    line-height: 1.55;
-}
-
-
-.coleccion-item small {
-    display: block;
-
-    margin-top: 10px;
-
-    color:
-        #8666a0;
-}
-
-
 .numero-coleccion {
     position: absolute;
 
@@ -1988,7 +2088,7 @@ h1 {
 
 
 /* =====================================================
-   NOTA NUEVA
+   NUEVO COLECCIONABLE
 ===================================================== */
 
 .nuevo-coleccionable {
@@ -2027,117 +2127,6 @@ h1 {
 
     background:
         rgba(255,255,255,.74);
-}
-
-
-.nota-encontrada span {
-    display: block;
-
-    margin-top: 14px;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    color:
-        #9982aa;
-}
-
-
-.nota-encontrada strong {
-    display: block;
-
-    margin-top: 5px;
-
-    font-size: 21px;
-
-    font-weight: normal;
-
-    color:
-        #6e4c87;
-}
-
-
-/* =====================================================
-   MODO NOCHE
-===================================================== */
-
-body.modo-noche h1,
-body.modo-noche h2,
-body.modo-noche h3,
-body.modo-noche .titulo-flor {
-    color:
-        #faf5ff;
-}
-
-
-body.modo-noche .resumen-intro,
-body.modo-noche .texto-playlist,
-body.modo-noche .nota-flor > p,
-body.modo-noche .despedida-dia,
-body.modo-noche .final-pista,
-body.modo-noche .favorita-actual {
-    color:
-        #eadff7;
-}
-
-
-body.modo-noche .pista-carta,
-body.modo-noche .memoria-flor,
-body.modo-noche .final-pequeno,
-body.modo-noche .datos-progreso {
-    color:
-        #d0bae9;
-}
-
-
-body.modo-noche
-.nota-flor > p {
-    background:
-        rgba(255,255,255,.08);
-}
-
-
-body.modo-noche
-.boton-favorita,
-body.modo-noche
-.abrir-coleccion,
-body.modo-noche
-.boton-no-tocar {
-    color:
-        #f0e5fb;
-
-    border-color:
-        rgba(255,255,255,.20);
-
-    background:
-        rgba(255,255,255,.10);
-}
-
-
-/* =====================================================
-   DALIA
-===================================================== */
-
-.tarjeta-flor-secreta {
-    opacity: 0;
-
-    transform:
-        translateY(28px)
-        scale(.94);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-}
-
-
-.tarjeta-flor-secreta.revelada {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
 }
 
 
@@ -2206,13 +2195,11 @@ body.modo-noche
     height: 31px;
 
     border: none;
-
     border-radius: 50%;
 
     cursor: pointer;
 
-    color:
-        white;
+    color: white;
 
     background:
         rgba(255,255,255,.08);
@@ -2237,8 +2224,7 @@ body.modo-noche
 
     border-radius: 999px;
 
-    color:
-        white;
+    color: white;
 
     text-decoration: none;
 
@@ -2252,7 +2238,7 @@ body.modo-noche
 
 
 /* =====================================================
-   LLUVIA
+   LLUVIA NORMAL
 ===================================================== */
 
 .lluvia-especial {
@@ -2286,7 +2272,8 @@ body.modo-noche
 
     height:
         calc(
-            var(--tamano) * .62
+            var(--tamano) *
+            .62
         );
 
     border-radius:
@@ -2315,8 +2302,6 @@ body.tema-morado
 
 body.modo-noche
 .particula-lluvia {
-    border-radius: 50%;
-
     background:
         rgba(235,226,255,.90);
 }
@@ -2334,6 +2319,132 @@ body.modo-noche
             translateY(110vh)
             translateX(25px)
             rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   LLUVIA DEL LOTO
+===================================================== */
+
+.lluvia-petalos-loto {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 12000;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.petalo-lluvia-loto {
+    position: absolute;
+
+    top: -60px;
+
+    width:
+        var(--loto-ancho);
+
+    height:
+        calc(
+            var(--loto-ancho) * .72
+        );
+
+    border-radius:
+        100% 12% 100% 12%;
+
+    opacity: .93;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff4fa,
+            #f6bbd7 42%,
+            #d37aab
+        );
+
+    animation:
+        caer-petalo-loto
+        var(--loto-duracion)
+        linear forwards;
+
+    animation-delay:
+        var(--loto-retraso);
+}
+
+
+.petalo-lluvia-loto:nth-child(3n) {
+    background:
+        linear-gradient(
+            145deg,
+            #fff6fc,
+            #e7c7f4,
+            #ba83d2
+        );
+}
+
+
+.petalo-lluvia-loto:nth-child(4n) {
+    background:
+        linear-gradient(
+            145deg,
+            #fff9fb,
+            #f9d5e7,
+            #e89cbc
+        );
+}
+
+
+@keyframes caer-petalo-loto {
+    0% {
+        opacity: 0;
+
+        transform:
+            translate3d(
+                0,
+                -70px,
+                0
+            )
+            rotate(0deg);
+    }
+
+    8% {
+        opacity: .95;
+    }
+
+    35% {
+        transform:
+            translate3d(
+                var(--desvio-1),
+                35vh,
+                0
+            )
+            rotate(170deg);
+    }
+
+    70% {
+        transform:
+            translate3d(
+                var(--desvio-2),
+                75vh,
+                0
+            )
+            rotate(390deg);
+    }
+
+    100% {
+        opacity: .10;
+
+        transform:
+            translate3d(
+                var(--desvio-3),
+                110vh,
+                0
+            )
+            rotate(650deg);
     }
 }
 
@@ -2378,7 +2489,6 @@ body.modo-noche
 
 .mariposa-jardin.mariposa-inversa {
     left: auto;
-
     right: -80px;
 
     animation-name:
@@ -2400,12 +2510,6 @@ body.modo-noche
             var(--mariposa-color-1),
             var(--mariposa-color-2)
         );
-
-    box-shadow:
-        inset 0 2px 5px
-        rgba(255,255,255,.23),
-        0 3px 8px
-        rgba(0,0,0,.08);
 
     animation:
         batir-ala
@@ -2549,10 +2653,6 @@ body.modo-noche
 @keyframes vuelo-mariposa {
     0% {
         left: -70px;
-
-        transform:
-            translateY(0)
-            rotate(-6deg);
     }
 
     22% {
@@ -2586,10 +2686,6 @@ body.modo-noche
 @keyframes vuelo-mariposa-inverso {
     0% {
         right: -70px;
-
-        transform:
-            translateY(0)
-            rotate(6deg);
     }
 
     22% {
@@ -2613,9 +2709,6 @@ body.modo-noche
     100% {
         right:
             calc(100vw + 80px);
-
-        transform:
-            translateY(12px);
     }
 }
 
@@ -2633,16 +2726,10 @@ body.modo-noche
 
 
 /* =====================================================
-   PÉTALOS
+   EXPLOSIÓN DE PÉTALOS
 ===================================================== */
 
 .explosion-petalos {
-    --petalo-golpe-1:
-        #d77bd8;
-
-    --petalo-golpe-2:
-        #f1c8f1;
-
     position: fixed;
 
     z-index: 14000;
@@ -2696,10 +2783,6 @@ body.modo-noche
             scale(.4);
     }
 
-    65% {
-        opacity: 1;
-    }
-
     100% {
         opacity: 0;
 
@@ -2716,7 +2799,7 @@ body.modo-noche
 
 
 /* =====================================================
-   SECRETO
+   SECCIÓN SECRETO
 ===================================================== */
 
 .seccion-secreto {
@@ -2750,39 +2833,10 @@ body.modo-noche
             rgba(53,33,64,.90)
         );
 
-    box-shadow:
-        0 30px 70px
-        rgba(19,11,29,.30);
-
     opacity: 0;
 
     transform:
         translateY(35px);
-}
-
-
-.seccion-secreto::before {
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-    height: 300px;
-
-    left: 50%;
-    top: -220px;
-
-    transform:
-        translateX(-50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(211,111,206,.23),
-            transparent 70%
-        );
 }
 
 
@@ -2806,16 +2860,12 @@ body.modo-noche
 
 
 .encabezado-secreto {
-    position: relative;
-
-    z-index: 2;
+    text-align: center;
 
     max-width: 680px;
 
     margin:
         0 auto 25px;
-
-    text-align: center;
 }
 
 
@@ -2848,13 +2898,12 @@ body.modo-noche
 }
 
 
-.encabezado-secreto > p:last-child {
+.encabezado-secreto p {
     font-family:
         Arial,
         sans-serif;
 
     font-size: 14px;
-
     line-height: 1.7;
 
     color:
@@ -2867,10 +2916,6 @@ body.modo-noche
 ===================================================== */
 
 .kuromi-area {
-    position: relative;
-
-    z-index: 2;
-
     display: flex;
 
     flex-direction: column;
@@ -2966,16 +3011,6 @@ body.modo-noche
 }
 
 
-.kuromi-oreja-izq::after {
-    left: 3px;
-}
-
-
-.kuromi-oreja-der::after {
-    right: 3px;
-}
-
-
 .kuromi-cara {
     position: absolute;
 
@@ -3062,15 +3097,15 @@ body.modo-noche
     transform:
         translateX(-50%);
 
-    padding: 4px;
-
-    border-radius: 50%;
-
     color:
         #4f2644;
 
     background:
         #e984c9;
+
+    border-radius: 50%;
+
+    padding: 4px;
 }
 
 
@@ -3128,15 +3163,7 @@ body.modo-noche
 }
 
 
-/* =====================================================
-   CONTADOR DE SECRETOS
-===================================================== */
-
 .secreto-control {
-    position: relative;
-
-    z-index: 2;
-
     width:
         min(
             500px,
@@ -3217,10 +3244,34 @@ body.modo-noche
 
     font-size: 11px;
 
-    line-height: 1.6;
-
     color:
         #baa7c5;
+}
+
+
+/* =====================================================
+   DALIA
+===================================================== */
+
+.tarjeta-flor-secreta {
+    opacity: 0;
+
+    transform:
+        translateY(28px)
+        scale(.94);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.tarjeta-flor-secreta.revelada {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 
@@ -3347,17 +3398,16 @@ body.modo-noche
 
     border-radius: 999px;
 
-    color:
-        white;
-
-    background:
-        rgba(40,29,54,.94);
+    color: white;
 
     font-family:
         Arial,
         sans-serif;
 
     font-size: 12px;
+
+    background:
+        rgba(40,29,54,.94);
 
     transform:
         translate(-50%,25px);
@@ -3380,12 +3430,59 @@ body.modo-noche
 
 
 /* =====================================================
+   NOCHE - LEGIBILIDAD
+===================================================== */
+
+body.modo-noche h1,
+body.modo-noche h2,
+body.modo-noche h3,
+body.modo-noche .titulo-flor {
+    color:
+        #faf5ff;
+}
+
+
+body.modo-noche .nota-flor > p,
+body.modo-noche .texto-playlist,
+body.modo-noche .resumen-intro,
+body.modo-noche .despedida-dia,
+body.modo-noche .final-pista,
+body.modo-noche .favorita-actual {
+    color:
+        #eadff7;
+}
+
+
+body.modo-noche
+.nota-flor > p {
+    background:
+        rgba(255,255,255,.08);
+}
+
+
+body.modo-noche
+.boton-favorita,
+body.modo-noche
+.abrir-coleccion,
+body.modo-noche
+.boton-no-tocar {
+    color:
+        #f0e5fb;
+
+    border-color:
+        rgba(255,255,255,.20);
+
+    background:
+        rgba(255,255,255,.10);
+}
+
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
 
-@media (
-    max-width: 700px
-) {
+@media (max-width: 700px) {
+
     .jardin {
         padding:
             34px 12px 48px;
@@ -3451,8 +3548,8 @@ body.modo-noche
     }
 
 
-    .nota-1111 {
-        right: 14px;
-        bottom: 14px;
+    .confesion-loto {
+        font-size:
+            14px !important;
     }
 }
