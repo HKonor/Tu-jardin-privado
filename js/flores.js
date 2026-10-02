@@ -1585,5 +1585,165 @@ const Flores = {
 
 
         return flor;
+    },
+
+
+    /* =================================================
+       FLOR DE CEREZO
+    ================================================= */
+
+    cerezo() {
+
+        const flor =
+            crearDiv("cerezo");
+
+
+        const ramaPrincipal =
+            crearDiv(
+                "cerezo-rama-principal"
+            );
+
+
+        flor.appendChild(
+            ramaPrincipal
+        );
+
+
+        const ramas = [
+            { clase: "cerezo-rama-1" },
+            { clase: "cerezo-rama-2" },
+            { clase: "cerezo-rama-3" },
+            { clase: "cerezo-rama-4" },
+            { clase: "cerezo-rama-5" }
+        ];
+
+
+        ramas.forEach(
+            item => {
+
+                flor.appendChild(
+                    crearDiv(
+                        `cerezo-rama ${item.clase}`
+                    )
+                );
+            }
+        );
+
+
+        const posiciones = [
+            [58, 88, .86, -7],
+            [91, 58, 1.00, 5],
+            [126, 91, .88, -4],
+            [155, 42, 1.04, 7],
+            [188, 79, .92, -6],
+            [214, 118, .82, 8],
+            [103, 129, .78, 4],
+            [163, 137, .84, -5],
+            [236, 69, .70, 3]
+        ];
+
+
+        posiciones.forEach(
+            (
+                [left, top, escala, rotacion],
+                indice
+            ) => {
+
+                const florCerezo =
+                    crearDiv(
+                        "cerezo-flor"
+                    );
+
+
+                florCerezo.style.left =
+                    `${left}px`;
+
+
+                florCerezo.style.top =
+                    `${top}px`;
+
+
+                florCerezo.style.setProperty(
+                    "--cerezo-escala",
+                    escala
+                );
+
+
+                florCerezo.style.setProperty(
+                    "--cerezo-rotacion",
+                    `${rotacion}deg`
+                );
+
+
+                florCerezo.style.setProperty(
+                    "--cerezo-delay",
+                    `${(indice % 5) * -.35}s`
+                );
+
+
+                for (let p = 1; p <= 5; p++) {
+
+                    florCerezo.appendChild(
+                        crearDiv(
+                            `cerezo-petalo cerezo-petalo-${p}`
+                        )
+                    );
+                }
+
+
+                florCerezo.appendChild(
+                    crearDiv(
+                        "cerezo-centro"
+                    )
+                );
+
+
+                flor.appendChild(
+                    florCerezo
+                );
+            }
+        );
+
+
+        const botones = [
+            [72, 120],
+            [135, 58],
+            [200, 101],
+            [225, 144],
+            [119, 158]
+        ];
+
+
+        botones.forEach(
+            ([left, top], indice) => {
+
+                const boton =
+                    crearDiv(
+                        "cerezo-boton"
+                    );
+
+
+                boton.style.left =
+                    `${left}px`;
+
+
+                boton.style.top =
+                    `${top}px`;
+
+
+                boton.style.setProperty(
+                    "--cerezo-delay",
+                    `${indice * -.3}s`
+                );
+
+
+                flor.appendChild(
+                    boton
+                );
+            }
+        );
+
+
+        return flor;
     }
 };

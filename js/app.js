@@ -1335,6 +1335,33 @@ const floresDelJardin = [
 
         especial:
             "carta"
+    },
+
+
+    /* =================================================
+       FLOR DE HOY — CEREZO
+    ================================================= */
+
+    {
+        tipo: "cerezo",
+
+        titulo:
+            "Flor de cerezo 🌸",
+
+        mensaje:
+            "Creo que hay momentos en los que hablar de más arruina un poquito las cosas. Así que esta vez no voy a intentar explicarlo todo. Quédate un momento aquí, escucha la canción y no digas nada.",
+
+        carta:
+            "No todo necesita una explicación. A veces basta con compartir un momento, dejar que una canción haga lo suyo y quedarse un ratito sin intentar ponerle nombre a todo.",
+
+        microMensaje:
+            "A veces basta con quedarse un momento.",
+
+        linkCancion:
+            "https://m.youtube.com/watch?v=9G9WhNiEqMs&pp=ygUZbm8gZGlnYXMgbmFkYSBsYXRpbiBtYWZpYQ%3D%3D",
+
+        textoBoton:
+            "♪ No digas nada"
     }
 ];
 
@@ -3850,6 +3877,32 @@ setTimeout(
    MARIPOSAS
 ===================================================== */
 
+let mariposasAplastadas =
+    Number(
+        localStorage.getItem(
+            CLAVES.mariposasAplastadas
+        ) || 0
+    );
+
+
+const mensajesMariposa = [
+
+    "La alcanzaste.",
+
+    "Pobre mariposa...",
+
+    "Otra cayó en el jardín.",
+
+    "Definitivamente te gusta aplastarlas.",
+
+    "Bueno... esa tampoco sobrevivió.",
+
+    "Los pétalos fueron lo único que quedó.",
+
+    "Otra más. Ya les estás agarrando práctica."
+];
+
+
 const coloresMariposas = [
 
     "mariposa-rosa",
@@ -4071,6 +4124,27 @@ function crearMariposa() {
                 estilo.getPropertyValue(
                     "--mariposa-color-2"
                 )
+            );
+
+
+            mariposasAplastadas++;
+
+
+            localStorage.setItem(
+                CLAVES.mariposasAplastadas,
+                String(
+                    mariposasAplastadas
+                )
+            );
+
+
+            mostrarToast(
+                mensajesMariposa[
+                    Math.floor(
+                        Math.random() *
+                        mensajesMariposa.length
+                    )
+                ]
             );
 
 

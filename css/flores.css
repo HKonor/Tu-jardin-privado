@@ -16,7 +16,8 @@
 .nomeolvides,
 .clavel,
 .dalia,
-.loto {
+.loto,
+.cerezo {
     position: relative;
 
     width: 300px;
@@ -25,9 +26,15 @@
     transform-origin:
         center bottom;
 
+    --escala-flor: 1;
+    --brisa-duracion: 6.4s;
+    --brisa-retraso: 1.2s;
+    --brisa-inicio: -0.65deg;
+    --brisa-fin: 0.65deg;
+
     animation:
-        crecer-flor
-        1.2s ease both;
+        crecer-flor 1.2s ease both,
+        brisa-flor var(--brisa-duracion) ease-in-out var(--brisa-retraso) infinite;
 }
 
 
@@ -45,9 +52,46 @@
 
         transform:
             translateY(0)
-            scale(1);
+            scale(var(--escala-flor));
     }
 }
+
+
+@keyframes brisa-flor {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(var(--brisa-inicio))
+            scale(var(--escala-flor));
+    }
+
+    50% {
+        transform:
+            translateY(-2px)
+            rotate(var(--brisa-fin))
+            scale(var(--escala-flor));
+    }
+}
+
+
+/* Ritmos ligeramente distintos para que el jardín no se mueva sincronizado */
+.girasol { --brisa-duracion: 6.1s; --brisa-retraso: 1.2s; }
+.tulipan { --brisa-duracion: 6.8s; --brisa-retraso: 1.35s; }
+.lirio { --brisa-duracion: 7.2s; --brisa-retraso: 1.5s; }
+.flor-nube { --brisa-duracion: 6.5s; --brisa-retraso: 1.3s; }
+.peonia { --brisa-duracion: 7.0s; --brisa-retraso: 1.55s; }
+.camelia { --brisa-duracion: 6.6s; --brisa-retraso: 1.4s; }
+.jazmin { --brisa-duracion: 7.4s; --brisa-retraso: 1.6s; }
+.orquidea { --brisa-duracion: 6.9s; --brisa-retraso: 1.45s; }
+.lavanda { --brisa-duracion: 5.9s; --brisa-retraso: 1.25s; --brisa-inicio: -0.8deg; --brisa-fin: 0.8deg; }
+.anemona { --brisa-duracion: 7.1s; --brisa-retraso: 1.5s; }
+.magnolia { --brisa-duracion: 6.7s; --brisa-retraso: 1.35s; }
+.nomeolvides { --brisa-duracion: 6.2s; --brisa-retraso: 1.25s; }
+.clavel { --brisa-duracion: 7.3s; --brisa-retraso: 1.55s; }
+.dalia { --brisa-duracion: 7.6s; --brisa-retraso: 1.65s; }
+.loto { --brisa-duracion: 7.0s; --brisa-retraso: 1.45s; }
+.cerezo { --brisa-duracion: 5.8s; --brisa-retraso: 1.2s; --brisa-inicio: -0.85deg; --brisa-fin: 0.85deg; }
 
 
 /* =====================================================
@@ -3360,6 +3404,289 @@
 
 
 /* =====================================================
+   FLOR DE CEREZO
+===================================================== */
+
+.cerezo {
+    width: 300px;
+    height: 350px;
+}
+
+
+.cerezo-rama-principal,
+.cerezo-rama {
+    position: absolute;
+
+    z-index: 2;
+
+    border-radius: 999px;
+
+    transform-origin:
+        left center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #76523f,
+            #4d342d 55%,
+            #33231f
+        );
+
+    box-shadow:
+        inset 0 2px 2px
+        rgba(255,255,255,.10);
+}
+
+
+.cerezo-rama-principal {
+    width: 218px;
+    height: 13px;
+
+    left: 40px;
+    top: 176px;
+
+    transform:
+        rotate(-26deg);
+}
+
+
+.cerezo-rama {
+    height: 7px;
+}
+
+
+.cerezo-rama-1 {
+    width: 92px;
+
+    left: 82px;
+    top: 143px;
+
+    transform:
+        rotate(-66deg);
+}
+
+
+.cerezo-rama-2 {
+    width: 102px;
+
+    left: 109px;
+    top: 135px;
+
+    transform:
+        rotate(-31deg);
+}
+
+
+.cerezo-rama-3 {
+    width: 91px;
+
+    left: 145px;
+    top: 127px;
+
+    transform:
+        rotate(24deg);
+}
+
+
+.cerezo-rama-4 {
+    width: 77px;
+
+    left: 177px;
+    top: 112px;
+
+    transform:
+        rotate(-48deg);
+}
+
+
+.cerezo-rama-5 {
+    width: 72px;
+
+    left: 196px;
+    top: 139px;
+
+    transform:
+        rotate(35deg);
+}
+
+
+.cerezo-flor {
+    position: absolute;
+
+    z-index: 8;
+
+    width: 54px;
+    height: 54px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(var(--cerezo-rotacion))
+        scale(var(--cerezo-escala));
+
+    animation:
+        respirar-cerezo
+        3.8s ease-in-out infinite;
+
+    animation-delay:
+        var(--cerezo-delay);
+}
+
+
+.cerezo-petalo {
+    position: absolute;
+
+    width: 25px;
+    height: 30px;
+
+    left: 14.5px;
+    top: 12px;
+
+    transform-origin:
+        50% 78%;
+
+    border-radius:
+        60% 60% 48% 48%
+        / 72% 72% 38% 38%;
+
+    background:
+        radial-gradient(
+            circle at 50% 76%,
+            #dc7ca6 0%,
+            #ef9fc0 24%,
+            #ffd0df 62%,
+            #fff0f6 100%
+        );
+
+    box-shadow:
+        inset 0 1px 2px
+        rgba(255,255,255,.55),
+        0 2px 5px
+        rgba(130,65,100,.09);
+}
+
+
+.cerezo-petalo-1 {
+    transform:
+        translateY(-12px)
+        rotate(0deg);
+}
+
+
+.cerezo-petalo-2 {
+    transform:
+        translate(11px,-2px)
+        rotate(72deg);
+}
+
+
+.cerezo-petalo-3 {
+    transform:
+        translate(7px,10px)
+        rotate(144deg);
+}
+
+
+.cerezo-petalo-4 {
+    transform:
+        translate(-7px,10px)
+        rotate(216deg);
+}
+
+
+.cerezo-petalo-5 {
+    transform:
+        translate(-11px,-2px)
+        rotate(288deg);
+}
+
+
+.cerezo-centro {
+    position: absolute;
+
+    width: 11px;
+    height: 11px;
+
+    left: 21.5px;
+    top: 21.5px;
+
+    z-index: 12;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffe9a5,
+            #d9a84a 68%,
+            #9f6f2f
+        );
+
+    box-shadow:
+        0 0 0 3px
+        rgba(188,90,128,.12);
+}
+
+
+.cerezo-boton {
+    position: absolute;
+
+    z-index: 7;
+
+    width: 15px;
+    height: 20px;
+
+    border-radius:
+        60% 60% 52% 52%;
+
+    background:
+        linear-gradient(
+            160deg,
+            #ffd6e5,
+            #e99abb,
+            #c76593
+        );
+
+    transform:
+        rotate(18deg);
+
+    animation:
+        boton-cerezo
+        3.5s ease-in-out infinite;
+
+    animation-delay:
+        var(--cerezo-delay);
+}
+
+
+@keyframes respirar-cerezo {
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -2px;
+    }
+}
+
+
+@keyframes boton-cerezo {
+    0%,
+    100% {
+        transform:
+            rotate(18deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(21deg)
+            translateY(-2px);
+    }
+}
+
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
 
@@ -3379,11 +3706,39 @@
     .nomeolvides,
     .clavel,
     .dalia,
-    .loto {
-        transform:
-            scale(.92);
+    .loto,
+    .cerezo {
+        --escala-flor: .92;
 
         transform-origin:
             center bottom;
+    }
+}
+
+/* =====================================================
+   ACCESIBILIDAD DE MOVIMIENTO
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .girasol,
+    .tulipan,
+    .lirio,
+    .flor-nube,
+    .peonia,
+    .camelia,
+    .jazmin,
+    .orquidea,
+    .lavanda,
+    .anemona,
+    .magnolia,
+    .nomeolvides,
+    .clavel,
+    .dalia,
+    .loto,
+    .cerezo,
+    .cerezo-flor,
+    .cerezo-boton {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
     }
 }

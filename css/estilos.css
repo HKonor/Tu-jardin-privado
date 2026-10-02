@@ -1003,6 +1003,29 @@ a {
 }
 
 
+.flor-interactiva.reaccion-activa {
+    animation:
+        reaccion-flor
+        .8s ease;
+}
+
+
+@keyframes reaccion-flor {
+    0%,
+    100% {
+        filter: none;
+    }
+
+    50% {
+        filter:
+            drop-shadow(
+                0 0 10px
+                rgba(189,137,224,.28)
+            );
+    }
+}
+
+
 .flor-interactiva.secreto-activo {
     filter:
         drop-shadow(
@@ -1346,6 +1369,25 @@ a {
             #9d1c39,
             #df526c
         );
+}
+
+
+.tarjeta-cerezo
+.boton-cancion {
+    color:
+        #6f4058;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe7f0,
+            #f3aac5,
+            #d67ca6
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(182,100,139,.18);
 }
 
 
