@@ -641,6 +641,359 @@ function mostrarToast(
 }
 
 
+
+/* =====================================================
+   MÚSICA DE FONDO
+
+   El navegador necesita una interacción del usuario
+   antes de reproducir audio con sonido.
+===================================================== */
+
+const musicaFondo =
+    document.getElementById(
+        "musica-fondo"
+    );
+
+
+const botonMusicaFondo =
+    document.createElement(
+        "button"
+    );
+
+
+botonMusicaFondo.type =
+    "button";
+
+
+botonMusicaFondo.id =
+    "boton-musica-fondo";
+
+
+botonMusicaFondo.className =
+    "boton-musica-fondo";
+
+
+botonMusicaFondo.setAttribute(
+    "aria-label",
+    "Pausar o reanudar la música de fondo"
+);
+
+
+botonMusicaFondo.innerHTML = `
+    <span class="icono-musica-fondo">
+        ♫
+    </span>
+
+    <span class="texto-musica-fondo">
+        Música
+    </span>
+`;
+
+
+document.body.appendChild(
+    botonMusicaFondo
+);
+
+
+let musicaFondoIniciada =
+    false;
+
+
+let musicaFondoSilenciada =
+    false;
+
+
+let intervaloFadeMusica =
+    null;
+
+
+const VOLUMEN_MUSICA_FONDO =
+    0.16;
+
+
+function actualizarBotonMusicaFondo() {
+
+    if (!musicaFondo) {
+
+        botonMusicaFondo.style.display =
+            "none";
+
+        return;
+    }
+
+
+    const pausada =
+        musicaFondo.paused;
+
+
+    botonMusicaFondo.classList.toggle(
+        "musica-activa",
+        !pausada
+    );
+
+
+    botonMusicaFondo.classList.toggle(
+        "musica-pausada",
+        pausada
+    );
+
+
+    botonMusicaFondo.querySelector(
+        ".texto-musica-fondo"
+    ).textContent =
+        pausada
+            ?
+            "Música pausada"
+            :
+            "Música";
+}
+
+
+function fadeInMusicaFondo() {
+
+    if (!musicaFondo) {
+
+        return;
+    }
+
+
+    clearInterval(
+        intervaloFadeMusica
+    );
+
+
+    musicaFondo.volume =
+        0;
+
+
+    const pasos =
+        24;
+
+
+    const incremento =
+        VOLUMEN_MUSICA_FONDO /
+        pasos;
+
+
+    intervaloFadeMusica =
+        setInterval(
+            () => {
+
+                if (
+                    !musicaFondo ||
+                    musicaFondo.paused
+                ) {
+
+                    clearInterval(
+                        intervaloFadeMusica
+                    );
+
+                    return;
+                }
+
+
+                const siguiente =
+                    Math.min(
+                        VOLUMEN_MUSICA_FONDO,
+                        musicaFondo.volume +
+                        incremento
+                    );
+
+
+                musicaFondo.volume =
+                    siguiente;
+
+
+                if (
+                    siguiente >=
+                    VOLUMEN_MUSICA_FONDO
+                ) {
+
+                    clearInterval(
+                        intervaloFadeMusica
+                    );
+                }
+
+            },
+            120
+        );
+}
+
+
+async function iniciarMusicaFondo() {
+
+    if (!musicaFondo) {
+
+        return;
+    }
+
+
+    if (
+        musicaFondoSilenciada &&
+        musicaFondoIniciada
+    ) {
+
+        return;
+    }
+
+
+    try {
+
+        await musicaFondo.play();
+
+
+        musicaFondoIniciada =
+            true;
+
+
+        musicaFondoSilenciada =
+            false;
+
+
+        fadeInMusicaFondo();
+
+
+        actualizarBotonMusicaFondo();
+
+    } catch (error) {
+
+        actualizarBotonMusicaFondo();
+    }
+}
+
+
+function pausarMusicaFondo(
+    pausaManual = true
+) {
+
+    if (!musicaFondo) {
+
+        return;
+    }
+
+
+    musicaFondo.pause();
+
+
+    if (pausaManual) {
+
+        musicaFondoSilenciada =
+            true;
+    }
+
+
+    actualizarBotonMusicaFondo();
+}
+
+
+async function alternarMusicaFondo() {
+
+    if (!musicaFondo) {
+
+        return;
+    }
+
+
+    if (musicaFondo.paused) {
+
+        musicaFondoSilenciada =
+            false;
+
+
+        await iniciarMusicaFondo();
+
+    } else {
+
+        pausarMusicaFondo(
+            true
+        );
+    }
+}
+
+
+botonMusicaFondo.addEventListener(
+    "click",
+    alternarMusicaFondo
+);
+
+
+function activarMusicaEnPrimeraInteraccion() {
+
+    const intentarInicio =
+        async () => {
+
+            if (
+                !musicaFondoIniciada &&
+                !musicaFondoSilenciada
+            ) {
+
+                await iniciarMusicaFondo();
+            }
+
+
+            document.removeEventListener(
+                "pointerdown",
+                intentarInicio
+            );
+
+
+            document.removeEventListener(
+                "keydown",
+                intentarInicio
+            );
+        };
+
+
+    document.addEventListener(
+        "pointerdown",
+        intentarInicio
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        intentarInicio
+    );
+}
+
+
+/*
+   Cuando se abre una canción externa del jardín,
+   la música ambiental se pausa para evitar
+   que se escuchen dos canciones al mismo tiempo.
+*/
+
+document.addEventListener(
+    "click",
+    evento => {
+
+        const enlaceCancion =
+            evento.target.closest(
+                `
+                    a.boton-cancion,
+                    a.boton-cancion-secreta-modal,
+                    a.boton-spotify-secreto,
+                    a.boton-1111
+                `
+            );
+
+
+        if (!enlaceCancion) {
+
+            return;
+        }
+
+
+        pausarMusicaFondo(
+            false
+        );
+    }
+);
+
+
+actualizarBotonMusicaFondo();
+
+
 /* =====================================================
    FLORES
 ===================================================== */
@@ -911,31 +1264,95 @@ const floresDelJardin = [
 
 
     /* =================================================
-       FLOR DE HOY
+       CARTA DE HOY
     ================================================= */
 
     {
-        tipo: "loto",
+        tipo: "cartaHoy",
 
         titulo:
-            "Flor de loto 🪷",
+            "Una carta para ti 💌",
 
         mensaje:
             "",
 
-        carta:
-            "Si ya lo sospechabas, entonces sí: me clavé en ti incluso sin haberte besado. Este jardín fue mi manera de acercarme, de decirte lo que sentía poco a poco, escondiéndolo entre flores, canciones y detalles. Y aunque intenté disimularlo con indirectas, al final tuve que ser más claro en la nota del tulipán, solo para ver si así lograba que lo notaras.",
+        cartaHtml:
+            `
+                <p>
+                    Holi, Esme… o bueno, te diría algún apodo, pero todavía no hemos llegado a eso. Es más, ni siquiera somos algo más que amigos… por ahora.
+                </p>
+
+                <p>
+                    Quería decirte algo que llevo guardando desde hace como seis o siete meses: <strong>estoy enamorado de ti</strong>. Me daba miedo decírtelo porque no quería arruinar nada de lo que ya teníamos. Aun así, con verte feliz me bastaba para sentirme feliz yo también.
+                </p>
+
+                <p>
+                    Ahora sé que empezaste a sentir algo por mí y no sabes lo mucho que me alegró saberlo. Perdón si en ese momento no lo demostré demasiado; la verdad me ganaron los nervios, pero por dentro estaba demasiado feliz.
+                </p>
+
+                <p>
+                    Y como hay un montón de cosas de mí que todavía no sabes, pensé que esta carta también podía servir para contarte un poquito más de quién soy.
+                </p>
+
+                <p>
+                    Mis películas favoritas son <strong>Titanes del Pacífico</strong>, <strong>Mulán</strong> y <strong>Cómo entrenar a tu dragón</strong>. De verdad las amo. Mis artistas y agrupaciones favoritas son <strong>Kevin Kaarl</strong>, <strong>Siddhartha</strong> y <strong>la Rondalla de Saltillo</strong>. Escucho prácticamente de todo, pero siempre termino regresando a ellos.
+                </p>
+
+                <p>
+                    Me gusta muchísimo jugar <strong>Minecraft</strong>. También disfruto ver a gente que lo juega, como <strong>VEGETTA777</strong>, <strong>Conterstine</strong> o <strong>Farfadox</strong>. Mis colores favoritos son el <strong>morado</strong> y el <strong>verde</strong>, y la historia de por qué tiene que ver justamente con dos de esos creadores.
+                </p>
+
+                <p>
+                    Mi número favorito es el <strong>7</strong> y, por si algún día ese dato sirve para algo jaja, soy <strong>Acuario</strong>.
+                </p>
+
+                <p>
+                    También tengo una historia medio nerd con un color: <strong>rgb(25, 3, 35)</strong>. Es un tono de morado oscuro que vi en un programa cuando estaba en la prepa y, por alguna razón, me gustó tanto que se me quedó grabado.
+                </p>
+
+                <p>
+                    Mi comida favorita son las <strong>enchiladas</strong>. Me encantan las <strong>naranjas</strong> y las <strong>mandarinas</strong>; con eso ya me haces bastante feliz. También me gusta mucho el <strong>anime</strong>, aunque no tengo uno favorito en concreto.
+                </p>
+
+                <p>
+                    En fin… esto es solo un poquito de mí. No sé si algún día te sirvan todos estos datos, pero quería que los conocieras porque me importa que poco a poco conozcas también esas partes pequeñas de mí que casi nunca cuento.
+                </p>
+
+                <p class="carta-hoy-final">
+                    Y sí… después de tantas flores, canciones, notas e indirectas, supongo que ya puedo dejar de intentar esconderlo tanto: <strong>me gustas muchísimo</strong>.
+                </p>
+
+                <p class="carta-hoy-pd">
+                    <strong>P. D.</strong> Todavía tengo que aprender a disimularlo… aunque contigo está difícil jaja.
+                </p>
+            `,
 
         busquedaCancion:
             "Permíteme Los Parras",
 
         textoBoton:
-            "♪ Permíteme",
+            "♪ Permíteme — Los Parras",
 
         especial:
-            "loto"
+            "carta"
     }
 ];
+
+
+const cantidadFloresPublicas =
+    floresDelJardin.filter(
+        item =>
+            item.especial !==
+            "carta"
+    ).length;
+
+
+const cantidadCartasPublicas =
+    floresDelJardin.filter(
+        item =>
+            item.especial ===
+            "carta"
+    ).length;
 
 
 /* =====================================================
@@ -1365,41 +1782,77 @@ function abrirCarta(
 
 
 /* =====================================================
-   CARTA DEL LOTO
+   CARTA DE HOY
 ===================================================== */
 
-function abrirCartaLoto(
+function abrirCartaHoy(
     config
 ) {
 
+    const enlace =
+        config.linkCancion ||
+        (
+            config.busquedaCancion
+                ?
+                enlaceYouTube(
+                    config.busquedaCancion
+                )
+                :
+                ""
+        );
+
+
     contenidoModal.innerHTML = `
         <div
-            class="carta-flor carta-loto"
+            class="carta-flor carta-hoy"
         >
 
             <p class="modal-etiqueta">
-                ESTA VEZ NO ERA UNA INDIRECTA
+                HOY EL JARDÍN TRAJO UNA CARTA
             </p>
 
             <h2>
-                Flor de loto 🪷
+                ${config.titulo}
             </h2>
 
-            <div class="papel-carta">
+            <div class="papel-carta carta-hoy-contenido">
 
-                <p class="confesion-loto">
-                    ${config.carta}
-                </p>
+                ${config.cartaHtml}
 
-                <span
-                    class="firma-loto"
-                ></span>
+                <div class="carta-hoy-separador"></div>
 
-                <span
-                    class="detalle-loto"
-                >
-                    ENTRE FLORES Y CANCIONES
-                </span>
+                <div class="carta-hoy-cancion">
+
+                    <span>
+                        UNA CANCIÓN PARA ESTA CARTA
+                    </span>
+
+                    <strong>
+                        Permíteme
+                    </strong>
+
+                    <small>
+                        Los Parras
+                    </small>
+
+                    ${
+                        enlace
+                            ?
+                            `
+                                <a
+                                    class="boton-cancion-secreta-modal boton-permiteme"
+                                    href="${enlace}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    ${config.textoBoton}
+                                </a>
+                            `
+                            :
+                            ""
+                    }
+
+                </div>
 
             </div>
 
@@ -1598,6 +2051,60 @@ function toqueSecreto(
 
 
 /* =====================================================
+   SOBRE DE LA CARTA DE HOY
+===================================================== */
+
+function crearSobreCartaHoy() {
+
+    const sobre =
+        document.createElement(
+            "div"
+        );
+
+
+    sobre.className =
+        "sobre-carta-hoy";
+
+
+    sobre.innerHTML = `
+        <div class="sobre-carta-sombra"></div>
+
+        <div class="sobre-carta-papel">
+
+            <span class="linea-sobre linea-sobre-1"></span>
+            <span class="linea-sobre linea-sobre-2"></span>
+            <span class="linea-sobre linea-sobre-3"></span>
+            <span class="linea-sobre linea-sobre-4"></span>
+
+            <small>
+                PARA ESME
+            </small>
+
+        </div>
+
+        <div class="sobre-carta-base"></div>
+
+        <div
+            class="sobre-carta-lado sobre-carta-lado-izquierdo"
+        ></div>
+
+        <div
+            class="sobre-carta-lado sobre-carta-lado-derecho"
+        ></div>
+
+        <div class="sobre-carta-tapa"></div>
+
+        <div class="sobre-carta-sello">
+            ♡
+        </div>
+    `;
+
+
+    return sobre;
+}
+
+
+/* =====================================================
    TARJETA DE FLOR
 ===================================================== */
 
@@ -1608,6 +2115,11 @@ function crearTarjetaFlor(
 
     const esLoto =
         config.tipo === "loto";
+
+
+    const esCartaHoy =
+        config.especial ===
+        "carta";
 
 
     const tarjeta =
@@ -1628,6 +2140,14 @@ function crearTarjetaFlor(
 
         tarjeta.classList.add(
             "tarjeta-flor-secreta"
+        );
+    }
+
+
+    if (esCartaHoy) {
+
+        tarjeta.classList.add(
+            "tarjeta-carta-hoy"
         );
     }
 
@@ -1660,7 +2180,18 @@ function crearTarjetaFlor(
         0;
 
 
-    if (
+    if (esCartaHoy) {
+
+        envoltura.classList.add(
+            "envoltura-carta-hoy"
+        );
+
+
+        envoltura.appendChild(
+            crearSobreCartaHoy()
+        );
+
+    } else if (
         Flores[config.tipo]
     ) {
 
@@ -1691,11 +2222,15 @@ function crearTarjetaFlor(
 
 
     pista.textContent =
-        esLoto
+        esCartaHoy
             ?
-            "Toca el loto"
+            "Toca el sobre"
             :
-            "Toca la flor";
+            esLoto
+                ?
+                "Toca el loto"
+                :
+                "Toca la flor";
 
 
     const nota =
@@ -1710,6 +2245,7 @@ function crearTarjetaFlor(
 
     if (
         !esLoto &&
+        !esCartaHoy &&
         config.mensaje
     ) {
 
@@ -1742,7 +2278,10 @@ function crearTarjetaFlor(
         );
 
 
-    if (enlace) {
+    if (
+        enlace &&
+        !esCartaHoy
+    ) {
 
         if (
             config.tipoAccion ===
@@ -1922,7 +2461,10 @@ function crearTarjetaFlor(
         null;
 
 
-    if (!esLoto) {
+    if (
+        !esLoto &&
+        !esCartaHoy
+    ) {
 
         botonFavorita =
             document.createElement(
@@ -1985,6 +2527,65 @@ function crearTarjetaFlor(
             CLAVES.visitasFlores,
             visitasFlores
         );
+
+
+        /* =========================================
+           CARTA DE HOY
+        ========================================= */
+
+        if (esCartaHoy) {
+
+            const sobre =
+                envoltura.querySelector(
+                    ".sobre-carta-hoy"
+                );
+
+
+            if (!sobre) {
+
+                return;
+            }
+
+
+            sobre.classList.remove(
+                "abierto"
+            );
+
+
+            void sobre.offsetWidth;
+
+
+            sobre.classList.add(
+                "abierto"
+            );
+
+
+            setTimeout(
+                () => {
+
+                    abrirCartaHoy(
+                        config
+                    );
+
+                },
+                900
+            );
+
+
+            setTimeout(
+                () => {
+
+                    sobre.classList.remove(
+                        "abierto"
+                    );
+
+                },
+                4300
+            );
+
+
+            return;
+        }
 
 
         /* =========================================
@@ -2206,7 +2807,11 @@ function crearIntro() {
         <div class="intro-badges">
 
             <span class="intro-badge">
-                ${floresDelJardin.length} flores
+                ${cantidadFloresPublicas} flores
+            </span>
+
+            <span class="intro-badge">
+                ${cantidadCartasPublicas} carta
             </span>
 
             <span class="intro-badge">
@@ -2451,7 +3056,7 @@ function actualizarProgreso() {
         <div class="datos-progreso">
 
             <span>
-                ${floresDelJardin.length} flores
+                ${cantidadFloresPublicas} flores + ${cantidadCartasPublicas} carta
             </span>
 
             <span>
@@ -4080,7 +4685,13 @@ function avisoInicial() {
         )
         .addEventListener(
             "click",
-            cerrarModal
+            async () => {
+
+                cerrarModal();
+
+
+                await iniciarMusicaFondo();
+            }
         );
 
 
@@ -4090,7 +4701,7 @@ function avisoInicial() {
         )
         .addEventListener(
             "click",
-            () => {
+            async () => {
 
                 localStorage.setItem(
                     CLAVES.aviso,
@@ -4099,6 +4710,9 @@ function avisoInicial() {
 
 
                 cerrarModal();
+
+
+                await iniciarMusicaFondo();
             }
         );
 }
@@ -4118,6 +4732,9 @@ actualizarFavoritas();
 
 
 actualizarSecreto();
+
+
+activarMusicaEnPrimeraInteraccion();
 
 
 avisoInicial();

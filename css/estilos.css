@@ -3553,3 +3553,843 @@ body.modo-noche
             14px !important;
     }
 }
+
+/* =====================================================
+   MÚSICA DE FONDO
+===================================================== */
+
+#musica-fondo {
+    display: none;
+}
+
+
+.boton-musica-fondo {
+    position: fixed;
+
+    left: 18px;
+    bottom: 18px;
+
+    z-index: 14500;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    min-height: 43px;
+
+    padding:
+        10px 16px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.32);
+
+    border-radius: 999px;
+
+    color: white;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(78,52,111,.94),
+            rgba(126,88,177,.94)
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(38,24,51,.22);
+
+    backdrop-filter:
+        blur(10px);
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+.boton-musica-fondo:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+.boton-musica-fondo.musica-pausada {
+    opacity: .82;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(83,78,88,.94),
+            rgba(114,103,123,.94)
+        );
+}
+
+
+.boton-musica-fondo.musica-activa
+.icono-musica-fondo {
+    animation:
+        pulso-musica-fondo
+        1.7s ease-in-out infinite;
+}
+
+
+.icono-musica-fondo {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.14);
+}
+
+
+@keyframes pulso-musica-fondo {
+    50% {
+        transform:
+            scale(1.13)
+            rotate(-5deg);
+    }
+}
+
+
+/* =====================================================
+   CARTA DE HOY - TARJETA
+===================================================== */
+
+.tarjeta-carta-hoy {
+    min-height: 545px;
+
+    border-color:
+        rgba(210,149,190,.48);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.34),
+            rgba(244,222,244,.18)
+        );
+}
+
+
+.tarjeta-carta-hoy::before {
+    content: "";
+
+    position: absolute;
+
+    width: 270px;
+    height: 270px;
+
+    left: 50%;
+    top: 95px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(205,133,191,.18),
+            transparent 70%
+        );
+
+    filter:
+        blur(10px);
+}
+
+
+.tarjeta-carta-hoy
+.titulo-flor {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.envoltura-carta-hoy {
+    height: 330px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.tarjeta-carta-hoy
+.pista-carta {
+    margin-top: 4px;
+
+    color:
+        #9b638b;
+}
+
+
+.tarjeta-carta-hoy
+.nota-flor {
+    min-height: 0;
+
+    margin-top: 0;
+}
+
+
+/* =====================================================
+   SOBRE
+===================================================== */
+
+.sobre-carta-hoy {
+    position: relative;
+
+    width: 250px;
+    height: 190px;
+
+    transform-origin:
+        center center;
+
+    transition:
+        transform .35s ease;
+}
+
+
+.sobre-carta-sombra {
+    position: absolute;
+
+    width: 185px;
+    height: 26px;
+
+    left: 50%;
+    bottom: 0;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(83,54,92,.18);
+
+    filter:
+        blur(9px);
+}
+
+
+.sobre-carta-base {
+    position: absolute;
+
+    width: 210px;
+    height: 128px;
+
+    left: 20px;
+    bottom: 18px;
+
+    z-index: 4;
+
+    border-radius:
+        0 0 18px 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8d8e9,
+            #dea2c5
+        );
+
+    box-shadow:
+        0 18px 35px
+        rgba(100,59,94,.16);
+}
+
+
+.sobre-carta-lado {
+    position: absolute;
+
+    width: 108px;
+    height: 105px;
+
+    bottom: 18px;
+
+    z-index: 7;
+
+    background:
+        linear-gradient(
+            145deg,
+            #efbed9,
+            #d992ba
+        );
+}
+
+
+.sobre-carta-lado-izquierdo {
+    left: 20px;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 51%,
+            0 100%
+        );
+
+    border-bottom-left-radius: 18px;
+}
+
+
+.sobre-carta-lado-derecho {
+    right: 20px;
+
+    clip-path:
+        polygon(
+            100% 0,
+            100% 100%,
+            0 51%
+        );
+
+    border-bottom-right-radius: 18px;
+}
+
+
+.sobre-carta-tapa {
+    position: absolute;
+
+    width: 210px;
+    height: 112px;
+
+    left: 20px;
+    top: 43px;
+
+    z-index: 9;
+
+    transform-origin:
+        top center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffe1ef,
+            #dfa1c5
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 63%,
+            100% 0,
+            100% 36%,
+            50% 100%,
+            0 36%
+        );
+
+    transition:
+        transform .68s ease,
+        filter .4s ease;
+}
+
+
+.sobre-carta-papel {
+    position: absolute;
+
+    width: 154px;
+    height: 122px;
+
+    left: 48px;
+    top: 47px;
+
+    z-index: 3;
+
+    padding-top: 17px;
+
+    border:
+        1px solid
+        rgba(179,126,161,.17);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffefb,
+            #fff6fb
+        );
+
+    box-shadow:
+        0 8px 22px
+        rgba(101,67,109,.12);
+
+    transition:
+        top .7s ease,
+        transform .7s ease;
+}
+
+
+.sobre-carta-papel small {
+    display: block;
+
+    margin-top: 12px;
+
+    text-align: center;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color:
+        #b783a6;
+}
+
+
+.linea-sobre {
+    display: block;
+
+    height: 3px;
+
+    margin:
+        9px auto 0;
+
+    border-radius: 999px;
+
+    background:
+        rgba(207,171,197,.50);
+}
+
+
+.linea-sobre-1 {
+    width: 68%;
+}
+
+
+.linea-sobre-2 {
+    width: 74%;
+}
+
+
+.linea-sobre-3 {
+    width: 58%;
+}
+
+
+.linea-sobre-4 {
+    width: 44%;
+}
+
+
+.sobre-carta-sello {
+    position: absolute;
+
+    width: 43px;
+    height: 43px;
+
+    left: 50%;
+    top: 91px;
+
+    z-index: 12;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transform:
+        translateX(-50%);
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 20px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #d589cf,
+            #9c55b4 58%,
+            #76408f
+        );
+
+    box-shadow:
+        0 6px 15px
+        rgba(90,45,105,.20);
+
+    transition:
+        opacity .30s ease,
+        transform .30s ease;
+}
+
+
+.sobre-carta-hoy.abierto {
+    animation:
+        sobre-respirar
+        .9s ease both;
+}
+
+
+.sobre-carta-hoy.abierto
+.sobre-carta-tapa {
+    transform:
+        rotateX(180deg);
+
+    filter:
+        brightness(.95);
+}
+
+
+.sobre-carta-hoy.abierto
+.sobre-carta-papel {
+    top: -26px;
+
+    transform:
+        translateY(-14px)
+        scale(1.03);
+
+    z-index: 10;
+}
+
+
+.sobre-carta-hoy.abierto
+.sobre-carta-sello {
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scale(.6);
+}
+
+
+@keyframes sobre-respirar {
+    45% {
+        transform:
+            translateY(-7px)
+            scale(1.02);
+    }
+}
+
+
+/* =====================================================
+   CARTA DE HOY - MODAL
+===================================================== */
+
+.carta-hoy {
+    text-align: center;
+}
+
+
+.carta-hoy
+.papel-carta {
+    overflow: hidden;
+
+    padding:
+        30px 28px;
+
+    text-align: left;
+
+    border-color:
+        rgba(198,130,176,.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffefb,
+            #fff8fb 48%,
+            #f7efff
+        );
+}
+
+
+.carta-hoy
+.papel-carta::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -120px;
+    top: -120px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(214,143,190,.17),
+            transparent 70%
+        );
+}
+
+
+.carta-hoy-contenido > p {
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0;
+
+    font-size:
+        14px !important;
+
+    line-height:
+        1.88 !important;
+
+    color:
+        #624d69;
+}
+
+
+.carta-hoy-contenido > p + p {
+    margin-top: 15px;
+}
+
+
+.carta-hoy-contenido strong {
+    color:
+        #6e4778;
+}
+
+
+.carta-hoy-final {
+    padding:
+        14px 16px;
+
+    border:
+        1px solid
+        rgba(185,117,166,.14);
+
+    border-radius: 18px;
+
+    background:
+        rgba(205,145,188,.08);
+}
+
+
+.carta-hoy-pd {
+    font-style: italic;
+}
+
+
+.carta-hoy-separador {
+    position: relative;
+
+    z-index: 2;
+
+    width: 56px;
+    height: 1px;
+
+    margin:
+        24px auto 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c68aae,
+            transparent
+        );
+}
+
+
+.carta-hoy-cancion {
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+        18px 16px;
+
+    border:
+        1px solid
+        rgba(126,84,153,.12);
+
+    border-radius: 19px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(246,237,252,.92),
+            rgba(255,248,252,.94)
+        );
+}
+
+
+.carta-hoy-cancion > span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color:
+        #a981b2;
+}
+
+
+.carta-hoy-cancion > strong {
+    display: block;
+
+    font-size: 22px;
+    font-weight: normal;
+
+    color:
+        #6b4d77;
+}
+
+
+.carta-hoy-cancion > small {
+    display: block;
+
+    margin-top: 4px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    color:
+        #907894;
+}
+
+
+.boton-permiteme {
+    margin-top: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8051a7,
+            #c978aa,
+            #d990b5
+        );
+}
+
+
+body.modo-noche
+.tarjeta-carta-hoy {
+    border-color:
+        rgba(232,189,229,.25);
+}
+
+
+body.modo-noche
+.tarjeta-carta-hoy
+.pista-carta {
+    color:
+        #e5c8e0;
+}
+
+
+@media (max-width: 700px) {
+
+    .boton-musica-fondo {
+        left: 12px;
+        bottom: 12px;
+
+        padding:
+            9px 13px;
+
+        font-size: 11px;
+    }
+
+
+    .texto-musica-fondo {
+        max-width: 105px;
+
+        overflow: hidden;
+
+        white-space: nowrap;
+
+        text-overflow: ellipsis;
+    }
+
+
+    .tarjeta-carta-hoy {
+        min-height: 500px;
+    }
+
+
+    .envoltura-carta-hoy {
+        height: 300px;
+    }
+
+
+    .sobre-carta-hoy {
+        transform:
+            scale(.91);
+    }
+
+
+    .sobre-carta-hoy.abierto {
+        animation:
+            sobre-respirar-movil
+            .9s ease both;
+    }
+
+
+    @keyframes sobre-respirar-movil {
+        45% {
+            transform:
+                scale(.93)
+                translateY(-6px);
+        }
+
+        100% {
+            transform:
+                scale(.91);
+        }
+    }
+
+
+    .carta-hoy
+    .papel-carta {
+        padding:
+            25px 19px;
+    }
+
+
+    .carta-hoy-contenido > p {
+        font-size:
+            13.5px !important;
+
+        line-height:
+            1.82 !important;
+    }
+}
