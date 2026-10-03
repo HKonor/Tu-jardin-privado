@@ -1264,6 +1264,33 @@ const floresDelJardin = [
 
 
     /* =================================================
+       FLOR DE LOTO — REGRESA AL JARDÍN
+    ================================================= */
+
+    {
+        tipo: "loto",
+
+        titulo:
+            "Flor de loto 🪷",
+
+        mensaje:
+            "",
+
+        carta:
+            "Si ya lo sospechabas, entonces sí: me clavé en ti incluso sin haberte besado. Este jardín fue mi manera de acercarme, de decirte lo que sentía poco a poco, escondiéndolo entre flores, canciones y detalles. Y aunque intenté disimularlo con indirectas, al final tuve que ser más claro en la nota del tulipán, solo para ver si así lograba que lo notaras.",
+
+        busquedaCancion:
+            "Permíteme Los Parras",
+
+        textoBoton:
+            "♪ Permíteme",
+
+        especial:
+            "loto"
+    },
+
+
+    /* =================================================
        CARTA DE HOY
     ================================================= */
 
@@ -1362,6 +1389,33 @@ const floresDelJardin = [
 
         textoBoton:
             "♪ No digas nada"
+    },
+
+
+    /* =================================================
+       FLOR DE HOY — DAMA DE NOCHE
+    ================================================= */
+
+    {
+        tipo: "damanoche",
+
+        titulo:
+            "Dama de noche 🤍🌙",
+
+        mensaje:
+            "Hay noches que pasan como cualquier otra y otras que, por alguna razón, uno quisiera alargar un poquito más. Esta flor tenía que aparecer de noche.",
+
+        carta:
+            "Hay momentos que se sienten distintos cuando cae la noche. No sé si sea por la calma, por la música o simplemente porque algunas cosas se disfrutan más cuando el mundo baja un poquito el ruido.",
+
+        microMensaje:
+            "Hay noches que uno quisiera alargar un poco más.",
+
+        busquedaCancion:
+            "Toda la noche Barrio Pobre",
+
+        textoBoton:
+            "♪ Toda la noche"
     }
 ];
 

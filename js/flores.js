@@ -1745,5 +1745,198 @@ const Flores = {
 
 
         return flor;
+    },
+
+
+    /* =================================================
+       DAMA DE NOCHE
+    ================================================= */
+
+    damanoche() {
+
+        const flor =
+            crearDiv("damanoche");
+
+
+        flor.appendChild(
+            crearDiv(
+                "damanoche-tallo-principal"
+            )
+        );
+
+
+        [
+            "damanoche-rama-1",
+            "damanoche-rama-2",
+            "damanoche-rama-3",
+            "damanoche-rama-4",
+            "damanoche-rama-5"
+        ].forEach(
+            clase => {
+
+                flor.appendChild(
+                    crearDiv(
+                        `damanoche-rama ${clase}`
+                    )
+                );
+            }
+        );
+
+
+        const posiciones = [
+            [74, 79, .90, -24],
+            [103, 55, 1.00, -12],
+            [136, 82, .94, -5],
+            [163, 49, 1.04, 8],
+            [191, 77, .92, 18],
+            [218, 101, .84, 27],
+            [92, 118, .82, -30],
+            [126, 132, .88, -13],
+            [160, 119, .91, 9],
+            [199, 132, .80, 25],
+            [145, 30, .78, 2]
+        ];
+
+
+        posiciones.forEach(
+            (
+                [left, top, escala, rotacion],
+                indice
+            ) => {
+
+                const florNoche =
+                    crearDiv(
+                        "damanoche-flor"
+                    );
+
+
+                florNoche.style.left =
+                    `${left}px`;
+
+
+                florNoche.style.top =
+                    `${top}px`;
+
+
+                florNoche.style.setProperty(
+                    "--damanoche-escala",
+                    escala
+                );
+
+
+                florNoche.style.setProperty(
+                    "--damanoche-rotacion",
+                    `${rotacion}deg`
+                );
+
+
+                florNoche.style.setProperty(
+                    "--damanoche-delay",
+                    `${(indice % 6) * -.32}s`
+                );
+
+
+                florNoche.appendChild(
+                    crearDiv(
+                        "damanoche-tubo"
+                    )
+                );
+
+
+                const corola =
+                    crearDiv(
+                        "damanoche-corola"
+                    );
+
+
+                for (let i = 1; i <= 5; i++) {
+
+                    corola.appendChild(
+                        crearDiv(
+                            `damanoche-petalo damanoche-petalo-${i}`
+                        )
+                    );
+                }
+
+
+                corola.appendChild(
+                    crearDiv(
+                        "damanoche-centro"
+                    )
+                );
+
+
+                florNoche.appendChild(
+                    corola
+                );
+
+
+                flor.appendChild(
+                    florNoche
+                );
+            }
+        );
+
+
+        const botones = [
+            [65, 123, -25],
+            [112, 94, -10],
+            [178, 95, 14],
+            [227, 133, 28],
+            [151, 159, 6]
+        ];
+
+
+        botones.forEach(
+            ([left, top, rotacion], indice) => {
+
+                const boton =
+                    crearDiv(
+                        "damanoche-boton"
+                    );
+
+
+                boton.style.left =
+                    `${left}px`;
+
+
+                boton.style.top =
+                    `${top}px`;
+
+
+                boton.style.setProperty(
+                    "--damanoche-boton-rot",
+                    `${rotacion}deg`
+                );
+
+
+                boton.style.setProperty(
+                    "--damanoche-delay",
+                    `${indice * -.28}s`
+                );
+
+
+                flor.appendChild(
+                    boton
+                );
+            }
+        );
+
+
+        flor.appendChild(
+            crearDiv(
+                "damanoche-hoja damanoche-hoja-izquierda"
+            )
+        );
+
+
+        flor.appendChild(
+            crearDiv(
+                "damanoche-hoja damanoche-hoja-derecha"
+            )
+        );
+
+
+        return flor;
     }
 };

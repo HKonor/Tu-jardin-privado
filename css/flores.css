@@ -17,7 +17,8 @@
 .clavel,
 .dalia,
 .loto,
-.cerezo {
+.cerezo,
+.damanoche {
     position: relative;
 
     width: 300px;
@@ -92,6 +93,7 @@
 .dalia { --brisa-duracion: 7.6s; --brisa-retraso: 1.65s; }
 .loto { --brisa-duracion: 7.0s; --brisa-retraso: 1.45s; }
 .cerezo { --brisa-duracion: 5.8s; --brisa-retraso: 1.2s; --brisa-inicio: -0.85deg; --brisa-fin: 0.85deg; }
+.damanoche { --brisa-duracion: 7.8s; --brisa-retraso: 1.55s; --brisa-inicio: -0.55deg; --brisa-fin: 0.55deg; }
 
 
 /* =====================================================
@@ -3687,6 +3689,341 @@
 
 
 /* =====================================================
+   DAMA DE NOCHE
+===================================================== */
+
+.damanoche {
+    width: 300px;
+}
+
+
+.damanoche-tallo-principal {
+    position: absolute;
+
+    width: 9px;
+    height: 235px;
+
+    left: 146px;
+    top: 112px;
+
+    z-index: 1;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            to right,
+            #24462f,
+            #56795a,
+            #24462f
+        );
+}
+
+
+.damanoche-rama {
+    position: absolute;
+
+    width: 4px;
+
+    z-index: 2;
+
+    border-radius: 10px;
+
+    transform-origin:
+        bottom center;
+
+    background:
+        #607d5d;
+}
+
+
+.damanoche-rama-1 {
+    height: 105px;
+    left: 145px;
+    top: 116px;
+    transform: rotate(-48deg);
+}
+
+
+.damanoche-rama-2 {
+    height: 118px;
+    left: 146px;
+    top: 94px;
+    transform: rotate(-26deg);
+}
+
+
+.damanoche-rama-3 {
+    height: 126px;
+    left: 149px;
+    top: 82px;
+    transform: rotate(2deg);
+}
+
+
+.damanoche-rama-4 {
+    height: 116px;
+    left: 150px;
+    top: 96px;
+    transform: rotate(27deg);
+}
+
+
+.damanoche-rama-5 {
+    height: 102px;
+    left: 151px;
+    top: 121px;
+    transform: rotate(48deg);
+}
+
+
+.damanoche-flor {
+    position: absolute;
+
+    z-index: 8;
+
+    width: 38px;
+    height: 72px;
+
+    transform-origin:
+        center bottom;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(var(--damanoche-rotacion))
+        scale(var(--damanoche-escala));
+
+    animation:
+        respirar-damanoche
+        4.8s ease-in-out infinite;
+
+    animation-delay:
+        var(--damanoche-delay);
+}
+
+
+.damanoche-tubo {
+    position: absolute;
+
+    width: 8px;
+    height: 48px;
+
+    left: 15px;
+    top: 22px;
+
+    border-radius:
+        8px 8px 18px 18px;
+
+    background:
+        linear-gradient(
+            to right,
+            #d8e4bd,
+            #f0f2cf,
+            #c4d59f
+        );
+}
+
+
+.damanoche-corola {
+    position: absolute;
+
+    width: 38px;
+    height: 38px;
+
+    left: 0;
+    top: 0;
+}
+
+
+.damanoche-petalo {
+    position: absolute;
+
+    width: 13px;
+    height: 24px;
+
+    left: 12px;
+    top: 7px;
+
+    transform-origin:
+        6.5px 13px;
+
+    border-radius:
+        65% 65% 45% 45%
+        / 76% 76% 28% 28%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8f7e9,
+            #e9eccf
+        );
+
+    box-shadow:
+        inset 0 1px 2px
+        rgba(255,255,255,.72);
+}
+
+
+.damanoche-petalo-1 {
+    transform:
+        rotate(0deg)
+        translateY(-10px);
+}
+
+.damanoche-petalo-2 {
+    transform:
+        rotate(72deg)
+        translateY(-10px);
+}
+
+.damanoche-petalo-3 {
+    transform:
+        rotate(144deg)
+        translateY(-10px);
+}
+
+.damanoche-petalo-4 {
+    transform:
+        rotate(216deg)
+        translateY(-10px);
+}
+
+.damanoche-petalo-5 {
+    transform:
+        rotate(288deg)
+        translateY(-10px);
+}
+
+
+.damanoche-centro {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    left: 15px;
+    top: 15px;
+
+    z-index: 5;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff8b9,
+            #d8c65e
+        );
+}
+
+
+.damanoche-boton {
+    position: absolute;
+
+    z-index: 6;
+
+    width: 11px;
+    height: 33px;
+
+    border-radius:
+        70% 70% 45% 45%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #eef1d3,
+            #cbd8aa,
+            #91a873
+        );
+
+    transform:
+        rotate(var(--damanoche-boton-rot));
+
+    animation:
+        boton-damanoche
+        4.2s ease-in-out infinite;
+
+    animation-delay:
+        var(--damanoche-delay);
+}
+
+
+.damanoche-hoja {
+    position: absolute;
+
+    z-index: 3;
+
+    width: 96px;
+    height: 50px;
+
+    border-radius:
+        100% 8% 100% 8%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #254b31,
+            #4f7850,
+            #79956b
+        );
+}
+
+
+.damanoche-hoja-izquierda {
+    left: 57px;
+    top: 246px;
+
+    transform:
+        rotate(-23deg);
+}
+
+
+.damanoche-hoja-derecha {
+    left: 141px;
+    top: 266px;
+
+    transform:
+        rotate(22deg)
+        scaleX(-1);
+}
+
+
+body.modo-noche
+.damanoche-flor {
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(248,248,223,.22)
+        );
+}
+
+
+@keyframes respirar-damanoche {
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -2px;
+    }
+}
+
+
+@keyframes boton-damanoche {
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -2px;
+    }
+}
+
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
 
@@ -3707,7 +4044,8 @@
     .clavel,
     .dalia,
     .loto,
-    .cerezo {
+    .cerezo,
+    .damanoche {
         --escala-flor: .92;
 
         transform-origin:
@@ -3736,8 +4074,11 @@
     .dalia,
     .loto,
     .cerezo,
+    .damanoche,
     .cerezo-flor,
-    .cerezo-boton {
+    .cerezo-boton,
+    .damanoche-flor,
+    .damanoche-boton {
         animation-duration: .001ms !important;
         animation-iteration-count: 1 !important;
     }
