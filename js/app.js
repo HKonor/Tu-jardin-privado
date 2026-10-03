@@ -1416,6 +1416,71 @@ const floresDelJardin = [
 
         textoBoton:
             "♪ Toda la noche"
+    },
+
+
+    /* =================================================
+       OTRA CARTA DE HOY — ADÁN Y EVA
+    ================================================= */
+
+    {
+        tipo: "cartaHoy2",
+
+        titulo:
+            "Otra carta para ti 💌",
+
+        mensaje:
+            "",
+
+        cartaHtml:
+            `
+                <p>
+                    Holi holi, Esme. Sabes, me di cuenta de que omití varias cosas en la carta anterior jaja. Por ejemplo, <strong>me gustan mucho los dinosaurios</strong>. Mi favorito siempre va a ser el <strong>Spinosaurus</strong>; lo nerfean cada cierto tiempo, peroooo aun así sigue siendo mi dinosaurio favorito.
+                </p>
+
+                <p>
+                    Mi flor favorita son las <strong>flores de nube</strong> y, sí, de vez en cuando me compro uno que otro juguete de dinosaurios jaja.
+                </p>
+
+                <p>
+                    También <strong>amo los atardeceres</strong> y me gustan muchísimo las cosas relacionadas con el <strong>espacio</strong>. Hay algo de mirar el cielo, ya sea cuando se está ocultando el sol o cuando está lleno de estrellas, que simplemente me encanta.
+                </p>
+
+                <p>
+                    Y otra cosa que no dije: quizá no todas sean mis películas favoritas, pero disfruto muchísimo ver la saga de <strong>Parque Jurásico</strong> y <strong>Mundo Jurásico</strong>, <strong>Interestelar</strong> y hasta <strong>Cars</strong>. También me gustan series como <strong>The Blacklist</strong>, <strong>El Mentalista</strong> o cosas un poquito más caricaturescas como <strong>Dino Rey</strong> y <strong>Dr. Stone</strong>.
+                </p>
+
+                <p>
+                    Bueno, otro punto que quería decirte es lo de los sábados. Sin problema te puedes desaparecer desde el viernes en la tarde hasta el lunes jaja. <strong>No es necesario que me contestes</strong>. Si tienes poco tiempo libre, prefiero que lo uses para descansar, dormir un rato o hacer lo que tú quieras.
+                </p>
+
+                <p>
+                    Tal vez ya lo notaste —o quizá todavía no—, pero suelo ser un poquito hostigoso por así decirlo jaja. No sé cómo estructurar bien la idea, pero básicamente puedo escribir bastante o estar muy pendiente. Aun así, no quiero que sientas que tienes que gastar tu tiempo libre contestándome.
+                </p>
+
+                <p>
+                    Yo no voy a desaparecer de la noche a la mañana… o no sé jaja, la vida siempre da vueltas inesperadas. Pero mientras tanto, si un día estás cansada, ocupada o simplemente quieres desconectarte, hazlo sin problema.
+                </p>
+
+                <p class="carta-hoy-final">
+                    Y bueno, nada más era eso por esta carta. <strong>Te quiero mucho</strong>. Ojalá que cuando leas esto estés bien &lt;3
+                </p>
+            `,
+
+        linkCancion:
+            "https://www.youtube.com/watch?v=aSjflT_J0Xo&list=RDUeDKgWpw7kI&index=5",
+
+        nombreCancion:
+            "Adán y Eva",
+
+        artistaCancion:
+            "Paulo Londra",
+
+        textoBoton:
+            "♪ Adán y Eva — Paulo Londra",
+
+        especial:
+            "carta"
     }
 ];
 
@@ -1909,11 +1974,11 @@ function abrirCartaHoy(
                     </span>
 
                     <strong>
-                        Permíteme
+                        ${config.nombreCancion || "Permíteme"}
                     </strong>
 
                     <small>
-                        Los Parras
+                        ${config.artistaCancion || "Los Parras"}
                     </small>
 
                     ${
@@ -2892,7 +2957,7 @@ function crearIntro() {
             </span>
 
             <span class="intro-badge">
-                ${cantidadCartasPublicas} carta
+                ${cantidadCartasPublicas} carta${cantidadCartasPublicas === 1 ? "" : "s"}
             </span>
 
             <span class="intro-badge">
@@ -3137,7 +3202,7 @@ function actualizarProgreso() {
         <div class="datos-progreso">
 
             <span>
-                ${cantidadFloresPublicas} flores + ${cantidadCartasPublicas} carta
+                ${cantidadFloresPublicas} flores + ${cantidadCartasPublicas} carta${cantidadCartasPublicas === 1 ? "" : "s"}
             </span>
 
             <span>

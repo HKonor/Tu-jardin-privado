@@ -1828,14 +1828,10 @@ const Flores = {
                     "--damanoche-rotacion",
                     `${rotacion}deg`
                 );
-
-
                 florNoche.style.setProperty(
                     "--damanoche-delay",
                     `${(indice % 6) * -.32}s`
                 );
-
-
                 florNoche.appendChild(
                     crearDiv(
                         "damanoche-tubo"
