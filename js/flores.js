@@ -1828,10 +1828,14 @@ const Flores = {
                     "--damanoche-rotacion",
                     `${rotacion}deg`
                 );
+
+
                 florNoche.style.setProperty(
                     "--damanoche-delay",
                     `${(indice % 6) * -.32}s`
                 );
+
+
                 florNoche.appendChild(
                     crearDiv(
                         "damanoche-tubo"
@@ -1931,6 +1935,297 @@ const Flores = {
                 "damanoche-hoja damanoche-hoja-derecha"
             )
         );
+
+
+        return flor;
+    },
+
+
+    /* =================================================
+       GARDENIA BLANCA
+    ================================================= */
+
+    gardenia() {
+
+        const flor =
+            crearDiv("gardenia");
+
+
+        flor.appendChild(
+            crearDiv(
+                "gardenia-tallo"
+            )
+        );
+
+
+        flor.appendChild(
+            crearDiv(
+                "gardenia-hoja gardenia-hoja-izquierda"
+            )
+        );
+
+
+        flor.appendChild(
+            crearDiv(
+                "gardenia-hoja gardenia-hoja-derecha"
+            )
+        );
+
+
+        flor.appendChild(
+            crearDiv(
+                "gardenia-hoja gardenia-hoja-centro"
+            )
+        );
+
+
+        const cabeza =
+            crearDiv(
+                "gardenia-cabeza"
+            );
+
+
+        const capas = [
+            {
+                cantidad: 8,
+                radio: 47,
+                escala: 1,
+                clase: "gardenia-capa-exterior"
+            },
+            {
+                cantidad: 6,
+                radio: 29,
+                escala: .82,
+                clase: "gardenia-capa-media"
+            },
+            {
+                cantidad: 5,
+                radio: 14,
+                escala: .66,
+                clase: "gardenia-capa-centro"
+            }
+        ];
+
+
+        capas.forEach(
+            capa => {
+
+                for (
+                    let i = 0;
+                    i < capa.cantidad;
+                    i++
+                ) {
+
+                    const wrap =
+                        crearDiv(
+                            `gardenia-petalo-wrap ${capa.clase}`
+                        );
+
+
+                    wrap.style.setProperty(
+                        "--gardenia-angulo",
+                        `${i * (360 / capa.cantidad)}deg`
+                    );
+
+
+                    wrap.style.setProperty(
+                        "--gardenia-radio",
+                        `${capa.radio}px`
+                    );
+
+
+                    wrap.style.setProperty(
+                        "--gardenia-escala",
+                        capa.escala
+                    );
+
+
+                    wrap.appendChild(
+                        crearDiv(
+                            "gardenia-petalo"
+                        )
+                    );
+
+
+                    cabeza.appendChild(
+                        wrap
+                    );
+                }
+            }
+        );
+
+
+        cabeza.appendChild(
+            crearDiv(
+                "gardenia-centro"
+            )
+        );
+
+
+        flor.appendChild(
+            cabeza
+        );
+
+
+        return flor;
+    },
+
+
+    /* =================================================
+       JACARANDA
+    ================================================= */
+
+    jacaranda() {
+
+        const flor =
+            crearDiv("jacaranda");
+
+
+        flor.appendChild(
+            crearDiv(
+                "jacaranda-rama-principal"
+            )
+        );
+
+
+        [
+            "jacaranda-rama-1",
+            "jacaranda-rama-2",
+            "jacaranda-rama-3",
+            "jacaranda-rama-4",
+            "jacaranda-rama-5",
+            "jacaranda-rama-6"
+        ].forEach(
+            clase => {
+
+                flor.appendChild(
+                    crearDiv(
+                        `jacaranda-rama ${clase}`
+                    )
+                );
+            }
+        );
+
+
+        const posiciones = [
+            [64, 95, .83, -19],
+            [91, 67, .94, -13],
+            [118, 101, .88, -8],
+            [143, 55, 1.02, -2],
+            [167, 88, .95, 5],
+            [191, 61, .88, 11],
+            [217, 99, .82, 18],
+            [238, 126, .74, 23],
+            [103, 138, .78, -12],
+            [144, 133, .86, 1],
+            [184, 137, .79, 13],
+            [76, 145, .70, -24],
+            [224, 70, .68, 19]
+        ];
+
+
+        posiciones.forEach(
+            (
+                [left, top, escala, rotacion],
+                indice
+            ) => {
+
+                const florJacaranda =
+                    crearDiv(
+                        "jacaranda-flor"
+                    );
+
+
+                florJacaranda.style.left =
+                    `${left}px`;
+
+
+                florJacaranda.style.top =
+                    `${top}px`;
+
+
+                florJacaranda.style.setProperty(
+                    "--jacaranda-escala",
+                    escala
+                );
+
+
+                florJacaranda.style.setProperty(
+                    "--jacaranda-rotacion",
+                    `${rotacion}deg`
+                );
+
+
+                florJacaranda.style.setProperty(
+                    "--jacaranda-delay",
+                    `${(indice % 6) * -.31}s`
+                );
+
+
+                florJacaranda.appendChild(
+                    crearDiv(
+                        "jacaranda-tubo"
+                    )
+                );
+
+
+                const corola =
+                    crearDiv(
+                        "jacaranda-corola"
+                    );
+
+
+                for (let p = 1; p <= 5; p++) {
+
+                    corola.appendChild(
+                        crearDiv(
+                            `jacaranda-petalo jacaranda-petalo-${p}`
+                        )
+                    );
+                }
+
+
+                corola.appendChild(
+                    crearDiv(
+                        "jacaranda-centro"
+                    )
+                );
+
+
+                florJacaranda.appendChild(
+                    corola
+                );
+
+
+                flor.appendChild(
+                    florJacaranda
+                );
+            }
+        );
+
+
+        for (let i = 1; i <= 5; i++) {
+
+            const hoja =
+                crearDiv(
+                    `jacaranda-hoja jacaranda-hoja-${i}`
+                );
+
+
+            for (let f = 1; f <= 7; f++) {
+
+                hoja.appendChild(
+                    crearDiv(
+                        `jacaranda-foliolo jacaranda-foliolo-${f}`
+                    )
+                );
+            }
+
+
+            flor.appendChild(
+                hoja
+            );
+        }
 
 
         return flor;

@@ -18,7 +18,9 @@
 .dalia,
 .loto,
 .cerezo,
-.damanoche {
+.damanoche,
+.gardenia,
+.jacaranda {
     position: relative;
 
     width: 300px;
@@ -94,6 +96,8 @@
 .loto { --brisa-duracion: 7.0s; --brisa-retraso: 1.45s; }
 .cerezo { --brisa-duracion: 5.8s; --brisa-retraso: 1.2s; --brisa-inicio: -0.85deg; --brisa-fin: 0.85deg; }
 .damanoche { --brisa-duracion: 7.8s; --brisa-retraso: 1.55s; --brisa-inicio: -0.55deg; --brisa-fin: 0.55deg; }
+.gardenia { --brisa-duracion: 7.15s; --brisa-retraso: 1.48s; --brisa-inicio: -0.5deg; --brisa-fin: 0.5deg; }
+.jacaranda { --brisa-duracion: 6.35s; --brisa-retraso: 1.28s; --brisa-inicio: -0.72deg; --brisa-fin: 0.72deg; }
 
 
 /* =====================================================
@@ -4023,6 +4027,253 @@ body.modo-noche
 }
 
 
+
+/* =====================================================
+   GARDENIA BLANCA
+===================================================== */
+
+.gardenia {
+    width: 290px;
+}
+
+.gardenia-tallo {
+    position: absolute;
+    width: 13px;
+    height: 190px;
+    left: 139px;
+    top: 160px;
+    z-index: 1;
+    border-radius: 20px;
+    background: linear-gradient(to right,#244b2e,#5d8454,#244b2e);
+}
+
+.gardenia-cabeza {
+    position: absolute;
+    width: 235px;
+    height: 225px;
+    left: 27px;
+    top: 0;
+    z-index: 8;
+    animation: respirar-gardenia 5.2s ease-in-out infinite;
+}
+
+.gardenia-petalo-wrap {
+    position: absolute;
+    width: 72px;
+    height: 122px;
+    left: 81px;
+    top: 53px;
+    transform-origin: 36px 61px;
+    transform: rotate(var(--gardenia-angulo));
+}
+
+.gardenia-petalo {
+    position: absolute;
+    width: 72px;
+    height: 88px;
+    transform: translateY(calc(-1 * var(--gardenia-radio))) scale(var(--gardenia-escala));
+    border-radius: 57% 57% 43% 43% / 70% 70% 35% 35%;
+    background: radial-gradient(ellipse at 50% 78%,#d8cfb5 0%,#f5f0dd 31%,#fffdf5 70%,#ffffff 100%);
+    box-shadow: inset 0 1px 3px rgba(255,255,255,.88),0 3px 7px rgba(65,55,38,.07);
+}
+
+.gardenia-capa-media .gardenia-petalo {
+    background: radial-gradient(ellipse at 50% 80%,#ded3b7,#faf6e7 42%,#ffffff 100%);
+}
+
+.gardenia-capa-centro .gardenia-petalo {
+    background: linear-gradient(180deg,#fffef7,#efe6ca);
+}
+
+.gardenia-centro {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 102px;
+    top: 99px;
+    z-index: 20;
+    border-radius: 50%;
+    background: radial-gradient(circle,#f5df8b,#d3ad49 68%,#9d7632);
+    box-shadow: 0 0 0 5px rgba(225,211,170,.18);
+}
+
+.gardenia-hoja {
+    position: absolute;
+    z-index: 3;
+    width: 104px;
+    height: 58px;
+    border-radius: 100% 5% 100% 5%;
+    background: linear-gradient(145deg,#173c25,#32633a,#648451);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,.12);
+}
+
+.gardenia-hoja::after {
+    content: "";
+    position: absolute;
+    width: 78%;
+    height: 2px;
+    left: 12%;
+    top: 50%;
+    background: rgba(205,229,185,.16);
+}
+
+.gardenia-hoja-izquierda {
+    left: 48px;
+    top: 234px;
+    transform: rotate(-21deg);
+}
+
+.gardenia-hoja-derecha {
+    left: 137px;
+    top: 254px;
+    transform: rotate(20deg) scaleX(-1);
+}
+
+.gardenia-hoja-centro {
+    width: 82px;
+    height: 47px;
+    left: 102px;
+    top: 203px;
+    z-index: 2;
+    transform: rotate(3deg) scale(.88);
+}
+
+@keyframes respirar-gardenia {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.015); }
+}
+
+
+/* =====================================================
+   JACARANDA
+===================================================== */
+
+.jacaranda {
+    width: 310px;
+}
+
+.jacaranda-rama-principal,
+.jacaranda-rama {
+    position: absolute;
+    z-index: 2;
+    border-radius: 999px;
+    transform-origin: left center;
+    background: linear-gradient(to bottom,#6d5544,#4c382f 58%,#33251f);
+}
+
+.jacaranda-rama-principal {
+    width: 226px;
+    height: 12px;
+    left: 39px;
+    top: 186px;
+    transform: rotate(-23deg);
+}
+
+.jacaranda-rama { height: 6px; }
+.jacaranda-rama-1 { width:91px; left:79px; top:154px; transform:rotate(-63deg); }
+.jacaranda-rama-2 { width:103px; left:109px; top:143px; transform:rotate(-34deg); }
+.jacaranda-rama-3 { width:91px; left:143px; top:132px; transform:rotate(14deg); }
+.jacaranda-rama-4 { width:78px; left:172px; top:120px; transform:rotate(-45deg); }
+.jacaranda-rama-5 { width:76px; left:194px; top:145px; transform:rotate(34deg); }
+.jacaranda-rama-6 { width:63px; left:126px; top:171px; transform:rotate(49deg); }
+
+.jacaranda-flor {
+    position: absolute;
+    z-index: 9;
+    width: 34px;
+    height: 56px;
+    transform-origin: center bottom;
+    transform: translate(-50%,-50%) rotate(var(--jacaranda-rotacion)) scale(var(--jacaranda-escala));
+    animation: respirar-jacaranda 4.4s ease-in-out infinite;
+    animation-delay: var(--jacaranda-delay);
+}
+
+.jacaranda-tubo {
+    position: absolute;
+    width: 10px;
+    height: 35px;
+    left: 12px;
+    top: 20px;
+    border-radius: 7px 7px 14px 14px;
+    background: linear-gradient(to right,#744ca8,#a97bd4,#684091);
+}
+
+.jacaranda-corola {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    left: 0;
+    top: 0;
+}
+
+.jacaranda-petalo {
+    position: absolute;
+    width: 13px;
+    height: 23px;
+    left: 10.5px;
+    top: 7px;
+    transform-origin: 6.5px 13px;
+    border-radius: 65% 65% 45% 45% / 76% 76% 30% 30%;
+    background: linear-gradient(180deg,#d9bcf4,#a76ed8 48%,#7040a9);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,.35);
+}
+
+.jacaranda-petalo-1 { transform: rotate(0deg) translateY(-9px); }
+.jacaranda-petalo-2 { transform: rotate(72deg) translateY(-9px); }
+.jacaranda-petalo-3 { transform: rotate(144deg) translateY(-9px); }
+.jacaranda-petalo-4 { transform: rotate(216deg) translateY(-9px); }
+.jacaranda-petalo-5 { transform: rotate(288deg) translateY(-9px); }
+
+.jacaranda-centro {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    left: 13px;
+    top: 13px;
+    z-index: 8;
+    border-radius: 50%;
+    background: radial-gradient(circle,#fff0a9,#d9bd56);
+}
+
+.jacaranda-hoja {
+    position: absolute;
+    z-index: 5;
+    width: 75px;
+    height: 32px;
+    transform-origin: left center;
+}
+
+.jacaranda-foliolo {
+    position: absolute;
+    width: 22px;
+    height: 8px;
+    left: 27px;
+    top: 12px;
+    border-radius: 100% 5% 100% 5%;
+    background: linear-gradient(145deg,#2d5733,#638157);
+    transform-origin: 3px 4px;
+}
+
+.jacaranda-foliolo-1 { transform: translate(-20px,-8px) rotate(-35deg); }
+.jacaranda-foliolo-2 { transform: translate(-9px,-4px) rotate(-20deg); }
+.jacaranda-foliolo-3 { transform: translate(2px,-1px) rotate(-6deg); }
+.jacaranda-foliolo-4 { transform: translate(13px,2px) rotate(8deg); }
+.jacaranda-foliolo-5 { transform: translate(-11px,7px) rotate(18deg) scaleY(-1); }
+.jacaranda-foliolo-6 { transform: translate(2px,9px) rotate(6deg) scaleY(-1); }
+.jacaranda-foliolo-7 { transform: translate(16px,8px) rotate(-10deg) scaleY(-1); }
+
+.jacaranda-hoja-1 { left:75px; top:205px; transform:rotate(-33deg); }
+.jacaranda-hoja-2 { left:108px; top:230px; transform:rotate(-14deg); }
+.jacaranda-hoja-3 { left:148px; top:211px; transform:rotate(12deg); }
+.jacaranda-hoja-4 { left:183px; top:234px; transform:rotate(28deg); }
+.jacaranda-hoja-5 { left:132px; top:267px; transform:rotate(5deg); }
+
+@keyframes respirar-jacaranda {
+    0%,100% { margin-top: 0; }
+    50% { margin-top: -2px; }
+}
+
+
 /* =====================================================
    RESPONSIVE
 ===================================================== */
@@ -4045,7 +4296,9 @@ body.modo-noche
     .dalia,
     .loto,
     .cerezo,
-    .damanoche {
+    .damanoche,
+    .gardenia,
+    .jacaranda {
         --escala-flor: .92;
 
         transform-origin:
@@ -4075,6 +4328,8 @@ body.modo-noche
     .loto,
     .cerezo,
     .damanoche,
+    .gardenia,
+    .jacaranda,
     .cerezo-flor,
     .cerezo-boton,
     .damanoche-flor,

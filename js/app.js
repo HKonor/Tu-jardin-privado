@@ -1481,6 +1481,60 @@ const floresDelJardin = [
 
         especial:
             "carta"
+    },
+
+
+    /* =================================================
+       FLOR NUEVA — GARDENIA
+    ================================================= */
+
+    {
+        tipo: "gardenia",
+
+        titulo:
+            "Gardenia blanca 🤍",
+
+        mensaje:
+            "Oye, te garantizo que habrá días difíciles. Te garantizo que en algún momento uno o ambos querremos separarnos. Pero también te garantizo que, si no te pido que seas mía, lo lamentaré por el resto de mi vida, porque mi corazón me está diciendo que eres la única para mí.",
+
+        carta:
+            "Oye, te garantizo que habrá días difíciles. Te garantizo que en algún momento uno o ambos querremos separarnos. Pero también te garantizo que, si no te pido que seas mía, lo lamentaré por el resto de mi vida, porque mi corazón me está diciendo que eres la única para mí.",
+
+        microMensaje:
+            "Prefiero intentarlo que quedarme con la duda.",
+
+        linkCancion:
+            "https://m.youtube.com/watch?v=8sY9Cf4HNfY&pp=ygUXZXNxdWUgeW8gdGUgcXVpZXJvIGEgdGk%3D",
+
+        textoBoton:
+            "♪ Es que yo te quiero a ti"
+    },
+
+
+    /* =================================================
+       FLOR NUEVA — JACARANDA
+    ================================================= */
+
+    {
+        tipo: "jacaranda",
+
+        titulo:
+            "Jacaranda 💜",
+
+        mensaje:
+            "To begin with, I love you with a depth and passion that I have felt for no one else in this life. And if it astonishes you, it astonishes me as well. I would never have thought it possible that another human being could occupy my waking and sleeping thoughts to the exclusion of almost everything else. I want nothing else in this life than to be with you, to listen and watch you. Your beautiful voice, your beauty. To argue with you, to laugh with you. To show you things and share things with you. To explore your magnificent mind, to explore your wonderful body. To help you, protect you, serve you, and bash you on the head when I think you are wrong.",
+
+        carta:
+            "To begin with, I love you with a depth and passion that I have felt for no one else in this life. And if it astonishes you, it astonishes me as well. I would never have thought it possible that another human being could occupy my waking and sleeping thoughts to the exclusion of almost everything else. I want nothing else in this life than to be with you, to listen and watch you. Your beautiful voice, your beauty. To argue with you, to laugh with you. To show you things and share things with you. To explore your magnificent mind, to explore your wonderful body. To help you, protect you, serve you, and bash you on the head when I think you are wrong.",
+
+        microMensaje:
+            "Hay lugares que cambian cuando alguien empieza a importarte.",
+
+        linkCancion:
+            "https://m.youtube.com/watch?v=7E9-c2Z6adU&pp=ygUcdG9kYSBlc3RhIGNpdWRhZCBrZXZpbiBrYWFybA%3D%3D",
+
+        textoBoton:
+            "♪ Toda esta ciudad"
     }
 ];
 
