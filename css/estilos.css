@@ -3620,7 +3620,7 @@ body.modo-noche
 }
 
 /* =====================================================
-   MÚSICA DE FONDO
+   MÚSICA DE FONDO - PLAYLIST
 ===================================================== */
 
 #musica-fondo {
@@ -3628,7 +3628,7 @@ body.modo-noche
 }
 
 
-.boton-musica-fondo {
+.control-musica-fondo {
     position: fixed;
 
     left: 18px;
@@ -3636,37 +3636,33 @@ body.modo-noche
 
     z-index: 14500;
 
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
+    display: flex;
+    flex-direction: column;
 
-    min-height: 43px;
+    gap: 8px;
+
+    width:
+        min(
+            310px,
+            calc(100vw - 36px)
+        );
 
     padding:
-        10px 16px;
+        11px 12px;
 
     border:
         1px solid
         rgba(255,255,255,.32);
 
-    border-radius: 999px;
+    border-radius: 22px;
 
     color: white;
 
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size: 12px;
-    font-weight: 700;
-
-    cursor: pointer;
-
     background:
         linear-gradient(
-            135deg,
-            rgba(78,52,111,.94),
-            rgba(126,88,177,.94)
+            145deg,
+            rgba(68,45,96,.94),
+            rgba(112,76,159,.94)
         );
 
     box-shadow:
@@ -3674,7 +3670,108 @@ body.modo-noche
         rgba(38,24,51,.22);
 
     backdrop-filter:
-        blur(10px);
+        blur(12px);
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.control-musica-fondo:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+.info-musica-fondo {
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    align-items: center;
+
+    gap:
+        2px 10px;
+
+    padding:
+        0 4px;
+}
+
+
+.etiqueta-musica-fondo {
+    grid-column:
+        1 / -1;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+    opacity: .72;
+}
+
+
+.titulo-musica-fondo {
+    min-width: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.contador-musica-fondo {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    opacity: .75;
+}
+
+
+.acciones-musica-fondo {
+    display: grid;
+
+    grid-template-columns:
+        42px 1fr 42px;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.boton-cambio-musica,
+.boton-musica-fondo {
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    color: white;
+
+    cursor: pointer;
+
+    background:
+        rgba(255,255,255,.10);
 
     transition:
         transform .2s ease,
@@ -3684,21 +3781,67 @@ body.modo-noche
 }
 
 
+.boton-cambio-musica:hover,
 .boton-musica-fondo:hover {
     transform:
-        translateY(-2px);
+        translateY(-1px);
+
+    background:
+        rgba(255,255,255,.17);
+}
+
+
+.boton-cambio-musica {
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 28px;
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+.boton-musica-fondo {
+    min-height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding:
+        8px 13px;
+
+    border-radius: 999px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
 }
 
 
 .boton-musica-fondo.musica-pausada {
-    opacity: .82;
+    opacity: .76;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(83,78,88,.94),
-            rgba(114,103,123,.94)
-        );
+        rgba(58,52,63,.34);
 }
 
 
@@ -3726,6 +3869,11 @@ body.modo-noche
 }
 
 
+.texto-musica-fondo {
+    white-space: nowrap;
+}
+
+
 @keyframes pulso-musica-fondo {
     50% {
         transform:
@@ -3733,6 +3881,32 @@ body.modo-noche
             rotate(-5deg);
     }
 }
+
+
+body.tema-morado
+.control-musica-fondo {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(71,45,109,.96),
+            rgba(121,79,174,.96)
+        );
+}
+
+
+body.modo-noche
+.control-musica-fondo {
+    border-color:
+        rgba(232,218,255,.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(31,23,47,.96),
+            rgba(63,43,88,.96)
+        );
+}
+
 
 
 /* =====================================================
@@ -4384,25 +4558,42 @@ body.modo-noche
 
 @media (max-width: 700px) {
 
-    .boton-musica-fondo {
+    .control-musica-fondo {
         left: 12px;
         bottom: 12px;
 
-        padding:
-            9px 13px;
+        width:
+            min(
+                290px,
+                calc(100vw - 24px)
+            );
 
-        font-size: 11px;
+        padding:
+            10px;
+    }
+
+
+    .boton-musica-fondo {
+        padding:
+            8px 10px;
+
+        font-size: 10px;
     }
 
 
     .texto-musica-fondo {
-        max-width: 105px;
+        max-width: 96px;
 
         overflow: hidden;
 
         white-space: nowrap;
 
         text-overflow: ellipsis;
+    }
+
+
+    .titulo-musica-fondo {
+        font-size: 11px;
     }
 
 

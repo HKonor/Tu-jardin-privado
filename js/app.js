@@ -643,10 +643,14 @@ function mostrarToast(
 
 
 /* =====================================================
-   MÚSICA DE FONDO
+   MÚSICA DE FONDO - PLAYLIST
 
    El navegador necesita una interacción del usuario
    antes de reproducir audio con sonido.
+
+   Las canciones avanzan una por una y dejan
+   un pequeño intervalo entre ellas para que
+   la transición no se sienta brusca.
 ===================================================== */
 
 const musicaFondo =
@@ -655,44 +659,75 @@ const musicaFondo =
     );
 
 
-const botonMusicaFondo =
-    document.createElement(
-        "button"
-    );
+const LISTA_MUSICA_FONDO = [
+
+    {
+        titulo:
+            "A Romantic Flight",
+
+        archivo:
+            "musicafondo.mp3"
+    },
+
+    {
+        titulo:
+            "Kingdom Dance",
+
+        archivo:
+            "audio/kingdom-dance.mp3"
+    },
+
+    {
+        titulo:
+            "The Ellie Badge",
+
+        archivo:
+            "audio/the-ellie-badge.mp3"
+    },
+
+    {
+        titulo:
+            "Define Dancing",
+
+        archivo:
+            "audio/define-dancing.mp3"
+    }
+
+];
 
 
-botonMusicaFondo.type =
-    "button";
+const VOLUMEN_MUSICA_FONDO =
+    0.16;
 
 
-botonMusicaFondo.id =
-    "boton-musica-fondo";
+/*
+   4 segundos de silencio entre una canción
+   y la siguiente cuando termina de forma normal.
+*/
+
+const INTERVALO_ENTRE_CANCIONES =
+    4000;
 
 
-botonMusicaFondo.className =
-    "boton-musica-fondo";
+/*
+   Al cambiar manualmente no hace falta esperar
+   los 4 segundos completos.
+*/
+
+const INTERVALO_CAMBIO_MANUAL =
+    550;
 
 
-botonMusicaFondo.setAttribute(
-    "aria-label",
-    "Pausar o reanudar la música de fondo"
-);
+const DURACION_FADE_ENTRADA =
+    2600;
 
 
-botonMusicaFondo.innerHTML = `
-    <span class="icono-musica-fondo">
-        ♫
-    </span>
-
-    <span class="texto-musica-fondo">
-        Música
-    </span>
-`;
+const DURACION_FADE_SALIDA =
+    1700;
 
 
-document.body.appendChild(
-    botonMusicaFondo
-);
+let indiceMusicaFondo =
+    0;
 
 
 let musicaFondoIniciada =
@@ -703,19 +738,200 @@ let musicaFondoSilenciada =
     false;
 
 
+let esperandoSiguienteCancion =
+    false;
+
+
+let fadeFinalAplicado =
+    false;
+
+
 let intervaloFadeMusica =
     null;
 
 
-const VOLUMEN_MUSICA_FONDO =
-    0.16;
+let timeoutSiguienteCancion =
+    null;
+
+
+/* =====================================================
+   CONTROLES DE MÚSICA
+===================================================== */
+
+const controlMusicaFondo =
+    document.createElement(
+        "div"
+    );
+
+
+controlMusicaFondo.className =
+    "control-musica-fondo";
+
+
+controlMusicaFondo.innerHTML = `
+    <div class="info-musica-fondo">
+
+        <span class="etiqueta-musica-fondo">
+            MÚSICA DE FONDO
+        </span>
+
+        <strong
+            id="titulo-musica-fondo"
+            class="titulo-musica-fondo"
+        >
+            ${LISTA_MUSICA_FONDO[0].titulo}
+        </strong>
+
+        <span
+            id="contador-musica-fondo"
+            class="contador-musica-fondo"
+        >
+            1/${LISTA_MUSICA_FONDO.length}
+        </span>
+
+    </div>
+
+    <div class="acciones-musica-fondo">
+
+        <button
+            type="button"
+            id="boton-musica-anterior"
+            class="boton-cambio-musica"
+            aria-label="Canción anterior"
+            title="Canción anterior"
+        >
+            ‹
+        </button>
+
+        <button
+            type="button"
+            id="boton-musica-fondo"
+            class="boton-musica-fondo"
+            aria-label="Pausar o reanudar la música de fondo"
+            title="Pausar o reanudar"
+        >
+            <span class="icono-musica-fondo">
+                ♫
+            </span>
+
+            <span class="texto-musica-fondo">
+                Música
+            </span>
+        </button>
+
+        <button
+            type="button"
+            id="boton-musica-siguiente"
+            class="boton-cambio-musica"
+            aria-label="Siguiente canción"
+            title="Siguiente canción"
+        >
+            ›
+        </button>
+
+    </div>
+`;
+
+
+document.body.appendChild(
+    controlMusicaFondo
+);
+
+
+const botonMusicaFondo =
+    document.getElementById(
+        "boton-musica-fondo"
+    );
+
+
+const botonMusicaAnterior =
+    document.getElementById(
+        "boton-musica-anterior"
+    );
+
+
+const botonMusicaSiguiente =
+    document.getElementById(
+        "boton-musica-siguiente"
+    );
+
+
+const tituloMusicaFondo =
+    document.getElementById(
+        "titulo-musica-fondo"
+    );
+
+
+const contadorMusicaFondo =
+    document.getElementById(
+        "contador-musica-fondo"
+    );
+
+
+function limpiarTemporizadoresMusica() {
+
+    clearInterval(
+        intervaloFadeMusica
+    );
+
+
+    clearTimeout(
+        timeoutSiguienteCancion
+    );
+
+
+    intervaloFadeMusica =
+        null;
+
+
+    timeoutSiguienteCancion =
+        null;
+}
+
+
+function obtenerCancionActual() {
+
+    return (
+        LISTA_MUSICA_FONDO[
+            indiceMusicaFondo
+        ]
+    );
+}
+
+
+function actualizarInfoCancion() {
+
+    const cancion =
+        obtenerCancionActual();
+
+
+    if (
+        tituloMusicaFondo
+    ) {
+
+        tituloMusicaFondo.textContent =
+            cancion.titulo;
+    }
+
+
+    if (
+        contadorMusicaFondo
+    ) {
+
+        contadorMusicaFondo.textContent =
+            `${indiceMusicaFondo + 1}/${LISTA_MUSICA_FONDO.length}`;
+    }
+}
 
 
 function actualizarBotonMusicaFondo() {
 
-    if (!musicaFondo) {
+    if (
+        !musicaFondo ||
+        !botonMusicaFondo
+    ) {
 
-        botonMusicaFondo.style.display =
+        controlMusicaFondo.style.display =
             "none";
 
         return;
@@ -728,19 +944,42 @@ function actualizarBotonMusicaFondo() {
 
     botonMusicaFondo.classList.toggle(
         "musica-activa",
-        !pausada
+        !pausada &&
+        !esperandoSiguienteCancion
     );
 
 
     botonMusicaFondo.classList.toggle(
         "musica-pausada",
-        pausada
+        pausada ||
+        esperandoSiguienteCancion
     );
 
 
-    botonMusicaFondo.querySelector(
-        ".texto-musica-fondo"
-    ).textContent =
+    const texto =
+        botonMusicaFondo.querySelector(
+            ".texto-musica-fondo"
+        );
+
+
+    if (!texto) {
+
+        return;
+    }
+
+
+    if (
+        esperandoSiguienteCancion
+    ) {
+
+        texto.textContent =
+            "Siguiente...";
+
+        return;
+    }
+
+
+    texto.textContent =
         pausada
             ?
             "Música pausada"
@@ -749,7 +988,59 @@ function actualizarBotonMusicaFondo() {
 }
 
 
-function fadeInMusicaFondo() {
+function prepararCancion(
+    indice
+) {
+
+    if (!musicaFondo) {
+
+        return;
+    }
+
+
+    const total =
+        LISTA_MUSICA_FONDO.length;
+
+
+    indiceMusicaFondo =
+        (
+            indice % total +
+            total
+        ) % total;
+
+
+    const cancion =
+        obtenerCancionActual();
+
+
+    fadeFinalAplicado =
+        false;
+
+
+    musicaFondo.src =
+        cancion.archivo;
+
+
+    musicaFondo.loop =
+        false;
+
+
+    musicaFondo.load();
+
+
+    actualizarInfoCancion();
+
+
+    actualizarBotonMusicaFondo();
+}
+
+
+function fadeVolumenMusica(
+    desde,
+    hasta,
+    duracion,
+    alTerminar = null
+) {
 
     if (!musicaFondo) {
 
@@ -762,61 +1053,169 @@ function fadeInMusicaFondo() {
     );
 
 
-    musicaFondo.volume =
+    const pasos =
+        Math.max(
+            1,
+            Math.round(
+                duracion / 90
+            )
+        );
+
+
+    let paso =
         0;
 
 
-    const pasos =
-        24;
-
-
-    const incremento =
-        VOLUMEN_MUSICA_FONDO /
-        pasos;
+    musicaFondo.volume =
+        Math.max(
+            0,
+            Math.min(
+                1,
+                desde
+            )
+        );
 
 
     intervaloFadeMusica =
         setInterval(
             () => {
 
-                if (
-                    !musicaFondo ||
-                    musicaFondo.paused
-                ) {
-
-                    clearInterval(
-                        intervaloFadeMusica
-                    );
-
-                    return;
-                }
+                paso++;
 
 
-                const siguiente =
+                const progreso =
                     Math.min(
-                        VOLUMEN_MUSICA_FONDO,
-                        musicaFondo.volume +
-                        incremento
+                        1,
+                        paso / pasos
                     );
+
+
+                const volumen =
+                    desde +
+                    (
+                        hasta - desde
+                    ) *
+                    progreso;
 
 
                 musicaFondo.volume =
-                    siguiente;
+                    Math.max(
+                        0,
+                        Math.min(
+                            1,
+                            volumen
+                        )
+                    );
 
 
                 if (
-                    siguiente >=
-                    VOLUMEN_MUSICA_FONDO
+                    progreso >= 1
                 ) {
 
                     clearInterval(
                         intervaloFadeMusica
                     );
+
+
+                    intervaloFadeMusica =
+                        null;
+
+
+                    if (
+                        typeof alTerminar ===
+                        "function"
+                    ) {
+
+                        alTerminar();
+                    }
                 }
 
             },
-            120
+            90
         );
+}
+
+
+function fadeInMusicaFondo() {
+
+    if (!musicaFondo) {
+
+        return;
+    }
+
+
+    fadeVolumenMusica(
+        0,
+        VOLUMEN_MUSICA_FONDO,
+        DURACION_FADE_ENTRADA
+    );
+}
+
+
+async function reproducirCancionActual(
+    usarFade = true
+) {
+
+    if (!musicaFondo) {
+
+        return;
+    }
+
+
+    clearTimeout(
+        timeoutSiguienteCancion
+    );
+
+
+    timeoutSiguienteCancion =
+        null;
+
+
+    esperandoSiguienteCancion =
+        false;
+
+
+    try {
+
+        if (
+            usarFade
+        ) {
+
+            musicaFondo.volume =
+                0;
+
+        } else {
+
+            musicaFondo.volume =
+                VOLUMEN_MUSICA_FONDO;
+        }
+
+
+        await musicaFondo.play();
+
+
+        musicaFondoIniciada =
+            true;
+
+
+        musicaFondoSilenciada =
+            false;
+
+
+        if (
+            usarFade
+        ) {
+
+            fadeInMusicaFondo();
+        }
+
+
+        actualizarBotonMusicaFondo();
+
+    } catch (error) {
+
+        actualizarBotonMusicaFondo();
+    }
 }
 
 
@@ -837,28 +1236,21 @@ async function iniciarMusicaFondo() {
     }
 
 
-    try {
+    if (
+        !musicaFondo.getAttribute(
+            "src"
+        )
+    ) {
 
-        await musicaFondo.play();
-
-
-        musicaFondoIniciada =
-            true;
-
-
-        musicaFondoSilenciada =
-            false;
-
-
-        fadeInMusicaFondo();
-
-
-        actualizarBotonMusicaFondo();
-
-    } catch (error) {
-
-        actualizarBotonMusicaFondo();
+        prepararCancion(
+            indiceMusicaFondo
+        );
     }
+
+
+    await reproducirCancionActual(
+        true
+    );
 }
 
 
@@ -872,10 +1264,23 @@ function pausarMusicaFondo(
     }
 
 
+    limpiarTemporizadoresMusica();
+
+
+    esperandoSiguienteCancion =
+        false;
+
+
     musicaFondo.pause();
 
 
-    if (pausaManual) {
+    musicaFondo.volume =
+        VOLUMEN_MUSICA_FONDO;
+
+
+    if (
+        pausaManual
+    ) {
 
         musicaFondoSilenciada =
             true;
@@ -894,13 +1299,52 @@ async function alternarMusicaFondo() {
     }
 
 
-    if (musicaFondo.paused) {
+    if (
+        esperandoSiguienteCancion
+    ) {
+
+        clearTimeout(
+            timeoutSiguienteCancion
+        );
+
+
+        timeoutSiguienteCancion =
+            null;
+
+
+        esperandoSiguienteCancion =
+            false;
+
 
         musicaFondoSilenciada =
             false;
 
 
-        await iniciarMusicaFondo();
+        prepararCancion(
+            indiceMusicaFondo + 1
+        );
+
+
+        await reproducirCancionActual(
+            true
+        );
+
+
+        return;
+    }
+
+
+    if (
+        musicaFondo.paused
+    ) {
+
+        musicaFondoSilenciada =
+            false;
+
+
+        await reproducirCancionActual(
+            true
+        );
 
     } else {
 
@@ -911,9 +1355,233 @@ async function alternarMusicaFondo() {
 }
 
 
+function programarSiguienteCancion() {
+
+    if (!musicaFondo) {
+
+        return;
+    }
+
+
+    limpiarTemporizadoresMusica();
+
+
+    esperandoSiguienteCancion =
+        true;
+
+
+    musicaFondo.volume =
+        0;
+
+
+    actualizarBotonMusicaFondo();
+
+
+    timeoutSiguienteCancion =
+        setTimeout(
+            async () => {
+
+                esperandoSiguienteCancion =
+                    false;
+
+
+                prepararCancion(
+                    indiceMusicaFondo + 1
+                );
+
+
+                if (
+                    !musicaFondoSilenciada
+                ) {
+
+                    await reproducirCancionActual(
+                        true
+                    );
+                }
+
+            },
+            INTERVALO_ENTRE_CANCIONES
+        );
+}
+
+
+function cambiarCancionManual(
+    direccion
+) {
+
+    if (!musicaFondo) {
+
+        return;
+    }
+
+
+    const estabaReproduciendo =
+        (
+            !musicaFondo.paused &&
+            !esperandoSiguienteCancion
+        ) ||
+        esperandoSiguienteCancion;
+
+
+    limpiarTemporizadoresMusica();
+
+
+    esperandoSiguienteCancion =
+        false;
+
+
+    const cambiar =
+        () => {
+
+            musicaFondo.pause();
+
+
+            musicaFondo.volume =
+                0;
+
+
+            prepararCancion(
+                indiceMusicaFondo +
+                direccion
+            );
+
+
+            if (
+                estabaReproduciendo
+            ) {
+
+                timeoutSiguienteCancion =
+                    setTimeout(
+                        async () => {
+
+                            await reproducirCancionActual(
+                                true
+                            );
+
+                        },
+                        INTERVALO_CAMBIO_MANUAL
+                    );
+
+            } else {
+
+                musicaFondo.volume =
+                    VOLUMEN_MUSICA_FONDO;
+
+
+                actualizarBotonMusicaFondo();
+            }
+        };
+
+
+    if (
+        estabaReproduciendo
+    ) {
+
+        fadeVolumenMusica(
+            musicaFondo.volume,
+            0,
+            450,
+            cambiar
+        );
+
+    } else {
+
+        cambiar();
+    }
+}
+
+
 botonMusicaFondo.addEventListener(
     "click",
     alternarMusicaFondo
+);
+
+
+botonMusicaAnterior.addEventListener(
+    "click",
+    () => {
+
+        cambiarCancionManual(
+            -1
+        );
+    }
+);
+
+
+botonMusicaSiguiente.addEventListener(
+    "click",
+    () => {
+
+        cambiarCancionManual(
+            1
+        );
+    }
+);
+
+
+/*
+   Un poco antes de terminar cada canción,
+   baja el volumen suavemente.
+*/
+
+musicaFondo.addEventListener(
+    "timeupdate",
+    () => {
+
+        if (
+            !musicaFondo.duration ||
+            !Number.isFinite(
+                musicaFondo.duration
+            ) ||
+            musicaFondo.paused ||
+            esperandoSiguienteCancion ||
+            fadeFinalAplicado
+        ) {
+
+            return;
+        }
+
+
+        const restante =
+            musicaFondo.duration -
+            musicaFondo.currentTime;
+
+
+        if (
+            restante <=
+            DURACION_FADE_SALIDA / 1000
+        ) {
+
+            fadeFinalAplicado =
+                true;
+
+
+            fadeVolumenMusica(
+                musicaFondo.volume,
+                0,
+                DURACION_FADE_SALIDA
+            );
+        }
+    }
+);
+
+
+musicaFondo.addEventListener(
+    "ended",
+    () => {
+
+        if (
+            musicaFondoSilenciada
+        ) {
+
+            actualizarBotonMusicaFondo();
+
+            return;
+        }
+
+
+        programarSiguienteCancion();
+    }
 );
 
 
@@ -991,7 +1659,13 @@ document.addEventListener(
 );
 
 
+prepararCancion(
+    0
+);
+
+
 actualizarBotonMusicaFondo();
+
 
 
 /* =====================================================
