@@ -1,3 +1,8 @@
+/* =====================================================
+   FLORES NUEVAS
+   Archivo separado para no tocar animaciones anteriores.
+===================================================== */
+
 .estrella-belen,
 .bugambilia,
 .calendula-miel,
@@ -5,801 +10,120 @@
 .hibisco-cereza,
 .fresia,
 .corazon-sangrante {
-  position: relative;
-  width: 300px;
-  height: 350px;
-  transform-origin: center bottom;
-  --escala-flor: 1;
-  --brisa-duracion: 6.8s;
-  --brisa-retraso: 1.3s;
-  --brisa-inicio: -0.65deg;
-  --brisa-fin: 0.65deg;
-  animation:
-    crecer-flor 1.2s ease both,
-    brisa-flor var(--brisa-duracion) ease-in-out var(--brisa-retraso) infinite;
+    position: relative;
+    width: 300px;
+    height: 350px;
+    transform-origin: center bottom;
+    --escala-flor: 1;
+    --brisa-duracion: 6.8s;
+    --brisa-retraso: 1.3s;
+    --brisa-inicio: -.65deg;
+    --brisa-fin: .65deg;
+    animation:
+        crecer-flor 1.2s ease both,
+        brisa-flor var(--brisa-duracion) ease-in-out var(--brisa-retraso) infinite;
 }
 
-.estrella-belen {
-  --brisa-duracion: 6.2s;
-  --brisa-retraso: 1.22s;
-}
-.bugambilia {
-  --brisa-duracion: 5.9s;
-  --brisa-retraso: 1.18s;
-  --brisa-inicio: -0.85deg;
-  --brisa-fin: 0.85deg;
-}
-.calendula-miel {
-  --brisa-duracion: 6.7s;
-  --brisa-retraso: 1.36s;
-}
-.rosa-cereza {
-  --brisa-duracion: 7.2s;
-  --brisa-retraso: 1.48s;
-  --brisa-inicio: -0.48deg;
-  --brisa-fin: 0.48deg;
-}
-.hibisco-cereza {
-  --brisa-duracion: 6.45s;
-  --brisa-retraso: 1.29s;
-}
-.fresia {
-  --brisa-duracion: 5.75s;
-  --brisa-retraso: 1.16s;
-  --brisa-inicio: -0.9deg;
-  --brisa-fin: 0.9deg;
-}
-.corazon-sangrante {
-  --brisa-duracion: 7.5s;
-  --brisa-retraso: 1.55s;
-  --brisa-inicio: -0.5deg;
-  --brisa-fin: 0.5deg;
-}
+.estrella-belen { --brisa-duracion:6.2s; --brisa-retraso:1.22s; }
+.bugambilia { --brisa-duracion:5.9s; --brisa-retraso:1.18s; --brisa-inicio:-.85deg; --brisa-fin:.85deg; }
+.calendula-miel { --brisa-duracion:6.7s; --brisa-retraso:1.36s; }
+.rosa-cereza { --brisa-duracion:7.2s; --brisa-retraso:1.48s; --brisa-inicio:-.48deg; --brisa-fin:.48deg; }
+.hibisco-cereza { --brisa-duracion:6.45s; --brisa-retraso:1.29s; }
+.fresia { --brisa-duracion:5.75s; --brisa-retraso:1.16s; --brisa-inicio:-.9deg; --brisa-fin:.9deg; }
+.corazon-sangrante { --brisa-duracion:7.5s; --brisa-retraso:1.55s; --brisa-inicio:-.5deg; --brisa-fin:.5deg; }
 
 /* ESTRELLA DE BELÉN */
-.estrella-belen-tallo {
-  position: absolute;
-  left: 146px;
-  top: 105px;
-  width: 8px;
-  height: 245px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #355f39, #74a05d, #355f39);
-}
-.estrella-belen-hoja {
-  position: absolute;
-  width: 80px;
-  height: 35px;
-  border-radius: 100% 0 100% 0;
-  background: linear-gradient(145deg, #37633c, #71945b);
-}
-.estrella-belen-hoja-1 {
-  left: 72px;
-  top: 244px;
-  transform: rotate(-23deg);
-}
-.estrella-belen-hoja-2 {
-  left: 147px;
-  top: 273px;
-  transform: rotate(19deg) scaleX(-1);
-}
-.estrella-belen-flor {
-  position: absolute;
-  width: 72px;
-  height: 72px;
-  transform: translate(-50%, -50%) scale(var(--estrella-escala));
-  animation: estrella-respirar 4.2s ease-in-out var(--estrella-delay) infinite;
-}
-.estrella-belen-petalo {
-  position: absolute;
-  left: 28px;
-  top: 5px;
-  width: 17px;
-  height: 34px;
-  transform-origin: 8.5px 31px;
-  border-radius: 70% 70% 32% 32%;
-  background: linear-gradient(180deg, #fff, #f7f1dd, #ddd6bd);
-  box-shadow: 0 2px 7px rgba(80, 70, 45, 0.08);
-}
-.estrella-belen-petalo-1 {
-  transform: rotate(0);
-}
-.estrella-belen-petalo-2 {
-  transform: rotate(60deg);
-}
-.estrella-belen-petalo-3 {
-  transform: rotate(120deg);
-}
-.estrella-belen-petalo-4 {
-  transform: rotate(180deg);
-}
-.estrella-belen-petalo-5 {
-  transform: rotate(240deg);
-}
-.estrella-belen-petalo-6 {
-  transform: rotate(300deg);
-}
-.estrella-belen-centro {
-  position: absolute;
-  left: 29px;
-  top: 29px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #ffe878, #d3a934 72%, #7e661e);
-}
-@keyframes estrella-respirar {
-  50% {
-    margin-top: -2px;
-    filter: drop-shadow(0 0 7px rgba(255, 231, 124, 0.32));
-  }
-}
+.estrella-belen-tallo{position:absolute;left:146px;top:105px;width:8px;height:245px;border-radius:10px;background:linear-gradient(90deg,#355f39,#74a05d,#355f39)}
+.estrella-belen-hoja{position:absolute;width:80px;height:35px;border-radius:100% 0 100% 0;background:linear-gradient(145deg,#37633c,#71945b)}
+.estrella-belen-hoja-1{left:72px;top:244px;transform:rotate(-23deg)}
+.estrella-belen-hoja-2{left:147px;top:273px;transform:rotate(19deg) scaleX(-1)}
+.estrella-belen-flor{position:absolute;width:72px;height:72px;transform:translate(-50%,-50%) scale(var(--estrella-escala));animation:estrella-respirar 4.2s ease-in-out var(--estrella-delay) infinite}
+.estrella-belen-petalo{position:absolute;left:28px;top:5px;width:17px;height:34px;transform-origin:8.5px 31px;border-radius:70% 70% 32% 32%;background:linear-gradient(180deg,#fff,#f7f1dd,#ddd6bd);box-shadow:0 2px 7px rgba(80,70,45,.08)}
+.estrella-belen-petalo-1{transform:rotate(0)}.estrella-belen-petalo-2{transform:rotate(60deg)}.estrella-belen-petalo-3{transform:rotate(120deg)}.estrella-belen-petalo-4{transform:rotate(180deg)}.estrella-belen-petalo-5{transform:rotate(240deg)}.estrella-belen-petalo-6{transform:rotate(300deg)}
+.estrella-belen-centro{position:absolute;left:29px;top:29px;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,#ffe878,#d3a934 72%,#7e661e)}
+@keyframes estrella-respirar{50%{margin-top:-2px;filter:drop-shadow(0 0 7px rgba(255,231,124,.32))}}
 
 /* BUGAMBILIA */
-.bugambilia-rama-principal {
-  position: absolute;
-  left: 143px;
-  top: 94px;
-  width: 9px;
-  height: 255px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #544632, #7b6946, #443925);
-  transform: rotate(3deg);
-}
-.bugambilia-rama {
-  position: absolute;
-  width: 5px;
-  height: 145px;
-  bottom: 80px;
-  left: 149px;
-  transform-origin: bottom;
-  background: #756246;
-  border-radius: 10px;
-}
-.bugambilia-rama-1 {
-  transform: rotate(-46deg);
-}
-.bugambilia-rama-2 {
-  height: 165px;
-  transform: rotate(-15deg);
-}
-.bugambilia-rama-3 {
-  height: 155px;
-  transform: rotate(37deg);
-}
-.bugambilia-grupo {
-  position: absolute;
-  width: 54px;
-  height: 54px;
-  animation: bugambilia-pulso 4.8s ease-in-out var(--bugambilia-delay) infinite;
-}
-.bugambilia-bractea {
-  position: absolute;
-  width: 31px;
-  height: 38px;
-  left: 12px;
-  top: 7px;
-  border-radius: 70% 35% 70% 35%;
-  background: linear-gradient(145deg, #f38ad0, #cf3f9f, #9a2a79);
-  transform-origin: 15px 26px;
-  box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.22);
-}
-.bugambilia-bractea-1 {
-  transform: rotate(-8deg) translateY(-10px);
-}
-.bugambilia-bractea-2 {
-  transform: rotate(112deg) translateY(-10px);
-}
-.bugambilia-bractea-3 {
-  transform: rotate(232deg) translateY(-10px);
-}
-.bugambilia-centro {
-  position: absolute;
-  left: 22px;
-  top: 22px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #f7e5b2;
-  border: 2px solid #fff4cf;
-}
-.bugambilia-hoja {
-  position: absolute;
-  width: 63px;
-  height: 36px;
-  border-radius: 100% 0 100% 0;
-  background: linear-gradient(145deg, #385a38, #6d8d55);
-}
-.bugambilia-hoja-1 {
-  left: 66px;
-  top: 215px;
-  transform: rotate(-32deg);
-}
-.bugambilia-hoja-2 {
-  left: 105px;
-  top: 251px;
-  transform: rotate(-14deg);
-}
-.bugambilia-hoja-3 {
-  left: 157px;
-  top: 227px;
-  transform: rotate(21deg) scaleX(-1);
-}
-.bugambilia-hoja-4 {
-  left: 181px;
-  top: 276px;
-  transform: rotate(35deg) scaleX(-1);
-}
-.bugambilia-hoja-5 {
-  left: 107px;
-  top: 303px;
-  transform: rotate(4deg);
-}
-@keyframes bugambilia-pulso {
-  50% {
-    margin-top: -2px;
-  }
-}
+.bugambilia-rama-principal{position:absolute;left:143px;top:94px;width:9px;height:255px;border-radius:10px;background:linear-gradient(90deg,#544632,#7b6946,#443925);transform:rotate(3deg)}
+.bugambilia-rama{position:absolute;width:5px;height:145px;bottom:80px;left:149px;transform-origin:bottom;background:#756246;border-radius:10px}
+.bugambilia-rama-1{transform:rotate(-46deg)}.bugambilia-rama-2{height:165px;transform:rotate(-15deg)}.bugambilia-rama-3{height:155px;transform:rotate(37deg)}
+.bugambilia-grupo{position:absolute;width:54px;height:54px;animation:bugambilia-pulso 4.8s ease-in-out var(--bugambilia-delay) infinite}
+.bugambilia-bractea{position:absolute;width:31px;height:38px;left:12px;top:7px;border-radius:70% 35% 70% 35%;background:linear-gradient(145deg,#f38ad0,#cf3f9f,#9a2a79);transform-origin:15px 26px;box-shadow:inset 0 1px 4px rgba(255,255,255,.22)}
+.bugambilia-bractea-1{transform:rotate(-8deg) translateY(-10px)}.bugambilia-bractea-2{transform:rotate(112deg) translateY(-10px)}.bugambilia-bractea-3{transform:rotate(232deg) translateY(-10px)}
+.bugambilia-centro{position:absolute;left:22px;top:22px;width:10px;height:10px;border-radius:50%;background:#f7e5b2;border:2px solid #fff4cf}
+.bugambilia-hoja{position:absolute;width:63px;height:36px;border-radius:100% 0 100% 0;background:linear-gradient(145deg,#385a38,#6d8d55)}
+.bugambilia-hoja-1{left:66px;top:215px;transform:rotate(-32deg)}.bugambilia-hoja-2{left:105px;top:251px;transform:rotate(-14deg)}.bugambilia-hoja-3{left:157px;top:227px;transform:rotate(21deg) scaleX(-1)}.bugambilia-hoja-4{left:181px;top:276px;transform:rotate(35deg) scaleX(-1)}.bugambilia-hoja-5{left:107px;top:303px;transform:rotate(4deg)}
+@keyframes bugambilia-pulso{50%{margin-top:-2px}}
 
 /* CALÉNDULA MIEL */
-.calendula-cabeza {
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  left: 40px;
-  top: 2px;
-  z-index: 5;
-}
-.calendula-petalo-wrap {
-  position: absolute;
-  left: 82px;
-  top: 55px;
-  width: 56px;
-  height: 110px;
-  transform-origin: 28px 57px;
-  transform: rotate(var(--calendula-angulo));
-}
-.calendula-petalo {
-  position: absolute;
-  left: 10px;
-  top: -40px;
-  width: 36px;
-  height: 82px;
-  border-radius: 55% 55% 40% 40% / 72% 72% 30% 30%;
-  background: linear-gradient(#ffe17a, #f5ad2f, #d87a18);
-}
-.calendula-petalo-interior-wrap {
-  left: 87px;
-  top: 61px;
-  width: 46px;
-  height: 92px;
-}
-.calendula-petalo-interior {
-  left: 9px;
-  top: -24px;
-  width: 29px;
-  height: 61px;
-  background: linear-gradient(#ffd86e, #ef9a22, #ca6d15);
-}
-.calendula-centro {
-  position: absolute;
-  left: 78px;
-  top: 78px;
-  width: 64px;
-  height: 64px;
-  z-index: 12;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    #7a4616 0 18%,
-    #b76b20 19% 43%,
-    #e2a739 44% 70%,
-    #7c4a17 71%
-  );
-}
-.calendula-tallo {
-  position: absolute;
-  left: 145px;
-  top: 170px;
-  width: 11px;
-  height: 180px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #335d32, #6b924f, #335d32);
-}
-.calendula-hoja {
-  position: absolute;
-  width: 85px;
-  height: 48px;
-  clip-path: polygon(
-    0 50%,
-    15% 36%,
-    27% 42%,
-    39% 20%,
-    51% 39%,
-    68% 24%,
-    82% 40%,
-    100% 50%,
-    83% 61%,
-    67% 55%,
-    52% 78%,
-    38% 58%,
-    22% 70%,
-    11% 58%
-  );
-  background: linear-gradient(145deg, #3f6b39, #75965a);
-}
-.calendula-hoja-1 {
-  left: 65px;
-  top: 242px;
-  transform: rotate(-23deg);
-}
-.calendula-hoja-2 {
-  left: 150px;
-  top: 274px;
-  transform: rotate(19deg) scaleX(-1);
-}
+.calendula-cabeza{position:absolute;width:220px;height:220px;left:40px;top:2px;z-index:5}
+.calendula-petalo-wrap{position:absolute;left:82px;top:55px;width:56px;height:110px;transform-origin:28px 57px;transform:rotate(var(--calendula-angulo))}
+.calendula-petalo{position:absolute;left:10px;top:-40px;width:36px;height:82px;border-radius:55% 55% 40% 40% / 72% 72% 30% 30%;background:linear-gradient(#ffe17a,#f5ad2f,#d87a18)}
+.calendula-petalo-interior-wrap{left:87px;top:61px;width:46px;height:92px}
+.calendula-petalo-interior{left:9px;top:-24px;width:29px;height:61px;background:linear-gradient(#ffd86e,#ef9a22,#ca6d15)}
+.calendula-centro{position:absolute;left:78px;top:78px;width:64px;height:64px;z-index:12;border-radius:50%;background:radial-gradient(circle,#7a4616 0 18%,#b76b20 19% 43%,#e2a739 44% 70%,#7c4a17 71%)}
+.calendula-tallo{position:absolute;left:145px;top:170px;width:11px;height:180px;border-radius:10px;background:linear-gradient(90deg,#335d32,#6b924f,#335d32)}
+.calendula-hoja{position:absolute;width:85px;height:48px;clip-path:polygon(0 50%,15% 36%,27% 42%,39% 20%,51% 39%,68% 24%,82% 40%,100% 50%,83% 61%,67% 55%,52% 78%,38% 58%,22% 70%,11% 58%);background:linear-gradient(145deg,#3f6b39,#75965a)}
+.calendula-hoja-1{left:65px;top:242px;transform:rotate(-23deg)}.calendula-hoja-2{left:150px;top:274px;transform:rotate(19deg) scaleX(-1)}
 
 /* ROSA CEREZA */
-.rosa-cereza-cabeza {
-  position: absolute;
-  left: 36px;
-  top: 4px;
-  width: 228px;
-  height: 220px;
-  z-index: 6;
-}
-.rosa-cereza-wrap {
-  position: absolute;
-  left: 84px;
-  top: 69px;
-  width: 60px;
-  height: 90px;
-  transform-origin: 30px 43px;
-  transform: rotate(var(--rosa-angulo));
-}
-.rosa-cereza-petalo {
-  position: absolute;
-  left: 5px;
-  top: 0;
-  width: 50px;
-  height: 70px;
-  transform: translateY(calc(-1 * var(--rosa-radio))) scale(var(--rosa-escala));
-  border-radius: 55% 55% 44% 44% / 68% 68% 38% 38%;
-  background: radial-gradient(
-    ellipse at 50% 78%,
-    #741528,
-    #a51f3b,
-    #ce3b57,
-    #ee7187
-  );
-  box-shadow: inset 0 4px 8px rgba(255, 204, 215, 0.12);
-}
-.rosa-cereza-capa-2 .rosa-cereza-petalo {
-  background: radial-gradient(
-    ellipse at 50% 80%,
-    #671123,
-    #9e1935,
-    #c83250,
-    #e55d77
-  );
-}
-.rosa-cereza-capa-3 .rosa-cereza-petalo {
-  background: radial-gradient(ellipse at 50% 80%, #57101f, #8f1730, #ba2a46);
-}
-.rosa-cereza-centro {
-  position: absolute;
-  left: 101px;
-  top: 101px;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #7d152b;
-  box-shadow: 0 0 14px rgba(222, 66, 98, 0.24);
-}
-.rosa-cereza-tallo {
-  position: absolute;
-  left: 145px;
-  top: 168px;
-  width: 11px;
-  height: 182px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #244d31, #55804a, #244d31);
-}
-.rosa-cereza-hoja {
-  position: absolute;
-  width: 92px;
-  height: 54px;
-  border-radius: 100% 5% 100% 5%;
-  clip-path: polygon(
-    0 50%,
-    12% 40%,
-    22% 44%,
-    32% 29%,
-    44% 39%,
-    55% 22%,
-    67% 38%,
-    80% 29%,
-    100% 50%,
-    80% 63%,
-    67% 57%,
-    54% 78%,
-    43% 60%,
-    29% 70%,
-    14% 61%
-  );
-  background: linear-gradient(145deg, #245431, #4e7d47, #719356);
-}
-.rosa-cereza-hoja-1 {
-  left: 61px;
-  top: 236px;
-  transform: rotate(-21deg);
-}
-.rosa-cereza-hoja-2 {
-  left: 145px;
-  top: 263px;
-  transform: rotate(20deg) scaleX(-1);
-}
+.rosa-cereza-cabeza{position:absolute;left:36px;top:4px;width:228px;height:220px;z-index:6}
+.rosa-cereza-wrap{position:absolute;left:84px;top:69px;width:60px;height:90px;transform-origin:30px 43px;transform:rotate(var(--rosa-angulo))}
+.rosa-cereza-petalo{position:absolute;left:5px;top:0;width:50px;height:70px;transform:translateY(calc(-1 * var(--rosa-radio))) scale(var(--rosa-escala));border-radius:55% 55% 44% 44% / 68% 68% 38% 38%;background:radial-gradient(ellipse at 50% 78%,#741528,#a51f3b,#ce3b57,#ee7187);box-shadow:inset 0 4px 8px rgba(255,204,215,.12)}
+.rosa-cereza-capa-2 .rosa-cereza-petalo{background:radial-gradient(ellipse at 50% 80%,#671123,#9e1935,#c83250,#e55d77)}
+.rosa-cereza-capa-3 .rosa-cereza-petalo{background:radial-gradient(ellipse at 50% 80%,#57101f,#8f1730,#ba2a46)}
+.rosa-cereza-centro{position:absolute;left:101px;top:101px;width:26px;height:26px;border-radius:50%;background:#7d152b;box-shadow:0 0 14px rgba(222,66,98,.24)}
+.rosa-cereza-tallo{position:absolute;left:145px;top:168px;width:11px;height:182px;border-radius:10px;background:linear-gradient(90deg,#244d31,#55804a,#244d31)}
+.rosa-cereza-hoja{position:absolute;width:92px;height:54px;border-radius:100% 5% 100% 5%;clip-path:polygon(0 50%,12% 40%,22% 44%,32% 29%,44% 39%,55% 22%,67% 38%,80% 29%,100% 50%,80% 63%,67% 57%,54% 78%,43% 60%,29% 70%,14% 61%);background:linear-gradient(145deg,#245431,#4e7d47,#719356)}
+.rosa-cereza-hoja-1{left:61px;top:236px;transform:rotate(-21deg)}.rosa-cereza-hoja-2{left:145px;top:263px;transform:rotate(20deg) scaleX(-1)}
 
 /* HIBISCO CEREZA */
-.hibisco-cabeza {
-  position: absolute;
-  left: 34px;
-  top: 4px;
-  width: 232px;
-  height: 220px;
-  z-index: 7;
-}
-.hibisco-petalo {
-  position: absolute;
-  left: 76px;
-  top: 48px;
-  width: 82px;
-  height: 115px;
-  transform-origin: 41px 71px;
-  border-radius: 62% 62% 47% 47% / 72% 72% 38% 38%;
-  background: radial-gradient(
-    ellipse at 50% 85%,
-    #9c1736,
-    #dd4567 42%,
-    #f38ca0 80%,
-    #ffd0d7
-  );
-}
-.hibisco-petalo-1 {
-  transform: translateY(-46px);
-}
-.hibisco-petalo-2 {
-  transform: rotate(72deg) translateY(-46px);
-}
-.hibisco-petalo-3 {
-  transform: rotate(144deg) translateY(-46px);
-}
-.hibisco-petalo-4 {
-  transform: rotate(216deg) translateY(-46px);
-}
-.hibisco-petalo-5 {
-  transform: rotate(288deg) translateY(-46px);
-}
-.hibisco-centro {
-  position: absolute;
-  left: 98px;
-  top: 94px;
-  width: 38px;
-  height: 38px;
-  z-index: 12;
-  border-radius: 50%;
-  background: radial-gradient(circle, #f3c949, #b97423, #8f2141);
-}
-.hibisco-pistilo {
-  position: absolute;
-  left: 115px;
-  top: 80px;
-  width: 5px;
-  height: 125px;
-  z-index: 15;
-  border-radius: 10px;
-  background: linear-gradient(#f5d269, #eaa841, #a84b42);
-  transform: rotate(10deg);
-  transform-origin: bottom;
-}
-.hibisco-antera {
-  position: absolute;
-  width: 10px;
-  height: 8px;
-  border-radius: 50%;
-  background: #f7cf54;
-}
-.hibisco-tallo {
-  position: absolute;
-  left: 145px;
-  top: 166px;
-  width: 11px;
-  height: 184px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #2c5836, #62834e, #2c5836);
-}
-.hibisco-hoja {
-  position: absolute;
-  width: 96px;
-  height: 67px;
-  clip-path: polygon(
-    50% 0,
-    62% 20%,
-    80% 11%,
-    76% 33%,
-    96% 31%,
-    82% 49%,
-    100% 62%,
-    73% 65%,
-    84% 86%,
-    59% 75%,
-    50% 100%,
-    40% 75%,
-    15% 86%,
-    27% 65%,
-    0 62%,
-    18% 49%,
-    4% 31%,
-    24% 33%,
-    20% 11%,
-    38% 20%
-  );
-  background: linear-gradient(145deg, #315a36, #65834d, #829a62);
-}
-.hibisco-hoja-1 {
-  left: 58px;
-  top: 236px;
-  transform: rotate(-27deg);
-}
-.hibisco-hoja-2 {
-  left: 150px;
-  top: 257px;
-  transform: rotate(25deg) scaleX(-1);
-}
+.hibisco-cabeza{position:absolute;left:34px;top:4px;width:232px;height:220px;z-index:7}
+.hibisco-petalo{position:absolute;left:76px;top:48px;width:82px;height:115px;transform-origin:41px 71px;border-radius:62% 62% 47% 47% / 72% 72% 38% 38%;background:radial-gradient(ellipse at 50% 85%,#9c1736,#dd4567 42%,#f38ca0 80%,#ffd0d7)}
+.hibisco-petalo-1{transform:translateY(-46px)}.hibisco-petalo-2{transform:rotate(72deg) translateY(-46px)}.hibisco-petalo-3{transform:rotate(144deg) translateY(-46px)}.hibisco-petalo-4{transform:rotate(216deg) translateY(-46px)}.hibisco-petalo-5{transform:rotate(288deg) translateY(-46px)}
+.hibisco-centro{position:absolute;left:98px;top:94px;width:38px;height:38px;z-index:12;border-radius:50%;background:radial-gradient(circle,#f3c949,#b97423,#8f2141)}
+.hibisco-pistilo{position:absolute;left:115px;top:80px;width:5px;height:125px;z-index:15;border-radius:10px;background:linear-gradient(#f5d269,#eaa841,#a84b42);transform:rotate(10deg);transform-origin:bottom}
+.hibisco-antera{position:absolute;width:10px;height:8px;border-radius:50%;background:#f7cf54}
+.hibisco-tallo{position:absolute;left:145px;top:166px;width:11px;height:184px;border-radius:10px;background:linear-gradient(90deg,#2c5836,#62834e,#2c5836)}
+.hibisco-hoja{position:absolute;width:96px;height:67px;clip-path:polygon(50% 0,62% 20%,80% 11%,76% 33%,96% 31%,82% 49%,100% 62%,73% 65%,84% 86%,59% 75%,50% 100%,40% 75%,15% 86%,27% 65%,0 62%,18% 49%,4% 31%,24% 33%,20% 11%,38% 20%);background:linear-gradient(145deg,#315a36,#65834d,#829a62)}
+.hibisco-hoja-1{left:58px;top:236px;transform:rotate(-27deg)}.hibisco-hoja-2{left:150px;top:257px;transform:rotate(25deg) scaleX(-1)}
 
 /* FRESIA */
-.fresia-tallo {
-  position: absolute;
-  left: 141px;
-  top: 88px;
-  width: 8px;
-  height: 262px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #3e6337, #769455, #3e6337);
-  transform: rotate(-3deg);
-}
-.fresia-rama {
-  position: absolute;
-  left: 142px;
-  top: 67px;
-  width: 5px;
-  height: 145px;
-  border-radius: 10px;
-  background: #718c51;
-  transform: rotate(62deg);
-  transform-origin: bottom;
-}
-.fresia-flor {
-  position: absolute;
-  width: 65px;
-  height: 65px;
-  transform-origin: center;
-  animation: fresia-respirar 4.1s ease-in-out var(--fresia-delay) infinite;
-}
-.fresia-petalo {
-  position: absolute;
-  left: 24px;
-  top: 7px;
-  width: 18px;
-  height: 31px;
-  border-radius: 65% 65% 37% 37%;
-  transform-origin: 9px 28px;
-  background: linear-gradient(#ffe4ef, #f1a4c3, #cf6b98);
-}
-.fresia-petalo-1 {
-  transform: rotate(0);
-}
-.fresia-petalo-2 {
-  transform: rotate(60deg);
-}
-.fresia-petalo-3 {
-  transform: rotate(120deg);
-}
-.fresia-petalo-4 {
-  transform: rotate(180deg);
-}
-.fresia-petalo-5 {
-  transform: rotate(240deg);
-}
-.fresia-petalo-6 {
-  transform: rotate(300deg);
-}
-.fresia-centro {
-  position: absolute;
-  left: 27px;
-  top: 26px;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #ffe87f, #d5a32a);
-}
-.fresia-hoja {
-  position: absolute;
-  width: 28px;
-  height: 165px;
-  border-radius: 100% 20% 100% 20%;
-  background: linear-gradient(90deg, #4b6f3b, #7d9958, #506f3d);
-  transform-origin: bottom;
-}
-.fresia-hoja-1 {
-  left: 102px;
-  top: 183px;
-  transform: rotate(-18deg);
-}
-.fresia-hoja-2 {
-  left: 149px;
-  top: 190px;
-  transform: rotate(14deg) scaleX(-1);
-}
-.fresia-hoja-3 {
-  left: 125px;
-  top: 218px;
-  height: 130px;
-  transform: rotate(2deg);
-}
-@keyframes fresia-respirar {
-  50% {
-    margin-top: -2px;
-  }
-}
+.fresia-tallo{position:absolute;left:141px;top:88px;width:8px;height:262px;border-radius:10px;background:linear-gradient(90deg,#3e6337,#769455,#3e6337);transform:rotate(-3deg)}
+.fresia-rama{position:absolute;left:142px;top:67px;width:5px;height:145px;border-radius:10px;background:#718c51;transform:rotate(62deg);transform-origin:bottom}
+.fresia-flor{position:absolute;width:65px;height:65px;transform-origin:center;animation:fresia-respirar 4.1s ease-in-out var(--fresia-delay) infinite}
+.fresia-petalo{position:absolute;left:24px;top:7px;width:18px;height:31px;border-radius:65% 65% 37% 37%;transform-origin:9px 28px;background:linear-gradient(#ffe4ef,#f1a4c3,#cf6b98)}
+.fresia-petalo-1{transform:rotate(0)}.fresia-petalo-2{transform:rotate(60deg)}.fresia-petalo-3{transform:rotate(120deg)}.fresia-petalo-4{transform:rotate(180deg)}.fresia-petalo-5{transform:rotate(240deg)}.fresia-petalo-6{transform:rotate(300deg)}
+.fresia-centro{position:absolute;left:27px;top:26px;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle,#ffe87f,#d5a32a)}
+.fresia-hoja{position:absolute;width:28px;height:165px;border-radius:100% 20% 100% 20%;background:linear-gradient(90deg,#4b6f3b,#7d9958,#506f3d);transform-origin:bottom}
+.fresia-hoja-1{left:102px;top:183px;transform:rotate(-18deg)}.fresia-hoja-2{left:149px;top:190px;transform:rotate(14deg) scaleX(-1)}.fresia-hoja-3{left:125px;top:218px;height:130px;transform:rotate(2deg)}
+@keyframes fresia-respirar{50%{margin-top:-2px}}
 
 /* CORAZÓN SANGRANTE */
-.corazon-tallo {
-  position: absolute;
-  left: 143px;
-  top: 85px;
-  width: 8px;
-  height: 265px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #365c39, #6d8f55, #365c39);
-}
-.corazon-rama {
-  position: absolute;
-  left: 143px;
-  top: 73px;
-  width: 5px;
-  height: 185px;
-  border-radius: 10px;
-  background: #718d58;
-  transform: rotate(67deg);
-  transform-origin: bottom;
-}
-.corazon-colgante {
-  position: absolute;
-  width: 55px;
-  height: 105px;
-  transform-origin: top center;
-  animation: corazon-columpio 4.8s ease-in-out var(--corazon-delay) infinite;
-}
-.corazon-hilo {
-  position: absolute;
-  left: 26px;
-  top: 0;
-  width: 3px;
-  height: 30px;
-  background: #698a54;
-  border-radius: 10px;
-}
-.corazon-flor {
-  position: absolute;
-  left: 10px;
-  top: 27px;
-  width: 36px;
-  height: 36px;
-  transform: rotate(45deg);
-  border-radius: 50% 50% 6% 50%;
-  background: linear-gradient(145deg, #f48baa, #d94772, #a51f4f);
-  box-shadow: inset 3px 3px 7px rgba(255, 210, 222, 0.17);
-}
-.corazon-flor::before {
-  content: "";
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  left: -18px;
-  top: 0;
-  border-radius: 50%;
-  background: inherit;
-}
-.corazon-lagrima {
-  position: absolute;
-  left: 21px;
-  top: 59px;
-  width: 14px;
-  height: 32px;
-  border-radius: 60% 60% 75% 75%;
-  background: linear-gradient(#fff7f8, #f4d8df, #d694a7);
-  clip-path: polygon(50% 0, 100% 45%, 74% 100%, 26% 100%, 0 45%);
-}
-.corazon-hoja {
-  position: absolute;
-  width: 76px;
-  height: 45px;
-  border-radius: 100% 0 100% 0;
-  background: linear-gradient(145deg, #365e3d, #668753);
-}
-.corazon-hoja-1 {
-  left: 66px;
-  top: 225px;
-  transform: rotate(-29deg);
-}
-.corazon-hoja-2 {
-  left: 145px;
-  top: 263px;
-  transform: rotate(22deg) scaleX(-1);
-}
-.corazon-hoja-3 {
-  left: 94px;
-  top: 303px;
-  transform: rotate(-5deg);
-}
-@keyframes corazon-columpio {
-  0%,
-  100% {
-    margin-left: -1px;
-  }
-  50% {
-    margin-left: 2px;
-  }
-}
+.corazon-tallo{position:absolute;left:143px;top:85px;width:8px;height:265px;border-radius:10px;background:linear-gradient(90deg,#365c39,#6d8f55,#365c39)}
+.corazon-rama{position:absolute;left:143px;top:73px;width:5px;height:185px;border-radius:10px;background:#718d58;transform:rotate(67deg);transform-origin:bottom}
+.corazon-colgante{position:absolute;width:55px;height:105px;transform-origin:top center;animation:corazon-columpio 4.8s ease-in-out var(--corazon-delay) infinite}
+.corazon-hilo{position:absolute;left:26px;top:0;width:3px;height:30px;background:#698a54;border-radius:10px}
+.corazon-flor{position:absolute;left:10px;top:27px;width:36px;height:36px;transform:rotate(45deg);border-radius:50% 50% 6% 50%;background:linear-gradient(145deg,#f48baa,#d94772,#a51f4f);box-shadow:inset 3px 3px 7px rgba(255,210,222,.17)}
+.corazon-flor::before{content:"";position:absolute;width:36px;height:36px;left:-18px;top:0;border-radius:50%;background:inherit}
+.corazon-lagrima{position:absolute;left:21px;top:59px;width:14px;height:32px;border-radius:60% 60% 75% 75%;background:linear-gradient(#fff7f8,#f4d8df,#d694a7);clip-path:polygon(50% 0,100% 45%,74% 100%,26% 100%,0 45%)}
+.corazon-hoja{position:absolute;width:76px;height:45px;border-radius:100% 0 100% 0;background:linear-gradient(145deg,#365e3d,#668753)}
+.corazon-hoja-1{left:66px;top:225px;transform:rotate(-29deg)}.corazon-hoja-2{left:145px;top:263px;transform:rotate(22deg) scaleX(-1)}.corazon-hoja-3{left:94px;top:303px;transform:rotate(-5deg)}
+@keyframes corazon-columpio{0%,100%{margin-left:-1px}50%{margin-left:2px}}
 
 /* COLORES DE BOTONES */
-.tarjeta-estrellaBelen .boton-cancion {
-  background: linear-gradient(135deg, #b59227, #e0bd52);
-  color: #fff;
-}
-.tarjeta-bugambilia .boton-cancion {
-  background: linear-gradient(135deg, #9f2877, #d954a3);
-}
-.tarjeta-calendulaMiel .boton-cancion {
-  background: linear-gradient(135deg, #b87019, #e4ad3b);
-}
-.tarjeta-rosaCereza .boton-cancion {
-  background: linear-gradient(135deg, #8d1733, #d34261);
-}
-.tarjeta-hibiscoCereza .boton-cancion {
-  background: linear-gradient(135deg, #a32246, #e55575);
-}
-.tarjeta-fresia .boton-cancion {
-  background: linear-gradient(135deg, #b85f88, #e395b6);
+.tarjeta-estrellaBelen .boton-cancion{background:linear-gradient(135deg,#b59227,#e0bd52);color:#fff}
+.tarjeta-bugambilia .boton-cancion{background:linear-gradient(135deg,#9f2877,#d954a3)}
+.tarjeta-calendulaMiel .boton-cancion{background:linear-gradient(135deg,#b87019,#e4ad3b)}
+.tarjeta-rosaCereza .boton-cancion{background:linear-gradient(135deg,#8d1733,#d34261)}
+.tarjeta-hibiscoCereza .boton-cancion{background:linear-gradient(135deg,#a32246,#e55575)}
+.tarjeta-fresia .boton-cancion{background:linear-gradient(135deg,#b85f88,#e395b6)}
+
+@media (max-width:600px){
+    .estrella-belen,.bugambilia,.calendula-miel,.rosa-cereza,.hibisco-cereza,.fresia,.corazon-sangrante{--escala-flor:.92;transform-origin:center bottom}
 }
 
-@media (max-width: 600px) {
-  .estrella-belen,
-  .bugambilia,
-  .calendula-miel,
-  .rosa-cereza,
-  .hibisco-cereza,
-  .fresia,
-  .corazon-sangrante {
-    --escala-flor: 0.92;
-    transform-origin: center bottom;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .estrella-belen,
-  .bugambilia,
-  .calendula-miel,
-  .rosa-cereza,
-  .hibisco-cereza,
-  .fresia,
-  .corazon-sangrante,
-  .estrella-belen-flor,
-  .bugambilia-grupo,
-  .fresia-flor,
-  .corazon-colgante {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-  }
+@media (prefers-reduced-motion:reduce){
+    .estrella-belen,.bugambilia,.calendula-miel,.rosa-cereza,.hibisco-cereza,.fresia,.corazon-sangrante,
+    .estrella-belen-flor,.bugambilia-grupo,.fresia-flor,.corazon-colgante{animation-duration:.001ms!important;animation-iteration-count:1!important}
 }

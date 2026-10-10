@@ -206,14 +206,88 @@ const mensajesMariposa = [
 
     "Otra cayó en el jardín.",
 
-    "Definitivamente te gusta aplastarlas.",
+    "Esa sí iba rápido.",
+
+    "Ni las mariposas se salvan de tu curiosidad.",
+
+    "Una menos volando, varios pétalos más.",
+
+    "Ya te vi cazando mariposas.",
+
+    "Creo que ya saben quién eres.",
+
+    "Esa casi se escapa.",
+
+    "Otro pequeño caos en el jardín.",
+
+    "Tu récord sigue creciendo.",
+
+    "Las flores fingieron no ver nada.",
+
+    "La mariposa confió demasiado.",
+
+    "Eso fue personal, ¿verdad?",
+
+    "Ya hasta parece minijuego.",
+
+    "Otra explosión de pétalos.",
+
+    "¿Cuántas piensas atrapar?",
+
+    "El jardín lleva la cuenta.",
+
+    "Esa no vio venir el toque.",
+
+    "Definitivamente ya les agarraste práctica.",
+
+    "Por un segundo pensé que escapaba.",
+
+    "La próxima quizá tenga más suerte.",
 
     "Bueno... esa tampoco sobrevivió.",
 
     "Los pétalos fueron lo único que quedó.",
 
-    "Otra más. Ya les estás agarrando práctica."
+    "Otra más para el contador."
 ];
+
+
+let ultimoMensajeMariposa =
+    -1;
+
+
+function obtenerMensajeMariposa() {
+
+    if (
+        mensajesMariposa.length <= 1
+    ) {
+
+        return mensajesMariposa[0] || "";
+    }
+
+
+    let indice;
+
+
+    do {
+
+        indice =
+            Math.floor(
+                Math.random() *
+                mensajesMariposa.length
+            );
+
+    } while (
+        indice === ultimoMensajeMariposa
+    );
+
+
+    ultimoMensajeMariposa =
+        indice;
+
+
+    return mensajesMariposa[indice];
+}
 
 
 const contadorMariposas =
@@ -238,7 +312,11 @@ document.body.appendChild(
 function actualizarContadorMariposas() {
 
     contadorMariposas.textContent =
-        `🦋 Mariposas: ${mariposasAplastadas}`;
+        `🦋 ${mariposasAplastadas}`;
+
+
+    contadorMariposas.title =
+        `${mariposasAplastadas} mariposas atrapadas`;
 }
 
 
@@ -402,10 +480,10 @@ function crearMariposa() {
 
     mariposa.classList.add(
         coloresMariposas[
-        Math.floor(
-            Math.random() *
-            coloresMariposas.length
-        )
+            Math.floor(
+                Math.random() *
+                coloresMariposas.length
+            )
         ]
     );
 
@@ -484,12 +562,7 @@ function crearMariposa() {
 
 
             mostrarToast(
-                mensajesMariposa[
-                Math.floor(
-                    Math.random() *
-                    mensajesMariposa.length
-                )
-                ]
+                obtenerMensajeMariposa()
             );
 
 
@@ -865,8 +938,8 @@ function revisar1111() {
         <a
             class="boton-1111"
             href="${enlaceYouTube(
-        "Catorce Sebastián Romero"
-    )}"
+                "Catorce Sebastián Romero"
+            )}"
             target="_blank"
         >
             Catorce — Sebastián Romero

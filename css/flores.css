@@ -21,3364 +21,4289 @@
 .damanoche,
 .gardenia,
 .jacaranda {
-  position: relative;
+    position: relative;
 
-  width: 300px;
-  height: 350px;
+    width: 300px;
+    height: 350px;
 
-  transform-origin: center bottom;
+    transform-origin:
+        center bottom;
 
-  --escala-flor: 1;
-  --brisa-duracion: 6.4s;
-  --brisa-retraso: 1.2s;
-  --brisa-inicio: -0.65deg;
-  --brisa-fin: 0.65deg;
+    --escala-flor: 1;
+    --brisa-duracion: 6.4s;
+    --brisa-retraso: 1.2s;
+    --brisa-inicio: -0.65deg;
+    --brisa-fin: 0.65deg;
 
-  animation:
-    crecer-flor 1.2s ease both,
-    brisa-flor var(--brisa-duracion) ease-in-out var(--brisa-retraso) infinite;
+    animation:
+        crecer-flor 1.2s ease both,
+        brisa-flor var(--brisa-duracion) ease-in-out var(--brisa-retraso) infinite;
 }
+
 
 @keyframes crecer-flor {
-  from {
-    opacity: 0;
+    from {
+        opacity: 0;
 
-    transform: translateY(60px) scale(0.82);
-  }
+        transform:
+            translateY(60px)
+            scale(.82);
+    }
 
-  to {
-    opacity: 1;
+    to {
+        opacity: 1;
 
-    transform: translateY(0) scale(var(--escala-flor));
-  }
+        transform:
+            translateY(0)
+            scale(var(--escala-flor));
+    }
 }
+
 
 @keyframes brisa-flor {
-  0%,
-  100% {
-    transform: translateY(0) rotate(var(--brisa-inicio))
-      scale(var(--escala-flor));
-  }
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(var(--brisa-inicio))
+            scale(var(--escala-flor));
+    }
 
-  50% {
-    transform: translateY(-2px) rotate(var(--brisa-fin))
-      scale(var(--escala-flor));
-  }
+    50% {
+        transform:
+            translateY(-2px)
+            rotate(var(--brisa-fin))
+            scale(var(--escala-flor));
+    }
 }
+
 
 /* Ritmos ligeramente distintos para que el jardín no se mueva sincronizado */
-.girasol {
-  --brisa-duracion: 6.1s;
-  --brisa-retraso: 1.2s;
-}
-.tulipan {
-  --brisa-duracion: 6.8s;
-  --brisa-retraso: 1.35s;
-}
-.lirio {
-  --brisa-duracion: 7.2s;
-  --brisa-retraso: 1.5s;
-}
-.flor-nube {
-  --brisa-duracion: 6.5s;
-  --brisa-retraso: 1.3s;
-}
-.peonia {
-  --brisa-duracion: 7s;
-  --brisa-retraso: 1.55s;
-}
-.camelia {
-  --brisa-duracion: 6.6s;
-  --brisa-retraso: 1.4s;
-}
-.jazmin {
-  --brisa-duracion: 7.4s;
-  --brisa-retraso: 1.6s;
-}
-.orquidea {
-  --brisa-duracion: 6.9s;
-  --brisa-retraso: 1.45s;
-}
-.lavanda {
-  --brisa-duracion: 5.9s;
-  --brisa-retraso: 1.25s;
-  --brisa-inicio: -0.8deg;
-  --brisa-fin: 0.8deg;
-}
-.anemona {
-  --brisa-duracion: 7.1s;
-  --brisa-retraso: 1.5s;
-}
-.magnolia {
-  --brisa-duracion: 6.7s;
-  --brisa-retraso: 1.35s;
-}
-.nomeolvides {
-  --brisa-duracion: 6.2s;
-  --brisa-retraso: 1.25s;
-}
-.clavel {
-  --brisa-duracion: 7.3s;
-  --brisa-retraso: 1.55s;
-}
-.dalia {
-  --brisa-duracion: 7.6s;
-  --brisa-retraso: 1.65s;
-}
-.loto {
-  --brisa-duracion: 7s;
-  --brisa-retraso: 1.45s;
-}
-.cerezo {
-  --brisa-duracion: 5.8s;
-  --brisa-retraso: 1.2s;
-  --brisa-inicio: -0.85deg;
-  --brisa-fin: 0.85deg;
-}
-.damanoche {
-  --brisa-duracion: 7.8s;
-  --brisa-retraso: 1.55s;
-  --brisa-inicio: -0.55deg;
-  --brisa-fin: 0.55deg;
-}
-.gardenia {
-  --brisa-duracion: 7.15s;
-  --brisa-retraso: 1.48s;
-  --brisa-inicio: -0.5deg;
-  --brisa-fin: 0.5deg;
-}
-.jacaranda {
-  --brisa-duracion: 6.35s;
-  --brisa-retraso: 1.28s;
-  --brisa-inicio: -0.72deg;
-  --brisa-fin: 0.72deg;
-}
+.girasol { --brisa-duracion: 6.1s; --brisa-retraso: 1.2s; }
+.tulipan { --brisa-duracion: 6.8s; --brisa-retraso: 1.35s; }
+.lirio { --brisa-duracion: 7.2s; --brisa-retraso: 1.5s; }
+.flor-nube { --brisa-duracion: 6.5s; --brisa-retraso: 1.3s; }
+.peonia { --brisa-duracion: 7.0s; --brisa-retraso: 1.55s; }
+.camelia { --brisa-duracion: 6.6s; --brisa-retraso: 1.4s; }
+.jazmin { --brisa-duracion: 7.4s; --brisa-retraso: 1.6s; }
+.orquidea { --brisa-duracion: 6.9s; --brisa-retraso: 1.45s; }
+.lavanda { --brisa-duracion: 5.9s; --brisa-retraso: 1.25s; --brisa-inicio: -0.8deg; --brisa-fin: 0.8deg; }
+.anemona { --brisa-duracion: 7.1s; --brisa-retraso: 1.5s; }
+.magnolia { --brisa-duracion: 6.7s; --brisa-retraso: 1.35s; }
+.nomeolvides { --brisa-duracion: 6.2s; --brisa-retraso: 1.25s; }
+.clavel { --brisa-duracion: 7.3s; --brisa-retraso: 1.55s; }
+.dalia { --brisa-duracion: 7.6s; --brisa-retraso: 1.65s; }
+.loto { --brisa-duracion: 7.0s; --brisa-retraso: 1.45s; }
+.cerezo { --brisa-duracion: 5.8s; --brisa-retraso: 1.2s; --brisa-inicio: -0.85deg; --brisa-fin: 0.85deg; }
+.damanoche { --brisa-duracion: 7.8s; --brisa-retraso: 1.55s; --brisa-inicio: -0.55deg; --brisa-fin: 0.55deg; }
+.gardenia { --brisa-duracion: 7.15s; --brisa-retraso: 1.48s; --brisa-inicio: -0.5deg; --brisa-fin: 0.5deg; }
+.jacaranda { --brisa-duracion: 6.35s; --brisa-retraso: 1.28s; --brisa-inicio: -0.72deg; --brisa-fin: 0.72deg; }
+
 
 /* =====================================================
    GIRASOL
 ===================================================== */
 
 .girasol {
-  width: 280px;
+    width: 280px;
 }
+
 
 .girasol-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 220px;
-  height: 220px;
+    width: 220px;
+    height: 220px;
 
-  left: 30px;
-  top: 0;
+    left: 30px;
+    top: 0;
 }
+
 
 .girasol-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 55px;
-  height: 120px;
+    width: 55px;
+    height: 120px;
 
-  left: 82px;
-  top: 0;
+    left: 82px;
+    top: 0;
 
-  transform-origin: 27px 110px;
+    transform-origin:
+        27px 110px;
 
-  border-radius: 50% 50% 45% 45%;
+    border-radius:
+        50% 50% 45% 45%;
 
-  background: linear-gradient(to right, #e4a100, #ffe05b, #f2b900);
+    background:
+        linear-gradient(
+            to right,
+            #e4a100,
+            #ffe05b,
+            #f2b900
+        );
 }
+
 
 .girasol-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 95px;
-  height: 95px;
+    width: 95px;
+    height: 95px;
 
-  left: 62px;
-  top: 63px;
+    left: 62px;
+    top: 63px;
 
-  z-index: 6;
+    z-index: 6;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #8d5822, #603611, #2e1908);
+    background:
+        radial-gradient(
+            circle,
+            #8d5822,
+            #603611,
+            #2e1908
+        );
 }
+
 
 .semilla {
-  position: absolute;
+    position: absolute;
 
-  width: 4px;
-  height: 4px;
+    width: 4px;
+    height: 4px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: #d29a46;
+    background:
+        #d29a46;
 }
+
 
 .girasol-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 14px;
-  height: 190px;
+    width: 14px;
+    height: 190px;
 
-  left: 133px;
-  top: 165px;
+    left: 133px;
+    top: 165px;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #285b31, #639a50, #285b31);
+    background:
+        linear-gradient(
+            to right,
+            #285b31,
+            #639a50,
+            #285b31
+        );
 }
+
 
 .girasol-hoja {
-  position: absolute;
+    position: absolute;
 
-  width: 85px;
-  height: 48px;
+    width: 85px;
+    height: 48px;
 
-  z-index: 2;
+    z-index: 2;
 
-  border-radius: 100% 0 100% 0;
+    border-radius:
+        100% 0 100% 0;
 
-  background: linear-gradient(145deg, #3a7138, #73a257);
+    background:
+        linear-gradient(
+            145deg,
+            #3a7138,
+            #73a257
+        );
 }
+
 
 .hoja-izquierda {
-  left: 58px;
-  top: 240px;
+    left: 58px;
+    top: 240px;
 
-  transform: rotate(16deg);
+    transform:
+        rotate(16deg);
 }
+
 
 .hoja-derecha {
-  left: 139px;
-  top: 280px;
+    left: 139px;
+    top: 280px;
 
-  transform: rotate(-17deg) scaleX(-1);
+    transform:
+        rotate(-17deg)
+        scaleX(-1);
 }
+
 
 /* =====================================================
    TULIPÁN
 ===================================================== */
 
 .tulipan {
-  width: 230px;
+    width: 230px;
 }
+
 
 .tulipan-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 150px;
-  height: 150px;
+    width: 150px;
+    height: 150px;
 
-  left: 38px;
-  top: 10px;
+    left: 38px;
+    top: 10px;
 }
+
 
 .tulipan-petalo {
-  position: absolute;
+    position: absolute;
 
-  bottom: 0;
+    bottom: 0;
 
-  border-radius: 52% 52% 35% 35%;
+    border-radius:
+        52% 52% 35% 35%;
 
-  background: linear-gradient(#db83f4, #aa4bd0, #7b299e);
+    background:
+        linear-gradient(
+            #db83f4,
+            #aa4bd0,
+            #7b299e
+        );
 
-  transition: transform 0.45s ease;
+    transition:
+        transform .45s ease;
 }
+
 
 .petalo-fondo-izq {
-  width: 54px;
-  height: 94px;
+    width: 54px;
+    height: 94px;
 
-  left: 8px;
-  bottom: 22px;
+    left: 8px;
+    bottom: 22px;
 
-  transform: rotate(-18deg);
+    transform:
+        rotate(-18deg);
 }
+
 
 .petalo-fondo-der {
-  width: 54px;
-  height: 94px;
+    width: 54px;
+    height: 94px;
 
-  right: 8px;
-  bottom: 22px;
+    right: 8px;
+    bottom: 22px;
 
-  transform: rotate(18deg);
+    transform:
+        rotate(18deg);
 }
+
 
 .petalo-centro-izq {
-  width: 58px;
-  height: 110px;
+    width: 58px;
+    height: 110px;
 
-  left: 28px;
-  bottom: 28px;
+    left: 28px;
+    bottom: 28px;
 
-  transform: rotate(-8deg);
+    transform:
+        rotate(-8deg);
 }
+
 
 .petalo-centro-der {
-  width: 58px;
-  height: 110px;
+    width: 58px;
+    height: 110px;
 
-  right: 28px;
-  bottom: 28px;
+    right: 28px;
+    bottom: 28px;
 
-  transform: rotate(8deg);
+    transform:
+        rotate(8deg);
 }
+
 
 .petalo-frontal {
-  width: 72px;
-  height: 116px;
+    width: 72px;
+    height: 116px;
 
-  left: 39px;
-  bottom: 10px;
+    left: 39px;
+    bottom: 10px;
 
-  z-index: 4;
+    z-index: 4;
 
-  background: linear-gradient(#e49af9, #af54d6, #862fa8);
+    background:
+        linear-gradient(
+            #e49af9,
+            #af54d6,
+            #862fa8
+        );
 }
+
 
 .vena {
-  position: absolute;
+    position: absolute;
 
-  width: 2px;
-  height: 55px;
+    width: 2px;
+    height: 55px;
 
-  top: 34px;
+    top: 34px;
 
-  background: rgba(112, 36, 146, 0.23);
+    background:
+        rgba(112,36,146,.23);
 }
+
 
 .vena-1 {
-  left: 25px;
+    left: 25px;
 
-  transform: rotate(-6deg);
+    transform:
+        rotate(-6deg);
 }
+
 
 .vena-2 {
-  left: 35px;
+    left: 35px;
 }
+
 
 .vena-3 {
-  left: 45px;
+    left: 45px;
 
-  transform: rotate(6deg);
+    transform:
+        rotate(6deg);
 }
+
 
 .tulipan-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 11px;
-  height: 190px;
+    width: 11px;
+    height: 190px;
 
-  left: 109px;
-  top: 136px;
+    left: 109px;
+    top: 136px;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #4f8119, #7ea42a, #4d7619);
+    background:
+        linear-gradient(
+            to right,
+            #4f8119,
+            #7ea42a,
+            #4d7619
+        );
 }
+
 
 .tulipan-hoja {
-  position: absolute;
+    position: absolute;
 
-  z-index: 2;
+    z-index: 2;
 
-  background: linear-gradient(155deg, #6b941e, #a6be34, #66891c);
+    background:
+        linear-gradient(
+            155deg,
+            #6b941e,
+            #a6be34,
+            #66891c
+        );
 
-  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.12);
+    box-shadow:
+        inset 0 2px 3px
+        rgba(255,255,255,.12);
 }
+
 
 .tulipan-hoja::after {
-  content: "";
+    content: "";
 
-  position: absolute;
+    position: absolute;
 
-  width: 2px;
-  height: 82%;
+    width: 2px;
+    height: 82%;
 
-  left: 50%;
-  top: 9%;
+    left: 50%;
+    top: 9%;
 
-  background: rgba(240, 255, 205, 0.18);
+    background:
+        rgba(240,255,205,.18);
 }
+
 
 .tulipan-hoja-izquierda {
-  width: 62px;
-  height: 158px;
+    width: 62px;
+    height: 158px;
 
-  left: 51px;
-  top: 158px;
+    left: 51px;
+    top: 158px;
 
-  border-radius: 5% 100% 15% 90%;
+    border-radius:
+        5% 100% 15% 90%;
 
-  transform: rotate(-22deg);
+    transform:
+        rotate(-22deg);
 }
+
 
 .tulipan-hoja-derecha {
-  width: 61px;
-  height: 135px;
+    width: 61px;
+    height: 135px;
 
-  left: 117px;
-  top: 176px;
+    left: 117px;
+    top: 176px;
 
-  border-radius: 100% 5% 90% 15%;
+    border-radius:
+        100% 5% 90% 15%;
 
-  transform: rotate(20deg);
+    transform:
+        rotate(20deg);
 }
+
 
 /* =====================================================
    LIRIO
 ===================================================== */
 
 .lirio-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 270px;
-  height: 235px;
+    width: 270px;
+    height: 235px;
 
-  left: 15px;
-  top: 0;
+    left: 15px;
+    top: 0;
 
-  z-index: 5;
+    z-index: 5;
 }
+
 
 .lirio-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 105px;
-  height: 155px;
+    width: 105px;
+    height: 155px;
 
-  left: 83px;
-  top: 39px;
+    left: 83px;
+    top: 39px;
 
-  transform-origin: 52px 125px;
+    transform-origin:
+        52px 125px;
 
-  border-radius: 50% 50% 42% 42% / 65% 65% 35% 35%;
+    border-radius:
+        50% 50% 42% 42%
+        / 65% 65% 35% 35%;
 
-  background: linear-gradient(90deg, #e0e0d8, #ffffff, #fffdf6, #e7e7de);
+    background:
+        linear-gradient(
+            90deg,
+            #e0e0d8,
+            #ffffff,
+            #fffdf6,
+            #e7e7de
+        );
 }
+
 
 .lirio-petalo::before {
-  content: "";
+    content: "";
 
-  position: absolute;
+    position: absolute;
 
-  width: 15px;
-  height: 100px;
+    width: 15px;
+    height: 100px;
 
-  left: 45px;
-  bottom: 0;
+    left: 45px;
+    bottom: 0;
 
-  background: linear-gradient(
-    to top,
-    rgba(74, 99, 36, 0.8),
-    rgba(184, 175, 61, 0.55),
-    transparent
-  );
+    background:
+        linear-gradient(
+            to top,
+            rgba(74,99,36,.80),
+            rgba(184,175,61,.55),
+            transparent
+        );
 }
+
 
 .lirio-petalo-1 {
-  transform: translateY(-35px) scaleX(0.82);
+    transform:
+        translateY(-35px)
+        scaleX(.82);
 }
+
 
 .lirio-petalo-2 {
-  transform: translate(-55px, -2px) rotate(-52deg);
+    transform:
+        translate(-55px,-2px)
+        rotate(-52deg);
 }
+
 
 .lirio-petalo-3 {
-  transform: translate(55px, -2px) rotate(52deg);
+    transform:
+        translate(55px,-2px)
+        rotate(52deg);
 }
+
 
 .lirio-petalo-4 {
-  transform: translate(-58px, 55px) rotate(-108deg);
+    transform:
+        translate(-58px,55px)
+        rotate(-108deg);
 }
+
 
 .lirio-petalo-5 {
-  transform: translate(58px, 55px) rotate(108deg);
+    transform:
+        translate(58px,55px)
+        rotate(108deg);
 }
+
 
 .lirio-petalo-6 {
-  transform: rotate(180deg);
+    transform:
+        rotate(180deg);
 }
+
 
 .lirio-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 66px;
-  height: 43px;
+    width: 66px;
+    height: 43px;
 
-  left: 102px;
-  top: 120px;
+    left: 102px;
+    top: 120px;
 
-  z-index: 8;
+    z-index: 8;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(ellipse, #293918, #576d2a, #8b963b, transparent);
+    background:
+        radial-gradient(
+            ellipse,
+            #293918,
+            #576d2a,
+            #8b963b,
+            transparent
+        );
 }
+
 
 .lirio-pistilo,
 .lirio-estambre {
-  position: absolute;
+    position: absolute;
 
-  z-index: 9;
+    z-index: 9;
 
-  transform-origin: bottom center;
+    transform-origin:
+        bottom center;
 
-  background: #91a145;
+    background:
+        #91a145;
 }
+
 
 .lirio-pistilo {
-  width: 5px;
-  height: 92px;
+    width: 5px;
+    height: 92px;
 
-  left: 133px;
-  top: 45px;
+    left: 133px;
+    top: 45px;
 }
+
 
 .lirio-estambre {
-  width: 3px;
-  height: 80px;
+    width: 3px;
+    height: 80px;
 
-  left: 134px;
-  top: 65px;
+    left: 134px;
+    top: 65px;
 }
+
 
 .lirio-antera {
-  position: absolute;
+    position: absolute;
 
-  width: 14px;
-  height: 6px;
+    width: 14px;
+    height: 6px;
 
-  left: -5px;
-  top: -3px;
+    left: -5px;
+    top: -3px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: #c79a2b;
+    background:
+        #c79a2b;
 }
 
+
 .lirio-estambre-1 {
-  transform: rotate(-30deg);
+    transform:
+        rotate(-30deg);
 }
 
 .lirio-estambre-2 {
-  transform: rotate(-18deg);
+    transform:
+        rotate(-18deg);
 }
 
 .lirio-estambre-3 {
-  transform: rotate(-7deg);
+    transform:
+        rotate(-7deg);
 }
 
 .lirio-estambre-4 {
-  transform: rotate(10deg);
+    transform:
+        rotate(10deg);
 }
 
 .lirio-estambre-5 {
-  transform: rotate(22deg);
+    transform:
+        rotate(22deg);
 }
 
 .lirio-estambre-6 {
-  transform: rotate(34deg);
+    transform:
+        rotate(34deg);
 }
+
 
 .lirio-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 13px;
-  height: 185px;
+    width: 13px;
+    height: 185px;
 
-  left: 144px;
-  top: 165px;
+    left: 144px;
+    top: 165px;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #2c552d, #5f8a4c, #2b562e);
+    background:
+        linear-gradient(
+            to right,
+            #2c552d,
+            #5f8a4c,
+            #2b562e
+        );
 }
+
 
 .lirio-hoja {
-  position: absolute;
+    position: absolute;
 
-  z-index: 2;
+    z-index: 2;
 
-  background: linear-gradient(145deg, #416837, #779151);
+    background:
+        linear-gradient(
+            145deg,
+            #416837,
+            #779151
+        );
 
-  clip-path: polygon(50% 0, 100% 100%, 50% 80%, 0 100%);
+    clip-path:
+        polygon(
+            50% 0,
+            100% 100%,
+            50% 80%,
+            0 100%
+        );
 }
+
 
 .lirio-hoja-izquierda {
-  width: 62px;
-  height: 135px;
+    width: 62px;
+    height: 135px;
 
-  left: 83px;
-  top: 198px;
+    left: 83px;
+    top: 198px;
 
-  transform: rotate(-32deg);
+    transform:
+        rotate(-32deg);
 }
+
 
 .lirio-hoja-derecha {
-  width: 62px;
-  height: 125px;
+    width: 62px;
+    height: 125px;
 
-  left: 150px;
-  top: 205px;
+    left: 150px;
+    top: 205px;
 
-  transform: rotate(29deg);
+    transform:
+        rotate(29deg);
 }
+
 
 /* =====================================================
    FLOR DE NUBE
 ===================================================== */
 
 .flor-nube {
-  width: 310px;
+    width: 310px;
 }
+
 
 .nube-tallo-principal {
-  position: absolute;
+    position: absolute;
 
-  width: 8px;
-  height: 220px;
+    width: 8px;
+    height: 220px;
 
-  left: 151px;
-  top: 130px;
+    left: 151px;
+    top: 130px;
 
-  z-index: 1;
+    z-index: 1;
 
-  border-radius: 10px;
+    border-radius: 10px;
 
-  background: #55794e;
+    background:
+        #55794e;
 }
+
 
 .nube-rama {
-  position: absolute;
+    position: absolute;
 
-  width: 3px;
+    width: 3px;
 
-  left: 153px;
-  bottom: 91px;
+    left: 153px;
+    bottom: 91px;
 
-  z-index: 2;
+    z-index: 2;
 
-  transform-origin: bottom center;
+    transform-origin:
+        bottom center;
 
-  border-radius: 10px;
+    border-radius: 10px;
 
-  background: #6f8e67;
+    background:
+        #6f8e67;
 }
+
 
 .nube-ramo {
-  position: absolute;
+    position: absolute;
 
-  width: 310px;
-  height: 220px;
+    width: 310px;
+    height: 220px;
 
-  left: 0;
-  top: 0;
+    left: 0;
+    top: 0;
 
-  z-index: 6;
+    z-index: 6;
 }
+
 
 .nube-florecita-wrap {
-  position: absolute;
+    position: absolute;
 
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 
-  transform: translate(-50%, -50%) scale(var(--escala));
+    transform:
+        translate(-50%,-50%)
+        scale(var(--escala));
 }
+
 
 .nube-florecita {
-  position: relative;
+    position: relative;
 
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 
-  animation: nube-flotar 3.8s ease-in-out infinite;
+    animation:
+        nube-flotar
+        3.8s ease-in-out infinite;
 
-  animation-delay: var(--delay);
+    animation-delay:
+        var(--delay);
 }
+
 
 @keyframes nube-flotar {
-  50% {
-    transform: translateY(-2px);
-  }
+    50% {
+        transform:
+            translateY(-2px);
+    }
 }
+
 
 .nube-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 12px;
-  height: 12px;
+    width: 12px;
+    height: 12px;
 
-  left: 9px;
-  top: 9px;
+    left: 9px;
+    top: 9px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #ffffff, #ecece4);
+    background:
+        radial-gradient(
+            circle,
+            #ffffff,
+            #ecece4
+        );
 }
 
+
 .nube-petalo-1 {
-  transform: translateY(-8px);
+    transform:
+        translateY(-8px);
 }
 
 .nube-petalo-2 {
-  transform: translate(8px, -2px);
+    transform:
+        translate(8px,-2px);
 }
 
 .nube-petalo-3 {
-  transform: translate(5px, 7px);
+    transform:
+        translate(5px,7px);
 }
 
 .nube-petalo-4 {
-  transform: translate(-5px, 7px);
+    transform:
+        translate(-5px,7px);
 }
 
 .nube-petalo-5 {
-  transform: translate(-8px, -2px);
+    transform:
+        translate(-8px,-2px);
 }
+
 
 .nube-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 6px;
-  height: 6px;
+    width: 6px;
+    height: 6px;
 
-  left: 12px;
-  top: 12px;
+    left: 12px;
+    top: 12px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: #d9cc87;
+    background:
+        #d9cc87;
 }
+
 
 .nube-hoja {
-  position: absolute;
+    position: absolute;
 
-  width: 42px;
-  height: 78px;
+    width: 42px;
+    height: 78px;
 
-  z-index: 3;
+    z-index: 3;
 
-  background: linear-gradient(#476d42, #668754);
+    background:
+        linear-gradient(
+            #476d42,
+            #668754
+        );
 }
+
 
 .nube-hoja-1 {
-  left: 113px;
-  top: 246px;
+    left: 113px;
+    top: 246px;
 
-  border-radius: 100% 0 100% 0;
+    border-radius:
+        100% 0 100% 0;
 
-  transform: rotate(-38deg);
+    transform:
+        rotate(-38deg);
 }
+
 
 .nube-hoja-2 {
-  left: 157px;
-  top: 264px;
+    left: 157px;
+    top: 264px;
 
-  border-radius: 0 100% 0 100%;
+    border-radius:
+        0 100% 0 100%;
 
-  transform: rotate(36deg);
+    transform:
+        rotate(36deg);
 }
+
 
 /* =====================================================
    PEONÍA
 ===================================================== */
 
 .peonia {
-  width: 290px;
+    width: 290px;
 }
+
 
 .peonia-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 230px;
-  height: 230px;
+    width: 230px;
+    height: 230px;
 
-  left: 30px;
-  top: 0;
+    left: 30px;
+    top: 0;
 
-  transition: transform 0.4s ease;
+    transition:
+        transform .4s ease;
 }
+
 
 .peonia-petalo-wrap {
-  position: absolute;
+    position: absolute;
 
-  width: 60px;
-  height: 115px;
+    width: 60px;
+    height: 115px;
 
-  left: 85px;
-  top: 54px;
+    left: 85px;
+    top: 54px;
 
-  transform-origin: 30px 61px;
+    transform-origin:
+        30px 61px;
 
-  transform: rotate(var(--angulo));
+    transform:
+        rotate(var(--angulo));
 }
+
 
 .peonia-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 60px;
-  height: 82px;
+    width: 60px;
+    height: 82px;
 
-  transform: translateY(calc(-1 * var(--radio))) scale(var(--escala));
+    transform:
+        translateY(
+            calc(-1 * var(--radio))
+        )
+        scale(var(--escala));
 
-  border-radius: 55% 55% 45% 45% / 66% 66% 40% 40%;
+    border-radius:
+        55% 55% 45% 45%
+        / 66% 66% 40% 40%;
 
-  background: radial-gradient(
-    ellipse at 48% 75%,
-    #b53d6c,
-    #df739a,
-    #f0a3bc,
-    #f8c0cf
-  );
+    background:
+        radial-gradient(
+            ellipse at 48% 75%,
+            #b53d6c,
+            #df739a,
+            #f0a3bc,
+            #f8c0cf
+        );
 }
+
 
 .peonia-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 13px;
-  height: 185px;
+    width: 13px;
+    height: 185px;
 
-  left: 139px;
-  top: 165px;
+    left: 139px;
+    top: 165px;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #315d32, #66914d, #315d32);
+    background:
+        linear-gradient(
+            to right,
+            #315d32,
+            #66914d,
+            #315d32
+        );
 }
+
 
 .peonia-hoja {
-  position: absolute;
+    position: absolute;
 
-  width: 94px;
-  height: 65px;
+    width: 94px;
+    height: 65px;
 
-  z-index: 2;
+    z-index: 2;
 
-  border-radius: 100% 8% 100% 8%;
+    border-radius:
+        100% 8% 100% 8%;
 
-  clip-path: polygon(
-    0 50%,
-    18% 32%,
-    35% 36%,
-    50% 12%,
-    62% 36%,
-    83% 29%,
-    100% 50%,
-    80% 66%,
-    63% 62%,
-    48% 90%,
-    34% 63%,
-    14% 70%
-  );
+    clip-path:
+        polygon(
+            0 50%,
+            18% 32%,
+            35% 36%,
+            50% 12%,
+            62% 36%,
+            83% 29%,
+            100% 50%,
+            80% 66%,
+            63% 62%,
+            48% 90%,
+            34% 63%,
+            14% 70%
+        );
 
-  background: linear-gradient(145deg, #426b3b, #719a59, #4a7240);
+    background:
+        linear-gradient(
+            145deg,
+            #426b3b,
+            #719a59,
+            #4a7240
+        );
 }
+
 
 .peonia-hoja-izquierda {
-  left: 56px;
-  top: 230px;
+    left: 56px;
+    top: 230px;
 
-  transform: rotate(-21deg);
+    transform:
+        rotate(-21deg);
 }
+
 
 .peonia-hoja-derecha {
-  left: 138px;
-  top: 243px;
+    left: 138px;
+    top: 243px;
 
-  transform: rotate(23deg) scaleX(-1);
+    transform:
+        rotate(23deg)
+        scaleX(-1);
 }
+
 
 /* =====================================================
    CAMELIA
 ===================================================== */
 
 .camelia {
-  width: 290px;
+    width: 290px;
 }
+
 
 .camelia-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 245px;
-  height: 225px;
+    width: 245px;
+    height: 225px;
 
-  left: 22px;
-  top: 2px;
+    left: 22px;
+    top: 2px;
 }
+
 
 .camelia-petalo {
-  position: absolute;
+    position: absolute;
 
-  background: radial-gradient(
-    ellipse at 50% 78%,
-    #7d142b,
-    #a9213d,
-    #cc3e58,
-    #e97887
-  );
+    background:
+        radial-gradient(
+            ellipse at 50% 78%,
+            #7d142b,
+            #a9213d,
+            #cc3e58,
+            #e97887
+        );
 }
+
 
 .camelia-petalo-exterior {
-  width: 105px;
-  height: 88px;
+    width: 105px;
+    height: 88px;
 
-  border-radius: 58% 51% 49% 56% / 68% 64% 42% 45%;
+    border-radius:
+        58% 51% 49% 56%
+        / 68% 64% 42% 45%;
 }
 
+
 .camelia-exterior-1 {
-  left: 69px;
-  top: 0;
+    left: 69px;
+    top: 0;
 }
 
 .camelia-exterior-2 {
-  left: 126px;
-  top: 26px;
+    left: 126px;
+    top: 26px;
 
-  transform: rotate(43deg);
+    transform:
+        rotate(43deg);
 }
 
 .camelia-exterior-3 {
-  left: 137px;
-  top: 79px;
+    left: 137px;
+    top: 79px;
 
-  transform: rotate(87deg);
+    transform:
+        rotate(87deg);
 }
 
 .camelia-exterior-4 {
-  left: 111px;
-  top: 126px;
+    left: 111px;
+    top: 126px;
 
-  transform: rotate(135deg);
+    transform:
+        rotate(135deg);
 }
 
 .camelia-exterior-5 {
-  left: 65px;
-  top: 135px;
+    left: 65px;
+    top: 135px;
 
-  transform: rotate(181deg);
+    transform:
+        rotate(181deg);
 }
 
 .camelia-exterior-6 {
-  left: 17px;
-  top: 115px;
+    left: 17px;
+    top: 115px;
 
-  transform: rotate(225deg);
+    transform:
+        rotate(225deg);
 }
 
 .camelia-exterior-7 {
-  left: 0;
-  top: 63px;
+    left: 0;
+    top: 63px;
 
-  transform: rotate(271deg);
+    transform:
+        rotate(271deg);
 }
 
 .camelia-exterior-8 {
-  left: 19px;
-  top: 18px;
+    left: 19px;
+    top: 18px;
 
-  transform: rotate(317deg);
+    transform:
+        rotate(317deg);
 }
+
 
 .camelia-petalo-interior {
-  width: 82px;
-  height: 72px;
+    width: 82px;
+    height: 72px;
 
-  z-index: 8;
+    z-index: 8;
 
-  border-radius: 60%;
+    border-radius: 60%;
 }
 
+
 .camelia-interior-1 {
-  left: 80px;
-  top: 44px;
+    left: 80px;
+    top: 44px;
 }
 
 .camelia-interior-2 {
-  left: 116px;
-  top: 67px;
+    left: 116px;
+    top: 67px;
 
-  transform: rotate(53deg);
+    transform:
+        rotate(53deg);
 }
 
 .camelia-interior-3 {
-  left: 112px;
-  top: 108px;
+    left: 112px;
+    top: 108px;
 
-  transform: rotate(115deg);
+    transform:
+        rotate(115deg);
 }
 
 .camelia-interior-4 {
-  left: 72px;
-  top: 118px;
+    left: 72px;
+    top: 118px;
 
-  transform: rotate(177deg);
+    transform:
+        rotate(177deg);
 }
 
 .camelia-interior-5 {
-  left: 43px;
-  top: 90px;
+    left: 43px;
+    top: 90px;
 
-  transform: rotate(238deg);
+    transform:
+        rotate(238deg);
 }
 
 .camelia-interior-6 {
-  left: 46px;
-  top: 50px;
+    left: 46px;
+    top: 50px;
 
-  transform: rotate(298deg);
+    transform:
+        rotate(298deg);
 }
+
 
 .camelia-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 48px;
-  height: 48px;
+    width: 48px;
+    height: 48px;
 
-  left: 98px;
-  top: 89px;
+    left: 98px;
+    top: 89px;
 
-  z-index: 25;
+    z-index: 25;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #8f6514, #d59b26, #efd35b);
+    background:
+        radial-gradient(
+            circle,
+            #8f6514,
+            #d59b26,
+            #efd35b
+        );
 }
+
 
 .camelia-estambre {
-  position: absolute;
+    position: absolute;
 
-  width: 3px;
-  height: 8px;
+    width: 3px;
+    height: 8px;
 
-  border-radius: 10px;
+    border-radius: 10px;
 
-  background: #f0c54b;
+    background:
+        #f0c54b;
 }
+
 
 .camelia-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 13px;
-  height: 188px;
+    width: 13px;
+    height: 188px;
 
-  left: 139px;
-  top: 166px;
+    left: 139px;
+    top: 166px;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #173e26, #49764a, #194529);
+    background:
+        linear-gradient(
+            to right,
+            #173e26,
+            #49764a,
+            #194529
+        );
 }
+
 
 .camelia-hoja {
-  position: absolute;
+    position: absolute;
 
-  width: 94px;
-  height: 57px;
+    width: 94px;
+    height: 57px;
 
-  z-index: 2;
+    z-index: 2;
 
-  border-radius: 100% 0 100% 0;
+    border-radius:
+        100% 0 100% 0;
 
-  background: linear-gradient(145deg, #143822, #2a603a, #537d4f);
+    background:
+        linear-gradient(
+            145deg,
+            #143822,
+            #2a603a,
+            #537d4f
+        );
 }
+
 
 .camelia-hoja-izquierda {
-  left: 63px;
-  top: 233px;
+    left: 63px;
+    top: 233px;
 
-  transform: rotate(-19deg);
+    transform:
+        rotate(-19deg);
 }
+
 
 .camelia-hoja-derecha {
-  left: 134px;
-  top: 246px;
+    left: 134px;
+    top: 246px;
 
-  transform: rotate(18deg) scaleX(-1);
+    transform:
+        rotate(18deg)
+        scaleX(-1);
 }
+
 
 /* =====================================================
    JAZMÍN
 ===================================================== */
 
 .jazmin {
-  width: 280px;
+    width: 280px;
 }
+
 
 .jazmin-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 7px;
-  height: 215px;
+    width: 7px;
+    height: 215px;
 
-  left: 137px;
-  top: 120px;
+    left: 137px;
+    top: 120px;
 
-  border-radius: 10px;
+    border-radius: 10px;
 
-  background: linear-gradient(to right, #354f32, #6d8558, #354f32);
+    background:
+        linear-gradient(
+            to right,
+            #354f32,
+            #6d8558,
+            #354f32
+        );
 }
+
 
 .jazmin-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 170px;
-  height: 165px;
+    width: 170px;
+    height: 165px;
 
-  left: 54px;
-  top: 2px;
+    left: 54px;
+    top: 2px;
 
-  z-index: 10;
+    z-index: 10;
 }
+
 
 .jazmin-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 67px;
-  height: 86px;
+    width: 67px;
+    height: 86px;
 
-  left: 52px;
-  top: 40px;
+    left: 52px;
+    top: 40px;
 
-  transform-origin: 33px 48px;
+    transform-origin:
+        33px 48px;
 
-  border-radius: 56% 56% 40% 40% / 66% 66% 35% 35%;
+    border-radius:
+        56% 56% 40% 40%
+        / 66% 66% 35% 35%;
 
-  background: linear-gradient(160deg, white, #fafaf5, #e4e4db);
+    background:
+        linear-gradient(
+            160deg,
+            white,
+            #fafaf5,
+            #e4e4db
+        );
 }
 
+
 .jazmin-petalo-1 {
-  transform: rotate(0deg) translateY(-43px);
+    transform:
+        rotate(0deg)
+        translateY(-43px);
 }
 
 .jazmin-petalo-2 {
-  transform: rotate(45deg) translateY(-43px);
+    transform:
+        rotate(45deg)
+        translateY(-43px);
 }
 
 .jazmin-petalo-3 {
-  transform: rotate(90deg) translateY(-43px);
+    transform:
+        rotate(90deg)
+        translateY(-43px);
 }
 
 .jazmin-petalo-4 {
-  transform: rotate(135deg) translateY(-43px);
+    transform:
+        rotate(135deg)
+        translateY(-43px);
 }
 
 .jazmin-petalo-5 {
-  transform: rotate(180deg) translateY(-43px);
+    transform:
+        rotate(180deg)
+        translateY(-43px);
 }
 
 .jazmin-petalo-6 {
-  transform: rotate(225deg) translateY(-43px);
+    transform:
+        rotate(225deg)
+        translateY(-43px);
 }
 
 .jazmin-petalo-7 {
-  transform: rotate(270deg) translateY(-43px);
+    transform:
+        rotate(270deg)
+        translateY(-43px);
 }
 
 .jazmin-petalo-8 {
-  transform: rotate(315deg) translateY(-43px);
+    transform:
+        rotate(315deg)
+        translateY(-43px);
 }
+
 
 .jazmin-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 38px;
-  height: 38px;
+    width: 38px;
+    height: 38px;
 
-  left: 66px;
-  top: 63px;
+    left: 66px;
+    top: 63px;
 
-  z-index: 20;
+    z-index: 20;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #605328, #756532, #40361c);
+    background:
+        radial-gradient(
+            circle,
+            #605328,
+            #756532,
+            #40361c
+        );
 }
+
 
 .jazmin-estambre {
-  position: absolute;
+    position: absolute;
 
-  width: 3px;
-  height: 3px;
+    width: 3px;
+    height: 3px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: #211b0d;
+    background:
+        #211b0d;
 }
+
 
 .jazmin-rama {
-  position: absolute;
+    position: absolute;
 
-  width: 4px;
+    width: 4px;
 
-  transform-origin: bottom center;
+    transform-origin:
+        bottom center;
 
-  background: #697f57;
+    background:
+        #697f57;
 }
+
 
 .jazmin-rama-izquierda {
-  height: 74px;
+    height: 74px;
 
-  left: 115px;
-  top: 106px;
+    left: 115px;
+    top: 106px;
 
-  transform: rotate(-37deg);
+    transform:
+        rotate(-37deg);
 }
+
 
 .jazmin-rama-derecha {
-  height: 72px;
+    height: 72px;
 
-  left: 162px;
-  top: 103px;
+    left: 162px;
+    top: 103px;
 
-  transform: rotate(38deg);
+    transform:
+        rotate(38deg);
 }
+
 
 .jazmin-hoja {
-  position: absolute;
+    position: absolute;
 
-  width: 95px;
-  height: 52px;
+    width: 95px;
+    height: 52px;
 
-  z-index: 4;
+    z-index: 4;
 
-  border-radius: 100% 7% 100% 7%;
+    border-radius:
+        100% 7% 100% 7%;
 
-  background: linear-gradient(145deg, #27432d, #456843, #748862);
+    background:
+        linear-gradient(
+            145deg,
+            #27432d,
+            #456843,
+            #748862
+        );
 }
+
 
 .jazmin-hoja-izquierda {
-  left: 60px;
-  top: 226px;
+    left: 60px;
+    top: 226px;
 
-  transform: rotate(-18deg);
+    transform:
+        rotate(-18deg);
 }
+
 
 .jazmin-hoja-derecha {
-  left: 127px;
-  top: 239px;
+    left: 127px;
+    top: 239px;
 
-  transform: rotate(17deg) scaleX(-1);
+    transform:
+        rotate(17deg)
+        scaleX(-1);
 }
+
 
 /* =====================================================
    ORQUÍDEA
 ===================================================== */
 
 .orquidea-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 9px;
-  height: 205px;
+    width: 9px;
+    height: 205px;
 
-  left: 146px;
-  top: 126px;
+    left: 146px;
+    top: 126px;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #3e6938, #79a05e, #3e6938);
+    background:
+        linear-gradient(
+            to right,
+            #3e6938,
+            #79a05e,
+            #3e6938
+        );
 }
+
 
 .orquidea-rama {
-  position: absolute;
+    position: absolute;
 
-  width: 4px;
-  height: 73px;
+    width: 4px;
+    height: 73px;
 
-  left: 153px;
-  top: 103px;
+    left: 153px;
+    top: 103px;
 
-  background: #71905b;
+    background:
+        #71905b;
 
-  transform: rotate(25deg);
+    transform:
+        rotate(25deg);
 }
+
 
 .orquidea-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 220px;
-  height: 220px;
+    width: 220px;
+    height: 220px;
 
-  left: 40px;
-  top: 4px;
+    left: 40px;
+    top: 4px;
 
-  z-index: 6;
+    z-index: 6;
 }
+
 
 .orquidea-petalo,
 .orquidea-labelo {
-  position: absolute;
+    position: absolute;
 
-  background: linear-gradient(180deg, #ffd4e7, #f29bc4, #da6da3);
+    background:
+        linear-gradient(
+            180deg,
+            #ffd4e7,
+            #f29bc4,
+            #da6da3
+        );
 }
+
 
 .orquidea-petalo.superior {
-  width: 66px;
-  height: 100px;
+    width: 66px;
+    height: 100px;
 
-  left: 77px;
-  top: 7px;
+    left: 77px;
+    top: 7px;
 
-  border-radius: 55% 55% 44% 44% / 70% 70% 30% 30%;
+    border-radius:
+        55% 55% 44% 44%
+        / 70% 70% 30% 30%;
 }
+
 
 .orquidea-petalo.lateral-izq {
-  width: 90px;
-  height: 107px;
+    width: 90px;
+    height: 107px;
 
-  left: 20px;
-  top: 50px;
+    left: 20px;
+    top: 50px;
 
-  border-radius: 70% 45% 62% 40% / 66% 46% 65% 42%;
+    border-radius:
+        70% 45% 62% 40%
+        / 66% 46% 65% 42%;
 
-  transform: rotate(-39deg);
+    transform:
+        rotate(-39deg);
 }
+
 
 .orquidea-petalo.lateral-der {
-  width: 90px;
-  height: 107px;
+    width: 90px;
+    height: 107px;
 
-  right: 20px;
-  top: 50px;
+    right: 20px;
+    top: 50px;
 
-  border-radius: 45% 70% 40% 62% / 46% 66% 42% 65%;
+    border-radius:
+        45% 70% 40% 62%
+        / 46% 66% 42% 65%;
 
-  transform: rotate(39deg);
+    transform:
+        rotate(39deg);
 }
+
 
 .orquidea-petalo.inferior-izq {
-  width: 68px;
-  height: 82px;
+    width: 68px;
+    height: 82px;
 
-  left: 54px;
-  top: 111px;
+    left: 54px;
+    top: 111px;
 
-  border-radius: 60%;
+    border-radius: 60%;
 
-  transform: rotate(23deg);
+    transform:
+        rotate(23deg);
 }
+
 
 .orquidea-petalo.inferior-der {
-  width: 68px;
-  height: 82px;
+    width: 68px;
+    height: 82px;
 
-  right: 54px;
-  top: 111px;
+    right: 54px;
+    top: 111px;
 
-  border-radius: 60%;
+    border-radius: 60%;
 
-  transform: rotate(-23deg);
+    transform:
+        rotate(-23deg);
 }
+
 
 .orquidea-labelo {
-  width: 62px;
-  height: 67px;
+    width: 62px;
+    height: 67px;
 
-  left: 79px;
-  top: 113px;
+    left: 79px;
+    top: 113px;
 
-  z-index: 12;
+    z-index: 12;
 
-  border-radius: 48% 48% 70% 70% / 38% 38% 75% 75%;
+    border-radius:
+        48% 48% 70% 70%
+        / 38% 38% 75% 75%;
 
-  background: radial-gradient(
-    ellipse at 50% 18%,
-    #ffe7f2,
-    #ef94c4 50%,
-    #ca4b8f
-  );
+    background:
+        radial-gradient(
+            ellipse at 50% 18%,
+            #ffe7f2,
+            #ef94c4 50%,
+            #ca4b8f
+        );
 }
+
 
 .orquidea-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 28px;
-  height: 28px;
+    width: 28px;
+    height: 28px;
 
-  left: 96px;
-  top: 101px;
+    left: 96px;
+    top: 101px;
 
-  z-index: 20;
+    z-index: 20;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #fff4ad, #f2ce47, #a46c18);
+    background:
+        radial-gradient(
+            circle,
+            #fff4ad,
+            #f2ce47,
+            #a46c18
+        );
 }
+
 
 .orquidea-hoja {
-  position: absolute;
+    position: absolute;
 
-  width: 94px;
-  height: 51px;
+    width: 94px;
+    height: 51px;
 
-  z-index: 2;
+    z-index: 2;
 
-  border-radius: 100% 5% 100% 5%;
+    border-radius:
+        100% 5% 100% 5%;
 
-  background: linear-gradient(145deg, #315c39, #638a52, #86a46d);
+    background:
+        linear-gradient(
+            145deg,
+            #315c39,
+            #638a52,
+            #86a46d
+        );
 }
+
 
 .orquidea-hoja-izquierda {
-  left: 64px;
-  top: 247px;
+    left: 64px;
+    top: 247px;
 
-  transform: rotate(-20deg);
+    transform:
+        rotate(-20deg);
 }
+
 
 .orquidea-hoja-derecha {
-  left: 137px;
-  top: 257px;
+    left: 137px;
+    top: 257px;
 
-  transform: rotate(18deg) scaleX(-1);
+    transform:
+        rotate(18deg)
+        scaleX(-1);
 }
+
 
 /* =====================================================
    LAVANDA
 ===================================================== */
 
 .lavanda {
-  width: 280px;
+    width: 280px;
 }
+
 
 .lavanda-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 30px;
-  height: 220px;
+    width: 30px;
+    height: 220px;
 
-  transform-origin: bottom center;
+    transform-origin:
+        bottom center;
 }
+
 
 .lavanda-linea {
-  position: absolute;
+    position: absolute;
 
-  width: 4px;
-  height: 220px;
+    width: 4px;
+    height: 220px;
 
-  left: 13px;
+    left: 13px;
 
-  background: linear-gradient(#769055, #50703f, #3f6030);
+    background:
+        linear-gradient(
+            #769055,
+            #50703f,
+            #3f6030
+        );
 }
+
 
 .lavanda-brote {
-  position: absolute;
+    position: absolute;
 
-  width: 18px;
-  height: 12px;
+    width: 18px;
+    height: 12px;
 
-  border-radius: 60%;
+    border-radius: 60%;
 
-  background: linear-gradient(135deg, #c8a0ff, #9c6ee8, #744bc8);
+    background:
+        linear-gradient(
+            135deg,
+            #c8a0ff,
+            #9c6ee8,
+            #744bc8
+        );
 }
+
 
 .lavanda-brote.izq {
-  left: -2px;
+    left: -2px;
 
-  transform: rotate(-26deg);
+    transform:
+        rotate(-26deg);
 }
+
 
 .lavanda-brote.der {
-  right: -2px;
+    right: -2px;
 
-  transform: rotate(26deg);
+    transform:
+        rotate(26deg);
 }
+
 
 .lavanda-base-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 14px;
-  height: 165px;
+    width: 14px;
+    height: 165px;
 
-  left: 133px;
-  top: 175px;
+    left: 133px;
+    top: 175px;
 
-  background: #587342;
+    background:
+        #587342;
 }
+
 
 .lavanda-hoja {
-  position: absolute;
+    position: absolute;
 
-  width: 85px;
-  height: 26px;
+    width: 85px;
+    height: 26px;
 
-  border-radius: 100% 0 100% 0;
+    border-radius:
+        100% 0 100% 0;
 
-  background: #6d8a52;
+    background:
+        #6d8a52;
 }
+
 
 .lavanda-hoja-izquierda {
-  left: 58px;
-  top: 258px;
+    left: 58px;
+    top: 258px;
 
-  transform: rotate(-24deg);
+    transform:
+        rotate(-24deg);
 }
+
 
 .lavanda-hoja-derecha {
-  left: 140px;
-  top: 278px;
+    left: 140px;
+    top: 278px;
 
-  transform: rotate(20deg) scaleX(-1);
+    transform:
+        rotate(20deg)
+        scaleX(-1);
 }
+
 
 /* =====================================================
    ANÉMONA
 ===================================================== */
 
 .anemona-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 230px;
-  height: 230px;
+    width: 230px;
+    height: 230px;
 
-  left: 35px;
-  top: 0;
+    left: 35px;
+    top: 0;
 
-  z-index: 8;
+    z-index: 8;
 }
+
 
 .anemona-petalo-wrap {
-  position: absolute;
+    position: absolute;
 
-  width: 74px;
-  height: 125px;
+    width: 74px;
+    height: 125px;
 
-  left: 78px;
-  top: 53px;
+    left: 78px;
+    top: 53px;
 
-  transform-origin: 37px 62px;
+    transform-origin:
+        37px 62px;
 
-  transform: rotate(var(--angulo));
+    transform:
+        rotate(var(--angulo));
 }
+
 
 .anemona-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 74px;
-  height: 90px;
+    width: 74px;
+    height: 90px;
 
-  transform: translateY(-47px);
+    transform:
+        translateY(-47px);
 
-  border-radius: 55% 55% 45% 45% / 70% 70% 38% 38%;
+    border-radius:
+        55% 55% 45% 45%
+        / 70% 70% 38% 38%;
 
-  background: linear-gradient(150deg, white, #fbfaf5, #e8e7df);
+    background:
+        linear-gradient(
+            150deg,
+            white,
+            #fbfaf5,
+            #e8e7df
+        );
 }
+
 
 .anemona-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 70px;
-  height: 70px;
+    width: 70px;
+    height: 70px;
 
-  left: 80px;
-  top: 80px;
+    left: 80px;
+    top: 80px;
 
-  z-index: 25;
+    z-index: 25;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #504a5d, #292633, #09080d);
+    background:
+        radial-gradient(
+            circle,
+            #504a5d,
+            #292633,
+            #09080d
+        );
 }
+
 
 .anemona-estambre {
-  position: absolute;
+    position: absolute;
 
-  width: 4px;
-  height: 4px;
+    width: 4px;
+    height: 4px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: #777083;
+    background:
+        #777083;
 }
+
 
 .anemona-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 9px;
-  height: 195px;
+    width: 9px;
+    height: 195px;
 
-  left: 146px;
-  top: 158px;
+    left: 146px;
+    top: 158px;
 
-  z-index: 2;
+    z-index: 2;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #315537, #628160, #315537);
+    background:
+        linear-gradient(
+            to right,
+            #315537,
+            #628160,
+            #315537
+        );
 }
+
 
 .anemona-hoja {
-  position: absolute;
+    position: absolute;
 
-  z-index: 4;
+    z-index: 4;
 
-  background: linear-gradient(145deg, #284a31, #4d7548, #7b9662);
+    background:
+        linear-gradient(
+            145deg,
+            #284a31,
+            #4d7548,
+            #7b9662
+        );
 
-  clip-path: polygon(
-    50% 0,
-    61% 18%,
-    79% 8%,
-    74% 29%,
-    96% 25%,
-    82% 45%,
-    100% 58%,
-    73% 61%,
-    86% 83%,
-    61% 73%,
-    50% 100%,
-    39% 73%,
-    14% 83%,
-    27% 61%,
-    0 58%,
-    18% 45%,
-    4% 25%,
-    26% 29%,
-    21% 8%,
-    39% 18%
-  );
+    clip-path:
+        polygon(
+            50% 0,
+            61% 18%,
+            79% 8%,
+            74% 29%,
+            96% 25%,
+            82% 45%,
+            100% 58%,
+            73% 61%,
+            86% 83%,
+            61% 73%,
+            50% 100%,
+            39% 73%,
+            14% 83%,
+            27% 61%,
+            0 58%,
+            18% 45%,
+            4% 25%,
+            26% 29%,
+            21% 8%,
+            39% 18%
+        );
 }
+
 
 .anemona-hoja-izquierda {
-  width: 92px;
-  height: 105px;
+    width: 92px;
+    height: 105px;
 
-  left: 57px;
-  top: 226px;
+    left: 57px;
+    top: 226px;
 
-  transform: rotate(-30deg);
+    transform:
+        rotate(-30deg);
 }
+
 
 .anemona-hoja-derecha {
-  width: 92px;
-  height: 105px;
+    width: 92px;
+    height: 105px;
 
-  left: 145px;
-  top: 238px;
+    left: 145px;
+    top: 238px;
 
-  transform: rotate(29deg) scaleX(-1);
+    transform:
+        rotate(29deg)
+        scaleX(-1);
 }
+
 
 .anemona-hoja-centro {
-  width: 67px;
-  height: 82px;
+    width: 67px;
+    height: 82px;
 
-  left: 112px;
-  top: 197px;
+    left: 112px;
+    top: 197px;
 
-  z-index: 3;
+    z-index: 3;
 
-  transform: rotate(2deg) scale(0.83);
+    transform:
+        rotate(2deg)
+        scale(.83);
 }
+
 
 /* =====================================================
    MAGNOLIA
 ===================================================== */
 
 .magnolia {
-  width: 290px;
+    width: 290px;
 }
+
 
 .magnolia-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 11px;
-  height: 185px;
+    width: 11px;
+    height: 185px;
 
-  left: 140px;
-  top: 164px;
+    left: 140px;
+    top: 164px;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #4a5933, #778354, #435130);
+    background:
+        linear-gradient(
+            to right,
+            #4a5933,
+            #778354,
+            #435130
+        );
 }
+
 
 .magnolia-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 230px;
-  height: 215px;
+    width: 230px;
+    height: 215px;
 
-  left: 30px;
-  top: 3px;
+    left: 30px;
+    top: 3px;
 
-  z-index: 6;
+    z-index: 6;
 }
+
 
 .magnolia-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 78px;
-  height: 132px;
+    width: 78px;
+    height: 132px;
 
-  left: 76px;
-  top: 40px;
+    left: 76px;
+    top: 40px;
 
-  transform-origin: 39px 94px;
+    transform-origin:
+        39px 94px;
 
-  border-radius: 55% 55% 40% 40% / 72% 72% 28% 28%;
+    border-radius:
+        55% 55% 40% 40%
+        / 72% 72% 28% 28%;
 
-  background: linear-gradient(#fff0f2, #f7bdc9, #d77d9c);
+    background:
+        linear-gradient(
+            #fff0f2,
+            #f7bdc9,
+            #d77d9c
+        );
 }
 
+
 .magnolia-petalo-1 {
-  transform: translateY(-44px);
+    transform:
+        translateY(-44px);
 }
 
 .magnolia-petalo-2 {
-  transform: translate(-54px, -10px) rotate(-52deg);
+    transform:
+        translate(-54px,-10px)
+        rotate(-52deg);
 }
 
 .magnolia-petalo-3 {
-  transform: translate(54px, -10px) rotate(52deg);
+    transform:
+        translate(54px,-10px)
+        rotate(52deg);
 }
 
 .magnolia-petalo-4 {
-  transform: translate(-57px, 48px) rotate(-110deg);
+    transform:
+        translate(-57px,48px)
+        rotate(-110deg);
 }
 
 .magnolia-petalo-5 {
-  transform: translate(57px, 48px) rotate(110deg);
+    transform:
+        translate(57px,48px)
+        rotate(110deg);
 }
 
 .magnolia-petalo-6 {
-  transform: translateY(60px) rotate(180deg);
+    transform:
+        translateY(60px)
+        rotate(180deg);
 }
+
 
 .magnolia-petalo-interno {
-  position: absolute;
+    position: absolute;
 
-  width: 62px;
-  height: 95px;
+    width: 62px;
+    height: 95px;
 
-  left: 84px;
-  top: 62px;
+    left: 84px;
+    top: 62px;
 
-  z-index: 5;
+    z-index: 5;
 
-  transform-origin: 31px 70px;
+    transform-origin:
+        31px 70px;
 
-  border-radius: 60%;
+    border-radius: 60%;
 
-  background: linear-gradient(#ffe7ed, #eba7bc, #cf7597);
+    background:
+        linear-gradient(
+            #ffe7ed,
+            #eba7bc,
+            #cf7597
+        );
 }
 
+
 .magnolia-interno-1 {
-  transform: rotate(-25deg) translateY(-8px);
+    transform:
+        rotate(-25deg)
+        translateY(-8px);
 }
 
 .magnolia-interno-2 {
-  transform: translateY(-13px);
+    transform:
+        translateY(-13px);
 }
 
 .magnolia-interno-3 {
-  transform: rotate(25deg) translateY(-8px);
+    transform:
+        rotate(25deg)
+        translateY(-8px);
 }
+
 
 .magnolia-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 44px;
-  height: 51px;
+    width: 44px;
+    height: 51px;
 
-  left: 93px;
-  top: 101px;
+    left: 93px;
+    top: 101px;
 
-  z-index: 12;
+    z-index: 12;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #f1d569, #c69d2d, #87651b);
+    background:
+        radial-gradient(
+            circle,
+            #f1d569,
+            #c69d2d,
+            #87651b
+        );
 }
+
 
 .magnolia-estambre {
-  position: absolute;
+    position: absolute;
 
-  width: 3px;
-  height: 17px;
+    width: 3px;
+    height: 17px;
 
-  left: 20px;
-  top: 16px;
+    left: 20px;
+    top: 16px;
 
-  transform-origin: center bottom;
+    transform-origin:
+        center bottom;
 
-  background: #73501b;
+    background:
+        #73501b;
 }
+
 
 .magnolia-hoja {
-  position: absolute;
+    position: absolute;
 
-  width: 102px;
-  height: 58px;
+    width: 102px;
+    height: 58px;
 
-  z-index: 3;
+    z-index: 3;
 
-  border-radius: 100% 0 100% 0;
+    border-radius:
+        100% 0 100% 0;
 
-  background: linear-gradient(#304b2c, #587444, #849564);
+    background:
+        linear-gradient(
+            #304b2c,
+            #587444,
+            #849564
+        );
 }
+
 
 .magnolia-hoja-izquierda {
-  left: 48px;
-  top: 244px;
+    left: 48px;
+    top: 244px;
 
-  transform: rotate(-20deg);
+    transform:
+        rotate(-20deg);
 }
+
 
 .magnolia-hoja-derecha {
-  left: 140px;
-  top: 254px;
+    left: 140px;
+    top: 254px;
 
-  transform: rotate(18deg) scaleX(-1);
+    transform:
+        rotate(18deg)
+        scaleX(-1);
 }
+
 
 /* =====================================================
    NO ME OLVIDES
 ===================================================== */
 
 .nomeolvides {
-  width: 290px;
+    width: 290px;
 }
+
 
 .nomeolvides-tallo-principal {
-  position: absolute;
+    position: absolute;
 
-  width: 6px;
-  height: 205px;
+    width: 6px;
+    height: 205px;
 
-  left: 145px;
-  top: 142px;
+    left: 145px;
+    top: 142px;
 
-  z-index: 1;
+    z-index: 1;
 
-  border-radius: 10px;
+    border-radius: 10px;
 
-  background: linear-gradient(to right, #3d6243, #6f8d63, #3d6243);
+    background:
+        linear-gradient(
+            to right,
+            #3d6243,
+            #6f8d63,
+            #3d6243
+        );
 }
+
 
 .nomeolvides-rama {
-  position: absolute;
+    position: absolute;
 
-  width: 3px;
+    width: 3px;
 
-  z-index: 1;
+    z-index: 1;
 
-  border-radius: 10px;
+    border-radius: 10px;
 
-  transform-origin: bottom center;
+    transform-origin:
+        bottom center;
 
-  background: #617e59;
+    background:
+        #617e59;
 }
+
 
 .nomeolvides-flor {
-  position: absolute;
+    position: absolute;
 
-  width: 25px;
-  height: 25px;
+    width: 25px;
+    height: 25px;
 
-  z-index: 6;
+    z-index: 6;
 
-  transform: translate(-50%, -50%) rotate(var(--rotacion)) scale(var(--escala));
+    transform:
+        translate(-50%,-50%)
+        rotate(var(--rotacion))
+        scale(var(--escala));
 
-  animation: nomeolvides-flotar 4.2s ease-in-out infinite;
+    animation:
+        nomeolvides-flotar
+        4.2s ease-in-out infinite;
 
-  animation-delay: var(--delay);
+    animation-delay:
+        var(--delay);
 }
+
 
 .nomeolvides-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 11px;
-  height: 11px;
+    width: 11px;
+    height: 11px;
 
-  left: 7px;
-  top: 7px;
+    left: 7px;
+    top: 7px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(
-    circle at 36% 30%,
-    #e8f6ff,
-    #a6d8ff 32%,
-    #6fb4ee 65%,
-    #477dc9
-  );
+    background:
+        radial-gradient(
+            circle at 36% 30%,
+            #e8f6ff,
+            #a6d8ff 32%,
+            #6fb4ee 65%,
+            #477dc9
+        );
 }
 
+
 .nomeolvides-petalo-1 {
-  transform: translateY(-7px);
+    transform:
+        translateY(-7px);
 }
 
 .nomeolvides-petalo-2 {
-  transform: translate(7px, -2px);
+    transform:
+        translate(7px,-2px);
 }
 
 .nomeolvides-petalo-3 {
-  transform: translate(4px, 6px);
+    transform:
+        translate(4px,6px);
 }
 
 .nomeolvides-petalo-4 {
-  transform: translate(-4px, 6px);
+    transform:
+        translate(-4px,6px);
 }
 
 .nomeolvides-petalo-5 {
-  transform: translate(-7px, -2px);
+    transform:
+        translate(-7px,-2px);
 }
+
 
 .nomeolvides-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 6px;
-  height: 6px;
+    width: 6px;
+    height: 6px;
 
-  left: 9.5px;
-  top: 9.5px;
+    left: 9.5px;
+    top: 9.5px;
 
-  z-index: 10;
+    z-index: 10;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #fffbd0, #f6d859, #d79a1b);
+    background:
+        radial-gradient(
+            circle,
+            #fffbd0,
+            #f6d859,
+            #d79a1b
+        );
 }
+
 
 .nomeolvides-boton {
-  position: absolute;
+    position: absolute;
 
-  width: 10px;
-  height: 15px;
+    width: 10px;
+    height: 15px;
 
-  z-index: 5;
+    z-index: 5;
 
-  border-radius: 50% 50% 45% 45%;
+    border-radius:
+        50% 50% 45% 45%;
 
-  background: linear-gradient(#91c9f5, #5d98d6, #4475b0);
+    background:
+        linear-gradient(
+            #91c9f5,
+            #5d98d6,
+            #4475b0
+        );
 }
+
 
 .nomeolvides-hoja {
-  position: absolute;
+    position: absolute;
 
-  z-index: 3;
+    z-index: 3;
 
-  background: linear-gradient(#3b6040, #628158, #79946b);
+    background:
+        linear-gradient(
+            #3b6040,
+            #628158,
+            #79946b
+        );
 }
+
 
 .nomeolvides-hoja-1 {
-  width: 71px;
-  height: 28px;
+    width: 71px;
+    height: 28px;
 
-  left: 80px;
-  top: 247px;
+    left: 80px;
+    top: 247px;
 
-  border-radius: 100% 8% 100% 8%;
+    border-radius:
+        100% 8% 100% 8%;
 
-  transform: rotate(-30deg);
+    transform:
+        rotate(-30deg);
 }
+
 
 .nomeolvides-hoja-2 {
-  width: 73px;
-  height: 29px;
+    width: 73px;
+    height: 29px;
 
-  left: 139px;
-  top: 260px;
+    left: 139px;
+    top: 260px;
 
-  border-radius: 100% 8% 100% 8%;
+    border-radius:
+        100% 8% 100% 8%;
 
-  transform: rotate(25deg) scaleX(-1);
+    transform:
+        rotate(25deg)
+        scaleX(-1);
 }
+
 
 .nomeolvides-hoja-3 {
-  width: 55px;
-  height: 22px;
+    width: 55px;
+    height: 22px;
 
-  left: 103px;
-  top: 292px;
+    left: 103px;
+    top: 292px;
 
-  border-radius: 100% 8% 100% 8%;
+    border-radius:
+        100% 8% 100% 8%;
 
-  transform: rotate(-18deg);
+    transform:
+        rotate(-18deg);
 }
+
 
 .nomeolvides-hoja-4 {
-  width: 58px;
-  height: 22px;
+    width: 58px;
+    height: 22px;
 
-  left: 139px;
-  top: 306px;
+    left: 139px;
+    top: 306px;
 
-  border-radius: 100% 8% 100% 8%;
+    border-radius:
+        100% 8% 100% 8%;
 
-  transform: rotate(18deg) scaleX(-1);
+    transform:
+        rotate(18deg)
+        scaleX(-1);
 }
+
 
 @keyframes nomeolvides-flotar {
-  50% {
-    margin-top: -3px;
-  }
+    50% {
+        margin-top: -3px;
+    }
 }
+
 
 /* =====================================================
    CLAVEL
 ===================================================== */
 
 .clavel {
-  width: 290px;
+    width: 290px;
 }
+
 
 .clavel-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 235px;
-  height: 225px;
+    width: 235px;
+    height: 225px;
 
-  left: 27px;
-  top: 2px;
+    left: 27px;
+    top: 2px;
 
-  z-index: 6;
+    z-index: 6;
 }
+
 
 .clavel-petalo-wrap {
-  position: absolute;
+    position: absolute;
 
-  width: 62px;
-  height: 95px;
+    width: 62px;
+    height: 95px;
 
-  left: 86px;
-  top: 65px;
+    left: 86px;
+    top: 65px;
 
-  transform-origin: 31px 50px;
+    transform-origin:
+        31px 50px;
 
-  transform: rotate(var(--angulo));
+    transform:
+        rotate(var(--angulo));
 }
+
 
 .clavel-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 62px;
-  height: 62px;
+    width: 62px;
+    height: 62px;
 
-  transform: translateY(calc(-1 * var(--radio))) scale(var(--escala));
+    transform:
+        translateY(
+            calc(-1 * var(--radio))
+        )
+        scale(var(--escala));
 
-  border-radius: 55% 55% 35% 35%;
+    border-radius:
+        55% 55% 35% 35%;
 
-  clip-path: polygon(
-    0 34%,
-    8% 20%,
-    17% 29%,
-    26% 12%,
-    36% 27%,
-    46% 9%,
-    56% 27%,
-    66% 12%,
-    76% 29%,
-    86% 18%,
-    100% 35%,
-    92% 100%,
-    8% 100%
-  );
+    clip-path:
+        polygon(
+            0 34%,
+            8% 20%,
+            17% 29%,
+            26% 12%,
+            36% 27%,
+            46% 9%,
+            56% 27%,
+            66% 12%,
+            76% 29%,
+            86% 18%,
+            100% 35%,
+            92% 100%,
+            8% 100%
+        );
 
-  background: radial-gradient(
-    ellipse at 50% 82%,
-    #8b1831,
-    #b52242,
-    #d8425d,
-    #ef8291
-  );
+    background:
+        radial-gradient(
+            ellipse at 50% 82%,
+            #8b1831,
+            #b52242,
+            #d8425d,
+            #ef8291
+        );
 }
 
-.clavel-capa-media .clavel-petalo {
-  background: radial-gradient(ellipse, #891329, #bf2948, #e65c74);
+
+.clavel-capa-media
+.clavel-petalo {
+    background:
+        radial-gradient(
+            ellipse,
+            #891329,
+            #bf2948,
+            #e65c74
+        );
 }
 
-.clavel-capa-centro .clavel-petalo {
-  background: linear-gradient(#ee7185, #c3324e, #8b172c);
+
+.clavel-capa-centro
+.clavel-petalo {
+    background:
+        linear-gradient(
+            #ee7185,
+            #c3324e,
+            #8b172c
+        );
 }
+
 
 .clavel-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 42px;
-  height: 42px;
+    width: 42px;
+    height: 42px;
 
-  left: 96px;
-  top: 92px;
+    left: 96px;
+    top: 92px;
 
-  z-index: 20;
+    z-index: 20;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #c8435d, #951c34, #691326);
+    background:
+        radial-gradient(
+            circle,
+            #c8435d,
+            #951c34,
+            #691326
+        );
 }
+
 
 .clavel-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 11px;
-  height: 190px;
+    width: 11px;
+    height: 190px;
 
-  left: 140px;
-  top: 160px;
+    left: 140px;
+    top: 160px;
 
-  border-radius: 15px;
+    border-radius: 15px;
 
-  background: linear-gradient(to right, #315b3a, #638552, #315b3a);
+    background:
+        linear-gradient(
+            to right,
+            #315b3a,
+            #638552,
+            #315b3a
+        );
 }
+
 
 .clavel-hoja {
-  position: absolute;
+    position: absolute;
 
-  z-index: 3;
+    z-index: 3;
 
-  width: 82px;
-  height: 22px;
+    width: 82px;
+    height: 22px;
 
-  border-radius: 100% 5% 100% 5%;
+    border-radius:
+        100% 5% 100% 5%;
 
-  background: linear-gradient(145deg, #3b6340, #739166);
+    background:
+        linear-gradient(
+            145deg,
+            #3b6340,
+            #739166
+        );
 }
+
 
 .clavel-hoja-1 {
-  left: 65px;
-  top: 243px;
+    left: 65px;
+    top: 243px;
 
-  transform: rotate(-31deg);
+    transform:
+        rotate(-31deg);
 }
+
 
 .clavel-hoja-2 {
-  left: 140px;
-  top: 263px;
+    left: 140px;
+    top: 263px;
 
-  transform: rotate(29deg) scaleX(-1);
+    transform:
+        rotate(29deg)
+        scaleX(-1);
 }
+
 
 .clavel-hoja-3 {
-  left: 100px;
-  top: 300px;
+    left: 100px;
+    top: 300px;
 
-  width: 69px;
+    width: 69px;
 
-  transform: rotate(-12deg);
+    transform:
+        rotate(-12deg);
 }
+
 
 /* =====================================================
    DALIA
 ===================================================== */
 
 .dalia {
-  width: 290px;
+    width: 290px;
 }
+
 
 .dalia-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 12px;
-  height: 185px;
+    width: 12px;
+    height: 185px;
 
-  left: 139px;
-  top: 166px;
+    left: 139px;
+    top: 166px;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(#263b2c, #52664d, #233629);
+    background:
+        linear-gradient(
+            #263b2c,
+            #52664d,
+            #233629
+        );
 }
+
 
 .dalia-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 230px;
-  height: 230px;
+    width: 230px;
+    height: 230px;
 
-  left: 30px;
-  top: 0;
+    left: 30px;
+    top: 0;
 
-  z-index: 6;
+    z-index: 6;
 }
+
 
 .dalia-wrap {
-  position: absolute;
+    position: absolute;
 
-  width: 44px;
-  height: 100px;
+    width: 44px;
+    height: 100px;
 
-  left: 93px;
-  top: 64px;
+    left: 93px;
+    top: 64px;
 
-  transform-origin: 22px 52px;
+    transform-origin:
+        22px 52px;
 
-  transform: rotate(var(--angulo));
+    transform:
+        rotate(var(--angulo));
 }
+
 
 .dalia-petalo {
-  position: absolute;
+    position: absolute;
 
-  left: 50%;
-  top: 50%;
+    left: 50%;
+    top: 50%;
 
-  transform: translate(-50%, -50%) translateY(calc(-1 * var(--radio)));
+    transform:
+        translate(-50%,-50%)
+        translateY(
+            calc(-1 * var(--radio))
+        );
 
-  border-radius: 60% 60% 18% 18% / 80% 80% 20% 20%;
+    border-radius:
+        60% 60% 18% 18%
+        / 80% 80% 20% 20%;
 
-  background: linear-gradient(#7f5297, #3d2851, #1d1727);
+    background:
+        linear-gradient(
+            #7f5297,
+            #3d2851,
+            #1d1727
+        );
 }
 
-.dalia-capa-2 .dalia-petalo {
-  background: linear-gradient(#8a59a3, #49305d, #241a2e);
+
+.dalia-capa-2
+.dalia-petalo {
+    background:
+        linear-gradient(
+            #8a59a3,
+            #49305d,
+            #241a2e
+        );
 }
 
-.dalia-capa-3 .dalia-petalo {
-  background: linear-gradient(#9c69b2, #5d3d70, #2d2138);
+
+.dalia-capa-3
+.dalia-petalo {
+    background:
+        linear-gradient(
+            #9c69b2,
+            #5d3d70,
+            #2d2138
+        );
 }
+
 
 .dalia-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 42px;
-  height: 42px;
+    width: 42px;
+    height: 42px;
 
-  left: 94px;
-  top: 94px;
+    left: 94px;
+    top: 94px;
 
-  z-index: 12;
+    z-index: 12;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #b58cbe, #654574, #251c2d);
+    background:
+        radial-gradient(
+            circle,
+            #b58cbe,
+            #654574,
+            #251c2d
+        );
 }
+
 
 .dalia-hoja {
-  position: absolute;
+    position: absolute;
 
-  width: 90px;
-  height: 70px;
+    width: 90px;
+    height: 70px;
 
-  z-index: 2;
+    z-index: 2;
 
-  background: linear-gradient(#233d2d, #4b684d);
+    background:
+        linear-gradient(
+            #233d2d,
+            #4b684d
+        );
 
-  clip-path: polygon(
-    50% 0,
-    67% 26%,
-    100% 25%,
-    78% 52%,
-    92% 90%,
-    52% 72%,
-    21% 100%,
-    27% 62%,
-    0 42%,
-    34% 30%
-  );
+    clip-path:
+        polygon(
+            50% 0,
+            67% 26%,
+            100% 25%,
+            78% 52%,
+            92% 90%,
+            52% 72%,
+            21% 100%,
+            27% 62%,
+            0 42%,
+            34% 30%
+        );
 }
+
 
 .dalia-hoja-izquierda {
-  left: 61px;
-  top: 232px;
+    left: 61px;
+    top: 232px;
 
-  transform: rotate(-24deg);
+    transform:
+        rotate(-24deg);
 }
+
 
 .dalia-hoja-derecha {
-  left: 140px;
-  top: 249px;
+    left: 140px;
+    top: 249px;
 
-  transform: rotate(25deg) scaleX(-1);
+    transform:
+        rotate(25deg)
+        scaleX(-1);
 }
+
 
 /* =====================================================
    FLOR DE LOTO
 ===================================================== */
 
 .loto {
-  width: 300px;
+    width: 300px;
 
-  transform-origin: center bottom;
+    transform-origin:
+        center bottom;
 }
+
 
 .loto-tallo {
-  position: absolute;
+    position: absolute;
 
-  width: 12px;
-  height: 155px;
+    width: 12px;
+    height: 155px;
 
-  left: 144px;
-  top: 194px;
+    left: 144px;
+    top: 194px;
 
-  z-index: 1;
+    z-index: 1;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #426b48, #79a46d, #426b48);
+    background:
+        linear-gradient(
+            to right,
+            #426b48,
+            #79a46d,
+            #426b48
+        );
 }
+
 
 .loto-hoja {
-  position: absolute;
+    position: absolute;
 
-  z-index: 2;
+    z-index: 2;
 
-  width: 105px;
-  height: 58px;
+    width: 105px;
+    height: 58px;
 
-  background: linear-gradient(145deg, #416e52, #6f9b68, #89aa73);
+    background:
+        linear-gradient(
+            145deg,
+            #416e52,
+            #6f9b68,
+            #89aa73
+        );
 }
+
 
 .loto-hoja-izquierda {
-  left: 48px;
-  top: 255px;
+    left: 48px;
+    top: 255px;
 
-  border-radius: 100% 0 100% 0;
+    border-radius:
+        100% 0 100% 0;
 
-  transform: rotate(-18deg);
+    transform:
+        rotate(-18deg);
 }
+
 
 .loto-hoja-derecha {
-  left: 146px;
-  top: 269px;
+    left: 146px;
+    top: 269px;
 
-  border-radius: 0 100% 0 100%;
+    border-radius:
+        0 100% 0 100%;
 
-  transform: rotate(17deg);
+    transform:
+        rotate(17deg);
 }
+
 
 .loto-cabeza {
-  position: absolute;
+    position: absolute;
 
-  width: 270px;
-  height: 230px;
+    width: 270px;
+    height: 230px;
 
-  left: 15px;
-  top: 12px;
+    left: 15px;
+    top: 12px;
 
-  z-index: 5;
+    z-index: 5;
 }
+
 
 .loto-petalo {
-  position: absolute;
+    position: absolute;
 
-  left: 50%;
+    left: 50%;
 
-  transform-origin: 50% 90%;
+    transform-origin:
+        50% 90%;
 
-  transition:
-    transform 0.85s cubic-bezier(0.22, 0.8, 0.25, 1),
-    filter 0.65s ease;
+    transition:
+        transform .85s
+        cubic-bezier(.22,.8,.25,1),
+        filter .65s ease;
 
-  background: linear-gradient(
-    180deg,
-    #fff6fb,
-    #ffd5e9 25%,
-    #f3a9cd 62%,
-    #cf70aa
-  );
+    background:
+        linear-gradient(
+            180deg,
+            #fff6fb,
+            #ffd5e9 25%,
+            #f3a9cd 62%,
+            #cf70aa
+        );
 
-  box-shadow:
-    inset 0 4px 8px rgba(255, 255, 255, 0.45),
-    0 5px 12px rgba(117, 56, 93, 0.1);
+    box-shadow:
+        inset 0 4px 8px
+        rgba(255,255,255,.45),
+        0 5px 12px
+        rgba(117,56,93,.10);
 }
+
 
 .loto-petalo-trasero {
-  width: 72px;
-  height: 138px;
+    width: 72px;
+    height: 138px;
 
-  top: 14px;
+    top: 14px;
 
-  margin-left: -36px;
+    margin-left: -36px;
 
-  border-radius: 60% 60% 42% 42% / 72% 72% 30% 30%;
+    border-radius:
+        60% 60% 42% 42%
+        / 72% 72% 30% 30%;
 }
 
+
 .loto-petalo-trasero-1 {
-  transform: translateX(-80px) translateY(45px) rotate(-43deg) scale(0.88);
+    transform:
+        translateX(-80px)
+        translateY(45px)
+        rotate(-43deg)
+        scale(.88);
 }
 
 .loto-petalo-trasero-2 {
-  transform: translateX(-43px) translateY(14px) rotate(-21deg) scale(0.95);
+    transform:
+        translateX(-43px)
+        translateY(14px)
+        rotate(-21deg)
+        scale(.95);
 }
 
 .loto-petalo-trasero-3 {
-  transform: translateX(0) translateY(0);
+    transform:
+        translateX(0)
+        translateY(0);
 }
 
 .loto-petalo-trasero-4 {
-  transform: translateX(43px) translateY(14px) rotate(21deg) scale(0.95);
+    transform:
+        translateX(43px)
+        translateY(14px)
+        rotate(21deg)
+        scale(.95);
 }
 
 .loto-petalo-trasero-5 {
-  transform: translateX(80px) translateY(45px) rotate(43deg) scale(0.88);
+    transform:
+        translateX(80px)
+        translateY(45px)
+        rotate(43deg)
+        scale(.88);
 }
+
 
 .loto-petalo-medio {
-  width: 79px;
-  height: 125px;
+    width: 79px;
+    height: 125px;
 
-  top: 64px;
+    top: 64px;
 
-  margin-left: -39.5px;
+    margin-left: -39.5px;
 
-  z-index: 3;
+    z-index: 3;
 
-  border-radius: 58% 58% 45% 45% / 70% 70% 34% 34%;
+    border-radius:
+        58% 58% 45% 45%
+        / 70% 70% 34% 34%;
 
-  background: linear-gradient(
-    180deg,
-    #fff7fb,
-    #f9c8df 35%,
-    #e796c0 72%,
-    #c969a2
-  );
+    background:
+        linear-gradient(
+            180deg,
+            #fff7fb,
+            #f9c8df 35%,
+            #e796c0 72%,
+            #c969a2
+        );
 }
 
+
 .loto-petalo-medio-1 {
-  transform: translateX(-73px) translateY(19px) rotate(-40deg);
+    transform:
+        translateX(-73px)
+        translateY(19px)
+        rotate(-40deg);
 }
 
 .loto-petalo-medio-2 {
-  transform: translateX(-33px) translateY(3px) rotate(-18deg);
+    transform:
+        translateX(-33px)
+        translateY(3px)
+        rotate(-18deg);
 }
 
 .loto-petalo-medio-3 {
-  transform: translateX(33px) translateY(3px) rotate(18deg);
+    transform:
+        translateX(33px)
+        translateY(3px)
+        rotate(18deg);
 }
 
 .loto-petalo-medio-4 {
-  transform: translateX(73px) translateY(19px) rotate(40deg);
+    transform:
+        translateX(73px)
+        translateY(19px)
+        rotate(40deg);
 }
+
 
 .loto-petalo-frontal {
-  width: 90px;
-  height: 110px;
+    width: 90px;
+    height: 110px;
 
-  top: 105px;
+    top: 105px;
 
-  margin-left: -45px;
+    margin-left: -45px;
 
-  z-index: 7;
+    z-index: 7;
 
-  border-radius: 55% 55% 48% 48% / 63% 63% 43% 43%;
+    border-radius:
+        55% 55% 48% 48%
+        / 63% 63% 43% 43%;
 
-  background: linear-gradient(180deg, #ffe6f1, #f1a1c8 48%, #cf699f);
+    background:
+        linear-gradient(
+            180deg,
+            #ffe6f1,
+            #f1a1c8 48%,
+            #cf699f
+        );
 }
 
+
 .loto-petalo-frontal-1 {
-  transform: translateX(-56px) rotate(-27deg);
+    transform:
+        translateX(-56px)
+        rotate(-27deg);
 }
 
 .loto-petalo-frontal-2 {
-  transform: translateX(0) translateY(8px);
+    transform:
+        translateX(0)
+        translateY(8px);
 }
 
 .loto-petalo-frontal-3 {
-  transform: translateX(56px) rotate(27deg);
+    transform:
+        translateX(56px)
+        rotate(27deg);
 }
+
 
 .loto-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 46px;
-  height: 42px;
+    width: 46px;
+    height: 42px;
 
-  left: 112px;
-  top: 118px;
+    left: 112px;
+    top: 118px;
 
-  z-index: 10;
+    z-index: 10;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  opacity: 0.28;
+    opacity: .28;
 
-  transform: translateY(15px) scale(0.75);
+    transform:
+        translateY(15px)
+        scale(.75);
 
-  transition:
-    opacity 0.7s ease,
-    transform 0.8s ease;
+    transition:
+        opacity .7s ease,
+        transform .8s ease;
 
-  background: radial-gradient(circle at 50% 38%, #fff39b, #e6bf4a 45%, #b17a28);
+    background:
+        radial-gradient(
+            circle at 50% 38%,
+            #fff39b,
+            #e6bf4a 45%,
+            #b17a28
+        );
 }
+
 
 /* =====================================================
    LOTO ABIERTO
 ===================================================== */
 
-.loto.abierta .loto-petalo-trasero-1 {
-  transform: translateX(-96px) translateY(61px) rotate(-61deg) scale(0.9);
+.loto.abierta
+.loto-petalo-trasero-1 {
+    transform:
+        translateX(-96px)
+        translateY(61px)
+        rotate(-61deg)
+        scale(.90);
 }
 
-.loto.abierta .loto-petalo-trasero-2 {
-  transform: translateX(-55px) translateY(19px) rotate(-34deg) scale(0.97);
+
+.loto.abierta
+.loto-petalo-trasero-2 {
+    transform:
+        translateX(-55px)
+        translateY(19px)
+        rotate(-34deg)
+        scale(.97);
 }
 
-.loto.abierta .loto-petalo-trasero-3 {
-  transform: translateX(0) translateY(-15px) scale(1.03);
+
+.loto.abierta
+.loto-petalo-trasero-3 {
+    transform:
+        translateX(0)
+        translateY(-15px)
+        scale(1.03);
 }
 
-.loto.abierta .loto-petalo-trasero-4 {
-  transform: translateX(55px) translateY(19px) rotate(34deg) scale(0.97);
+
+.loto.abierta
+.loto-petalo-trasero-4 {
+    transform:
+        translateX(55px)
+        translateY(19px)
+        rotate(34deg)
+        scale(.97);
 }
 
-.loto.abierta .loto-petalo-trasero-5 {
-  transform: translateX(96px) translateY(61px) rotate(61deg) scale(0.9);
+
+.loto.abierta
+.loto-petalo-trasero-5 {
+    transform:
+        translateX(96px)
+        translateY(61px)
+        rotate(61deg)
+        scale(.90);
 }
 
-.loto.abierta .loto-petalo-medio-1 {
-  transform: translateX(-91px) translateY(35px) rotate(-55deg);
+
+.loto.abierta
+.loto-petalo-medio-1 {
+    transform:
+        translateX(-91px)
+        translateY(35px)
+        rotate(-55deg);
 }
 
-.loto.abierta .loto-petalo-medio-2 {
-  transform: translateX(-49px) translateY(3px) rotate(-32deg);
+
+.loto.abierta
+.loto-petalo-medio-2 {
+    transform:
+        translateX(-49px)
+        translateY(3px)
+        rotate(-32deg);
 }
 
-.loto.abierta .loto-petalo-medio-3 {
-  transform: translateX(49px) translateY(3px) rotate(32deg);
+
+.loto.abierta
+.loto-petalo-medio-3 {
+    transform:
+        translateX(49px)
+        translateY(3px)
+        rotate(32deg);
 }
 
-.loto.abierta .loto-petalo-medio-4 {
-  transform: translateX(91px) translateY(35px) rotate(55deg);
+
+.loto.abierta
+.loto-petalo-medio-4 {
+    transform:
+        translateX(91px)
+        translateY(35px)
+        rotate(55deg);
 }
 
-.loto.abierta .loto-petalo-frontal-1 {
-  transform: translateX(-73px) translateY(23px) rotate(-42deg);
+
+.loto.abierta
+.loto-petalo-frontal-1 {
+    transform:
+        translateX(-73px)
+        translateY(23px)
+        rotate(-42deg);
 }
 
-.loto.abierta .loto-petalo-frontal-2 {
-  transform: translateX(0) translateY(30px) scaleY(0.92);
+
+.loto.abierta
+.loto-petalo-frontal-2 {
+    transform:
+        translateX(0)
+        translateY(30px)
+        scaleY(.92);
 }
 
-.loto.abierta .loto-petalo-frontal-3 {
-  transform: translateX(73px) translateY(23px) rotate(42deg);
+
+.loto.abierta
+.loto-petalo-frontal-3 {
+    transform:
+        translateX(73px)
+        translateY(23px)
+        rotate(42deg);
 }
 
-.loto.abierta .loto-centro {
-  opacity: 1;
 
-  transform: translateY(0) scale(1);
+.loto.abierta
+.loto-centro {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
 }
 
-.loto.abierta .loto-cabeza {
-  animation: loto-resplandor 1s ease;
+
+.loto.abierta
+.loto-cabeza {
+    animation:
+        loto-resplandor
+        1s ease;
 }
+
 
 @keyframes loto-resplandor {
-  50% {
-    filter: drop-shadow(0 0 18px rgba(235, 145, 197, 0.45));
-  }
+    50% {
+        filter:
+            drop-shadow(
+                0 0 18px
+                rgba(235,145,197,.45)
+            );
+    }
 }
+
 
 /* =====================================================
    FLOR DE CEREZO
 ===================================================== */
 
 .cerezo {
-  width: 300px;
-  height: 350px;
+    width: 300px;
+    height: 350px;
 }
+
 
 .cerezo-rama-principal,
 .cerezo-rama {
-  position: absolute;
+    position: absolute;
 
-  z-index: 2;
+    z-index: 2;
 
-  border-radius: 999px;
+    border-radius: 999px;
 
-  transform-origin: left center;
+    transform-origin:
+        left center;
 
-  background: linear-gradient(to bottom, #76523f, #4d342d 55%, #33231f);
+    background:
+        linear-gradient(
+            to bottom,
+            #76523f,
+            #4d342d 55%,
+            #33231f
+        );
 
-  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.1);
+    box-shadow:
+        inset 0 2px 2px
+        rgba(255,255,255,.10);
 }
+
 
 .cerezo-rama-principal {
-  width: 218px;
-  height: 13px;
+    width: 218px;
+    height: 13px;
 
-  left: 40px;
-  top: 176px;
+    left: 40px;
+    top: 176px;
 
-  transform: rotate(-26deg);
+    transform:
+        rotate(-26deg);
 }
+
 
 .cerezo-rama {
-  height: 7px;
+    height: 7px;
 }
+
 
 .cerezo-rama-1 {
-  width: 92px;
+    width: 92px;
 
-  left: 82px;
-  top: 143px;
+    left: 82px;
+    top: 143px;
 
-  transform: rotate(-66deg);
+    transform:
+        rotate(-66deg);
 }
+
 
 .cerezo-rama-2 {
-  width: 102px;
+    width: 102px;
 
-  left: 109px;
-  top: 135px;
+    left: 109px;
+    top: 135px;
 
-  transform: rotate(-31deg);
+    transform:
+        rotate(-31deg);
 }
+
 
 .cerezo-rama-3 {
-  width: 91px;
+    width: 91px;
 
-  left: 145px;
-  top: 127px;
+    left: 145px;
+    top: 127px;
 
-  transform: rotate(24deg);
+    transform:
+        rotate(24deg);
 }
+
 
 .cerezo-rama-4 {
-  width: 77px;
+    width: 77px;
 
-  left: 177px;
-  top: 112px;
+    left: 177px;
+    top: 112px;
 
-  transform: rotate(-48deg);
+    transform:
+        rotate(-48deg);
 }
+
 
 .cerezo-rama-5 {
-  width: 72px;
+    width: 72px;
 
-  left: 196px;
-  top: 139px;
+    left: 196px;
+    top: 139px;
 
-  transform: rotate(35deg);
+    transform:
+        rotate(35deg);
 }
+
 
 .cerezo-flor {
-  position: absolute;
+    position: absolute;
 
-  z-index: 8;
+    z-index: 8;
 
-  width: 54px;
-  height: 54px;
+    width: 54px;
+    height: 54px;
 
-  transform: translate(-50%, -50%) rotate(var(--cerezo-rotacion))
-    scale(var(--cerezo-escala));
+    transform:
+        translate(-50%, -50%)
+        rotate(var(--cerezo-rotacion))
+        scale(var(--cerezo-escala));
 
-  animation: respirar-cerezo 3.8s ease-in-out infinite;
+    animation:
+        respirar-cerezo
+        3.8s ease-in-out infinite;
 
-  animation-delay: var(--cerezo-delay);
+    animation-delay:
+        var(--cerezo-delay);
 }
+
 
 .cerezo-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 25px;
-  height: 30px;
+    width: 25px;
+    height: 30px;
 
-  left: 14.5px;
-  top: 12px;
+    left: 14.5px;
+    top: 12px;
 
-  transform-origin: 50% 78%;
+    transform-origin:
+        50% 78%;
 
-  border-radius: 60% 60% 48% 48% / 72% 72% 38% 38%;
+    border-radius:
+        60% 60% 48% 48%
+        / 72% 72% 38% 38%;
 
-  background: radial-gradient(
-    circle at 50% 76%,
-    #dc7ca6 0%,
-    #ef9fc0 24%,
-    #ffd0df 62%,
-    #fff0f6 100%
-  );
+    background:
+        radial-gradient(
+            circle at 50% 76%,
+            #dc7ca6 0%,
+            #ef9fc0 24%,
+            #ffd0df 62%,
+            #fff0f6 100%
+        );
 
-  box-shadow:
-    inset 0 1px 2px rgba(255, 255, 255, 0.55),
-    0 2px 5px rgba(130, 65, 100, 0.09);
+    box-shadow:
+        inset 0 1px 2px
+        rgba(255,255,255,.55),
+        0 2px 5px
+        rgba(130,65,100,.09);
 }
+
 
 .cerezo-petalo-1 {
-  transform: translateY(-12px) rotate(0deg);
+    transform:
+        translateY(-12px)
+        rotate(0deg);
 }
+
 
 .cerezo-petalo-2 {
-  transform: translate(11px, -2px) rotate(72deg);
+    transform:
+        translate(11px,-2px)
+        rotate(72deg);
 }
+
 
 .cerezo-petalo-3 {
-  transform: translate(7px, 10px) rotate(144deg);
+    transform:
+        translate(7px,10px)
+        rotate(144deg);
 }
+
 
 .cerezo-petalo-4 {
-  transform: translate(-7px, 10px) rotate(216deg);
+    transform:
+        translate(-7px,10px)
+        rotate(216deg);
 }
+
 
 .cerezo-petalo-5 {
-  transform: translate(-11px, -2px) rotate(288deg);
+    transform:
+        translate(-11px,-2px)
+        rotate(288deg);
 }
+
 
 .cerezo-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 11px;
-  height: 11px;
+    width: 11px;
+    height: 11px;
 
-  left: 21.5px;
-  top: 21.5px;
+    left: 21.5px;
+    top: 21.5px;
 
-  z-index: 12;
+    z-index: 12;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #ffe9a5, #d9a84a 68%, #9f6f2f);
+    background:
+        radial-gradient(
+            circle,
+            #ffe9a5,
+            #d9a84a 68%,
+            #9f6f2f
+        );
 
-  box-shadow: 0 0 0 3px rgba(188, 90, 128, 0.12);
+    box-shadow:
+        0 0 0 3px
+        rgba(188,90,128,.12);
 }
+
 
 .cerezo-boton {
-  position: absolute;
+    position: absolute;
 
-  z-index: 7;
+    z-index: 7;
 
-  width: 15px;
-  height: 20px;
+    width: 15px;
+    height: 20px;
 
-  border-radius: 60% 60% 52% 52%;
+    border-radius:
+        60% 60% 52% 52%;
 
-  background: linear-gradient(160deg, #ffd6e5, #e99abb, #c76593);
+    background:
+        linear-gradient(
+            160deg,
+            #ffd6e5,
+            #e99abb,
+            #c76593
+        );
 
-  transform: rotate(18deg);
+    transform:
+        rotate(18deg);
 
-  animation: boton-cerezo 3.5s ease-in-out infinite;
+    animation:
+        boton-cerezo
+        3.5s ease-in-out infinite;
 
-  animation-delay: var(--cerezo-delay);
+    animation-delay:
+        var(--cerezo-delay);
 }
+
 
 @keyframes respirar-cerezo {
-  0%,
-  100% {
-    margin-top: 0;
-  }
+    0%,
+    100% {
+        margin-top: 0;
+    }
 
-  50% {
-    margin-top: -2px;
-  }
+    50% {
+        margin-top: -2px;
+    }
 }
+
 
 @keyframes boton-cerezo {
-  0%,
-  100% {
-    transform: rotate(18deg) translateY(0);
-  }
+    0%,
+    100% {
+        transform:
+            rotate(18deg)
+            translateY(0);
+    }
 
-  50% {
-    transform: rotate(21deg) translateY(-2px);
-  }
+    50% {
+        transform:
+            rotate(21deg)
+            translateY(-2px);
+    }
 }
+
 
 /* =====================================================
    DAMA DE NOCHE
 ===================================================== */
 
 .damanoche {
-  width: 300px;
+    width: 300px;
 }
+
 
 .damanoche-tallo-principal {
-  position: absolute;
+    position: absolute;
 
-  width: 9px;
-  height: 235px;
+    width: 9px;
+    height: 235px;
 
-  left: 146px;
-  top: 112px;
+    left: 146px;
+    top: 112px;
 
-  z-index: 1;
+    z-index: 1;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background: linear-gradient(to right, #24462f, #56795a, #24462f);
+    background:
+        linear-gradient(
+            to right,
+            #24462f,
+            #56795a,
+            #24462f
+        );
 }
+
 
 .damanoche-rama {
-  position: absolute;
+    position: absolute;
 
-  width: 4px;
+    width: 4px;
 
-  z-index: 2;
+    z-index: 2;
 
-  border-radius: 10px;
+    border-radius: 10px;
 
-  transform-origin: bottom center;
+    transform-origin:
+        bottom center;
 
-  background: #607d5d;
+    background:
+        #607d5d;
 }
+
 
 .damanoche-rama-1 {
-  height: 105px;
-  left: 145px;
-  top: 116px;
-  transform: rotate(-48deg);
+    height: 105px;
+    left: 145px;
+    top: 116px;
+    transform: rotate(-48deg);
 }
+
 
 .damanoche-rama-2 {
-  height: 118px;
-  left: 146px;
-  top: 94px;
-  transform: rotate(-26deg);
+    height: 118px;
+    left: 146px;
+    top: 94px;
+    transform: rotate(-26deg);
 }
+
 
 .damanoche-rama-3 {
-  height: 126px;
-  left: 149px;
-  top: 82px;
-  transform: rotate(2deg);
+    height: 126px;
+    left: 149px;
+    top: 82px;
+    transform: rotate(2deg);
 }
+
 
 .damanoche-rama-4 {
-  height: 116px;
-  left: 150px;
-  top: 96px;
-  transform: rotate(27deg);
+    height: 116px;
+    left: 150px;
+    top: 96px;
+    transform: rotate(27deg);
 }
+
 
 .damanoche-rama-5 {
-  height: 102px;
-  left: 151px;
-  top: 121px;
-  transform: rotate(48deg);
+    height: 102px;
+    left: 151px;
+    top: 121px;
+    transform: rotate(48deg);
 }
+
 
 .damanoche-flor {
-  position: absolute;
+    position: absolute;
 
-  z-index: 8;
+    z-index: 8;
 
-  width: 38px;
-  height: 72px;
+    width: 38px;
+    height: 72px;
 
-  transform-origin: center bottom;
+    transform-origin:
+        center bottom;
 
-  transform: translate(-50%, -50%) rotate(var(--damanoche-rotacion))
-    scale(var(--damanoche-escala));
+    transform:
+        translate(-50%,-50%)
+        rotate(var(--damanoche-rotacion))
+        scale(var(--damanoche-escala));
 
-  animation: respirar-damanoche 4.8s ease-in-out infinite;
+    animation:
+        respirar-damanoche
+        4.8s ease-in-out infinite;
 
-  animation-delay: var(--damanoche-delay);
+    animation-delay:
+        var(--damanoche-delay);
 }
+
 
 .damanoche-tubo {
-  position: absolute;
+    position: absolute;
 
-  width: 8px;
-  height: 48px;
+    width: 8px;
+    height: 48px;
 
-  left: 15px;
-  top: 22px;
+    left: 15px;
+    top: 22px;
 
-  border-radius: 8px 8px 18px 18px;
+    border-radius:
+        8px 8px 18px 18px;
 
-  background: linear-gradient(to right, #d8e4bd, #f0f2cf, #c4d59f);
+    background:
+        linear-gradient(
+            to right,
+            #d8e4bd,
+            #f0f2cf,
+            #c4d59f
+        );
 }
+
 
 .damanoche-corola {
-  position: absolute;
+    position: absolute;
 
-  width: 38px;
-  height: 38px;
+    width: 38px;
+    height: 38px;
 
-  left: 0;
-  top: 0;
+    left: 0;
+    top: 0;
 }
+
 
 .damanoche-petalo {
-  position: absolute;
+    position: absolute;
 
-  width: 13px;
-  height: 24px;
+    width: 13px;
+    height: 24px;
 
-  left: 12px;
-  top: 7px;
+    left: 12px;
+    top: 7px;
 
-  transform-origin: 6.5px 13px;
+    transform-origin:
+        6.5px 13px;
 
-  border-radius: 65% 65% 45% 45% / 76% 76% 28% 28%;
+    border-radius:
+        65% 65% 45% 45%
+        / 76% 76% 28% 28%;
 
-  background: linear-gradient(180deg, #ffffff, #f8f7e9, #e9eccf);
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8f7e9,
+            #e9eccf
+        );
 
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.72);
+    box-shadow:
+        inset 0 1px 2px
+        rgba(255,255,255,.72);
 }
 
+
 .damanoche-petalo-1 {
-  transform: rotate(0deg) translateY(-10px);
+    transform:
+        rotate(0deg)
+        translateY(-10px);
 }
 
 .damanoche-petalo-2 {
-  transform: rotate(72deg) translateY(-10px);
+    transform:
+        rotate(72deg)
+        translateY(-10px);
 }
 
 .damanoche-petalo-3 {
-  transform: rotate(144deg) translateY(-10px);
+    transform:
+        rotate(144deg)
+        translateY(-10px);
 }
 
 .damanoche-petalo-4 {
-  transform: rotate(216deg) translateY(-10px);
+    transform:
+        rotate(216deg)
+        translateY(-10px);
 }
 
 .damanoche-petalo-5 {
-  transform: rotate(288deg) translateY(-10px);
+    transform:
+        rotate(288deg)
+        translateY(-10px);
 }
+
 
 .damanoche-centro {
-  position: absolute;
+    position: absolute;
 
-  width: 8px;
-  height: 8px;
+    width: 8px;
+    height: 8px;
 
-  left: 15px;
-  top: 15px;
+    left: 15px;
+    top: 15px;
 
-  z-index: 5;
+    z-index: 5;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: radial-gradient(circle, #fff8b9, #d8c65e);
+    background:
+        radial-gradient(
+            circle,
+            #fff8b9,
+            #d8c65e
+        );
 }
+
 
 .damanoche-boton {
-  position: absolute;
+    position: absolute;
 
-  z-index: 6;
+    z-index: 6;
 
-  width: 11px;
-  height: 33px;
+    width: 11px;
+    height: 33px;
 
-  border-radius: 70% 70% 45% 45%;
+    border-radius:
+        70% 70% 45% 45%;
 
-  background: linear-gradient(180deg, #eef1d3, #cbd8aa, #91a873);
+    background:
+        linear-gradient(
+            180deg,
+            #eef1d3,
+            #cbd8aa,
+            #91a873
+        );
 
-  transform: rotate(var(--damanoche-boton-rot));
+    transform:
+        rotate(var(--damanoche-boton-rot));
 
-  animation: boton-damanoche 4.2s ease-in-out infinite;
+    animation:
+        boton-damanoche
+        4.2s ease-in-out infinite;
 
-  animation-delay: var(--damanoche-delay);
+    animation-delay:
+        var(--damanoche-delay);
 }
+
 
 .damanoche-hoja {
-  position: absolute;
+    position: absolute;
 
-  z-index: 3;
+    z-index: 3;
 
-  width: 96px;
-  height: 50px;
+    width: 96px;
+    height: 50px;
 
-  border-radius: 100% 8% 100% 8%;
+    border-radius:
+        100% 8% 100% 8%;
 
-  background: linear-gradient(145deg, #254b31, #4f7850, #79956b);
+    background:
+        linear-gradient(
+            145deg,
+            #254b31,
+            #4f7850,
+            #79956b
+        );
 }
+
 
 .damanoche-hoja-izquierda {
-  left: 57px;
-  top: 246px;
+    left: 57px;
+    top: 246px;
 
-  transform: rotate(-23deg);
+    transform:
+        rotate(-23deg);
 }
+
 
 .damanoche-hoja-derecha {
-  left: 141px;
-  top: 266px;
+    left: 141px;
+    top: 266px;
 
-  transform: rotate(22deg) scaleX(-1);
+    transform:
+        rotate(22deg)
+        scaleX(-1);
 }
 
-body.modo-noche .damanoche-flor {
-  filter: drop-shadow(0 0 7px rgba(248, 248, 223, 0.22));
+
+body.modo-noche
+.damanoche-flor {
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(248,248,223,.22)
+        );
 }
+
 
 @keyframes respirar-damanoche {
-  0%,
-  100% {
-    margin-top: 0;
-  }
+    0%,
+    100% {
+        margin-top: 0;
+    }
 
-  50% {
-    margin-top: -2px;
-  }
+    50% {
+        margin-top: -2px;
+    }
 }
+
 
 @keyframes boton-damanoche {
-  0%,
-  100% {
-    margin-top: 0;
-  }
+    0%,
+    100% {
+        margin-top: 0;
+    }
 
-  50% {
-    margin-top: -2px;
-  }
+    50% {
+        margin-top: -2px;
+    }
 }
+
+
 
 /* =====================================================
    GARDENIA BLANCA
 ===================================================== */
 
 .gardenia {
-  width: 290px;
+    width: 290px;
 }
 
 .gardenia-tallo {
-  position: absolute;
-  width: 13px;
-  height: 190px;
-  left: 139px;
-  top: 160px;
-  z-index: 1;
-  border-radius: 20px;
-  background: linear-gradient(to right, #244b2e, #5d8454, #244b2e);
+    position: absolute;
+    width: 13px;
+    height: 190px;
+    left: 139px;
+    top: 160px;
+    z-index: 1;
+    border-radius: 20px;
+    background: linear-gradient(to right,#244b2e,#5d8454,#244b2e);
 }
 
 .gardenia-cabeza {
-  position: absolute;
-  width: 235px;
-  height: 225px;
-  left: 27px;
-  top: 0;
-  z-index: 8;
-  animation: respirar-gardenia 5.2s ease-in-out infinite;
+    position: absolute;
+    width: 235px;
+    height: 225px;
+    left: 27px;
+    top: 0;
+    z-index: 8;
+    animation: respirar-gardenia 5.2s ease-in-out infinite;
 }
 
 .gardenia-petalo-wrap {
-  position: absolute;
-  width: 72px;
-  height: 122px;
-  left: 81px;
-  top: 53px;
-  transform-origin: 36px 61px;
-  transform: rotate(var(--gardenia-angulo));
+    position: absolute;
+    width: 72px;
+    height: 122px;
+    left: 81px;
+    top: 53px;
+    transform-origin: 36px 61px;
+    transform: rotate(var(--gardenia-angulo));
 }
 
 .gardenia-petalo {
-  position: absolute;
-  width: 72px;
-  height: 88px;
-  transform: translateY(calc(-1 * var(--gardenia-radio)))
-    scale(var(--gardenia-escala));
-  border-radius: 57% 57% 43% 43% / 70% 70% 35% 35%;
-  background: radial-gradient(
-    ellipse at 50% 78%,
-    #d8cfb5 0%,
-    #f5f0dd 31%,
-    #fffdf5 70%,
-    #ffffff 100%
-  );
-  box-shadow:
-    inset 0 1px 3px rgba(255, 255, 255, 0.88),
-    0 3px 7px rgba(65, 55, 38, 0.07);
+    position: absolute;
+    width: 72px;
+    height: 88px;
+    transform: translateY(calc(-1 * var(--gardenia-radio))) scale(var(--gardenia-escala));
+    border-radius: 57% 57% 43% 43% / 70% 70% 35% 35%;
+    background: radial-gradient(ellipse at 50% 78%,#d8cfb5 0%,#f5f0dd 31%,#fffdf5 70%,#ffffff 100%);
+    box-shadow: inset 0 1px 3px rgba(255,255,255,.88),0 3px 7px rgba(65,55,38,.07);
 }
 
 .gardenia-capa-media .gardenia-petalo {
-  background: radial-gradient(
-    ellipse at 50% 80%,
-    #ded3b7,
-    #faf6e7 42%,
-    #ffffff 100%
-  );
+    background: radial-gradient(ellipse at 50% 80%,#ded3b7,#faf6e7 42%,#ffffff 100%);
 }
 
 .gardenia-capa-centro .gardenia-petalo {
-  background: linear-gradient(180deg, #fffef7, #efe6ca);
+    background: linear-gradient(180deg,#fffef7,#efe6ca);
 }
 
 .gardenia-centro {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 102px;
-  top: 99px;
-  z-index: 20;
-  border-radius: 50%;
-  background: radial-gradient(circle, #f5df8b, #d3ad49 68%, #9d7632);
-  box-shadow: 0 0 0 5px rgba(225, 211, 170, 0.18);
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 102px;
+    top: 99px;
+    z-index: 20;
+    border-radius: 50%;
+    background: radial-gradient(circle,#f5df8b,#d3ad49 68%,#9d7632);
+    box-shadow: 0 0 0 5px rgba(225,211,170,.18);
 }
 
 .gardenia-hoja {
-  position: absolute;
-  z-index: 3;
-  width: 104px;
-  height: 58px;
-  border-radius: 100% 5% 100% 5%;
-  background: linear-gradient(145deg, #173c25, #32633a, #648451);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.12);
+    position: absolute;
+    z-index: 3;
+    width: 104px;
+    height: 58px;
+    border-radius: 100% 5% 100% 5%;
+    background: linear-gradient(145deg,#173c25,#32633a,#648451);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,.12);
 }
 
 .gardenia-hoja::after {
-  content: "";
-  position: absolute;
-  width: 78%;
-  height: 2px;
-  left: 12%;
-  top: 50%;
-  background: rgba(205, 229, 185, 0.16);
+    content: "";
+    position: absolute;
+    width: 78%;
+    height: 2px;
+    left: 12%;
+    top: 50%;
+    background: rgba(205,229,185,.16);
 }
 
 .gardenia-hoja-izquierda {
-  left: 48px;
-  top: 234px;
-  transform: rotate(-21deg);
+    left: 48px;
+    top: 234px;
+    transform: rotate(-21deg);
 }
 
 .gardenia-hoja-derecha {
-  left: 137px;
-  top: 254px;
-  transform: rotate(20deg) scaleX(-1);
+    left: 137px;
+    top: 254px;
+    transform: rotate(20deg) scaleX(-1);
 }
 
 .gardenia-hoja-centro {
-  width: 82px;
-  height: 47px;
-  left: 102px;
-  top: 203px;
-  z-index: 2;
-  transform: rotate(3deg) scale(0.88);
+    width: 82px;
+    height: 47px;
+    left: 102px;
+    top: 203px;
+    z-index: 2;
+    transform: rotate(3deg) scale(.88);
 }
 
 @keyframes respirar-gardenia {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.015);
-  }
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.015); }
 }
+
 
 /* =====================================================
    JACARANDA
 ===================================================== */
 
 .jacaranda {
-  width: 310px;
+    width: 310px;
 }
 
 .jacaranda-rama-principal,
 .jacaranda-rama {
-  position: absolute;
-  z-index: 2;
-  border-radius: 999px;
-  transform-origin: left center;
-  background: linear-gradient(to bottom, #6d5544, #4c382f 58%, #33251f);
+    position: absolute;
+    z-index: 2;
+    border-radius: 999px;
+    transform-origin: left center;
+    background: linear-gradient(to bottom,#6d5544,#4c382f 58%,#33251f);
 }
 
 .jacaranda-rama-principal {
-  width: 226px;
-  height: 12px;
-  left: 39px;
-  top: 186px;
-  transform: rotate(-23deg);
+    width: 226px;
+    height: 12px;
+    left: 39px;
+    top: 186px;
+    transform: rotate(-23deg);
 }
 
-.jacaranda-rama {
-  height: 6px;
-}
-.jacaranda-rama-1 {
-  width: 91px;
-  left: 79px;
-  top: 154px;
-  transform: rotate(-63deg);
-}
-.jacaranda-rama-2 {
-  width: 103px;
-  left: 109px;
-  top: 143px;
-  transform: rotate(-34deg);
-}
-.jacaranda-rama-3 {
-  width: 91px;
-  left: 143px;
-  top: 132px;
-  transform: rotate(14deg);
-}
-.jacaranda-rama-4 {
-  width: 78px;
-  left: 172px;
-  top: 120px;
-  transform: rotate(-45deg);
-}
-.jacaranda-rama-5 {
-  width: 76px;
-  left: 194px;
-  top: 145px;
-  transform: rotate(34deg);
-}
-.jacaranda-rama-6 {
-  width: 63px;
-  left: 126px;
-  top: 171px;
-  transform: rotate(49deg);
-}
+.jacaranda-rama { height: 6px; }
+.jacaranda-rama-1 { width:91px; left:79px; top:154px; transform:rotate(-63deg); }
+.jacaranda-rama-2 { width:103px; left:109px; top:143px; transform:rotate(-34deg); }
+.jacaranda-rama-3 { width:91px; left:143px; top:132px; transform:rotate(14deg); }
+.jacaranda-rama-4 { width:78px; left:172px; top:120px; transform:rotate(-45deg); }
+.jacaranda-rama-5 { width:76px; left:194px; top:145px; transform:rotate(34deg); }
+.jacaranda-rama-6 { width:63px; left:126px; top:171px; transform:rotate(49deg); }
 
 .jacaranda-flor {
-  position: absolute;
-  z-index: 9;
-  width: 34px;
-  height: 56px;
-  transform-origin: center bottom;
-  transform: translate(-50%, -50%) rotate(var(--jacaranda-rotacion))
-    scale(var(--jacaranda-escala));
-  animation: respirar-jacaranda 4.4s ease-in-out infinite;
-  animation-delay: var(--jacaranda-delay);
+    position: absolute;
+    z-index: 9;
+    width: 34px;
+    height: 56px;
+    transform-origin: center bottom;
+    transform: translate(-50%,-50%) rotate(var(--jacaranda-rotacion)) scale(var(--jacaranda-escala));
+    animation: respirar-jacaranda 4.4s ease-in-out infinite;
+    animation-delay: var(--jacaranda-delay);
 }
 
 .jacaranda-tubo {
-  position: absolute;
-  width: 10px;
-  height: 35px;
-  left: 12px;
-  top: 20px;
-  border-radius: 7px 7px 14px 14px;
-  background: linear-gradient(to right, #744ca8, #a97bd4, #684091);
+    position: absolute;
+    width: 10px;
+    height: 35px;
+    left: 12px;
+    top: 20px;
+    border-radius: 7px 7px 14px 14px;
+    background: linear-gradient(to right,#744ca8,#a97bd4,#684091);
 }
 
 .jacaranda-corola {
-  position: absolute;
-  width: 34px;
-  height: 34px;
-  left: 0;
-  top: 0;
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    left: 0;
+    top: 0;
 }
 
 .jacaranda-petalo {
-  position: absolute;
-  width: 13px;
-  height: 23px;
-  left: 10.5px;
-  top: 7px;
-  transform-origin: 6.5px 13px;
-  border-radius: 65% 65% 45% 45% / 76% 76% 30% 30%;
-  background: linear-gradient(180deg, #d9bcf4, #a76ed8 48%, #7040a9);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35);
+    position: absolute;
+    width: 13px;
+    height: 23px;
+    left: 10.5px;
+    top: 7px;
+    transform-origin: 6.5px 13px;
+    border-radius: 65% 65% 45% 45% / 76% 76% 30% 30%;
+    background: linear-gradient(180deg,#d9bcf4,#a76ed8 48%,#7040a9);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,.35);
 }
 
-.jacaranda-petalo-1 {
-  transform: rotate(0deg) translateY(-9px);
-}
-.jacaranda-petalo-2 {
-  transform: rotate(72deg) translateY(-9px);
-}
-.jacaranda-petalo-3 {
-  transform: rotate(144deg) translateY(-9px);
-}
-.jacaranda-petalo-4 {
-  transform: rotate(216deg) translateY(-9px);
-}
-.jacaranda-petalo-5 {
-  transform: rotate(288deg) translateY(-9px);
-}
+.jacaranda-petalo-1 { transform: rotate(0deg) translateY(-9px); }
+.jacaranda-petalo-2 { transform: rotate(72deg) translateY(-9px); }
+.jacaranda-petalo-3 { transform: rotate(144deg) translateY(-9px); }
+.jacaranda-petalo-4 { transform: rotate(216deg) translateY(-9px); }
+.jacaranda-petalo-5 { transform: rotate(288deg) translateY(-9px); }
 
 .jacaranda-centro {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  left: 13px;
-  top: 13px;
-  z-index: 8;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff0a9, #d9bd56);
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    left: 13px;
+    top: 13px;
+    z-index: 8;
+    border-radius: 50%;
+    background: radial-gradient(circle,#fff0a9,#d9bd56);
 }
 
 .jacaranda-hoja {
-  position: absolute;
-  z-index: 5;
-  width: 75px;
-  height: 32px;
-  transform-origin: left center;
+    position: absolute;
+    z-index: 5;
+    width: 75px;
+    height: 32px;
+    transform-origin: left center;
 }
 
 .jacaranda-foliolo {
-  position: absolute;
-  width: 22px;
-  height: 8px;
-  left: 27px;
-  top: 12px;
-  border-radius: 100% 5% 100% 5%;
-  background: linear-gradient(145deg, #2d5733, #638157);
-  transform-origin: 3px 4px;
+    position: absolute;
+    width: 22px;
+    height: 8px;
+    left: 27px;
+    top: 12px;
+    border-radius: 100% 5% 100% 5%;
+    background: linear-gradient(145deg,#2d5733,#638157);
+    transform-origin: 3px 4px;
 }
 
-.jacaranda-foliolo-1 {
-  transform: translate(-20px, -8px) rotate(-35deg);
-}
-.jacaranda-foliolo-2 {
-  transform: translate(-9px, -4px) rotate(-20deg);
-}
-.jacaranda-foliolo-3 {
-  transform: translate(2px, -1px) rotate(-6deg);
-}
-.jacaranda-foliolo-4 {
-  transform: translate(13px, 2px) rotate(8deg);
-}
-.jacaranda-foliolo-5 {
-  transform: translate(-11px, 7px) rotate(18deg) scaleY(-1);
-}
-.jacaranda-foliolo-6 {
-  transform: translate(2px, 9px) rotate(6deg) scaleY(-1);
-}
-.jacaranda-foliolo-7 {
-  transform: translate(16px, 8px) rotate(-10deg) scaleY(-1);
-}
+.jacaranda-foliolo-1 { transform: translate(-20px,-8px) rotate(-35deg); }
+.jacaranda-foliolo-2 { transform: translate(-9px,-4px) rotate(-20deg); }
+.jacaranda-foliolo-3 { transform: translate(2px,-1px) rotate(-6deg); }
+.jacaranda-foliolo-4 { transform: translate(13px,2px) rotate(8deg); }
+.jacaranda-foliolo-5 { transform: translate(-11px,7px) rotate(18deg) scaleY(-1); }
+.jacaranda-foliolo-6 { transform: translate(2px,9px) rotate(6deg) scaleY(-1); }
+.jacaranda-foliolo-7 { transform: translate(16px,8px) rotate(-10deg) scaleY(-1); }
 
-.jacaranda-hoja-1 {
-  left: 75px;
-  top: 205px;
-  transform: rotate(-33deg);
-}
-.jacaranda-hoja-2 {
-  left: 108px;
-  top: 230px;
-  transform: rotate(-14deg);
-}
-.jacaranda-hoja-3 {
-  left: 148px;
-  top: 211px;
-  transform: rotate(12deg);
-}
-.jacaranda-hoja-4 {
-  left: 183px;
-  top: 234px;
-  transform: rotate(28deg);
-}
-.jacaranda-hoja-5 {
-  left: 132px;
-  top: 267px;
-  transform: rotate(5deg);
-}
+.jacaranda-hoja-1 { left:75px; top:205px; transform:rotate(-33deg); }
+.jacaranda-hoja-2 { left:108px; top:230px; transform:rotate(-14deg); }
+.jacaranda-hoja-3 { left:148px; top:211px; transform:rotate(12deg); }
+.jacaranda-hoja-4 { left:183px; top:234px; transform:rotate(28deg); }
+.jacaranda-hoja-5 { left:132px; top:267px; transform:rotate(5deg); }
 
 @keyframes respirar-jacaranda {
-  0%,
-  100% {
-    margin-top: 0;
-  }
-  50% {
-    margin-top: -2px;
-  }
+    0%,100% { margin-top: 0; }
+    50% { margin-top: -2px; }
 }
+
 
 /* =====================================================
    RESPONSIVE
 ===================================================== */
 
 @media (max-width: 600px) {
-  .girasol,
-  .tulipan,
-  .lirio,
-  .flor-nube,
-  .peonia,
-  .camelia,
-  .jazmin,
-  .orquidea,
-  .lavanda,
-  .anemona,
-  .magnolia,
-  .nomeolvides,
-  .clavel,
-  .dalia,
-  .loto,
-  .cerezo,
-  .damanoche,
-  .gardenia,
-  .jacaranda {
-    --escala-flor: 0.92;
 
-    transform-origin: center bottom;
-  }
+    .girasol,
+    .tulipan,
+    .lirio,
+    .flor-nube,
+    .peonia,
+    .camelia,
+    .jazmin,
+    .orquidea,
+    .lavanda,
+    .anemona,
+    .magnolia,
+    .nomeolvides,
+    .clavel,
+    .dalia,
+    .loto,
+    .cerezo,
+    .damanoche,
+    .gardenia,
+    .jacaranda {
+        --escala-flor: .92;
+
+        transform-origin:
+            center bottom;
+    }
 }
 
 /* =====================================================
@@ -3386,30 +4311,30 @@ body.modo-noche .damanoche-flor {
 ===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .girasol,
-  .tulipan,
-  .lirio,
-  .flor-nube,
-  .peonia,
-  .camelia,
-  .jazmin,
-  .orquidea,
-  .lavanda,
-  .anemona,
-  .magnolia,
-  .nomeolvides,
-  .clavel,
-  .dalia,
-  .loto,
-  .cerezo,
-  .damanoche,
-  .gardenia,
-  .jacaranda,
-  .cerezo-flor,
-  .cerezo-boton,
-  .damanoche-flor,
-  .damanoche-boton {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-  }
+    .girasol,
+    .tulipan,
+    .lirio,
+    .flor-nube,
+    .peonia,
+    .camelia,
+    .jazmin,
+    .orquidea,
+    .lavanda,
+    .anemona,
+    .magnolia,
+    .nomeolvides,
+    .clavel,
+    .dalia,
+    .loto,
+    .cerezo,
+    .damanoche,
+    .gardenia,
+    .jacaranda,
+    .cerezo-flor,
+    .cerezo-boton,
+    .damanoche-flor,
+    .damanoche-boton {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }

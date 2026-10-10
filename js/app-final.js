@@ -16,9 +16,9 @@ const ultimaDespedida =
     despedidasObtenidas.length
         ?
         despedidas[
-        despedidasObtenidas[
-        despedidasObtenidas.length - 1
-        ] - 1
+            despedidasObtenidas[
+                despedidasObtenidas.length - 1
+            ] - 1
         ]
         :
         "Vuelve de vez en cuando.";

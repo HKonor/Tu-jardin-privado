@@ -794,28 +794,6 @@ controlMusicaFondo.className =
 
 
 controlMusicaFondo.innerHTML = `
-    <div class="info-musica-fondo">
-
-        <span class="etiqueta-musica-fondo">
-            MÚSICA DE FONDO
-        </span>
-
-        <strong
-            id="titulo-musica-fondo"
-            class="titulo-musica-fondo"
-        >
-            ${LISTA_MUSICA_FONDO[0].titulo}
-        </strong>
-
-        <span
-            id="contador-musica-fondo"
-            class="contador-musica-fondo"
-        >
-            1/${LISTA_MUSICA_FONDO.length}
-        </span>
-
-    </div>
-
     <div class="acciones-musica-fondo">
 
         <button
@@ -839,8 +817,26 @@ controlMusicaFondo.innerHTML = `
                 ♫
             </span>
 
-            <span class="texto-musica-fondo">
-                Música
+            <span class="datos-musica-compactos">
+                <strong
+                    id="titulo-musica-fondo"
+                    class="titulo-musica-fondo"
+                >
+                    ${LISTA_MUSICA_FONDO[0].titulo}
+                </strong>
+
+                <span class="estado-musica-compacto">
+                    <span class="texto-musica-fondo">
+                        Música
+                    </span>
+
+                    <span
+                        id="contador-musica-fondo"
+                        class="contador-musica-fondo"
+                    >
+                        1/${LISTA_MUSICA_FONDO.length}
+                    </span>
+                </span>
             </span>
         </button>
 
