@@ -340,6 +340,31 @@ let horasNotas =
 
 
 /* =====================================================
+   SEGUNDA FRASE — AMOR
+
+   Las claves anteriores permanecen intactas.
+   Esta segunda colección utiliza claves nuevas.
+===================================================== */
+
+const fraseAmor =
+    window.JARDIN_EXT?.fraseAmor || [];
+
+
+let notasAmorObtenidas =
+    leerJSON(
+        "jardin_notas_amor_v1",
+        []
+    );
+
+
+let horasNotasAmor =
+    leerJSON(
+        "jardin_horas_notas_amor_v1",
+        []
+    );
+
+
+/* =====================================================
    DESPEDIDAS
 ===================================================== */
 
@@ -2213,6 +2238,22 @@ const floresDelJardin = [
 ];
 
 
+/* =====================================================
+   CONTENIDO NUEVO CARGADO DESDE contenido-nuevo.js
+===================================================== */
+
+if (
+    window.JARDIN_EXT &&
+    Array.isArray(
+        window.JARDIN_EXT.flores
+    )
+) {
+    floresDelJardin.push(
+        ...window.JARDIN_EXT.flores
+    );
+}
+
+
 const cantidadFloresPublicas =
     floresDelJardin.filter(
         item =>
@@ -2250,6 +2291,10 @@ const florSecreta = {
     microMensaje:
         "No siempre estuvo visible."
 };
+
+
+const florSecretaAmor =
+    window.JARDIN_EXT?.florSecretaAmor || null;
 
 
 /* =====================================================
@@ -3874,6 +3919,46 @@ function htmlFrase() {
 }
 
 
+function htmlFraseAmor() {
+
+    return fraseAmor
+        .map(
+            item => {
+
+                const encontrada =
+                    notasAmorObtenidas.includes(
+                        item.id
+                    );
+
+
+                return `
+                    <span
+                        class="
+                            fragmento-frase
+                            ${
+                                encontrada
+                                    ?
+                                    "descubierto"
+                                    :
+                                    "oculto"
+                            }
+                        "
+                    >
+                        ${
+                            encontrada
+                                ?
+                                item.fragmento
+                                :
+                                "•••"
+                        }
+                    </span>
+                `;
+            }
+        )
+        .join("");
+}
+
+
 function actualizarProgreso() {
 
     const total =
@@ -3886,6 +3971,16 @@ function actualizarProgreso() {
             100,
             total / 40 * 100
         );
+
+
+    const fraseUnoCompleta =
+        notasObtenidas.length >= 20;
+
+
+    const fraseDosCompleta =
+        fraseAmor.length > 0 &&
+        notasAmorObtenidas.length >=
+        fraseAmor.length;
 
 
     panelProgreso.innerHTML = `
@@ -3941,6 +4036,14 @@ function actualizarProgreso() {
                 ${despedidasObtenidas.length}/20 despedidas
             </span>
 
+            ${
+                fraseUnoCompleta
+                    ?
+                    `<span>${notasAmorObtenidas.length}/${fraseAmor.length} frase II</span>`
+                    :
+                    ""
+            }
+
         </div>
 
         <button
@@ -3966,6 +4069,34 @@ function actualizarProgreso() {
             </div>
 
         </div>
+
+        ${
+            fraseUnoCompleta
+                ?
+                `
+                    <div class="frase-amor-panel">
+                        <p>
+                            SEGUNDA FRASE
+                        </p>
+
+                        <div class="frase-fragmentos">
+                            ${htmlFraseAmor()}
+                        </div>
+
+                        <span class="frase-amor-estado ${fraseDosCompleta ? "frase-amor-completa" : ""}">
+                            ${
+                                fraseDosCompleta
+                                    ?
+                                    "Frase completa · apareció algo nuevo"
+                                    :
+                                    `${notasAmorObtenidas.length}/${fraseAmor.length} fragmentos encontrados`
+                            }
+                        </span>
+                    </div>
+                `
+                :
+                ""
+        }
     `;
 
 
@@ -4073,6 +4204,10 @@ function actualizarFavoritas() {
 
 function abrirColeccion() {
 
+    const fraseUnoCompleta =
+        notasObtenidas.length >= 20;
+
+
     contenidoModal.innerHTML = `
         <div class="coleccion-modal">
 
@@ -4100,6 +4235,21 @@ function abrirColeccion() {
                     Despedidas ${despedidasObtenidas.length}/20
                 </button>
 
+                ${
+                    fraseUnoCompleta
+                        ?
+                        `
+                            <button
+                                class="tab-coleccion"
+                                data-tab="amor"
+                            >
+                                Frase II ${notasAmorObtenidas.length}/${fraseAmor.length}
+                            </button>
+                        `
+                        :
+                        ""
+                }
+
             </div>
 
             <div
@@ -4111,6 +4261,19 @@ function abrirColeccion() {
                 id="tab-despedidas"
                 class="contenido-tab-coleccion oculto"
             ></div>
+
+            ${
+                fraseUnoCompleta
+                    ?
+                    `
+                        <div
+                            id="tab-amor"
+                            class="contenido-tab-coleccion oculto"
+                        ></div>
+                    `
+                    :
+                    ""
+            }
 
         </div>
     `;
@@ -4279,6 +4442,101 @@ function abrirColeccion() {
     `;
 
 
+    const amor =
+        document.getElementById(
+            "tab-amor"
+        );
+
+
+    if (amor) {
+
+        amor.innerHTML = `
+            <div class="frase-coleccion">
+
+                <p>
+                    Esta vez la frase ya no intenta disimular demasiado:
+                </p>
+
+                <div class="frase-fragmentos">
+                    ${htmlFraseAmor()}
+                </div>
+
+            </div>
+
+            <div class="rejilla-coleccion">
+
+                ${
+                    fraseAmor.map(
+                        (
+                            item,
+                            indice
+                        ) => {
+
+                            const encontrada =
+                                notasAmorObtenidas.includes(
+                                    item.id
+                                );
+
+
+                            return `
+                                <article
+                                    class="
+                                        coleccion-item
+                                        ${
+                                            encontrada
+                                                ?
+                                                "conseguido"
+                                                :
+                                                "bloqueado"
+                                        }
+                                    "
+                                >
+
+                                    <span class="numero-coleccion">
+                                        ${String(indice + 1).padStart(2,"0")}
+                                    </span>
+
+                                    <p class="estado-coleccion">
+                                        ${
+                                            encontrada
+                                                ?
+                                                "ENCONTRADA"
+                                                :
+                                                "BLOQUEADA"
+                                        }
+                                    </p>
+
+                                    <h4>
+                                        ${
+                                            encontrada
+                                                ?
+                                                item.titulo
+                                                :
+                                                "Nota desconocida"
+                                        }
+                                    </h4>
+
+                                    <p>
+                                        ${
+                                            encontrada
+                                                ?
+                                                item.nota
+                                                :
+                                                "La segunda frase sigue creciendo."
+                                        }
+                                    </p>
+
+                                </article>
+                            `;
+                        }
+                    ).join("")
+                }
+
+            </div>
+        `;
+    }
+
+
     document
         .querySelectorAll(
             ".tab-coleccion"
@@ -4311,16 +4569,20 @@ function abrirColeccion() {
                             boton.dataset.tab;
 
 
-                        notas.classList.toggle(
-                            "oculto",
-                            tab !== "notas"
-                        );
+                        document
+                            .querySelectorAll(
+                                ".contenido-tab-coleccion"
+                            )
+                            .forEach(
+                                contenido => {
 
-
-                        desp.classList.toggle(
-                            "oculto",
-                            tab !== "despedidas"
-                        );
+                                    contenido.classList.toggle(
+                                        "oculto",
+                                        contenido.id !==
+                                        `tab-${tab}`
+                                    );
+                                }
+                            );
                     }
                 );
             }
@@ -4337,11 +4599,123 @@ function abrirColeccion() {
    HORAS PARES
 ===================================================== */
 
+function revisarHoraFraseAmor() {
+
+    if (
+        notasObtenidas.length < 20 ||
+        !fraseAmor.length ||
+        notasAmorObtenidas.length >=
+        fraseAmor.length
+    ) {
+        return;
+    }
+
+
+    const ahora =
+        new Date();
+
+
+    if (
+        ahora.getHours() % 2 !== 0
+    ) {
+        return;
+    }
+
+
+    const clave =
+        claveHora(
+            ahora
+        );
+
+
+    /* Evita entregar una nota de la segunda frase
+       en la misma hora en la que apareció una de la primera. */
+    if (
+        horasNotas.includes(
+            clave
+        ) ||
+        horasNotasAmor.includes(
+            clave
+        )
+    ) {
+        return;
+    }
+
+
+    const siguiente =
+        fraseAmor[
+            notasAmorObtenidas.length
+        ];
+
+
+    horasNotasAmor.push(
+        clave
+    );
+
+
+    notasAmorObtenidas.push(
+        siguiente.id
+    );
+
+
+    guardarJSON(
+        "jardin_horas_notas_amor_v1",
+        horasNotasAmor
+    );
+
+
+    guardarJSON(
+        "jardin_notas_amor_v1",
+        notasAmorObtenidas
+    );
+
+
+    actualizarProgreso();
+
+
+    comprobarFlorSecretaAmor();
+
+
+    contenidoModal.innerHTML = `
+        <div class="nuevo-coleccionable">
+
+            <p class="modal-etiqueta">
+                APARECIÓ UNA NOTA DE LA SEGUNDA FRASE
+            </p>
+
+            <h2>
+                ${siguiente.titulo}
+            </h2>
+
+            <div class="nota-encontrada">
+
+                <p>
+                    ${siguiente.nota}
+                </p>
+
+                <strong>
+                    ${siguiente.fragmento}
+                </strong>
+
+            </div>
+
+        </div>
+    `;
+
+
+    capaModal.classList.add(
+        "mostrar"
+    );
+}
+
+
 function revisarHoraColeccionable() {
 
     if (
         notasObtenidas.length >= 20
     ) {
+
+        revisarHoraFraseAmor();
         return;
     }
 
@@ -4533,1147 +4907,48 @@ function comprobarDalia() {
 
 
 /* =====================================================
-   FONDO
+   FLOR SECRETA DE LA SEGUNDA FRASE
 ===================================================== */
 
-const botonFondo =
-    document.getElementById(
-        "boton-fondo"
-    );
-
-
-let timerNoche;
-
-
-let larga =
-    false;
-
-
-botonFondo.addEventListener(
-    "pointerdown",
-    () => {
-
-        timerNoche =
-            setTimeout(
-                () => {
-
-                    larga = true;
-
-
-                    document.body.classList.toggle(
-                        "modo-noche"
-                    );
-
-
-                    setTimeout(
-                        () => {
-
-                            larga = false;
-
-                        },
-                        500
-                    );
-
-                },
-                2800
-            );
-    }
-);
-
-
-[
-    "pointerup",
-    "pointerleave",
-    "pointercancel"
-].forEach(
-    evento => {
-
-        botonFondo.addEventListener(
-            evento,
-            () => {
-
-                clearTimeout(
-                    timerNoche
-                );
-            }
-        );
-    }
-);
-
-
-botonFondo.addEventListener(
-    "click",
-    () => {
-
-        if (larga) {
-
-            return;
-        }
-
-
-        if (
-            document.body.classList.contains(
-                "modo-noche"
-            )
-        ) {
-
-            document.body.classList.remove(
-                "modo-noche"
-            );
-
-            return;
-        }
-
-
-        document.body.classList.toggle(
-            "tema-morado"
-        );
-
-
-        botonFondo.textContent =
-            document.body.classList.contains(
-                "tema-morado"
-            )
-                ?
-                "Cambiar a fondo amarillo"
-                :
-                "Cambiar a fondo morado";
-    }
-);
-
-
-/* =====================================================
-   LLUVIA DESPUÉS DE 2 MIN
-===================================================== */
-
-function lluviaEspecial() {
-
-    const lluvia =
-        document.createElement(
-            "div"
-        );
-
-
-    lluvia.className =
-        "lluvia-especial";
-
-
-    for (let i = 0; i < 48; i++) {
-
-        const petalo =
-            document.createElement(
-                "span"
-            );
-
-
-        petalo.className =
-            "particula-lluvia";
-
-
-        petalo.style.left =
-            `${Math.random() * 100}%`;
-
-
-        petalo.style.setProperty(
-            "--retraso",
-            `${Math.random() * -8}s`
-        );
-
-
-        petalo.style.setProperty(
-            "--duracion",
-            `${5 + Math.random() * 5}s`
-        );
-
-
-        petalo.style.setProperty(
-            "--tamano",
-            `${6 + Math.random() * 8}px`
-        );
-
-
-        lluvia.appendChild(
-            petalo
-        );
-    }
-
-
-    document.body.appendChild(
-        lluvia
-    );
-
-
-    setTimeout(
-        () => {
-
-            lluvia.remove();
-
-        },
-        14500
-    );
-}
-
-
-setTimeout(
-    lluviaEspecial,
-    120000
-);
-
-
-/* =====================================================
-   MARIPOSAS
-===================================================== */
-
-let mariposasAplastadas =
-    Number(
-        localStorage.getItem(
-            CLAVES.mariposasAplastadas
-        ) || 0
-    );
-
-
-const mensajesMariposa = [
-
-    "La alcanzaste.",
-
-    "Pobre mariposa...",
-
-    "Otra cayó en el jardín.",
-
-    "Definitivamente te gusta aplastarlas.",
-
-    "Bueno... esa tampoco sobrevivió.",
-
-    "Los pétalos fueron lo único que quedó.",
-
-    "Otra más. Ya les estás agarrando práctica."
-];
-
-
-const coloresMariposas = [
-
-    "mariposa-rosa",
-
-    "mariposa-azul",
-
-    "mariposa-morada",
-
-    "mariposa-naranja",
-
-    "mariposa-verde",
-
-    "mariposa-roja",
-
-    "mariposa-blanca",
-
-    "mariposa-turquesa"
-];
-
-
-function explosionPetalos(
-    x,
-    y,
-    color1,
-    color2
-) {
-
-    const explosion =
-        document.createElement(
-            "div"
-        );
-
-
-    explosion.className =
-        "explosion-petalos";
-
-
-    explosion.style.left =
-        `${x}px`;
-
-
-    explosion.style.top =
-        `${y}px`;
-
-
-    explosion.style.setProperty(
-        "--petalo-golpe-1",
-        color1
-    );
-
-
-    explosion.style.setProperty(
-        "--petalo-golpe-2",
-        color2
-    );
-
-
-    for (let i = 0; i < 22; i++) {
-
-        const petalo =
-            document.createElement(
-                "span"
-            );
-
-
-        const angulo =
-            Math.random() *
-            Math.PI *
-            2;
-
-
-        const distancia =
-            45 +
-            Math.random() *
-            90;
-
-
-        petalo.className =
-            "petalo-explosion";
-
-
-        petalo.style.setProperty(
-            "--petalo-x",
-            `${Math.cos(angulo) * distancia}px`
-        );
-
-
-        petalo.style.setProperty(
-            "--petalo-y",
-            `${Math.sin(angulo) * distancia}px`
-        );
-
-
-        petalo.style.setProperty(
-            "--petalo-rotacion",
-            `${Math.random() * 600 - 300}deg`
-        );
-
-
-        petalo.style.setProperty(
-            "--petalo-retraso",
-            `${Math.random() * .12}s`
-        );
-
-
-        petalo.style.setProperty(
-            "--petalo-tamano",
-            `${6 + Math.random() * 8}px`
-        );
-
-
-        explosion.appendChild(
-            petalo
-        );
-    }
-
-
-    document.body.appendChild(
-        explosion
-    );
-
-
-    setTimeout(
-        () => {
-
-            explosion.remove();
-
-        },
-        1500
-    );
-}
-
-
-function crearMariposa() {
+function comprobarFlorSecretaAmor() {
 
     if (
-        document.querySelectorAll(
-            ".mariposa-jardin"
-        ).length >= 4
+        !florSecretaAmor ||
+        !fraseAmor.length ||
+        notasAmorObtenidas.length <
+        fraseAmor.length
     ) {
-
         return;
     }
 
 
-    const mariposa =
-        document.createElement(
-            "button"
-        );
-
-
-    mariposa.className =
-        "mariposa-jardin";
-
-
-    mariposa.classList.add(
-        coloresMariposas[
-            Math.floor(
-                Math.random() *
-                coloresMariposas.length
-            )
-        ]
-    );
-
-
     if (
-        Math.random() < .4
+        document.querySelector(
+            '[data-flor="corazonSangrante"]'
+        )
     ) {
-
-        mariposa.classList.add(
-            "mariposa-inversa"
-        );
+        return;
     }
 
 
-    mariposa.innerHTML = `
-        <span
-            class="ala ala-izquierda"
-        ></span>
-
-        <span
-            class="cuerpo-mariposa"
-        ></span>
-
-        <span
-            class="ala ala-derecha"
-        ></span>
-    `;
+    const tarjeta =
+        crearTarjetaFlor(
+            florSecretaAmor,
+            true
+        );
 
 
-    mariposa.style.top =
-        `${10 + Math.random() * 72}%`;
+    contenedorFlores.appendChild(
+        tarjeta
+    );
 
 
-    mariposa.style.animationDuration =
-        `${9 + Math.random() * 6}s`;
+    requestAnimationFrame(
+        () => {
 
-
-    mariposa.addEventListener(
-        "click",
-        evento => {
-
-            const estilo =
-                getComputedStyle(
-                    mariposa
-                );
-
-
-            explosionPetalos(
-
-                evento.clientX,
-
-                evento.clientY,
-
-                estilo.getPropertyValue(
-                    "--mariposa-color-1"
-                ),
-
-                estilo.getPropertyValue(
-                    "--mariposa-color-2"
-                )
-            );
-
-
-            mariposasAplastadas++;
-
-
-            localStorage.setItem(
-                CLAVES.mariposasAplastadas,
-                String(
-                    mariposasAplastadas
-                )
-            );
-
-
-            mostrarToast(
-                mensajesMariposa[
-                    Math.floor(
-                        Math.random() *
-                        mensajesMariposa.length
-                    )
-                ]
-            );
-
-
-            mariposa.classList.add(
-                "mariposa-atrapada"
-            );
-
-
-            setTimeout(
-                () => {
-
-                    mariposa.remove();
-
-                },
-                500
+            tarjeta.classList.add(
+                "revelada"
             );
         }
     );
-
-
-    document.body.appendChild(
-        mariposa
-    );
-
-
-    setTimeout(
-        () => {
-
-            mariposa.remove();
-
-        },
-        17000
-    );
 }
-
-
-function programarMariposa() {
-
-    setTimeout(
-        () => {
-
-            crearMariposa();
-
-
-            if (
-                Math.random() < .65
-            ) {
-
-                setTimeout(
-                    crearMariposa,
-                    1200
-                );
-            }
-
-
-            programarMariposa();
-
-        },
-        8000 +
-        Math.random() *
-        8000
-    );
-}
-
-
-setTimeout(
-    () => {
-
-        crearMariposa();
-
-        programarMariposa();
-
-    },
-    4000
-);
-
-
-/* =====================================================
-   SECCIÓN SECRETO
-===================================================== */
-
-const seccionSecreto =
-    document.createElement(
-        "section"
-    );
-
-
-seccionSecreto.className =
-    "seccion-secreto";
-
-
-seccionSecreto.innerHTML = `
-    <div class="encabezado-secreto">
-
-        <p class="secreto-etiqueta">
-            ENCONTRASTE ALGO MÁS
-        </p>
-
-        <h2>
-            Secreto
-        </h2>
-
-        <p>
-            Hay cosas escondidas entre las flores.
-            Algunas solo aparecen cuando insistes
-            un poquito más de lo normal.
-        </p>
-
-    </div>
-
-    <div class="kuromi-area">
-
-        <div class="kuromi-css">
-
-            <div
-                class="kuromi-oreja kuromi-oreja-izq"
-            ></div>
-
-            <div
-                class="kuromi-oreja kuromi-oreja-der"
-            ></div>
-
-            <div class="kuromi-capucha">
-
-                <div class="kuromi-calavera">
-                    ☠
-                </div>
-
-                <div class="kuromi-cara">
-
-                    <span
-                        class="kuromi-ojo kuromi-ojo-izq"
-                    ></span>
-
-                    <span
-                        class="kuromi-ojo kuromi-ojo-der"
-                    ></span>
-
-                    <span
-                        class="kuromi-nariz"
-                    ></span>
-
-                    <span
-                        class="kuromi-boca"
-                    ></span>
-
-                </div>
-
-            </div>
-
-            <div
-                class="kuromi-cuerpo"
-            ></div>
-
-            <div
-                class="kuromi-cola"
-            ></div>
-
-        </div>
-
-        <p class="kuromi-texto">
-            Parece que ella estaba cuidando esta parte.
-        </p>
-
-    </div>
-
-    <div class="secreto-control">
-
-        <p class="contador-secretos">
-
-            <span
-                id="secretos-encontrados"
-            >
-                0
-            </span>
-
-            /
-
-            <span>
-                ${cancionesSecretas.length}
-            </span>
-
-            secretos encontrados
-
-        </p>
-
-        <div class="barra-secretos">
-
-            <span
-                id="barra-secretos-progreso"
-            ></span>
-
-        </div>
-
-        <p class="pista-secretos">
-            Aquí no aparecen las canciones.
-            Hay que encontrarlas tocando las flores.
-        </p>
-
-    </div>
-`;
-
-
-jardin.appendChild(
-    seccionSecreto
-);
-
-
-function revelarSecreto(
-    aviso = true
-) {
-
-    secretoDesbloqueado =
-        true;
-
-
-    localStorage.setItem(
-        CLAVES.secretoDesbloqueado,
-        "si"
-    );
-
-
-    seccionSecreto.classList.add(
-        "desbloqueado"
-    );
-
-
-    actualizarSecreto();
-
-
-    if (aviso) {
-
-        mostrarToast(
-            "Se desbloqueó el apartado Secreto."
-        );
-    }
-}
-
-
-function actualizarSecreto() {
-
-    const texto =
-        document.getElementById(
-            "secretos-encontrados"
-        );
-
-
-    const barra =
-        document.getElementById(
-            "barra-secretos-progreso"
-        );
-
-
-    if (!texto || !barra) {
-
-        return;
-    }
-
-
-    texto.textContent =
-        secretosVistos.length;
-
-
-    barra.style.width =
-        `${Math.min(
-            100,
-            secretosVistos.length /
-            cancionesSecretas.length *
-            100
-        )}%`;
-}
-
-
-if (
-    secretoDesbloqueado ||
-    secretosVistos.length
-) {
-
-    revelarSecreto(
-        false
-    );
-}
-
-
-/* =====================================================
-   11:11
-===================================================== */
-
-const nota1111 =
-    document.createElement(
-        "aside"
-    );
-
-
-nota1111.className =
-    "nota-1111";
-
-
-document.body.appendChild(
-    nota1111
-);
-
-
-let dias1111 =
-    leerJSON(
-        CLAVES.nota1111,
-        []
-    );
-
-
-function revisar1111() {
-
-    const ahora =
-        new Date();
-
-
-    if (
-        ahora.getHours() !== 23 ||
-        ahora.getMinutes() !== 11
-    ) {
-
-        return;
-    }
-
-
-    const hoy =
-        claveDia(
-            ahora
-        );
-
-
-    if (
-        dias1111.includes(
-            hoy
-        )
-    ) {
-
-        return;
-    }
-
-
-    dias1111.push(
-        hoy
-    );
-
-
-    guardarJSON(
-        CLAVES.nota1111,
-        dias1111
-    );
-
-
-    nota1111.innerHTML = `
-        <button
-            class="cerrar-nota-1111"
-        >
-            ×
-        </button>
-
-        <div class="hora-1111">
-            11:11
-        </div>
-
-        <h3>
-            Pide un deseo
-        </h3>
-
-        <p>
-            Hay momentos que duran apenas un minuto,
-            pero consiguen sentirse especiales.
-        </p>
-
-        <a
-            class="boton-1111"
-            href="${enlaceYouTube(
-                "Catorce Sebastián Romero"
-            )}"
-            target="_blank"
-        >
-            Catorce — Sebastián Romero
-        </a>
-    `;
-
-
-    nota1111.classList.add(
-        "mostrar"
-    );
-
-
-    nota1111
-        .querySelector(
-            ".cerrar-nota-1111"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                nota1111.classList.remove(
-                    "mostrar"
-                );
-            }
-        );
-}
-
-
-/* =====================================================
-   FINAL
-===================================================== */
-
-const finalJardin =
-    document.createElement(
-        "section"
-    );
-
-
-finalJardin.className =
-    "final-jardin";
-
-
-const ultimaDespedida =
-    despedidasObtenidas.length
-        ?
-        despedidas[
-            despedidasObtenidas[
-                despedidasObtenidas.length - 1
-            ] - 1
-        ]
-        :
-        "Vuelve de vez en cuando.";
-
-
-finalJardin.innerHTML = `
-    <p class="final-pequeno">
-        LLEGASTE AL FINAL DEL JARDÍN
-    </p>
-
-    <h2>
-        Por ahora.
-    </h2>
-
-    <p class="despedida-dia">
-        ${ultimaDespedida}
-    </p>
-
-    <div class="final-linea"></div>
-
-    <p class="final-pista">
-        Algunas cosas necesitan su momento.
-        Otras necesitan que vuelvas.
-    </p>
-
-    <button
-        id="boton-no-tocar"
-        class="boton-no-tocar"
-    >
-        No tocar
-    </button>
-`;
-
-
-jardin.appendChild(
-    finalJardin
-);
-
-
-/* =====================================================
-   BOTÓN NO TOCAR
-===================================================== */
-
-let nivel =
-    0;
-
-
-document
-    .getElementById(
-        "boton-no-tocar"
-    )
-    .addEventListener(
-        "click",
-        evento => {
-
-            nivel++;
-
-
-            if (
-                nivel === 1
-            ) {
-
-                evento.target.textContent =
-                    "¿Segura?";
-
-                return;
-            }
-
-
-            if (
-                nivel === 2
-            ) {
-
-                evento.target.textContent =
-                    "¿Segura, segura?";
-
-                return;
-            }
-
-
-            contenidoModal.innerHTML = `
-                <div class="carta-flor">
-
-                    <p class="modal-etiqueta">
-                        ENCONTRASTE ALGO
-                    </p>
-
-                    <h2>
-                        La curiosidad ganó
-                    </h2>
-
-                    <div class="papel-carta">
-
-                        <p>
-                            Si llegaste hasta aquí y además presionaste algo que decía claramente que no tocaras, supongo que la curiosidad ganó otra vez.
-                        </p>
-
-                    </div>
-
-                </div>
-            `;
-
-
-            capaModal.classList.add(
-                "mostrar"
-            );
-        }
-    );
-
-
-/* =====================================================
-   AVISO INICIAL
-===================================================== */
-
-function avisoInicial() {
-
-    if (
-        localStorage.getItem(
-            CLAVES.aviso
-        ) === "si"
-    ) {
-
-        return;
-    }
-
-
-    contenidoModal.innerHTML = `
-        <div class="aviso-coleccionables">
-
-            <p class="modal-etiqueta">
-                ANTES DE ENTRAR
-            </p>
-
-            <h2>
-                Este jardín guarda más de lo que parece
-            </h2>
-
-            <div class="icono-aviso">
-                20
-            </div>
-
-            <p>
-                Existen 20 notas ocultas
-                que aparecen durante horas pares.
-            </p>
-
-            <p>
-                También existen 20 despedidas.
-                Solo se consigue una nueva por día.
-            </p>
-
-            <p class="aviso-pista">
-                No todo está señalado.
-            </p>
-
-            <div class="acciones-aviso">
-
-                <button
-                    id="aceptar-aviso"
-                    class="boton-modal-principal"
-                >
-                    Entrar al jardín
-                </button>
-
-                <button
-                    id="ocultar-aviso"
-                    class="boton-modal-secundario"
-                >
-                    No volver a mostrar
-                </button>
-
-            </div>
-
-        </div>
-    `;
-
-
-    capaModal.classList.add(
-        "mostrar"
-    );
-
-
-    document
-        .getElementById(
-            "aceptar-aviso"
-        )
-        .addEventListener(
-            "click",
-            async () => {
-
-                cerrarModal();
-
-
-                await iniciarMusicaFondo();
-            }
-        );
-
-
-    document
-        .getElementById(
-            "ocultar-aviso"
-        )
-        .addEventListener(
-            "click",
-            async () => {
-
-                localStorage.setItem(
-                    CLAVES.aviso,
-                    "si"
-                );
-
-
-                cerrarModal();
-
-
-                await iniciarMusicaFondo();
-            }
-        );
-}
-
-
-/* =====================================================
-   INICIALIZACIÓN
-===================================================== */
-
-actualizarProgreso();
-
-
-comprobarDalia();
-
-
-actualizarFavoritas();
-
-
-actualizarSecreto();
-
-
-activarMusicaEnPrimeraInteraccion();
-
-
-avisoInicial();
-
-
-revisarHoraColeccionable();
-
-
-revisar1111();
-
-
-setInterval(
-    revisarHoraColeccionable,
-    30000
-);
-
-
-setInterval(
-    revisar1111,
-    15000
-);
