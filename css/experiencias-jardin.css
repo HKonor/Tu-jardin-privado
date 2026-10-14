@@ -1,0 +1,177 @@
+/* =====================================================
+   EXPERIENCIAS NUEVAS DEL JARDÍN
+   Estilos aislados para no alterar lo que ya funciona.
+===================================================== */
+
+/* PÉTALO DEL BESO */
+.petalo-beso-secreto{
+    position:absolute;
+    right:24px;
+    top:34px;
+    z-index:40;
+    width:27px;
+    height:27px;
+    padding:0;
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:62% 38% 66% 34%;
+    color:#8d3f62;
+    background:linear-gradient(145deg,rgba(255,230,239,.86),rgba(224,147,178,.76));
+    box-shadow:0 5px 13px rgba(126,46,83,.16);
+    cursor:pointer;
+    transform:rotate(21deg);
+    opacity:.58;
+    transition:opacity .2s ease,transform .2s ease;
+}
+.petalo-beso-secreto:hover,.petalo-beso-secreto:focus-visible{opacity:1;transform:rotate(21deg) scale(1.12)}
+.petalo-beso-secreto.petalo-encontrado{animation:petalo-beso-salida .65s ease forwards}
+@keyframes petalo-beso-salida{100%{opacity:0;transform:translateY(-28px) rotate(110deg) scale(.55)}}
+
+/* MARIPOSA DORADA */
+.mariposa-jardin.mariposa-dorada{--mariposa-color-1:#fff4a5;--mariposa-color-2:#c89419;filter:drop-shadow(0 0 8px rgba(255,219,88,.65))}
+.mariposa-dorada .ala{box-shadow:inset 0 0 9px rgba(255,255,255,.38),0 0 7px rgba(255,208,59,.38)}
+.brillo-mariposa-dorada{position:absolute;left:21px;top:-8px;color:#ffe878;font-size:12px;text-shadow:0 0 8px #ffe26d;animation:brillo-dorado 1.2s ease-in-out infinite alternate;pointer-events:none}
+.mariposa-dorada-escapa{pointer-events:none;animation:mariposa-dorada-escape .8s ease-in forwards!important}
+@keyframes brillo-dorado{to{transform:scale(1.35) rotate(18deg);opacity:.55}}
+@keyframes mariposa-dorada-escape{100%{transform:translateY(-130px) scale(.45) rotate(28deg);opacity:0}}
+
+/* SOBRES FUTUROS */
+.sobres-futuro{
+    width:min(920px,calc(100% - 28px));
+    margin:22px auto 34px;
+    padding:24px;
+    border:1px solid rgba(255,255,255,.32);
+    border-radius:28px;
+    background:rgba(255,255,255,.18);
+    box-shadow:0 18px 45px rgba(38,25,48,.08);
+    backdrop-filter:blur(10px);
+    text-align:center;
+}
+.sobres-futuro h3{margin:4px 0 7px;font-family:Georgia,"Times New Roman",serif;font-size:22px;color:var(--texto-principal)}
+.sobres-futuro-pista{margin:0 auto 18px;max-width:580px;font-size:13px;line-height:1.65;color:var(--texto-secundario)}
+.rejilla-sobres-futuro{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sobre-futuro{min-height:104px;padding:14px 10px;border:1px solid rgba(142,102,129,.18);border-radius:20px;background:rgba(255,255,255,.42);color:var(--texto-principal);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.sobre-futuro:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(50,28,56,.1)}
+.sobre-futuro span{display:block;margin-bottom:7px;font-size:24px}
+.sobre-futuro strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:14px;line-height:1.35}
+.sobre-futuro.sobre-abierto{background:rgba(235,211,227,.35)}
+.sobre-futuro.sobre-abierto::after{content:"ABIERTO";display:inline-block;margin-top:8px;font:700 8px/1 Arial,sans-serif;letter-spacing:1.4px;opacity:.55}
+.carta-sobre-futuro .papel-carta p+p{margin-top:15px}
+
+/* BOTÓN COMPACTO */
+.boton-explorar-jardin{
+    min-height:38px;
+    padding:9px 14px;
+    border:1px solid rgba(255,255,255,.36);
+    border-radius:999px;
+    font:700 10px/1 Arial,sans-serif;
+    letter-spacing:.5px;
+    color:var(--texto-secundario);
+    background:rgba(255,255,255,.2);
+    cursor:pointer;
+    transition:transform .18s ease,background .18s ease;
+}
+.boton-explorar-jardin:hover{transform:translateY(-1px);background:rgba(255,255,255,.34)}
+
+/* EXPLORADOR */
+.explorador-jardin-modal{text-align:center}
+.opciones-explorador-jardin{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0 12px}
+.opciones-explorador-jardin button{min-height:88px;padding:14px 10px;border:1px solid rgba(124,87,121,.18);border-radius:20px;background:rgba(255,255,255,.44);color:var(--texto-principal);font-size:22px;cursor:pointer}
+.opciones-explorador-jardin button span{display:block;margin-top:7px;font:700 11px/1.25 Arial,sans-serif}
+.pista-explorador{margin-top:16px;font-size:11px;font-style:italic;opacity:.7}
+
+/* MAPA */
+.mapa-jardin-modal{text-align:center}
+.mapa-jardin-explicacion{max-width:590px;margin:7px auto 18px;font-size:12px;line-height:1.6;color:var(--texto-secundario)}
+.sendero-jardin{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-height:48vh;padding:8px;overflow:auto}
+.sendero-jardin::before{content:"";position:absolute;left:50%;top:18px;bottom:18px;width:1px;background:linear-gradient(transparent,rgba(129,98,124,.24),transparent)}
+.punto-mapa{position:relative;z-index:2;display:flex;align-items:center;gap:9px;min-height:54px;padding:10px 12px;border-radius:18px;background:rgba(255,255,255,.43);text-align:left}
+.punto-mapa span{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:50%;font:700 9px Arial,sans-serif;background:rgba(155,111,145,.12)}
+.punto-mapa strong{font-family:Georgia,"Times New Roman",serif;font-size:12px;line-height:1.25}
+.titulo-rincones-secretos{margin:22px 0 10px;font:700 10px Arial,sans-serif;letter-spacing:1.8px;opacity:.7;text-transform:uppercase}
+.rincones-secretos-mapa{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.secreto-mapa{padding:12px;border:1px dashed rgba(132,99,127,.22);border-radius:16px;background:rgba(255,255,255,.24);opacity:.62}
+.secreto-mapa.descubierto{opacity:1;border-style:solid;background:rgba(244,222,237,.35)}
+.secreto-mapa span{display:block;margin-bottom:5px;font-size:16px}.secreto-mapa strong{font-size:11px}
+
+/* MEMORIA MUSICAL */
+.memoria-musical-modal .papel-carta{text-align:left}
+.dato-memoria-musical{font-family:Georgia,"Times New Roman",serif!important;font-size:16px!important;line-height:1.7!important}
+.pista-memoria-musical{margin-top:18px!important;font-size:10px!important;font-style:italic;opacity:.62}
+
+/* CONSTELACIÓN */
+.constelacion-modal{text-align:center}
+.constelacion-pista{margin:3px auto 12px;font-size:11px;opacity:.7}
+.constelacion-cielo{position:relative;width:min(560px,100%);height:360px;margin:0 auto;border-radius:24px;overflow:hidden;background:radial-gradient(circle at 50% 75%,#1e1a39,#0e1027 58%,#090b18);box-shadow:inset 0 0 50px rgba(0,0,0,.45)}
+.constelacion-cielo::before,.constelacion-cielo::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,#fff 0 1px,transparent 1.3px);background-size:37px 37px;opacity:.23}
+.constelacion-cielo::after{background-size:61px 61px;background-position:17px 11px;opacity:.14}
+#lineas-constelacion{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.linea-constelacion{stroke:#f5d7ff;stroke-width:.55;filter:drop-shadow(0 0 2px rgba(245,215,255,.75));animation:linea-aparece .35s ease both}
+@keyframes linea-aparece{from{opacity:0}to{opacity:.85}}
+.estrella-tocable{position:absolute;z-index:4;width:34px;height:34px;margin:-17px 0 0 -17px;padding:0;border:0;background:transparent;color:#f7f2ff;font-size:18px;cursor:pointer;text-shadow:0 0 8px rgba(239,219,255,.7);transition:transform .2s ease,color .2s ease}
+.estrella-tocable.estrella-siguiente{color:#ffeaa2;animation:estrella-guia 1s ease-in-out infinite alternate}
+.estrella-tocable.estrella-descubierta{color:#fff1ad;transform:scale(1.12)}
+@keyframes estrella-guia{to{transform:scale(1.35);text-shadow:0 0 15px #ffeaa2}}
+.mensaje-constelacion{margin:14px auto 0;max-width:520px;min-height:23px;font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.55;opacity:0;transform:translateY(6px);transition:.35s ease}
+.mensaje-constelacion.visible{opacity:1;transform:none}
+
+/* CLIMA EMOCIONAL */
+.clima-emocional-modal{text-align:center}
+.clima-emocional-modal>p:not(.modal-etiqueta){font-size:12px;opacity:.72}
+.opciones-clima-emocional{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.opciones-clima-emocional button{min-height:72px;border:1px solid rgba(130,96,126,.18);border-radius:18px;background:rgba(255,255,255,.43);color:var(--texto-principal);font:700 12px Arial,sans-serif;cursor:pointer}
+.clima-jardin-overlay{position:fixed;inset:0;z-index:7900;overflow:hidden;pointer-events:none}
+.brillo-clima,.luz-clima-cansado{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff1a8;box-shadow:0 0 12px rgba(255,237,150,.85);animation:brillo-clima 2.7s ease-in-out infinite alternate}
+@keyframes brillo-clima{to{opacity:.18;transform:translateY(-12px) scale(.55)}}
+.luz-clima-cansado{width:5px;height:5px;background:#d9dcff;box-shadow:0 0 11px rgba(205,210,255,.7);animation:flotar-clima 6s ease-in-out infinite alternate}
+@keyframes flotar-clima{to{transform:translate(16px,-22px);opacity:.25}}
+.gota-clima{position:absolute;top:-50px;width:1px;height:30px;background:linear-gradient(transparent,rgba(180,198,226,.55));animation:lluvia-clima linear infinite}
+@keyframes lluvia-clima{to{transform:translateY(115vh)}}
+body.clima-jardin-cansada .jardin{filter:saturate(.88) brightness(.98)}
+body.clima-jardin-dificil .jardin{filter:saturate(.82) brightness(.96)}
+
+/* CEMENTERIO DE MARIPOSAS */
+.cementerio-mariposas{width:min(720px,calc(100% - 28px));margin:18px auto 28px;text-align:center}
+.cementerio-mariposas-boton{width:100%;padding:17px;border:1px dashed rgba(97,81,104,.25);border-radius:22px;background:rgba(255,255,255,.18);color:var(--texto-secundario);cursor:pointer}
+.cementerio-iconos{display:block;margin-bottom:7px;font-size:18px;opacity:.72}
+.cementerio-mariposas-boton strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:14px}.cementerio-mariposas-boton small{display:block;margin-top:5px;font-size:9px;opacity:.6}
+
+/* NUESTRO JARDÍN */
+.nuestro-jardin-placa{width:min(780px,calc(100% - 28px));margin:34px auto;padding:28px;border:1px solid rgba(255,255,255,.3);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.25),rgba(231,203,223,.16));box-shadow:0 18px 48px rgba(41,25,48,.09);text-align:center}
+.nuestro-jardin-placa h2{margin:5px 0 14px;font-family:Georgia,"Times New Roman",serif;font-size:28px;color:var(--texto-principal)}
+.nuestro-jardin-placa>p:not(.panel-etiqueta){max-width:630px;margin:0 auto 22px;font-size:14px;line-height:1.8;color:var(--texto-secundario)}
+.espacio-futuro-jardin{display:block;width:100%;min-height:112px;padding:18px;border:1px dashed rgba(121,88,117,.3);border-radius:22px;background:rgba(255,255,255,.17);color:var(--texto-secundario);cursor:pointer}
+.espacio-futuro-jardin span{display:block;margin-bottom:4px;font-size:24px;opacity:.54}.espacio-futuro-jardin strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:15px}.espacio-futuro-jardin small{display:block;margin-top:7px;font-size:9px;opacity:.58}
+
+/* TARJETAS SECRETAS */
+.tarjeta-florLunaBeso::before,.tarjeta-craspediaDorada::before,.tarjeta-crecimiento-visitas::before{position:absolute;top:14px;right:17px;z-index:3;padding:5px 9px;border-radius:999px;font:700 8px/1 Arial,sans-serif;letter-spacing:1.2px;background:rgba(255,255,255,.67)}
+.tarjeta-florLunaBeso::before{content:"DESPUÉS DE AQUEL BESO";color:#86526f}
+.tarjeta-craspediaDorada::before{content:"MARIPOSA DORADA";color:#9a721f}
+.tarjeta-crecimiento-visitas::before{content:"CRECE CON TUS VISITAS";color:#587449}
+
+body.modo-noche .sobres-futuro,
+body.modo-noche .nuestro-jardin-placa{background:rgba(31,24,44,.45);border-color:rgba(255,255,255,.12)}
+body.modo-noche .sobre-futuro,
+body.modo-noche .punto-mapa,
+body.modo-noche .opciones-explorador-jardin button,
+body.modo-noche .opciones-clima-emocional button{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.1)}
+
+@media(max-width:700px){
+    .petalo-beso-secreto{right:17px;top:27px;width:24px;height:24px}
+    .brillo-mariposa-dorada{left:17px;top:-8px;font-size:10px}
+    .sobres-futuro{width:calc(100% - 18px);padding:18px 12px;border-radius:22px}
+    .sobres-futuro h3{font-size:19px}
+    .rejilla-sobres-futuro{grid-template-columns:1fr;gap:8px}
+    .sobre-futuro{min-height:68px;display:grid;grid-template-columns:36px 1fr;align-items:center;text-align:left;padding:10px 13px}
+    .sobre-futuro span{margin:0;font-size:20px;text-align:center}.sobre-futuro strong{font-size:12px}.sobre-futuro.sobre-abierto::after{display:none}
+    .opciones-explorador-jardin{grid-template-columns:1fr;gap:8px}.opciones-explorador-jardin button{min-height:58px;font-size:18px}.opciones-explorador-jardin button span{display:inline;margin-left:7px}
+    .sendero-jardin{grid-template-columns:1fr;max-height:52vh}.sendero-jardin::before{left:21px}.punto-mapa{padding-left:8px}
+    .rincones-secretos-mapa{grid-template-columns:1fr 1fr}
+    .constelacion-cielo{height:310px}
+    .opciones-clima-emocional{grid-template-columns:1fr}.opciones-clima-emocional button{min-height:52px}
+    .nuestro-jardin-placa{width:calc(100% - 18px);padding:22px 15px;border-radius:22px}.nuestro-jardin-placa h2{font-size:23px}.nuestro-jardin-placa>p:not(.panel-etiqueta){font-size:13px}
+    .cementerio-mariposas{width:calc(100% - 18px)}
+}
+
+@media(prefers-reduced-motion:reduce){
+    .petalo-beso-secreto,.brillo-mariposa-dorada,.estrella-tocable,.linea-constelacion,.brillo-clima,.luz-clima-cansado,.gota-clima{animation-duration:.001ms!important;animation-iteration-count:1!important}
+}

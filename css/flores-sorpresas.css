@@ -1,0 +1,155 @@
+/* =====================================================
+   FLORES DE SORPRESAS
+   Solo estilos nuevos; no reemplaza animaciones previas.
+===================================================== */
+
+.ranunculo-rojo,
+.alstroemeria,
+.campanilla-violeta,
+.azalea-rosa,
+.flor-luna-beso,
+.craspedia-dorada,
+.flor-creciente {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    transform-origin: center bottom;
+    --escala-flor: 1;
+    --brisa-duracion: 6.8s;
+    --brisa-retraso: 1.3s;
+    --brisa-inicio: -.65deg;
+    --brisa-fin: .65deg;
+    animation:
+        crecer-flor 1.2s ease both,
+        brisa-flor var(--brisa-duracion) ease-in-out var(--brisa-retraso) infinite;
+}
+
+.ranunculo-rojo{--brisa-duracion:7.2s;--brisa-retraso:1.45s;--brisa-inicio:-.48deg;--brisa-fin:.48deg}
+.alstroemeria{--brisa-duracion:6.35s;--brisa-retraso:1.22s}
+.campanilla-violeta{--brisa-duracion:5.95s;--brisa-retraso:1.16s;--brisa-inicio:-.85deg;--brisa-fin:.85deg}
+.azalea-rosa{--brisa-duracion:6.55s;--brisa-retraso:1.31s}
+.flor-luna-beso{--brisa-duracion:7.6s;--brisa-retraso:1.5s;--brisa-inicio:-.45deg;--brisa-fin:.45deg}
+.craspedia-dorada{--brisa-duracion:6.15s;--brisa-retraso:1.12s;--brisa-inicio:-.72deg;--brisa-fin:.72deg}
+.flor-creciente{--brisa-duracion:7.1s;--brisa-retraso:1.34s}
+
+/* =====================================================
+   RANÚNCULO ROJO
+===================================================== */
+
+.ranunculo-tallo{position:absolute;left:145px;top:167px;width:11px;height:183px;border-radius:12px;background:linear-gradient(90deg,#294e32,#5f844a,#294e32)}
+.ranunculo-hoja{position:absolute;width:92px;height:62px;background:linear-gradient(145deg,#315b37,#6c8c50);clip-path:polygon(50% 0,61% 27%,80% 13%,76% 40%,100% 50%,76% 60%,82% 87%,60% 73%,50% 100%,40% 73%,18% 87%,24% 60%,0 50%,24% 40%,20% 13%,39% 27%)}
+.ranunculo-hoja-1{left:57px;top:240px;transform:rotate(-25deg)}
+.ranunculo-hoja-2{left:151px;top:274px;transform:rotate(22deg) scaleX(-1)}
+.ranunculo-cabeza{position:absolute;left:35px;top:0;width:230px;height:225px;z-index:5}
+.ranunculo-petalo-wrap{position:absolute;left:86px;top:65px;width:58px;height:100px;transform-origin:29px 47px;transform:rotate(var(--angulo))}
+.ranunculo-petalo{position:absolute;left:4px;top:0;width:50px;height:72px;transform:translateY(calc(-1 * var(--radio))) scale(var(--escala-petalo));border-radius:58% 58% 45% 45% / 70% 70% 38% 38%;background:radial-gradient(ellipse at 50% 84%,#76152b,#a5223c 42%,#d85066 76%,#ef8a99);box-shadow:inset 0 4px 9px rgba(255,220,226,.13)}
+.ranunculo-centro{position:absolute;left:103px;top:102px;width:24px;height:24px;border-radius:50%;background:radial-gradient(circle,#f5c56a,#a96f24 52%,#7e1f31 54%);box-shadow:0 0 12px rgba(161,35,63,.18)}
+
+/* =====================================================
+   ALSTROEMERIA
+===================================================== */
+
+.alstroemeria-tallo{position:absolute;left:145px;top:102px;width:9px;height:248px;border-radius:12px;background:linear-gradient(90deg,#355a36,#6c8a4e,#355a36)}
+.alstroemeria-rama{position:absolute;left:146px;top:89px;width:5px;height:135px;border-radius:10px;background:#66824b;transform-origin:bottom}
+.alstroemeria-rama-1{transform:rotate(-47deg)}.alstroemeria-rama-2{transform:rotate(46deg)}
+.alstroemeria-flor{position:absolute;width:72px;height:72px;animation:alstro-respirar 4.5s ease-in-out var(--alstro-delay) infinite}
+.alstroemeria-petalo{position:absolute;left:27px;top:4px;width:20px;height:38px;border-radius:70% 70% 38% 38%;transform-origin:10px 33px;background:linear-gradient(#ffe8ef,#f3a9c0,#ce6e90);overflow:hidden}
+.alstroemeria-petalo-1{transform:rotate(0)}.alstroemeria-petalo-2{transform:rotate(60deg)}.alstroemeria-petalo-3{transform:rotate(120deg)}.alstroemeria-petalo-4{transform:rotate(180deg)}.alstroemeria-petalo-5{transform:rotate(240deg)}.alstroemeria-petalo-6{transform:rotate(300deg)}
+.alstroemeria-marca{position:relative;display:block;width:3px;height:7px;margin:3px auto 0;border-radius:50%;background:#7c4264;opacity:.7}
+.alstroemeria-centro{position:absolute;left:29px;top:29px;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle,#ffe985,#d39e2d 60%,#8b5b1d)}
+.alstroemeria-hoja{position:absolute;width:78px;height:26px;border-radius:100% 0 100% 0;background:linear-gradient(145deg,#385f3b,#729057)}
+.alstroemeria-hoja-1{left:59px;top:220px;transform:rotate(-30deg)}.alstroemeria-hoja-2{left:87px;top:261px;transform:rotate(-15deg)}.alstroemeria-hoja-3{left:151px;top:230px;transform:rotate(19deg) scaleX(-1)}.alstroemeria-hoja-4{left:170px;top:275px;transform:rotate(31deg) scaleX(-1)}.alstroemeria-hoja-5{left:108px;top:311px;transform:rotate(-2deg)}
+@keyframes alstro-respirar{50%{margin-top:-2px;filter:drop-shadow(0 3px 5px rgba(194,93,132,.12))}}
+
+/* =====================================================
+   CAMPANILLA VIOLETA
+===================================================== */
+
+.campanilla-tallo{position:absolute;left:145px;top:91px;width:8px;height:259px;border-radius:10px;background:linear-gradient(90deg,#365c37,#6d8d50,#365c37)}
+.campanilla-rama{position:absolute;left:146px;top:80px;width:5px;height:152px;border-radius:10px;background:#69864f;transform-origin:bottom}
+.campanilla-rama-1{transform:rotate(-50deg)}.campanilla-rama-2{transform:rotate(50deg)}
+.campanilla-flor{position:absolute;width:66px;height:74px;transform-origin:32px 10px;animation:campanilla-columpio 4.4s ease-in-out var(--camp-delay) infinite}
+.campanilla-corola{position:absolute;left:8px;top:9px;width:50px;height:54px;background:linear-gradient(160deg,#b7a0f4,#7856c5 58%,#55379d);clip-path:polygon(16% 0,84% 0,100% 50%,88% 100%,67% 85%,50% 100%,33% 85%,12% 100%,0 50%);border-radius:30% 30% 38% 38%}
+.campanilla-centro{position:absolute;left:29px;top:50px;width:8px;height:19px;border-radius:50% 50% 70% 70%;background:#f0d77c}
+.campanilla-hoja{position:absolute;width:72px;height:38px;border-radius:100% 0 100% 0;background:linear-gradient(145deg,#365c3b,#6c8c53)}
+.campanilla-hoja-1{left:59px;top:220px;transform:rotate(-32deg)}.campanilla-hoja-2{left:91px;top:266px;transform:rotate(-12deg)}.campanilla-hoja-3{left:150px;top:230px;transform:rotate(24deg) scaleX(-1)}.campanilla-hoja-4{left:171px;top:280px;transform:rotate(36deg) scaleX(-1)}.campanilla-hoja-5{left:114px;top:310px;transform:rotate(2deg)}
+@keyframes campanilla-columpio{0%,100%{margin-left:-1px}50%{margin-left:2px}}
+
+/* =====================================================
+   AZALEA ROSA
+===================================================== */
+
+.azalea-rama-principal{position:absolute;left:143px;top:101px;width:10px;height:249px;border-radius:10px;background:linear-gradient(90deg,#5d4937,#82694d,#4e3c2d);transform:rotate(2deg)}
+.azalea-rama{position:absolute;left:147px;top:90px;width:5px;height:155px;border-radius:10px;background:#796044;transform-origin:bottom}
+.azalea-rama-1{transform:rotate(-47deg)}.azalea-rama-2{transform:rotate(43deg)}
+.azalea-flor{position:absolute;width:78px;height:78px;animation:azalea-respirar 4.8s ease-in-out var(--azalea-delay) infinite}
+.azalea-petalo{position:absolute;left:27px;top:3px;width:25px;height:43px;border-radius:72% 72% 40% 40%;transform-origin:12px 37px;background:radial-gradient(ellipse at 50% 80%,#ca6f9a,#eda8c5 58%,#ffe1ed);box-shadow:inset 0 2px 5px rgba(255,255,255,.24)}
+.azalea-petalo-1{transform:rotate(0)}.azalea-petalo-2{transform:rotate(72deg)}.azalea-petalo-3{transform:rotate(144deg)}.azalea-petalo-4{transform:rotate(216deg)}.azalea-petalo-5{transform:rotate(288deg)}
+.azalea-centro{position:absolute;left:31px;top:31px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle,#f7d477,#bc7a32 64%,#8b4f2b)}
+.azalea-hoja{position:absolute;width:70px;height:32px;border-radius:100% 0 100% 0;background:linear-gradient(145deg,#33583a,#6d8651)}
+.azalea-hoja-1{left:54px;top:216px;transform:rotate(-30deg)}.azalea-hoja-2{left:83px;top:255px;transform:rotate(-14deg)}.azalea-hoja-3{left:156px;top:222px;transform:rotate(24deg) scaleX(-1)}.azalea-hoja-4{left:175px;top:264px;transform:rotate(36deg) scaleX(-1)}.azalea-hoja-5{left:111px;top:295px;transform:rotate(-5deg)}.azalea-hoja-6{left:141px;top:317px;transform:rotate(11deg) scaleX(-1)}
+@keyframes azalea-respirar{50%{margin-top:-2px}}
+
+/* =====================================================
+   FLOR DE LUNA — BESO
+===================================================== */
+
+.flor-luna-tallo{position:absolute;left:145px;top:160px;width:10px;height:190px;border-radius:10px;background:linear-gradient(90deg,#294735,#587654,#294735)}
+.flor-luna-hoja{position:absolute;width:92px;height:55px;border-radius:100% 0 100% 0;background:linear-gradient(145deg,#2f553b,#647d56)}
+.flor-luna-hoja-1{left:58px;top:242px;transform:rotate(-24deg)}.flor-luna-hoja-2{left:151px;top:277px;transform:rotate(22deg) scaleX(-1)}
+.flor-luna-cabeza{position:absolute;left:58px;top:18px;width:184px;height:184px;filter:drop-shadow(0 0 12px rgba(235,225,255,.18));animation:flor-luna-pulso 5.2s ease-in-out infinite}
+.flor-luna-petalo{position:absolute;left:75px;top:8px;width:36px;height:82px;border-radius:72% 72% 42% 42%;transform-origin:18px 84px;background:linear-gradient(#fff,#f7f2ff 55%,#d6c9ed);box-shadow:inset 0 4px 7px rgba(255,255,255,.45)}
+.flor-luna-petalo-1{transform:rotate(0)}.flor-luna-petalo-2{transform:rotate(45deg)}.flor-luna-petalo-3{transform:rotate(90deg)}.flor-luna-petalo-4{transform:rotate(135deg)}.flor-luna-petalo-5{transform:rotate(180deg)}.flor-luna-petalo-6{transform:rotate(225deg)}.flor-luna-petalo-7{transform:rotate(270deg)}.flor-luna-petalo-8{transform:rotate(315deg)}
+.flor-luna-centro{position:absolute;left:76px;top:77px;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle,#fff4bb,#d8b45a 55%,#8b6731);box-shadow:0 0 18px rgba(255,234,166,.35)}
+@keyframes flor-luna-pulso{50%{filter:drop-shadow(0 0 20px rgba(236,223,255,.32));transform:translateY(-2px)}}
+
+/* =====================================================
+   CRASPEDIA DORADA
+===================================================== */
+
+.craspedia-grupo{position:absolute;width:58px;height:280px;transform-origin:bottom;animation:craspedia-balanceo 5s ease-in-out var(--craspedia-delay) infinite}
+.craspedia-tallo{position:absolute;left:27px;top:40px;width:6px;height:240px;border-radius:8px;background:linear-gradient(90deg,#557035,#82994f,#557035)}
+.craspedia-esfera{position:absolute;left:0;top:0;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#ffe77d,#eabf34 53%,#bd861e);box-shadow:0 4px 10px rgba(175,125,27,.18)}
+.craspedia-punto{position:absolute;width:6px;height:6px;border-radius:50%;background:#f7d95e;box-shadow:0 0 2px rgba(126,82,15,.25)}
+.craspedia-hoja{position:absolute;width:35px;height:155px;border-radius:100% 20% 100% 20%;background:linear-gradient(90deg,#4a6737,#7f9550,#4a6737);transform-origin:bottom}
+.craspedia-hoja-1{left:103px;top:191px;transform:rotate(-19deg)}.craspedia-hoja-2{left:159px;top:192px;transform:rotate(17deg) scaleX(-1)}
+@keyframes craspedia-balanceo{0%,100%{margin-left:-2px}50%{margin-left:3px}}
+
+/* =====================================================
+   FLOR CRECIENTE
+===================================================== */
+
+.creciente-tierra{position:absolute;left:89px;bottom:4px;width:122px;height:30px;border-radius:50%;background:radial-gradient(ellipse,#624733,#453022 68%,transparent 70%);opacity:.88}
+.creciente-tallo{position:absolute;left:147px;bottom:24px;width:8px;height:230px;border-radius:8px;background:linear-gradient(90deg,#365f37,#729250,#365f37);transform-origin:bottom;transition:height .5s ease}
+.creciente-hoja{position:absolute;width:82px;height:43px;border-radius:100% 0 100% 0;background:linear-gradient(145deg,#3f683d,#78965a);opacity:0;transition:opacity .45s ease,transform .45s ease}
+.creciente-hoja-1{left:69px;top:229px;transform:rotate(-25deg) scale(.5)}.creciente-hoja-2{left:150px;top:265px;transform:rotate(23deg) scaleX(-1) scale(.5)}
+.creciente-boton{position:absolute;left:124px;top:87px;width:54px;height:73px;border-radius:70% 70% 45% 45%;background:linear-gradient(#c87b9b,#8f496c);opacity:0;transform:scale(.55);transform-origin:center bottom;transition:opacity .45s ease,transform .45s ease}
+.creciente-cabeza{position:absolute;left:57px;top:20px;width:188px;height:188px;opacity:0;transform:scale(.5);transition:opacity .55s ease,transform .55s ease}
+.creciente-petalo{position:absolute;left:76px;top:12px;width:38px;height:84px;border-radius:72% 72% 42% 42%;transform-origin:19px 82px;background:linear-gradient(#ffd2e4,#ec8bb3,#b95482)}
+.creciente-petalo-1{transform:rotate(0)}.creciente-petalo-2{transform:rotate(51.43deg)}.creciente-petalo-3{transform:rotate(102.86deg)}.creciente-petalo-4{transform:rotate(154.29deg)}.creciente-petalo-5{transform:rotate(205.72deg)}.creciente-petalo-6{transform:rotate(257.15deg)}.creciente-petalo-7{transform:rotate(308.58deg)}
+.creciente-centro{position:absolute;left:78px;top:78px;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle,#ffd879,#c48c2e 62%,#875c25)}
+
+.flor-creciente-etapa-1 .creciente-tallo{height:72px}.flor-creciente-etapa-1 .creciente-boton{top:252px;left:135px;width:30px;height:42px;opacity:1;transform:scale(.7)}
+.flor-creciente-etapa-2 .creciente-tallo{height:145px}.flor-creciente-etapa-2 .creciente-hoja-1{opacity:1;transform:rotate(-25deg) scale(.8)}
+.flor-creciente-etapa-3 .creciente-tallo{height:215px}.flor-creciente-etapa-3 .creciente-hoja{opacity:1}.flor-creciente-etapa-3 .creciente-hoja-1{transform:rotate(-25deg) scale(1)}.flor-creciente-etapa-3 .creciente-hoja-2{transform:rotate(23deg) scaleX(-1) scale(1)}.flor-creciente-etapa-3 .creciente-boton{opacity:1;transform:scale(1)}
+.flor-creciente-etapa-4 .creciente-hoja{opacity:1}.flor-creciente-etapa-4 .creciente-hoja-1{transform:rotate(-25deg) scale(1)}.flor-creciente-etapa-4 .creciente-hoja-2{transform:rotate(23deg) scaleX(-1) scale(1)}.flor-creciente-etapa-4 .creciente-cabeza{opacity:1;transform:scale(1);animation:creciente-respirar 5s ease-in-out infinite}
+@keyframes creciente-respirar{50%{margin-top:-3px;filter:drop-shadow(0 5px 10px rgba(176,82,124,.15))}}
+
+/* =====================================================
+   BOTONES / TARJETAS
+===================================================== */
+
+.tarjeta-ranunculoRojo .boton-cancion{background:linear-gradient(135deg,#861b33,#ce5066)}
+.tarjeta-alstroemeria .boton-cancion{background:linear-gradient(135deg,#9e5275,#dc8eac)}
+.tarjeta-campanillaVioleta .boton-cancion{background:linear-gradient(135deg,#5b3ba1,#8e6dd1)}
+.tarjeta-azaleaRosa .boton-cancion{background:linear-gradient(135deg,#a94f78,#df8eb0)}
+.tarjeta-florLunaBeso,.tarjeta-craspediaDorada,.tarjeta-florCreciente{border-color:rgba(205,169,104,.28)}
+
+@media (max-width:600px){
+    .ranunculo-rojo,.alstroemeria,.campanilla-violeta,.azalea-rosa,.flor-luna-beso,.craspedia-dorada,.flor-creciente{--escala-flor:.92;transform-origin:center bottom}
+}
+
+@media (prefers-reduced-motion:reduce){
+    .ranunculo-rojo,.alstroemeria,.campanilla-violeta,.azalea-rosa,.flor-luna-beso,.craspedia-dorada,.flor-creciente,
+    .alstroemeria-flor,.campanilla-flor,.azalea-flor,.flor-luna-cabeza,.craspedia-grupo,.creciente-cabeza{animation-duration:.001ms!important;animation-iteration-count:1!important}
+}
