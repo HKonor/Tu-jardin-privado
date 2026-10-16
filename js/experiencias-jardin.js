@@ -942,18 +942,21 @@
         const seccion = document.createElement("section");
         seccion.className = "nuestro-jardin-placa";
         seccion.innerHTML = `
-            <p class="panel-etiqueta">UN RINCÓN QUE CAMBIÓ DE NOMBRE</p>
+            <p class="panel-etiqueta">${SORPRESAS.nuestroJardin?.etiqueta || "UN RINCÓN QUE CAMBIÓ DE NOMBRE"}</p>
             <h2>${SORPRESAS.nuestroJardin?.titulo || "Nuestro jardín"}</h2>
-            <p>${SORPRESAS.nuestroJardin?.texto || "Supongo que ya no es solamente mi jardín."}</p>
+            <p>${SORPRESAS.nuestroJardin?.textoHtml || SORPRESAS.nuestroJardin?.texto || "Supongo que ya no es solamente mi jardín."}</p>
             <button type="button" class="espacio-futuro-jardin">
-                <span>＋</span>
-                <strong>Aquí todavía falta algo…</strong>
-                <small>Este espacio está reservado para una flor futura.</small>
+                <span>🌱</span>
+                <strong>${SORPRESAS.nuestroJardin?.espacioTitulo || "Aquí todavía falta algo…"}</strong>
+                <small>${SORPRESAS.nuestroJardin?.espacioSubtitulo || "Este espacio está reservado para una flor futura."}</small>
             </button>
         `;
 
         seccion.querySelector('.espacio-futuro-jardin').addEventListener("click", () => {
-            mostrarToast("Todavía no. Esa flor necesita su propio momento.");
+            mostrarToast(
+                SORPRESAS.nuestroJardin?.espacioMensaje ||
+                "Todavía no. Esa flor necesita su propio momento."
+            );
         });
 
         finalJardin.parentNode.insertBefore(seccion, finalJardin);

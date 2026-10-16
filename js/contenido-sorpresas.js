@@ -139,8 +139,18 @@ window.JARDIN_SORPRESAS = {
         "Entre tantas estrellas, qué suerte haber coincidido contigo.",
 
     nuestroJardin: {
-        titulo: "Nuestro jardín",
-        texto:
-            "Este jardín comenzó como una forma de decirte cosas que no sabía cómo decirte de frente. Ahora que ya sabes lo que siento, no quiero terminarlo. Quiero ver hasta dónde puede crecer. Así que supongo que ya no es solamente mi jardín. 🌱❤️"
+        etiqueta: "UNA PAUSA, NO UNA DESPEDIDA",
+        titulo: "El jardín se queda aquí",
+        textoHtml:
+            "No porque haya dejado de sentir lo que siento, sino porque también quiero aprender a respetar tus tiempos.<br><br>" +
+            "Durante mucho tiempo este lugar fue mi forma de decirte cosas que no sabía cómo decirte de frente. Pero no quiero que algo que hice para hacerte sonreír termine convirtiéndose en presión para ti.<br><br>" +
+            "Así que no tienes que encontrar otra pista, descubrir otra canción ni esperar otra flor mañana. Todo lo que ya está aquí puede quedarse simplemente como lo que fue: pequeños momentos que quise compartir contigo.<br><br>" +
+            "No necesito que me respondas nada por esto. Solo quería que supieras que entendí.<br><br>" +
+            "Descansa, ocúpate de ti y de todo lo que tengas que hacer. Yo también voy a bajar un poquito el ritmo.<br><br>" +
+            "<strong>Y si algún día vuelves a sentir que tienes espacio para esto, aquí voy a estar. No quiero apresurarte ni pedirte que llegues antes de tiempo. Te esperaré, pero dejando que seas tú quien decida cuándo acercarse otra vez.</strong><br><br>" +
+            "<strong>El jardín no desaparece. Solo va a descansar. 🌱</strong>",
+        espacioTitulo: "Por ahora, aquí no falta nada.",
+        espacioSubtitulo: "Si algún día vuelve a crecer una flor, será a su tiempo.",
+        espacioMensaje: "No hay nada que resolver aquí. El jardín puede descansar."
     }
 };
