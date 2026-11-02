@@ -247,3 +247,41 @@ Flores.florCreciente = function () {
 
     return flor;
 };
+
+/* =====================================================
+   IRIS AZUL — SIN CANCIÓN
+===================================================== */
+
+Flores.irisAzul = function () {
+    const flor = crearParteSorpresa("iris-azul");
+
+    flor.appendChild(
+        crearParteSorpresa("iris-tallo")
+    );
+
+    for (let i = 1; i <= 3; i++) {
+        flor.appendChild(
+            crearParteSorpresa(`iris-hoja iris-hoja-${i}`)
+        );
+    }
+
+    const cabeza =
+        crearParteSorpresa("iris-cabeza");
+
+    for (let i = 1; i <= 6; i++) {
+        cabeza.appendChild(
+            crearParteSorpresa(`iris-petalo iris-petalo-${i}`)
+        );
+    }
+
+    cabeza.appendChild(
+        crearParteSorpresa("iris-centro")
+    );
+
+    flor.appendChild(
+        cabeza
+    );
+
+    return flor;
+};
+

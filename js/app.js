@@ -613,6 +613,90 @@ capaModal.addEventListener(
 
 
 /* =====================================================
+   ENLACES EXTERNOS DE MÚSICA
+===================================================== */
+
+function esEnlaceYouTube(
+    enlace
+) {
+
+    return /(?:youtube\.com|youtu\.be)/i.test(
+        enlace || ""
+    );
+}
+
+
+function abrirAvisoSpotifySuspendido() {
+
+    contenidoModal.innerHTML = `
+        <div class="carta-flor aviso-spotify-suspendido">
+
+            <p class="modal-etiqueta">
+                ACCESO EN PAUSA
+            </p>
+
+            <h2>
+                Spotify suspendido temporalmente 🌱
+            </h2>
+
+            <div class="papel-carta">
+
+                <p>
+                    Este acceso fue suspendido por mantenimiento del jardín. Las canciones siguen formando parte de su historia, pero por ahora decidí dejar cerradas las puertas que llevan fuera de aquí.
+                </p>
+
+                <p>
+                    Algunas cosas también necesitan un poquito de tiempo. Si algún día este acceso vuelve, será cuando tenga sentido hacerlo.
+                </p>
+
+            </div>
+
+        </div>
+    `;
+
+
+    cerrarModalBoton.style.display =
+        "";
+
+
+    capaModal.classList.add(
+        "mostrar"
+    );
+}
+
+
+document.addEventListener(
+    "click",
+    evento => {
+
+        const controlSpotify =
+            evento.target.closest(
+                `
+                    a[href*="open.spotify.com"],
+                    a[href*="spotify.com"],
+                    .boton-spotify-secreto,
+                    #boton-playlist-principal
+                `
+            );
+
+
+        if (!controlSpotify) {
+
+            return;
+        }
+
+
+        evento.preventDefault();
+        evento.stopImmediatePropagation();
+
+
+        abrirAvisoSpotifySuspendido();
+    },
+    true
+);
+
+
+/* =====================================================
    TOAST
 ===================================================== */
 
@@ -2863,13 +2947,6 @@ function abrirCancionSecreta(
                         ${secreto.artista}
                     </small>
 
-                    <a
-                        class="boton-cancion-secreta-modal"
-                        href="${enlaceYouTube(secreto.busqueda)}"
-                        target="_blank"
-                    >
-                        Escuchar canción
-                    </a>
 
                 </div>
 
@@ -3195,7 +3272,10 @@ function crearTarjetaFlor(
 
     if (
         enlace &&
-        !esCartaHoy
+        !esCartaHoy &&
+        !esEnlaceYouTube(
+            enlace
+        )
     ) {
 
         if (

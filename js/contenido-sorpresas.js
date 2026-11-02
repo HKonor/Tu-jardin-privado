@@ -78,6 +78,27 @@ window.JARDIN_EXT.flores.push(
     }
 );
 
+
+/* =====================================================
+   IRIS AZUL — 1 NOV 2026
+   Esta flor llega sin canción.
+===================================================== */
+
+window.JARDIN_EXT.flores.push(
+    {
+        tipo: "irisAzul",
+        titulo: "Iris azul 💙",
+        mensaje:
+            "Después de un momento complicado, hoy no quería dejar una canción ni hacer más grande lo que ya hablamos. Solo quería dejar algo tranquilo aquí.",
+        carta:
+            "No todo va a salir perfecto y no quiero fingir que sí. Hubo algo que me movió, lo hablamos y prefiero quedarme con eso: pudimos decir lo que sentíamos, escucharnos y solucionar las cosas. Este iris no viene con música ni con reclamos. Solo está aquí para recordarme que también podemos cuidar algo cuando elegimos hablarlo con calma y seguir adelante.",
+        microMensaje:
+            "Hoy no hace falta una canción.",
+        fechaAgregada:
+            "1 de noviembre de 2026"
+    }
+);
+
 window.JARDIN_SORPRESAS = {
     petaloBeso: {
         tipo: "florLunaBeso",
